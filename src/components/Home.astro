@@ -1,0 +1,84 @@
+<div id="container">
+  <main>
+    <div class="hgroup">
+      <h1 class="shuffle-text">KNOTS</h1>
+      <p class="shuffle-text">Design × AI × Engineering Conference</p>
+      <p class="shuffle-text">January 2026 • Tokyo, Japan</p>
+    </div>
+    <footer>
+      <p>
+        <a href="https://crossrel.jp/">CrossRel</a> /
+        <a href="https://lumilinks.jp/">Lumilinks</a> Inc.
+      </p>
+    </footer>
+  </main>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+JP&display=swap"
+    rel="stylesheet"
+  />
+  <link
+    href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+JP:wght@200;400&display=swap"
+    rel="stylesheet"
+  />
+
+  <style>
+    body {
+      height: 100%;
+      color: #1532f9;
+    }
+    main {
+      display: flex;
+      flex-direction: column;
+      align-items: left;
+      justify-content: center;
+      height: 100vh;
+      gap: 1rem;
+      padding: 1.5rem;
+    }
+    .hgroup {
+      h1 {
+        font-style: normal;
+        font-size: 10rem;
+        margin: 0;
+        font-weight: 200;
+        line-height: 1;
+        font-style: normal;
+        margin-inline-start: -0.5rem;
+      }
+      p {
+        margin: 0;
+        font-family: system-ui;
+        font-size: clamp(2.5rem, 2vw, 8rem);
+      }
+    }
+    footer {
+      p {
+        font-size: 1.2rem;
+      }
+    }
+  </style>
+
+  <script>
+    import ShuffleText from 'shuffle-text'
+
+    // DOMが読み込まれた後にShuffleTextを初期化
+    document.addEventListener('DOMContentLoaded', () => {
+      // .shuffle-textクラスを持つ全ての要素を取得
+      const shuffleElements = document.querySelectorAll('.shuffle-text')
+      const shuffleInstances: any[] = []
+
+      // 各要素にShuffleTextを適用
+      shuffleElements.forEach((element, index) => {
+        const shuffleText = new ShuffleText(element as HTMLElement)
+        shuffleInstances.push(shuffleText)
+
+        // 遅延をつけて順次アニメーション開始（視覚的効果）
+        setTimeout(() => {
+          shuffleText.start()
+        }, index * 100) // 0.3秒ずつ遅延
+      })
+    })
+  </script>
+</div>
