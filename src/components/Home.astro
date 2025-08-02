@@ -25,6 +25,8 @@
 
   <style>
     body {
+      width: 100%;
+      overflow: hidden;
       height: 100%;
       color: #1532f9;
     }
@@ -35,27 +37,27 @@
       justify-content: center;
       height: 100vh;
       gap: 1rem;
-      padding: 1.5rem;
+      padding: clamp(1rem, 2vw, 1.5rem);
     }
     .hgroup {
       h1 {
         font-style: normal;
-        font-size: 10rem;
+        font-size: clamp(5.6rem, 18vw, 10rem);
         margin: 0;
         font-weight: 200;
         line-height: 1;
         font-style: normal;
-        margin-inline-start: -0.5rem;
+        text-indent: -0.05em;
       }
       p {
         margin: 0;
         font-family: system-ui;
-        font-size: clamp(2.5rem, 2vw, 8rem);
+        font-size: clamp(1.2rem, 2.4vw, 8rem);
       }
     }
     footer {
       p {
-        font-size: 1.2rem;
+        font-size: clamp(1.2rem, 1.6vw, 8rem);
       }
     }
   </style>
