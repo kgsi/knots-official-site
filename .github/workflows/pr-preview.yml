@@ -32,6 +32,15 @@ jobs:
       - name: Build site (Astro)
         run: npm run build
 
+      - name: Ensure Cloudflare Pages project exists
+        uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          command: pages project create knots-official-site --production-branch main
+        env:
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+        continue-on-error: true
+
       - name: Deploy preview to Cloudflare Pages
         uses: cloudflare/pages-action@v1
         with:
@@ -39,9 +48,8 @@ jobs:
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           # Create or use an existing Pages project name.
           # To avoid interfering with production, this defaults to a preview-specific project.
-          projectName: knots-official-site-preview
+          projectName: knots-official-site
           directory: dist
           gitHubToken: ${{ secrets.GITHUB_TOKEN }}
           # Ensure a unique preview per PR
           branch: pr-${{ github.event.number }}
-
