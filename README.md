@@ -1,4 +1,4 @@
-# Astro スターターキット: 基本
+# KNOTS Official Site
 
 ```sh
 npm create astro@latest -- --template basics
@@ -32,18 +32,18 @@ Astro のフォルダ構成については公式ドキュメントの「Project 
 
 すべてのコマンドはプロジェクトルートで実行します。
 
-| コマンド                    | 説明                                                      |
-| :------------------------- | :-------------------------------------------------------- |
-| `npm install`              | 依存関係をインストール                                    |
-| `npm run dev`              | ローカル開発サーバーを起動（`localhost:4321`）            |
-| `npm run build`            | 本番ビルドを `./dist/` に出力                              |
-| `npm run preview`          | デプロイ前にローカルでビルド結果をプレビュー               |
-| `npm run astro ...`        | `astro add` や `astro check` などの CLI コマンドを実行     |
-| `npm run astro -- --help`  | Astro CLI のヘルプを表示                                   |
+| コマンド                  | 説明                                                   |
+| :------------------------ | :----------------------------------------------------- |
+| `npm install`             | 依存関係をインストール                                 |
+| `npm run dev`             | ローカル開発サーバーを起動（`localhost:4321`）         |
+| `npm run build`           | 本番ビルドを `./dist/` に出力                          |
+| `npm run preview`         | デプロイ前にローカルでビルド結果をプレビュー           |
+| `npm run astro ...`       | `astro add` や `astro check` などの CLI コマンドを実行 |
+| `npm run astro -- --help` | Astro CLI のヘルプを表示                               |
 
 ## 👀 もっと知る
 
-公式ドキュメント: https://docs.astro.build  
+公式ドキュメント: https://docs.astro.build
 コミュニティ Discord: https://astro.build/chat
 
 ---
@@ -56,18 +56,21 @@ Astro のフォルダ構成については公式ドキュメントの「Project 
 
 ### 事前準備（1 回のみ）
 
-1) Cloudflare API トークン（`CLOUDFLARE_API_TOKEN`）を作成
+1. Cloudflare API トークン（`CLOUDFLARE_API_TOKEN`）を作成
+
 - Cloudflare ダッシュボード → My Profile → API Tokens → Create Token
 - テンプレート「Pages - Edit」を使用、または下記の権限でカスタム作成
   - Permissions: Account → Read、Pages → Edit
   - Account Resources: 対象アカウント（必要に応じて All accounts でも可）
 - 作成後に表示されるトークン値をコピーして保管（後で GitHub Secrets に登録）
 
-2) Cloudflare アカウント ID（`CLOUDFLARE_ACCOUNT_ID`）を確認
+2. Cloudflare アカウント ID（`CLOUDFLARE_ACCOUNT_ID`）を確認
+
 - Cloudflare ダッシュボード → 右上のアカウント切替付近、または「Workers & Pages」→ 右上の Account ID で確認可能
 - もしくはローカルで `npx wrangler whoami` を実行して `account_id` を確認（Wrangler のログインが必要）
 
-3) GitHub Secrets を設定
+3. GitHub Secrets を設定
+
 - GitHub リポジトリ → Settings → Secrets and variables → Actions → New repository secret
 - 次の 2 つを追加
   - `CLOUDFLARE_API_TOKEN`: 手順 1 で作成した API トークン
@@ -76,7 +79,8 @@ Astro のフォルダ構成については公式ドキュメントの「Project 
   - `GITHUB_TOKEN` は GitHub が各ワークフロー実行時に自動で注入するビルトイントークンです。通常は追加設定不要で、ワークフロー内では `${{ secrets.GITHUB_TOKEN }}` として利用できます。
   - もし独自の権限が必要な場合（例: 他リポジトリへの書き込みなど）、Personal Access Token（classic または fine-grained）を作成し、任意の名前で Secret 登録し、`.github/workflows/pr-preview.yml` の `gitHubToken` にその Secret を渡してください。
 
-4) Cloudflare Pages プロジェクト名
+4. Cloudflare Pages プロジェクト名
+
 - 既定では `knots-official-site-preview` を使用しています（ワークフロー内の `projectName`）。
 - 既存の Pages プロジェクトを使いたい場合は、`.github/workflows/pr-preview.yml` の `projectName` を変更してください。
 - 存在しない場合は自動作成されることがあります。作成されない場合は Cloudflare ダッシュボードで Pages の「Direct Upload」タイプのプロジェクトを先に作成してください。
