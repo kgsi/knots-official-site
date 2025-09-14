@@ -32,14 +32,20 @@ jobs:
       - name: Build site (Astro)
         run: npm run build
 
-      - name: Ensure Cloudflare Pages project exists
-        uses: cloudflare/wrangler-action@v3
-        with:
-          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
-          command: pages project create knots-official-site --production-branch main
+      - name: Install Wrangler CLI
+        run: npm i -g wrangler@4
+
+      - name: List Cloudflare Pages projects (debug)
+        run: wrangler pages project list
         env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-        continue-on-error: true
+
+      - name: Ensure Cloudflare Pages project exists
+        run: wrangler pages project create knots-official-site --production-branch main || echo "project exists"
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
 
       - name: Deploy preview to Cloudflare Pages
         uses: cloudflare/pages-action@v1
