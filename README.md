@@ -81,9 +81,9 @@ Astro のフォルダ構成については公式ドキュメントの「Project 
 
 4. Cloudflare Pages プロジェクト名
 
-- 既定では `knots-official-site-preview` を使用しています（ワークフロー内の `projectName`）。
+- 既定では `knots-official-site` を使用しています（ワークフロー内の `projectName`）。
 - 既存の Pages プロジェクトを使いたい場合は、`.github/workflows/pr-preview.yml` の `projectName` を変更してください。
-- 存在しない場合は自動作成されることがあります。作成されない場合は Cloudflare ダッシュボードで Pages の「Direct Upload」タイプのプロジェクトを先に作成してください。
+- ワークフロー内で `wrangler` によりプロジェクトの自動作成を試みます（既存ならスキップ）。自動作成に失敗する場合は、Cloudflare ダッシュボードで Pages の「Direct Upload」タイプのプロジェクトを事前に作成してください。
 
 ### 使い方（PR 作成時）
 
@@ -99,5 +99,5 @@ Astro のフォルダ構成については公式ドキュメントの「Project 
 ### トラブルシューティング
 
 - 403（権限エラー）: API トークンの権限（Account: Read / Pages: Edit）、および対象アカウントの指定を確認してください。
-- 404/プロジェクト未検出: `projectName` が正しいか確認し、必要に応じて Pages プロジェクトを事前作成してください。
+- 404/プロジェクト未検出: `projectName` が正しいか確認してください。ワークフローの自動作成が失敗している可能性があるため、Cloudflare ダッシュボードで手動作成（Direct Upload）を試してください。
 - Node のバージョン差異: ワークフローは Node 20 を使用しています。プロジェクト要件に合わせて `actions/setup-node` の `node-version` を調整してください。
