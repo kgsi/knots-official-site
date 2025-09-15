@@ -92,6 +92,7 @@ Astro のフォルダ構成については公式ドキュメントの「Project 
 
 - 本番用の Worker 名は `wrangler.jsonc` の `name`（現在は `knots-official-site`）です。PR プレビューは `knots-official-site-pr-<PR番号>` という別サービスとして作成します。
 - PR を Close すると、該当プレビュー Worker は自動削除されます。
+  - セキュリティと安定性のため、削除は「PR がマージされたとき」に実行します（`pull_request_target: closed` で Secrets を使用して安全に実行）。
 
 ### トラブルシューティング
 
