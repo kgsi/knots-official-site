@@ -39,15 +39,22 @@ jobs:
         id: deploy
         run: |
           NAME="knots-pr-${{ github.event.pull_request.number }}"
-          echo "worker_name=$NAME" >> $GITHUB_OUTPUT
+          echo "worker_name=$NAME" >> "$GITHUB_OUTPUT"
           # Deploy static assets from dist using wrangler.jsonc
           wrangler deploy --name "$NAME" --config wrangler.jsonc --assets dist | tee deploy.log
-          URL=$(grep -Eo 'https://[^ ]+workers\.dev' deploy.log | head -n1 || true)
+          # Try to determine workers.dev subdomain
+          SUBDOMAIN=$(wrangler subdomain 2>&1 | grep -Eo '[a-z0-9-]+\.workers\.dev' | head -n1 | sed 's/\.workers\.dev//' || true)
+          if [ -n "$SUBDOMAIN" ]; then
+            URL="https://$NAME.$SUBDOMAIN.workers.dev"
+          else
+            # Fallback: parse from deploy output if present
+            URL=$(grep -Eo 'https://[a-zA-Z0-9.-]*workers\.dev' deploy.log | head -n1 || true)
+          fi
           if [ -n "$URL" ]; then
-            echo "url=$URL" >> $GITHUB_OUTPUT
+            echo "url=$URL" >> "$GITHUB_OUTPUT"
             echo "Preview URL: $URL"
           else
-            echo "Preview URL not found in output" >&2
+            echo "Preview URL not found. Ensure your account has a workers.dev subdomain configured." >&2
           fi
         env:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
@@ -59,7 +66,7 @@ jobs:
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           script: |
-            const url = core.getInput('url');
+            const url = process.env.URL || process.env.url || '';
             const body = `Preview is ready: ${url}`;
             await github.rest.issues.createComment({
               owner: context.repo.owner,
@@ -68,7 +75,7 @@ jobs:
               body
             });
         env:
-          url: ${{ steps.deploy.outputs.url }}
+          URL: ${{ steps.deploy.outputs.url }}
 
   cleanup-preview:
     if: ${{ github.event.action == 'closed' }}
