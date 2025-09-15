@@ -12,6 +12,7 @@ concurrency:
 
 jobs:
   deploy-preview:
+    if: ${{ github.event_name == 'pull_request' }}
     runs-on: ubuntu-latest
     permissions:
       contents: read
@@ -80,7 +81,7 @@ jobs:
           URL: ${{ steps.deploy.outputs.url }}
 
   cleanup-preview:
-    if: ${{ github.event.pull_request.merged == true }}
+    if: ${{ github.event_name == 'pull_request_target' && github.event.action == 'closed' }}
     runs-on: ubuntu-latest
     # pull_request_target gives us access to secrets on forks while avoiding checking out PR code
     permissions:
