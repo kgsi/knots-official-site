@@ -85,6 +85,7 @@ Astro のフォルダ構成については公式ドキュメントの「Project 
 - ワークフローが PR に「Preview is ready: <URL>」というコメントを自動投稿します。
 
 プレビュー URL の形式
+
 - 例: `https://knots-official-site-pr-123.<あなたのサブドメイン>.workers.dev`
 - サブドメインはアカウント固有です（Workers & Pages ダッシュボードで確認可能）。
 
@@ -92,6 +93,7 @@ Astro のフォルダ構成については公式ドキュメントの「Project 
 
 - 本番用の Worker 名は `wrangler.jsonc` の `name`（現在は `knots-official-site`）です。PR プレビューは `knots-official-site-pr-<PR番号>` という別サービスとして作成します。
 - PR を Close すると、該当プレビュー Worker は自動削除されます。
+  - 削除は `pull_request_target` の `closed` イベントで実行し、マージ/未マージの両方を対象とします（Secrets を安全に利用）。
 
 ### トラブルシューティング
 
