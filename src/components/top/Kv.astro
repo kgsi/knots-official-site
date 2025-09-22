@@ -1,0 +1,32 @@
+---
+import Btn from '../ui/Btn.astro';
+---
+
+<div class="kv">
+  <section>
+    <div class="hgroup">
+      <h1 class="shuffle-text">KNOTS</h1>
+      <p class="shuffle-text">Design × AI × Engineering Conference</p>
+    </div>
+    <p class="catch">
+      デザイン・AI・エンジニアリング、<br>先端ウェブ・プロダクトの潮流が<br><strong><strong>交わる</strong>カンファレンス</strong>
+    </p>
+    <div class="meta">
+      <span class="date">
+        <strong>2026.01.25</strong>
+        <span class="day-of-week">(SUN)</span>
+      </span>
+      <span class="place">@東京都中央区日本橋 日本橋タワー サイボウズ本社スペース</span>
+    </div>
+    <Btn href="#" txt="スポンサー募集要項" />
+  </section>
+</div>
+
+<style>
+  .kv {
+    display: grid;
+    place-items: center start;
+    height: 100vh;
+    color: var(--color_white);
+  }
+</style>

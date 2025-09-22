@@ -1,0 +1,77 @@
+---
+import Operator from './Operator.astro';
+---
+
+<footer class="footer">
+	<div class="inner">
+		<div class="row">
+			<div class="operator">
+				<Operator />
+			</div>
+			<div class="nav">
+				<ul class="nav-list">
+					<li class="nav-item">
+						<a href="https://crossrel.jp/" target="_blank">運営会社</a>
+					</li>
+					<li class="nav-item">
+						<a href="#">お問い合わせ</a>
+					</li>
+					<li class="nav-item">
+						<a href="/codeofconduct">行動規範</a>
+					</li>
+					<li class="nav-item">
+						<a href="/privacy-policy">プライバシーポリシー</a>
+					</li>
+				</ul>
+			</div>
+			<div class="copyright">
+				<small>© CrossRel, Inc. All Rights Reserved.</small>
+			</div>
+		</div>
+	</div>
+</footer>
+
+<style>
+	.footer {
+		--footer_color_bg: #000;
+		background-color: var(--footer_color_bg);
+		padding-block: 80px 120px;
+		color: var(--color_white);
+	}
+	.row {
+		display: grid;
+		grid-template-areas: 
+			"nav operator"
+			"copyright operator";
+		grid-template-columns: auto 560px;
+		grid-template-rows: 1fr auto;
+		row-gap: 80px;
+		justify-content: space-between;
+	}
+	.operator {
+		grid-area: operator;
+		align-self: center;
+	}
+	.nav {
+		grid-area: nav;
+	}
+	.nav-list {
+		display: flex;
+		flex-direction: column;
+		row-gap: 40px;
+	}
+	.nav-item {
+		font-size: rem(16);
+		line-height: 1.5;
+		letter-spacing: 0.05em;
+	}
+	.copyright {
+		grid-area: copyright;
+		small {
+			color: var(--color_grey);
+			font-size: rem(12);
+			letter-spacing: 0.05em;
+		}
+	}
+
+</style>

@@ -1,0 +1,45 @@
+---
+import Btn from '@components/ui/Btn.astro'
+---
+
+<div class="looking-for">
+  <h3>スポンサー企業募集</h3>
+  <div class="reading-inner">
+    <p>KNOTSはデザインだけのイベントではなく、『デザイン×AI×エンジニアリング』の交わりに焦点を当てる国内でも数少ないイベントです。</p>
+    <p>「先進技術に対する深い理解と実践意欲」や「次世代のスキルやキャリアパス」に関心がある参加者層と、深い議論が期待でき、エンジニアとデザイナー双方に訴求するプログラム構成により、参加者・登壇者それぞれ、将来の採用へとつながるタッチポイントを創出します。</p>
+    <p>スポンサー検討されている企業の方は、「申し込みボタン」からお問い合わせください。</p>
+    <div class="btn-wrapper">
+      <Btn href="#" txt="スポンサー申し込み" />
+    </div>
+  </div>
+</div>
+
+<style>
+  .looking-for {
+    margin-top: 120px;
+    margin-inline: 40px;
+    background-color: #F6F6F6;
+    padding-block: 80px;
+  }
+  h3 {
+    text-align: center;
+    font-size: rem(32);
+    font-weight: 600;
+    margin-bottom: 80px;
+  }
+  p {
+    font-feature-settings: 'halt' on;
+    font-size: rem(16);
+    font-weight: 500;
+    text-align: center;
+    line-height: 2.0;
+    letter-spacing: 0.04em;
+    + p {
+      margin-top: 2.0em;
+    }
+  }
+  .btn-wrapper {
+    margin-top: 64px;
+    text-align: center;
+  }
+</style>

@@ -1,0 +1,75 @@
+---
+import Image from "astro/components/Image.astro"
+import crossrel from '../assets/logo_crossrel.svg';
+import icon_x from '../assets/icon_x.svg';
+
+---
+
+<div class="operator">
+  <h2 class="font-en"><span>Operator</span></h2>
+  <div class="operator-inner">
+    <Image src={crossrel} alt="CrossRel" class="logo"/>
+    <div class="content">
+      <p class="catch">テック業界の多様な才能が集まり、<br>ナレッジや人が「交差」するコミュニティ</p>
+      <p class="description">コミュニティについて ：<br>CrossRelは、テック業界の多様な才能が集い、ナレッジや人材が交差するイベントコミュニティです。個の力だけでは成し得ない、交差することで生まれる新たな価値創造を目指します。</p>
+      <p class="link">
+        <a href="https://crossrel.jp/" target="_blank">https://crossrel.jp/</a>
+      </p>
+    </div>
+    <div class="sns-links">
+      <a href="https://x.com/crossrel_commu" target="_blank" class="sns-link">
+        <Image src={icon_x} alt="X" />
+      </a>
+    </div>
+  </div>
+</div>
+
+<style>
+  .operator {
+    border-top: 1px solid var(--color_grey);
+    border-bottom: 1px solid var(--color_grey);
+  }
+  h2 {
+    font-size: rem(16);
+    color: var(--color_grey);
+    margin-top: -0.5lh;
+    text-align: left;
+    display: block;
+    span {
+      padding-right: 1.0em;
+      background-color: var(--footer_color_bg);
+    }
+  }
+  .operator-inner {
+    padding-block: 40px 32px;
+    display: grid;
+    row-gap: 32px;
+  }
+  .logo {
+    width: 158px;
+  }
+  .catch {
+    font-size: rem(20);
+    font-weight: 600;
+    line-height: 1.2;
+    letter-spacing: 0.02em;
+    margin-bottom: 16px;
+  }
+  .description {
+    font-size: rem(14);
+    font-weight: 300;
+    line-height: 1.2;
+    letter-spacing: 0.02em;
+    margin-bottom: 24px;
+  }
+  .link a {
+    font-size: rem(14);
+    text-decoration: underline;
+    letter-spacing: 0.02em;
+  }
+  .sns-link {
+    display: inline-block;
+    border-radius: 50%;
+    overflow: hidden;
+  }
+</style>

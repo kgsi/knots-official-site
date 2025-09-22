@@ -1,0 +1,25 @@
+@layer reset, base, components, override;
+
+@layer base {
+  :root {
+    --color_primary: #0064FF;
+    --color_primary_deep: #1A32EF;
+    --color_white: #FFF;
+    --color_grey: #CFCFCF;
+    --color_text: #1A1A1A;
+  }
+  body {
+    overflow-x: clip;
+    font-family:
+      'Hiragino Sans', 'Hiragino Kaku Gothic ProN', Meiryo, 'Helvetica Neue', Arial, sans-serif;
+    color: var(--color_text);
+  }
+  .font-en {
+    font-family: "Montserrat", sans-serif;
+    font-optical-sizing: auto;
+  }
+  .inner {
+		max-width: 1120px;
+		margin-inline: auto;
+	}
+}

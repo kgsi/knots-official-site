@@ -10,13 +10,20 @@
   },
   "dependencies": {
     "@tailwindcss/vite": "^4.1.11",
-    "astro": "^5.12.8",
+    "postcss-functions": "^4.0.2",
     "shuffle-text": "^0.5.0",
     "tailwindcss": "^4.1.11"
   },
   "devDependencies": {
+    "@types/react": "^19.1.13",
+    "astro": "^5.13.9",
+    "postcss-preset-env": "^10.3.1",
     "prettier": "^3.6.2",
     "prettier-plugin-astro": "^0.14.1",
-    "prettier-plugin-organize-imports": "^4.2.0"
+    "prettier-plugin-organize-imports": "^4.2.0",
+    "sharp": "^0.34.4"
+  },
+  "volta": {
+    "node": "22.19.0"
   }
 }

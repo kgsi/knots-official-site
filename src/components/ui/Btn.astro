@@ -1,0 +1,37 @@
+---
+const { href, txt } = Astro.props
+---
+
+<a href={href} class="btn">
+  {txt && txt}
+  <span class="icon-arrow"></span>
+</a>
+
+<style>
+  @layer components {
+    .btn {
+      background-color: var(--color_primary_deep);
+      color: var(--color_white);
+      min-width: 280px;
+      min-height: 80px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 9999px;
+      font-size: rem(15);
+      font-weight: 700;
+      letter-spacing: 0.05em;
+    }
+    .icon-arrow {
+      display: inline-block;
+      width: 1.3em;
+      aspect-ratio: 1;
+      background-color: var(--color_white);
+      mask-image: url('/assets/icon_arrow_circle.svg');
+      mask-position: center;
+      mask-size: contain;
+      mask-repeat: no-repeat;
+      margin-left: 1.0em;
+    }
+  }
+</style>
