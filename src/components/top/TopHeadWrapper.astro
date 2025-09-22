@@ -3,12 +3,14 @@
 </div>
 
 <style>
-  .wrapper {
-    background-image: url('/assets/top_bg_head.png'), url('/assets/top_bg_bottom.png'), url('/assets/top_bg.png');
-    background-size: auto 500px, auto 498px, 100% auto;
-    background-repeat: repeat-x, repeat-x, repeat-y;
-    background-position: top center, bottom center, top center;
-    background-blend-mode: luminosity;
-    position: relative;
+  @layer components {
+    .wrapper {
+      background-image: url('/assets/top_bg_head.png'), url('/assets/top_bg_bottom.png'), url('/assets/top_bg.png');
+      background-size: auto 500px, auto 498px, 100% auto;
+      background-repeat: repeat-x, repeat-x, repeat-y;
+      background-position: top center, bottom center, top center;
+      background-blend-mode: luminosity;
+      position: relative;
+    }
   }
 </style>

@@ -10,26 +10,30 @@
 	</section>
 
 	<style>
-		.about {
-			padding-bottom: 396px;
-			color: var(--color_white);
-		}
-		.about-inner {
-			max-width: 960px;
-			margin-inline: auto;
-		}
-		h2 {
-			margin-bottom: 80px;
-		}
-		p {
-			text-align: left;
-			font-feature-settings: 'halt' on;
-			font-size: rem(24);
-			font-weight: 600;
-			letter-spacing: 0.02em;
-			line-height: 2.0;
-			+ p {
-				margin-top: 2.0em;
+		@layer components {
+			.about {
+				padding-bottom: 396px;
+				color: var(--color_white);
+			}
+			.about-inner {
+				max-width: 960px;
+				margin-inline: auto;
+			}
+			h2 {
+				text-align: left;
+				margin-bottom: 80px;
+				color: var(--color_white);
+			}
+			p {
+				text-align: left;
+				font-feature-settings: 'halt' on;
+				font-size: rem(24);
+				font-weight: 600;
+				letter-spacing: 0.02em;
+				line-height: 2.0;
+				+ p {
+					margin-top: 2.0em;
+				}
 			}
 		}
 	</style>

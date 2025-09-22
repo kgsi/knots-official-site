@@ -68,23 +68,25 @@ const images = {
 </section>
 
 <style>
-	h2 {
-		margin-bottom: 120px;
-	}
-	.item {
-		text-align: center;
-		&:not(:first-child) {
-			margin-top: 80px;
+	@layer components {
+		h2 {
+			margin-bottom: 120px;
 		}
-	}
-	.logo-wrapper {
-		display: flex;
-		flex-wrap: wrap;
-		padding-inline: 60px;
-		justify-content: center;
-		gap: 40px;
-		&.small {
-			gap: 32px;
+		.item {
+			text-align: center;
+			&:not(:first-child) {
+				margin-top: 80px;
+			}
+		}
+		.logo-wrapper {
+			display: flex;
+			flex-wrap: wrap;
+			padding-inline: 60px;
+			justify-content: center;
+			gap: 40px;
+			&.small {
+				gap: 32px;
+			}
 		}
 	}
 </style>

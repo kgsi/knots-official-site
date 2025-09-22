@@ -23,10 +23,12 @@ import Btn from '../ui/Btn.astro';
 </div>
 
 <style>
-  .kv {
-    display: grid;
-    place-items: center start;
-    height: 100vh;
-    color: var(--color_white);
+  @layer components {
+    .kv {
+      display: grid;
+      place-items: center start;
+      height: 100vh;
+      color: var(--color_white);
+    }
   }
 </style>

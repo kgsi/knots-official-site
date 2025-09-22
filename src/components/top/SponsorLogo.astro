@@ -20,24 +20,26 @@ const { level, href = '#', img = null, alt = null } = Astro.props;
 </div>
 
 <style>
-  .sponsor-logo {
-    aspect-ratio: 2 / 1;
-    img {
-      width: 100%;
-      height: 100%;
-      object-fit: contain;
+  @layer components {
+    .sponsor-logo {
+      aspect-ratio: 2 / 1;
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+      }
     }
-  }
-  .kyoku {
-    width: 520px;
-  }
-  .matsu {
-    width: 480px;
-  }
-  .ume {
-    width: 320px;
-  }
-  .other {
-    width: 480px;
+    .kyoku {
+      width: 520px;
+    }
+    .matsu {
+      width: 480px;
+    }
+    .ume {
+      width: 320px;
+    }
+    .other {
+      width: 480px;
+    }
   }
 </style>

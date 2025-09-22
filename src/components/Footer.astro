@@ -32,45 +32,47 @@ import Operator from './Operator.astro';
 </footer>
 
 <style>
-	.footer {
-		--footer_color_bg: #000;
-		background-color: var(--footer_color_bg);
-		padding-block: 80px 120px;
-		color: var(--color_white);
-	}
-	.row {
-		display: grid;
-		grid-template-areas: 
-			"nav operator"
-			"copyright operator";
-		grid-template-columns: auto 560px;
-		grid-template-rows: 1fr auto;
-		row-gap: 80px;
-		justify-content: space-between;
-	}
-	.operator {
-		grid-area: operator;
-		align-self: center;
-	}
-	.nav {
-		grid-area: nav;
-	}
-	.nav-list {
-		display: flex;
-		flex-direction: column;
-		row-gap: 40px;
-	}
-	.nav-item {
-		font-size: rem(16);
-		line-height: 1.5;
-		letter-spacing: 0.05em;
-	}
-	.copyright {
-		grid-area: copyright;
-		small {
-			color: var(--color_grey);
-			font-size: rem(12);
+	@layer components {
+		.footer {
+			--footer_color_bg: #000;
+			background-color: var(--footer_color_bg);
+			padding-block: 80px 120px;
+			color: var(--color_white);
+		}
+		.row {
+			display: grid;
+			grid-template-areas: 
+				"nav operator"
+				"copyright operator";
+			grid-template-columns: auto 560px;
+			grid-template-rows: 1fr auto;
+			row-gap: 80px;
+			justify-content: space-between;
+		}
+		.operator {
+			grid-area: operator;
+			align-self: center;
+		}
+		.nav {
+			grid-area: nav;
+		}
+		.nav-list {
+			display: flex;
+			flex-direction: column;
+			row-gap: 40px;
+		}
+		.nav-item {
+			font-size: rem(16);
+			line-height: 1.5;
 			letter-spacing: 0.05em;
+		}
+		.copyright {
+			grid-area: copyright;
+			small {
+				color: var(--color_grey);
+				font-size: rem(12);
+				letter-spacing: 0.05em;
+			}
 		}
 	}
 

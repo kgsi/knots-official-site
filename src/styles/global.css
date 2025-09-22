@@ -15,7 +15,8 @@
     color: var(--color_text);
   }
   .font-en {
-    font-family: "Montserrat", sans-serif;
+    font-family: "Gotham", sans-serif;
+    font-weight: 700;
     font-optical-sizing: auto;
   }
   .inner {
