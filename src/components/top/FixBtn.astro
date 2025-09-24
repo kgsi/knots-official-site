@@ -3,7 +3,7 @@ import Btn from '../ui/Btn.astro';
 ---
 
 <div class="fix-btn">
-	<Btn href="#looking-for-sponsors" txt="スポンサー申し込み" modifier="fix" />
+	<Btn href="https://forms.gle/AfVbLJEp7Vwnn4X2A" txt="スポンサー申し込み" modifier="fix" />
 </div>
 
 <style>
@@ -48,4 +48,5 @@ import Btn from '../ui/Btn.astro';
 		end: 'bottom bottom',
 		toggleClass: { targets: fixBtn, className: 'is-active' },
 	});
+	ScrollTrigger.normalizeScroll();
 </script>

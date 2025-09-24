@@ -1,8 +1,13 @@
 ---
 const { href, txt, modifier=null } = Astro.props
+
+const ExLink = ({ href }: { href: string }) => {
+  const isExternal = href.startsWith('http://') || href.startsWith('https://') || /\.[a-zA-Z0-9]{2,}$/.test(href);
+  return isExternal ? '_blank' : undefined;
+};
 ---
 
-<a href={href} class={`btn${modifier ? ` btn--${modifier}` : ''}`}>
+<a href={href} class={`btn${modifier ? ` btn--${modifier}` : ''}`} target={ExLink({ href })}>
   {txt && txt}
   <span class="icon-arrow"></span>
 </a>
@@ -54,6 +59,7 @@ const { href, txt, modifier=null } = Astro.props
         min-width: 0;
         max-width: 312px;
         min-height: 58px;
+        font-size: rem(16);
       }
     }
     @media (--hover) {
