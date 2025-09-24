@@ -1,8 +1,8 @@
 ---
-const { href, txt } = Astro.props
+const { href, txt, modifier=null } = Astro.props
 ---
 
-<a href={href} class="btn">
+<a href={href} class={`btn${modifier ? ` btn--${modifier}` : ''}`}>
   {txt && txt}
   <span class="icon-arrow"></span>
 </a>
@@ -10,10 +10,13 @@ const { href, txt } = Astro.props
 <style>
   @layer components {
     .btn {
-      background-color: var(--color_primary_deep);
-      color: var(--color_white);
-      min-width: 280px;
-      min-height: 80px;
+      --this_bg: var(--color_white);
+      --this_color: var(--color_primary);
+      --this_hover_transition: var(--transition_hover);
+      background-color: var(--this_bg);
+      color: var(--this_color);
+      min-width: var(--this_base_width, 290px);
+      min-height: var(--this_base_height, 72px);
       display: inline-flex;
       align-items: center;
       justify-content: center;
@@ -21,17 +24,47 @@ const { href, txt } = Astro.props
       font-size: rem(15);
       font-weight: 700;
       letter-spacing: 0.05em;
+      transition: background-color var(--this_hover_transition, 0.3s ease), color var(--this_hover_transition, 0.3s ease);
+    }
+    .btn--kv {
+      --this_base_width: 328px;
+    }
+    .btn--fix {
+      --this_base_width: 280px;
+      --this_base_height: 80px;
+      --this_bg: var(--color_primary);
+      --this_color: var(--color_white);
+      pointer-events: var(--this_toggle_btn, none);
     }
     .icon-arrow {
       display: inline-block;
       width: 1.3em;
       aspect-ratio: 1;
-      background-color: var(--color_white);
+      color: inherit;
+      background-color: currentColor;
       mask-image: url('/assets/icon_arrow_circle.svg');
       mask-position: center;
       mask-size: contain;
       mask-repeat: no-repeat;
       margin-left: 1.0em;
+    }
+    @media (--sp) {
+      .btn {
+        width: stretch;
+        min-width: 0;
+        max-width: 312px;
+        min-height: 58px;
+      }
+    }
+    @media (--hover) {
+      .btn {
+        &:hover {
+          background-color: var(--color_primary_deep);
+          &:not(.btn--fix) {
+            color: var(--this_bg);
+          }
+        }
+      }
     }
   }
 </style>

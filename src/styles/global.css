@@ -7,11 +7,25 @@
     --color_white: #FFF;
     --color_grey: #CFCFCF;
     --color_text: #1A1A1A;
+
+    --transition_hover: 0.3s ease;
+
+    --z_above: 10000;
+    --z_over: 1000;
+    --z_under: -1000;
+
+    --font_ja_base: "MFW-KoburinaGoStdN-W6", 'Hiragino Sans', Meiryo, 'Helvetica Neue', Arial, sans-serif;
+
+    --font_ja_thin: "MFW-KoburinaGoStdN-W1", 'Hiragino Sans', Meiryo, 'Helvetica Neue', Arial, sans-serif;
+    --font_ja_light: "MFW-KoburinaGoStdN-W3", 'Hiragino Sans', Meiryo, 'Helvetica Neue', Arial, sans-serif;
+    --font_ja_bold: "MFW-KoburinaGoStdN-W6", 'Hiragino Sans', Meiryo, 'Helvetica Neue', Arial, sans-serif;
+  }
+  html {
+    scroll-behavior: smooth;
   }
   body {
     overflow-x: clip;
-    font-family:
-      'Hiragino Sans', 'Hiragino Kaku Gothic ProN', Meiryo, 'Helvetica Neue', Arial, sans-serif;
+    font-family: var(--font_ja_base);
     color: var(--color_text);
   }
   .font-en {
@@ -19,8 +33,36 @@
     font-weight: 700;
     font-optical-sizing: auto;
   }
+  .font-ja-thin {
+    font-family: var(--font_ja_thin);
+  }
+  .font-ja-light {
+    font-family: var(--font_ja_light);
+  }
+  .font-ja-bold {
+    font-family: var(--font_ja_bold);
+  }
   .inner {
-		max-width: 1120px;
+    width: 100%;
+		max-width: 1200px;
+    padding-inline: 40px;
 		margin-inline: auto;
 	}
+  @media (--pc) {
+    .only-sp {
+      display: none;
+    }
+    .pc-space {
+      display: inline-block;
+      width: 0.5em;
+    }
+  }
+  @media (--sp) {
+    .only-pc {
+      display: none;
+    }
+    .inner {
+      padding-inline: 32px;
+    }
+  }
 }

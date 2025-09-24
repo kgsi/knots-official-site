@@ -1,6 +1,5 @@
 ---
 import SponsorLogo from './SponsorLogo.astro';
-import LookingForSponsors from './LookingForSponsors.astro';
 
 import chotinc from '@assets/sponsors/chotinc.png';
 import cybozu from '@assets/sponsors/cybozu.png';
@@ -38,10 +37,10 @@ const images = {
 		<div class="item">
 			<h3 class="line-heading"><span>松</span></h3>
 			<div class="logo-wrapper">
-				<SponsorLogo level="matsu" href="https://corp.moneyforward.com/news/press/" img={images.money_forward} alt="Money Forward"/>
-				<SponsorLogo level="matsu" href="https://www.morisawa.co.jp/" img={images.morisawa} alt="モリサワ"/>
 				<SponsorLogo level="matsu" href="https://gaudiy.com/" img={images.gaudiy} alt="Gaudiy"/>
+				<SponsorLogo level="matsu" href="https://corp.moneyforward.com/news/press/" img={images.money_forward} alt="Money Forward"/>
 				<SponsorLogo level="matsu" href="https://cybozu.co.jp/" img={images.cybozu} alt="cybozu"/>
+				<SponsorLogo level="matsu" href="https://www.morisawa.co.jp/" img={images.morisawa} alt="モリサワ"/>
 			</div>
 		</div>
 		<div class="item">
@@ -58,19 +57,28 @@ const images = {
 			</div>
 		</div>
 		<div class="item">
+			<h3 class="line-heading"><span>メディアスポンサー</span></h3>
+			<div class="logo-wrapper">
+				<SponsorLogo level="other" href="https://reazon.jp/" img={images.gaudiy} alt="Gaudiy"/>
+				<SponsorLogo level="other" href="https://reazon.jp/" img={images.money_forward} alt="Money Forward"/>
+			</div>
+		</div>
+		<div class="item">
 			<h3 class="line-heading"><span>クリエイティブスポンサー</span></h3>
 			<div class="logo-wrapper">
 				<SponsorLogo level="other" href="https://reazon.jp/" img={images.reazon} alt="Reazon Holdings"/>
 			</div>
 		</div>
 	</div>
-	<LookingForSponsors />
 </section>
 
 <style>
 	@layer components {
+		.sponsors {
+			padding-block: 120px 216px;
+		}
 		h2 {
-			margin-bottom: 120px;
+			margin-bottom: 100px;
 		}
 		.item {
 			text-align: center;
@@ -86,6 +94,18 @@ const images = {
 			gap: 40px;
 			&.small {
 				gap: 32px;
+			}
+		}
+		@media (--sp) {
+			.sponsors {
+				padding-block: 80px 120px;
+			}
+			.logo-wrapper {
+				padding-inline: 0;
+				gap: 16px;
+				&.small {
+					gap: 16px;
+				}
 			}
 		}
 	}

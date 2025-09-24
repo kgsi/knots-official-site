@@ -9,6 +9,7 @@
     "astro": "astro"
   },
   "dependencies": {
+    "@csstools/postcss-global-data": "^3.1.0",
     "@tailwindcss/vite": "^4.1.11",
     "postcss-functions": "^4.0.2",
     "shuffle-text": "^0.5.0",
@@ -17,6 +18,9 @@
   "devDependencies": {
     "@types/react": "^19.1.13",
     "astro": "^5.13.9",
+    "gsap": "^3.13.0",
+    "postcss": "^8.5.6",
+    "postcss-custom-media": "^11.0.6",
     "postcss-preset-env": "^10.3.1",
     "prettier": "^3.6.2",
     "prettier-plugin-astro": "^0.14.1",

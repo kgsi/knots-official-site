@@ -11,12 +11,10 @@ import icon_x from '../assets/icon_x.svg';
     <Image src={crossrel} alt="CrossRel" class="logo"/>
     <div class="content">
       <p class="catch">テック業界の多様な才能が集まり、<br>ナレッジや人が「交差」するコミュニティ</p>
-      <p class="description">コミュニティについて ：<br>CrossRelは、テック業界の多様な才能が集い、ナレッジや人材が交差するイベントコミュニティです。個の力だけでは成し得ない、交差することで生まれる新たな価値創造を目指します。</p>
-      <p class="link">
-        <a href="https://crossrel.jp/" target="_blank">https://crossrel.jp/</a>
-      </p>
+      <p class="description">CrossRelは、テック業界の多様な才能が集い、ナレッジや人材が交差するイベントコミュニティです。個の力だけでは成し得ない、交差することで生まれる新たな価値創造を目指します。</p>
     </div>
     <div class="sns-links">
+      <a href="https://crossrel.jp/" target="_blank" class="sns-text-link">https://crossrel.jp/</a>
       <a href="https://x.com/crossrel_commu" target="_blank" class="sns-link">
         <Image src={icon_x} alt="X" />
       </a>
@@ -38,33 +36,51 @@ import icon_x from '../assets/icon_x.svg';
       display: block;
       span {
         padding-right: 1.0em;
-        background-color: var(--footer_color_bg);
+        background-color: var(--color_text);
       }
     }
     .operator-inner {
-      padding-block: 40px 32px;
+      padding-block: 48px;
       display: grid;
+      grid-template-areas:
+        'logo content'
+        'sns content';
+      grid-template-columns: auto 1fr;
+      column-gap: 70px;
       row-gap: 32px;
     }
     .logo {
+      grid-area: logo;
       width: 158px;
     }
+    .content {
+      grid-area: content;
+    }
     .catch {
-      font-size: rem(20);
+      font-size: rem(14);
       font-weight: 600;
-      line-height: 1.2;
+      line-height: 1.5;
       letter-spacing: 0.02em;
       margin-bottom: 16px;
     }
     .description {
+      font-family: var(--font_ja_light);
       font-size: rem(14);
       font-weight: 300;
-      line-height: 1.2;
+      line-height: 1.5;
       letter-spacing: 0.02em;
-      margin-bottom: 24px;
     }
-    .link a {
-      font-size: rem(14);
+    .sns-links {
+      grid-area: sns;
+      display: flex;
+      flex-direction: column;
+      row-gap: 24px;
+      align-items: start;
+    }
+    .sns-text-link {
+      font-family: var(--font_ja_light);
+      font-size: rem(13);
+      font-weight: 300;
       text-decoration: underline;
       letter-spacing: 0.02em;
     }
@@ -72,6 +88,28 @@ import icon_x from '../assets/icon_x.svg';
       display: inline-block;
       border-radius: 50%;
       overflow: hidden;
+    }
+    @media (--sp) {
+      .operator-inner {
+        padding-block: 40px;
+        display: flex;
+        flex-direction: column;
+        row-gap: 0;
+      }
+      .content {
+        margin-top: 32px;
+      }
+      .sns-links {
+        margin-top: 16px;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: flex-end;
+      }
+      .sns-link {
+        img {
+          display: block;
+        }
+      }
     }
   }
 </style>

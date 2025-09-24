@@ -24,7 +24,7 @@ import Operator from './Operator.astro';
 					</li>
 				</ul>
 			</div>
-			<div class="copyright">
+			<div class="copyright font-en">
 				<small>© CrossRel, Inc. All Rights Reserved.</small>
 			</div>
 		</div>
@@ -35,8 +35,8 @@ import Operator from './Operator.astro';
 	@layer components {
 		.footer {
 			--footer_color_bg: #000;
-			background-color: var(--footer_color_bg);
-			padding-block: 80px 120px;
+			background-color: var(--color_text);
+			padding-block: 80px 196px;
 			color: var(--color_white);
 		}
 		.row {
@@ -44,14 +44,15 @@ import Operator from './Operator.astro';
 			grid-template-areas: 
 				"nav operator"
 				"copyright operator";
-			grid-template-columns: auto 560px;
-			grid-template-rows: 1fr auto;
-			row-gap: 80px;
-			justify-content: space-between;
+			grid-template-columns: auto 1fr;
+			column-gap: 40px;
+			row-gap: 64px;
 		}
 		.operator {
 			grid-area: operator;
+			justify-self: end;
 			align-self: center;
+			max-width: 600px;
 		}
 		.nav {
 			grid-area: nav;
@@ -69,9 +70,34 @@ import Operator from './Operator.astro';
 		.copyright {
 			grid-area: copyright;
 			small {
-				color: var(--color_grey);
+				color: #626262;
 				font-size: rem(12);
-				letter-spacing: 0.05em;
+				font-weight: 400;
+				letter-spacing: 0.02em;
+			}
+		}
+		@media (--sp) {
+			.footer {
+				padding-block: 72px 96px;
+			}
+			.row {
+				grid-template-areas:
+					"operator"
+					"nav"
+					"copyright";
+				grid-template-columns: auto;
+				row-gap: 72px;
+			}
+			.operator {
+				max-width: none;
+			}
+			.nav-list {
+				flex-direction: row;
+				flex-wrap: wrap;
+				gap: 24px 32px;
+			}
+			.nav-item {
+				font-size: rem(14);
 			}
 		}
 	}

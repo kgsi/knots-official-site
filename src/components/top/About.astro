@@ -1,39 +1,33 @@
-	<section class="about">
-		<div class="inner">
-			<div class="about-inner">
-				<h2 class="font-en">ABOUT</h2>
-				<p>Web開発や制作は、かつてデザイナー、エンジニアが同じ現場で知識を編み合わせる職人仕事でした。</p>
-				<p>しかし高度化と分業の波で両者は分断され、プロフェッショナル化とともに、コミュニティもプロセスもサイロ化しました。生成AIの台頭と周辺技術の急速な進化によって、デザインとエンジニアリングは再び急接近し、互いの境界を撚り合わせる新しい不可分領域が生まれています。</p>
-				<p>私たちはその渦中にいる人や企業を一つの縄 <strong>「KNOTS」</strong> で結び、共創力や組織力、技術を加速させる年始カンファレンスを企画します。年始という節目に学びとネットワーキングを凝縮し、新年度のプロジェクト着手と各社・参加者の計画に直結するマッチングの場を提供します。</p>
-			</div>
-		</div>
-	</section>
+<section class="about">
+	<div class="inner">
+		<p class="txt">Web開発や制作は、かつてデザイナー、エンジニアが同じ現場で知識を編み合わせる職人仕事でした。しかし高度化と分業の波で両者は分断され、プロフェッショナル化とともに、コミュニティもプロセスもサイロ化しました。生成AIの台頭と周辺技術の急速な進化によって、デザインとエンジニアリングは再び急接近し、互いの境界を撚り合わせる新しい不可分領域が生まれています。私たちはその渦中にいる人や企業を一つの縄「KNOTS」で結び、共創力や組織力、技術を加速させる年始カンファレンスを企画します。年始という節目に学びとネットワーキングを凝縮し、新年度のプロジェクト着手と各社・参加者の計画に直結するマッチングの場を提供します。</p>
+	</div>
+</section>
 
-	<style>
-		@layer components {
-			.about {
-				padding-bottom: 396px;
-				color: var(--color_white);
-			}
-			.about-inner {
-				max-width: 960px;
-				margin-inline: auto;
-			}
-			h2 {
-				text-align: left;
-				margin-bottom: 80px;
-				color: var(--color_white);
-			}
-			p {
-				text-align: left;
-				font-feature-settings: 'halt' on;
-				font-size: rem(24);
-				font-weight: 600;
-				letter-spacing: 0.02em;
-				line-height: 2.0;
-				+ p {
-					margin-top: 2.0em;
-				}
+<style>
+	@layer components {
+		.about {
+			color: var(--color_white);
+		}
+		h2 {
+			text-align: left;
+			margin-bottom: 80px;
+			color: var(--color_white);
+		}
+		.txt {
+			text-align: left;
+			font-feature-settings: 'palt' on;
+			font-size: rem(24);
+			font-weight: 600;
+			letter-spacing: 0.03em;
+			line-height: 2.4;
+			leading-trim: both;
+		}
+		@media (--sp) {
+			.txt {
+				font-size: rem(18);
+				line-height: 1.8;
 			}
 		}
-	</style>
+	}
+</style>
