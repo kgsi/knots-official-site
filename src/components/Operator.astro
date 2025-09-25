@@ -1,7 +1,7 @@
 ---
 import Image from "astro/components/Image.astro"
-import crossrel from '../assets/logo_crossrel.svg';
-import icon_x from '../assets/icon_x.svg';
+import crossrel from '@assets/logo_crossrel.svg';
+import icon_x from '@assets/icon_x.svg';
 
 ---
 
@@ -14,15 +14,15 @@ import icon_x from '../assets/icon_x.svg';
       <p class="description">CrossRelは、テック業界の多様な才能が集い、ナレッジや人材が交差するイベントコミュニティです。個の力だけでは成し得ない、交差することで生まれる新たな価値創造を目指します。</p>
     </div>
     <div class="sns-links">
-      <a href="https://crossrel.jp/" target="_blank" class="sns-text-link">https://crossrel.jp/</a>
-      <a href="https://x.com/crossrel_commu" target="_blank" class="sns-link">
+      <a href="https://crossrel.jp/" target="_blank" class="sns-text-link link-color">https://crossrel.jp/</a>
+      <a href="https://x.com/crossrel_commu" target="_blank" class="sns-link link-color">
         <Image src={icon_x} alt="X" />
       </a>
     </div>
   </div>
 </div>
 
-<style>
+<style define:vars={{ iconX: icon_x }}>
   @layer components {
     .operator {
       border-top: 1px solid var(--color_grey);
@@ -78,6 +78,7 @@ import icon_x from '../assets/icon_x.svg';
       align-items: start;
     }
     .sns-text-link {
+      --this_color_hover: var(--color_grey);
       font-family: var(--font_ja_light);
       font-size: rem(13);
       font-weight: 300;
@@ -85,9 +86,17 @@ import icon_x from '../assets/icon_x.svg';
       letter-spacing: 0.02em;
     }
     .sns-link {
-      display: inline-block;
+      --this_color_hover: var(--color_grey);
+      width: 40px;
+      min-width: 0;
+      aspect-ratio: 1;
+      display: grid;
+      place-items: center;
+      color: var(--color_white);
+      background-color: currentColor;
       border-radius: 50%;
       overflow: hidden;
+      position: relative;
     }
     @media (--sp) {
       .operator-inner {

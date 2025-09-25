@@ -11,16 +11,16 @@ import Operator from './Operator.astro';
 			<div class="nav">
 				<ul class="nav-list">
 					<li class="nav-item">
-						<a href="https://crossrel.jp/" target="_blank">運営会社</a>
+						<a href="https://crossrel.jp/" target="_blank" class="link-color">運営会社</a>
 					</li>
 					<li class="nav-item">
-						<a href="#">お問い合わせ</a>
+						<a href="#" class="link-color">お問い合わせ</a>
 					</li>
 					<li class="nav-item">
-						<a href="/codeofconduct">行動規範</a>
+						<a href="/codeofconduct" class="link-color">行動規範</a>
 					</li>
 					<li class="nav-item">
-						<a href="/privacy-policy">プライバシーポリシー</a>
+						<a href="/privacy-policy" class="link-color">プライバシーポリシー</a>
 					</li>
 				</ul>
 			</div>
@@ -67,6 +67,9 @@ import Operator from './Operator.astro';
 			font-size: rem(16);
 			line-height: 1.5;
 			letter-spacing: 0.05em;
+			a {
+				--this_color_hover: var(--color_grey);
+			}
 		}
 		.copyright {
 			grid-area: copyright;
