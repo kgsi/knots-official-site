@@ -17,8 +17,10 @@
     @media (--sp) {
       .wrapper {
         background-image: url('/assets/wave_head_sp.png'), url('/assets/wave_footer_sp.png');
+        background-color: var(--color_primary);
         background-position: top center, bottom center;
-        background-size: auto vw(153), auto vw(139);
+        background-size: auto vw(153), 100% auto;
+        background-blend-mode: luminosity;
         padding-block: vw(195) vw(186);
       }
     }
