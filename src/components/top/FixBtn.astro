@@ -36,10 +36,6 @@ import Btn from '../ui/Btn.astro';
 </style>
 
 <script>
-	import gsap from 'gsap';
-	import { ScrollTrigger } from 'gsap/ScrollTrigger';
-	gsap.registerPlugin(ScrollTrigger);
-
 	const fixBtn = document.querySelector('.fix-btn');
 	const triggerElement = document.querySelector('.fix[data-trigger="fix-btn"]');
 	if (fixBtn && triggerElement) {
