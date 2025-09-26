@@ -2,6 +2,9 @@
 import "../styles/global.css";
 import "../styles/media.css";
 import "../styles/reset.css";
+
+const canonicalURL = new URL(Astro.url.pathname, 'https://knots.crossrel.jp/');
+const ogpImageURL = new URL('/ogp.png', canonicalURL);
 ---
 
 <!doctype html>
@@ -9,7 +12,9 @@ import "../styles/reset.css";
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
+    <!--Favicon -->
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
     <meta name="generator" content={Astro.generator} />
     <title>KNOTS┃デザイン・AI・エンジニアリングをテーマとした次世代テックカンファレンス</title>
     <meta
@@ -26,9 +31,9 @@ import "../styles/reset.css";
       property="og:description"
       content="デザイン・AI・エンジニアリング、先端 ウェブ・プロダクトの潮流が&quot;交わる&quot;次世代テックカンファレンス"
     />
-    <meta property="og:image" content="https://knots.crossrel.jp/ogp.png" />
+    <meta property="og:image" content={ogpImageURL} />
     <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://knots.crossrel.jp" />
+    <meta property="og:url" content={canonicalURL} />
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image" />
@@ -40,7 +45,9 @@ import "../styles/reset.css";
       name="twitter:description"
       content="デザイン・AI・エンジニアリング、先端 ウェブ・プロダクトの潮流が&quot;交わる&quot;次世代テックカンファレンス"
     />
-    <meta name="twitter:image" content="https://knots.crossrel.jp/ogp.png" />
+    <meta name="twitter:image" content={ogpImageURL} />
+
+
 
     <!-- Font -->
     <link rel="stylesheet" href="https://use.typekit.net/ixx0wgf.css">
