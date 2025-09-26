@@ -21,7 +21,8 @@ import Footer from '../components/Footer.astro';
 			<Kv />
 			<About />
 		</TopHeadWrapper>
-		<div class="fix-wrapper" data-trigger="fix-btn">
+		<div class="fix-wrapper">
+			<div class="fix" data-trigger="fix-btn"></div>
 			<Information />
 			<Sponsors />
 		</div>
@@ -64,6 +65,16 @@ import Footer from '../components/Footer.astro';
 				background-color: var(--color_grey);
 			}
 		}
+		.fix-wrapper {
+			position: relative;
+		}
+		.fix {
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: calc(100% - 100vh);
+		}
 		@media (--sp) {
 			:global(h2) {
 				font-size: rem(24);
@@ -78,11 +89,3 @@ import Footer from '../components/Footer.astro';
 		}
 	}
 </style>
-
-<script>
-	import gsap from 'gsap';
-	import { ScrollTrigger } from 'gsap/ScrollTrigger';
-	gsap.registerPlugin(ScrollTrigger);
-
-	ScrollTrigger.normalizeScroll();
-</script>

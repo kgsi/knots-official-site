@@ -41,11 +41,22 @@ import Btn from '../ui/Btn.astro';
 	gsap.registerPlugin(ScrollTrigger);
 
 	const fixBtn = document.querySelector('.fix-btn');
-	const triggerElement = document.querySelector('.fix-wrapper[data-trigger="fix-btn"]');
-	ScrollTrigger.create({
-		trigger: triggerElement,
-		start: 'top top',
-		end: 'bottom bottom',
-		toggleClass: { targets: fixBtn, className: 'is-active' },
-	});
+	const triggerElement = document.querySelector('.fix[data-trigger="fix-btn"]');
+	if (fixBtn && triggerElement) {
+		const io = new IntersectionObserver(
+			(entries) => {
+				entries.forEach((entry) => {
+					if (entry.isIntersecting) {
+						fixBtn.classList.add('is-active');
+					} else {
+						fixBtn.classList.remove('is-active');
+					}
+				});
+			},
+			{ 
+				rootMargin: "0px 0px -100% 0px",
+			}
+		);
+		io.observe(triggerElement);
+	}
 </script>
