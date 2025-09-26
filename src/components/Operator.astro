@@ -31,7 +31,7 @@ import icon_x from '@assets/icon_x.svg';
     h2 {
       font-size: rem(16);
       color: var(--color_grey);
-      margin-top: -0.5lh;
+      margin-top: -0.6lh;
       text-align: left;
       display: block;
       span {
@@ -40,14 +40,14 @@ import icon_x from '@assets/icon_x.svg';
       }
     }
     .operator-inner {
-      padding-block: 48px;
+      padding-block: 40px 46px;
       display: grid;
       grid-template-areas:
         'logo content'
         'sns content';
       grid-template-columns: auto 1fr;
       column-gap: 70px;
-      row-gap: 32px;
+      row-gap: 28px;
     }
     .logo {
       grid-area: logo;
@@ -60,7 +60,6 @@ import icon_x from '@assets/icon_x.svg';
       font-size: rem(14);
       font-weight: 600;
       line-height: 1.5;
-      letter-spacing: 0.02em;
       margin-bottom: 16px;
     }
     .description {
@@ -68,13 +67,12 @@ import icon_x from '@assets/icon_x.svg';
       font-size: rem(14);
       font-weight: 300;
       line-height: 1.5;
-      letter-spacing: 0.02em;
     }
     .sns-links {
       grid-area: sns;
       display: flex;
       flex-direction: column;
-      row-gap: 24px;
+      row-gap: 26px;
       align-items: start;
     }
     .sns-text-link {
@@ -107,6 +105,11 @@ import icon_x from '@assets/icon_x.svg';
       }
       .content {
         margin-top: 32px;
+      }
+      .description {
+        font-size: rem(13);
+        letter-spacing: 0.04em;
+        line-height: 1.56;
       }
       .sns-links {
         margin-top: 16px;

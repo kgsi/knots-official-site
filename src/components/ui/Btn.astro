@@ -28,6 +28,7 @@ const ExLink = ({ href }: { href: string }) => {
       border-radius: 9999px;
       font-size: rem(18);
       font-weight: 700;
+      font-feature-settings: 'palt' on;
       letter-spacing: 0.02em;
       transition: background-color var(--this_hover_transition, 0.3s ease), color var(--this_hover_transition, 0.3s ease);
     }
@@ -43,7 +44,7 @@ const ExLink = ({ href }: { href: string }) => {
     }
     .icon-arrow {
       display: inline-block;
-      width: 1.3em;
+      width: 1.0em;
       aspect-ratio: 1;
       color: inherit;
       background-color: currentColor;
@@ -51,7 +52,8 @@ const ExLink = ({ href }: { href: string }) => {
       mask-position: center;
       mask-size: contain;
       mask-repeat: no-repeat;
-      margin-left: 1.0em;
+      margin-left: 0.8em;
+      margin-right: -0.2em;
     }
     @media (--sp) {
       .btn {

@@ -64,9 +64,9 @@ import Operator from './Operator.astro';
 		}
 		.nav-item {
 			font-family: var(--font_ja_light);
-			font-size: rem(16);
+			font-size: rem(14);
 			line-height: 1.5;
-			letter-spacing: 0.05em;
+			letter-spacing: 0.02em;
 			a {
 				--this_color_hover: var(--color_grey);
 			}
@@ -74,15 +74,16 @@ import Operator from './Operator.astro';
 		.copyright {
 			grid-area: copyright;
 			small {
+				display: block;
 				color: #626262;
 				font-size: rem(12);
 				font-weight: 400;
-				letter-spacing: 0.02em;
+				text-box: trim-both cap alphabetic;
 			}
 		}
 		@media (--sp) {
 			.footer {
-				padding-block: 72px 96px;
+				padding-block: 82px 96px;
 			}
 			.row {
 				grid-template-areas:
@@ -102,6 +103,7 @@ import Operator from './Operator.astro';
 			}
 			.nav-item {
 				font-size: rem(14);
+				letter-spacing: 0;
 			}
 		}
 	}

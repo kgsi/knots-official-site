@@ -3,15 +3,16 @@ import { Image } from 'astro:assets';
 
 interface Props {
   level: 'kyoku' | 'matsu' | 'ume' | 'other';
+  modifier?: string,
   href?: string | '#';
   img?: ImageData;
   alt?: string;
 }
-const { level, href = '#', img = null, alt = null } = Astro.props;
+const { level, modifier = null, href = '#', img = null, alt = null } = Astro.props;
 
 ---
 
-<div class={`sponsor-logo ${level}`}>
+<div class={`sponsor-logo ${level} ${modifier ?? ''}`}>
   <a href={href} target="_blank" class="link">
     {img && (
       <Image src={img} alt={alt} />
@@ -22,16 +23,18 @@ const { level, href = '#', img = null, alt = null } = Astro.props;
 <style>
   @layer components {
     .sponsor-logo {
-      aspect-ratio: 13 / 5;
       img {
+        display: block;
         width: 100%;
         height: 100%;
         object-fit: contain;
       }
     }
     .link {
-      display: block;
       border: 1px solid var(--color_grey);
+      display: block;
+      width: 100%;
+      height: 100%;
       transition: border-color var(--transition_hover);
       @media (--hover) {
         &:hover {
@@ -40,20 +43,27 @@ const { level, href = '#', img = null, alt = null } = Astro.props;
       }
     }
     .kyoku {
-      width: 520px;
+      aspect-ratio: 70 / 27;
+      width: 700px;
     }
     .matsu {
+      aspect-ratio: 12 / 5;
       width: 480px;
     }
     .ume {
+      aspect-ratio: 8 / 3;
       width: 320px;
     }
     .other {
+      aspect-ratio: 12 / 5;
       width: 480px;
+      &.reazon {
+        aspect-ratio: 20 / 10;
+      }
     }
     @media (--sp) {
       .kyoku {
-        width: 248px;
+        width: 280px;
       }
       .matsu {
         width: 200px;

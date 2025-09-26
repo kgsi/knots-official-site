@@ -5,19 +5,21 @@
 <style>
   @layer components {
     .wrapper {
-      background-image: url('/assets/wave_head.png'), url('/assets/wave_footer.png'), url('/assets/top_bg.jpg');
-      background-size: auto 256px, auto 313px, 100% auto;
-      background-repeat: repeat-x, repeat-x, repeat-y;
-      background-position: top center, bottom center, top center;
+      background-image: url('/assets/wave_head.png'), url('/assets/wave_footer.png');
+      background-color: var(--color_primary);
+      background-size: auto 191px, auto 313px;
+      background-repeat: repeat-x, repeat-x;
+      background-position: top center, bottom -4px center;
       background-blend-mode: luminosity;
-      padding-block: 240px 312px;
+      padding-block: 264px 308px;
       position: relative;
     }
     @media (--sp) {
       .wrapper {
-        background-image: url('/assets/wave_head_sp.png'), url('/assets/wave_footer_sp.png'), url('/assets/top_bg.jpg');
-        background-size: auto vw(153), auto vw(139), 100% auto;
-        padding-block: vw(196) vw(214);
+        background-image: url('/assets/wave_head_sp.png'), url('/assets/wave_footer_sp.png');
+        background-position: top center, bottom center;
+        background-size: auto vw(153), auto vw(139);
+        padding-block: vw(195) vw(186);
       }
     }
   }

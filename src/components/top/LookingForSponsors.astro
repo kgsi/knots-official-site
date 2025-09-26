@@ -19,9 +19,7 @@ import Btn from '@components/ui/Btn.astro'
 <style>
   @layer components {
     .looking-for {
-      background-image: url('/assets/top_bg.jpg');
-      background-repeat: repeat-y;
-      background-size: 100% auto;
+      background-color: var(--color_primary);
       padding-block: 80px 100px;
       color: var(--color_white);
     }
@@ -38,6 +36,7 @@ import Btn from '@components/ui/Btn.astro'
       text-align: center;
       font-size: rem(32);
       font-weight: 600;
+      line-height: 1.5;
     }
     .reading-inner {
       grid-area: content;
@@ -49,6 +48,7 @@ import Btn from '@components/ui/Btn.astro'
       font-size: rem(16);
       font-weight: 600;
       line-height: 2.0;
+      letter-spacing: 0.02em;
     }
     .btn-wrapper {
       grid-area: btn;
@@ -56,6 +56,9 @@ import Btn from '@components/ui/Btn.astro'
       text-align: center;
     }
     @media (--sp) {
+      .looking-for {
+        padding-block: 96px 120px;
+      }
       .row {
         grid-template-areas: 
           'title'

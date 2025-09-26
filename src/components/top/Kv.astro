@@ -12,15 +12,17 @@ import Btn from '../ui/Btn.astro';
       </h1>
       <p class="catch">デザイン・AI・エンジニアリング、<br class="only-pc">先端ウェブ・プロダクトの潮流が "交わる" カンファレンス</p>
     </hgroup>
-    <div class="meta">
-      <span class="date font-en">
-        <span class="date-body">2026.01.25</span>
-        <span class="day-of-week">(SUN)</span>
-      </span>
-      <span class="place">@東京都中央区日本橋 日本橋タワー<span class="pc-space"></span><br class="only-sp">サイボウズ本社スペース</span>
-    </div>
-    <div class="btn-wrapper">
-      <Btn href="#looking-for-sponsors" txt="スポンサー募集要項" modifier="kv"/>
+    <div class="info">
+      <div class="meta">
+        <span class="date font-en">
+          <span class="date-body">2026.01.25</span>
+          <span class="day-of-week"><span class="parentheses">(</span>SUN<span class="parentheses">)</span></span>
+        </span>
+        <span class="place">@東京都中央区日本橋 日本橋タワー<span class="pc-space"></span><br class="only-sp">サイボウズ本社スペース</span>
+      </div>
+      <div class="btn-wrapper">
+        <Btn href="#looking-for-sponsors" txt="スポンサー募集要項" modifier="kv"/>
+      </div>
     </div>
   </div>
 </div>
@@ -35,7 +37,7 @@ import Btn from '../ui/Btn.astro';
       width: 100%;
       max-width: 680px;
       overflow: hidden;
-      margin: 0 auto 44px;
+      margin: 0 auto 40px;
     }
     .logo-img {
       width: 100%;
@@ -46,47 +48,66 @@ import Btn from '../ui/Btn.astro';
       font-feature-settings: 'palt' on;
       font-size: rem(28);
       font-weight: 600;
-      line-height: normal;
-      letter-spacing: 0.04em;
-      margin-bottom: 80px;
+      line-height: 1.45;
+    }
+    .info {
+      padding-block: 146px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
     }
     .meta {
       display: grid;
       text-box: trim-both cap alphabetic;
-      row-gap: 20px;
+      row-gap: 16px;
     }
     .date {
-      font-size: rem(28);
+      display: flex;
+      align-items: baseline;
     }
     .date-body {
       font-size: rem(80);
       font-weight: 500;
     }
+    .day-of-week {
+      margin-left: 0.3em;
+      font-size: rem(28);
+      font-weight: 500;
+      letter-spacing: -0.008em;
+      leading-trim: both;
+      text-edge: cap;
+      .parentheses {
+        vertical-align: 0.08em;
+      }
+    }
     .place {
       font-feature-settings: 'halt' on, 'palt' on;
       font-size: rem(20);
       font-weight: 600;
-      letter-spacing: 0.02em;
+      letter-spacing: -0.02em;
     }
     .btn-wrapper {
-      margin-block: 80px;
-      border-top: 1px solid color-mix(in srgb, var(--color_white) 60%, transparent 40%);
-      border-bottom: 1px solid color-mix(in srgb, var(--color_white) 60%, transparent 40%);
-      padding-block: 40px;
+      padding-top: 14px;
     }
     @media (--sp) {
       .logo {
         width: vw(300);
-        margin-bottom: 24px;
+        margin-inline: auto;
+        margin-bottom: 20px;
       }
       .catch {
         width: vw(300);
         margin-inline: auto;
         font-size: rem(16);
-        margin-bottom: 56px;
+      }
+      .info {
+        display: flex;
+        flex-direction: column;
+        padding-block: 50px 32px;
+        border-bottom: 1px solid rgb(255 255 255 / 0.6);
       }
       .meta {
-        row-gap: 12px;
+        row-gap: 10px;
       }
       .date {
         font-size: rem(16);
@@ -94,14 +115,17 @@ import Btn from '../ui/Btn.astro';
       .date-body {
         font-size: rem(32);
       }
+      .day-of-week {
+        font-size: rem(16);
+      }
       .place {
         font-size: rem(14);
         line-height: 1.3;
       }
       .btn-wrapper {
-        margin-block: 56px 80px;
-        padding-block: 32px;
-        padding-inline: 22px;
+        width: stretch;
+        padding-inline: 20px;
+        margin-top: 40px;
       }
     }
   }
