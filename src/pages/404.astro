@@ -1,0 +1,16 @@
+---
+// src/pages/404.astro
+Astro.response.headers.set("Refresh", "0; url=/");
+---
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <title>404|KNOTS</title>
+    <meta http-equiv="refresh" content="0; url=/" />
+  </head>
+  <body>
+    <script>
+      window.location.replace("/");
+    </script>
+  </body>
+</html>

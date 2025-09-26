@@ -1,0 +1,46 @@
+@layer component {
+  .terms {
+    padding-top: 160px;
+  }
+  h1 {
+    font-size: rem(32);
+    font-weight: 600;
+    margin-bottom: 24px;
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+  .read {
+    font-size: rem(16);
+    font-weight: 500;
+    line-height: 2.0;
+    letter-spacing: 0.04em;
+  }
+  .terms-head {
+    border-bottom: 1px solid var(--color_grey);
+    padding-bottom: 80px;
+    margin-bottom: 80px;
+	}
+  .terms-contents {
+		display: flex;
+		flex-direction: column;
+		row-gap: 48px;
+  }
+  @media (--sp) {
+    .terms {
+      padding-top: 40px;
+    }
+    h1 {
+      font-size: rem(24);
+      margin-bottom: 12px;
+      line-height: 1.5;
+    }
+    .terms-head {
+      padding-bottom: 40px;
+      margin-bottom: 40px;
+    }
+    .terms-contents {
+      row-gap: 32px;
+    }
+  }
+}
