@@ -57,9 +57,6 @@ const { level, modifier = null, href = '#', img = null, alt = null } = Astro.pro
     .other {
       aspect-ratio: 12 / 5;
       width: 480px;
-      &.reazon {
-        aspect-ratio: 20 / 10;
-      }
     }
     @media (--sp) {
       .kyoku {
@@ -73,6 +70,9 @@ const { level, modifier = null, href = '#', img = null, alt = null } = Astro.pro
       }
       .other {
         width: 200px;
+        &.reazon {
+          aspect-ratio: 20 / 10;
+        }
       }
     }
   }
