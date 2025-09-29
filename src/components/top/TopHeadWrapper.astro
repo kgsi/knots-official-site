@@ -7,11 +7,11 @@
     .wrapper {
       background-image: url('/assets/wave_head.png'), url('/assets/wave_footer.png');
       background-color: var(--color_primary);
-      background-size: auto 191px, auto 313px;
+      background-size: auto pw(191), auto pw(313);
       background-repeat: repeat-x, repeat-x;
       background-position: top center, bottom -4px center;
       background-blend-mode: luminosity;
-      padding-block: 264px 308px;
+      padding-block: 264px max(200px, pw(308));
       position: relative;
     }
     @media (--sp) {

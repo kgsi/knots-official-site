@@ -21,7 +21,8 @@ const ExLink = ({ href }: { href: string }) => {
       background-color: var(--this_bg);
       color: var(--this_color);
       min-width: var(--this_base_width, 290px);
-      min-height: var(--this_base_height, 72px);
+      min-height: var(--this_base_height, 66px);
+      border: 1px solid var(--color_primary);
       display: inline-flex;
       align-items: center;
       justify-content: center;
@@ -30,16 +31,16 @@ const ExLink = ({ href }: { href: string }) => {
       font-weight: 700;
       font-feature-settings: 'palt' on;
       letter-spacing: 0.02em;
-      transition: background-color var(--this_hover_transition, 0.3s ease), color var(--this_hover_transition, 0.3s ease);
+      transition: background-color var(--this_hover_transition, 0.3s ease), color var(--this_hover_transition, 0.3s ease), border-color var(--this_hover_transition, 0.3s ease);
     }
     .btn--kv {
       --this_base_width: 328px;
+      .icon-arrow {
+        rotate: 90deg;
+      }
     }
     .btn--fix {
       --this_base_width: 280px;
-      --this_base_height: 80px;
-      --this_bg: var(--color_primary);
-      --this_color: var(--color_white);
       pointer-events: var(--this_toggle_btn, none);
     }
     .icon-arrow {
@@ -58,8 +59,6 @@ const ExLink = ({ href }: { href: string }) => {
     @media (--sp) {
       .btn {
         width: stretch;
-        min-width: 0;
-        max-width: 312px;
         min-height: 58px;
         font-size: rem(16);
       }
@@ -67,10 +66,9 @@ const ExLink = ({ href }: { href: string }) => {
     @media (--hover) {
       .btn {
         &:hover {
-          background-color: var(--color_primary_deep);
-          &:not(.btn--fix) {
-            color: var(--this_bg);
-          }
+          background-color: var(--color_primary);
+          border-color: var(--color_white);
+          color: var(--this_bg);
         }
       }
     }
