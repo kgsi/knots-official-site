@@ -56,6 +56,15 @@ const ExLink = ({ href }: { href: string }) => {
       margin-left: 0.8em;
       margin-right: -0.2em;
     }
+    @media (--hover) {
+      .btn {
+        &:hover {
+          --this_bg: var(--color_primary);
+          --this_color: var(--color_white);
+          border-color: var(--this_color);
+        }
+      }
+    }
     @media (--sp) {
       .btn {
         width: stretch;
@@ -65,15 +74,17 @@ const ExLink = ({ href }: { href: string }) => {
       .btn--kv {
         --this_base_width: stretch;
       }
-    }
+      .btn--fix {
+        --this_bg: var(--color_primary);
+        --this_color: var(--color_white);
+      }
     @media (--hover) {
-      .btn {
+      .btn--fix {
         &:hover {
-          background-color: var(--color_primary);
-          border-color: var(--color_white);
-          color: var(--this_bg);
+          color: var(--this_color);
         }
       }
+    }
     }
   }
 </style>
