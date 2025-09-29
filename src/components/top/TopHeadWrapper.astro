@@ -5,9 +5,9 @@
 <style>
   @layer components {
     .wrapper {
-      background-image: url('/assets/wave_head.png'), url('/assets/wave_footer.png');
+      background-image: url('/assets/wave_header.png'), url('/assets/wave_footer.png');
       background-color: var(--color_primary);
-      background-size: auto pw(191), auto pw(313);
+      background-size: 100% auto, 100% auto;
       background-repeat: repeat-x, repeat-x;
       background-position: top center, bottom -4px center;
       background-blend-mode: luminosity;
@@ -16,10 +16,10 @@
     }
     @media (--sp) {
       .wrapper {
-        background-image: url('/assets/wave_head_sp.png'), url('/assets/wave_footer_sp.png');
+        background-image: url('/assets/wave_header_sp.png'), url('/assets/wave_footer_sp.png');
         background-color: var(--color_primary);
         background-position: top center, bottom center;
-        background-size: auto vw(153), 100% auto;
+        background-size: 100% auto, 100% auto;
         background-blend-mode: luminosity;
         padding-block: vw(195) vw(186);
       }

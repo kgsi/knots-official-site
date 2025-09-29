@@ -20,6 +20,9 @@
     --font_ja_light: "MFW-KoburinaGoStdN-W3", 'こぶりなゴシック Std W3', 'Hiragino Sans', Meiryo, 'Helvetica Neue', Arial, sans-serif;
     --font_ja_bold: "MFW-KoburinaGoStdN-W6", 'こぶりなゴシック Std W6', 'Hiragino Sans', Meiryo, 'Helvetica Neue', Arial, sans-serif;
   }
+  html {
+    scroll-behavior: smooth;
+  }
   body {
     overflow-x: clip;
     font-family: var(--font_ja_base);
