@@ -3,8 +3,31 @@
 		<h2 class="font-en">INFORMATION</h2>
 		<div class="information-wrapper">
 			<div class="item">
-				<h3 class="line-heading"><span>開催日時</span></h3>
-				<p class="txt">2026年1月25日(日)</p>
+				<h3 class="line-heading"><span>開催情報</span></h3>
+				<div class="reading-inner">
+					<dl class="info-dl">
+						<div class="dl-item">
+							<dt>セッション</dt>
+							<dd>合計30セッション程度</dd>
+						</div>
+						<div class="dl-item">
+							<dt>人数</dt>
+							<dd>200人 (予定)</dd>
+						</div>
+						<div class="dl-item">
+							<dt>対象者</dt>
+							<dd>デザイン・エンジニアリング現場のデザイナー、エンジニア<br class="only-pc">プロダクトマネージャーや事業推進、生成AI活用を担うリーダー</dd>
+						</div>
+						<div class="dl-item">
+							<dt>日時</dt>
+							<dd>2026年1月25日(日)</dd>
+						</div>
+						<div class="dl-item">
+							<dt>主催</dt>
+							<dd>CrossRel（株式会社Lumilinks）</dd>
+						</div>
+					</dl>
+				</div>
 			</div>
 			<div class="item">
 				<h3 class="line-heading"><span>開催場所</span></h3>
@@ -37,6 +60,29 @@
 			text-align: center;
 			&:not(:first-child) {
 				margin-top: 130px;
+			}
+		}
+		.info-dl {
+			display: grid;
+			grid-template-columns: auto 1fr;
+			column-gap: 40px;
+			row-gap: 24px;
+		}
+		.dl-item {
+			grid-column: span 2;
+			display: grid;
+			grid-template-columns: subgrid;
+			text-align: left;
+			font-size: rem(20);
+			line-height: 1.8;
+			letter-spacing: 0.02em;
+			dt {
+				color: #9a9a9a;
+				&:after {
+					content: ':';
+				}
+			}
+			dd {
 			}
 		}
 		.map-wrapper {
@@ -76,6 +122,31 @@
 			.item {
 				&:not(:first-child) {
 					margin-top: 112px;
+				}
+			}
+			.info-dl {
+				display: flex;
+				flex-direction: column;
+				row-gap: 32px;
+			}
+			.dl-item {
+				display: flex;
+				flex-direction: column;
+				row-gap: 4px;
+				text-align: left;
+				dt {
+					font-size: rem(13);
+					letter-spacing: 0.02em;
+					line-height: 1.5;
+					color: #9a9a9a;
+					&:after {
+						content: ':';
+					}
+				}
+				dd {
+					font-size: rem(16);
+					letter-spacing: 0.02em;
+					line-height: 1.5;
 				}
 			}
 			.map-wrapper {

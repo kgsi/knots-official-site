@@ -14,7 +14,7 @@
     font-size: rem(16);
     font-weight: 500;
     line-height: 2.0;
-    letter-spacing: 0.04em;
+    letter-spacing: 0.02em;
   }
   .terms-head {
     border-bottom: 1px solid var(--color_grey);

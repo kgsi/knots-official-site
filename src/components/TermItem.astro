@@ -12,6 +12,7 @@ const { title } = Astro.props
       content: '';
     }
     .item {
+      font-feature-settings: 'halt' on;
       font-size: rem(16);
       font-weight: 500;
       font-family: var(--font_ja_light);
@@ -19,8 +20,8 @@ const { title } = Astro.props
       letter-spacing: 0.04em;
       counter-increment: termItem;
       h3 {
+        font-family: var(--font_ja_bold);
         font-size: rem(20);
-        font-weight: 600;
         line-height: 1.8;
         margin-bottom: 24px;
         letter-spacing: 0.04em;
