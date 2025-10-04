@@ -1,10 +1,11 @@
 ---
-import "../styles/global.css";
-import "../styles/media.css";
-import "../styles/reset.css";
+import '../styles/global.css'
+import '../styles/media.css'
+import '../styles/reset.css'
+import GoogleAnalytics from '../components/GoogleAnalytics.astro'
 
-const canonicalURL = new URL(Astro.url.pathname, 'https://knots.crossrel.jp/');
-const ogpImageURL = new URL('/ogp.png', canonicalURL);
+const canonicalURL = new URL(Astro.url.pathname, 'https://knots.crossrel.jp/')
+const ogpImageURL = new URL('/ogp.png', canonicalURL)
 ---
 
 <!doctype html>
@@ -14,9 +15,11 @@ const ogpImageURL = new URL('/ogp.png', canonicalURL);
     <meta name="viewport" content="width=device-width" />
     <!--Favicon -->
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
     <meta name="generator" content={Astro.generator} />
-    <title>KNOTS┃デザイン・AI・エンジニアリング―境界を結び、共創をひらくカンファレンス</title>
+    <title>
+      KNOTS┃デザイン・AI・エンジニアリング―境界を結び、共創をひらくカンファレンス
+    </title>
     <meta
       name="description"
       content="デザイン・AI・エンジニアリング―境界を結び、共創をひらくカンファレンス"
@@ -34,6 +37,7 @@ const ogpImageURL = new URL('/ogp.png', canonicalURL);
     <meta property="og:image" content={ogpImageURL} />
     <meta property="og:type" content="website" />
     <meta property="og:url" content={canonicalURL} />
+    <meta property="theme-color" content="#1532f9" />
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image" />
@@ -47,12 +51,13 @@ const ogpImageURL = new URL('/ogp.png', canonicalURL);
     />
     <meta name="twitter:image" content={ogpImageURL} />
 
-
-
     <!-- Font -->
-    <link rel="stylesheet" href="https://use.typekit.net/ixx0wgf.css">
-    <link rel="stylesheet" href="https://morisawafonts.net/c/01K5X3Y8N3AVASGV3JMEPG3NEM/mf.css">
-
+    <link rel="stylesheet" href="https://use.typekit.net/ixx0wgf.css" />
+    <link
+      rel="stylesheet"
+      href="https://morisawafonts.net/c/01K5X3Y8N3AVASGV3JMEPG3NEM/mf.css"
+    />
+    <GoogleAnalytics />
   </head>
   <body>
     <div class="root">

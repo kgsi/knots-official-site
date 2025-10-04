@@ -41,6 +41,18 @@ Astro のフォルダ構成については公式ドキュメントの「Project 
 | `npm run astro ...`       | `astro add` や `astro check` などの CLI コマンドを実行 |
 | `npm run astro -- --help` | Astro CLI のヘルプを表示                               |
 
+## 📈 Google アナリティクスの設定
+
+Google Analytics 4 を利用する場合は `src/components/GoogleAnalytics.astro` の
+`measurementId` に測定 ID を直接記述してください。
+
+```astro
+const measurementId = 'G-XXXXXXXXXX'
+```
+
+`G-XXXXXXXXXX` を実際の測定 ID に置き換えると、本番ビルド時に自動で GA
+スニペットが挿入されます（開発サーバーでは送信しません）。
+
 ## 👀 もっと知る
 
 公式ドキュメント: https://docs.astro.build
