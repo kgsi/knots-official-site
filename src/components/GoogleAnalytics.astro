@@ -13,12 +13,12 @@ const isProduction = import.meta.env.MODE === 'production'
         async
         src={`https://www.googletagmanager.com/gtag/js?id=${measurementId}`}
       />
-      <script is:inline type="text/partytown">
+      <script is:inline type="text/partytown" define:vars={{ measurementId }}>
         window.dataLayer = window.dataLayer || []
         function gtag(){' '}
         {dataLayer.push(arguments)}
         gtag('js', new Date())
-        gtag('config', '{measurementId}')
+        gtag('config', measurementId)
       </script>
     </>
   )
