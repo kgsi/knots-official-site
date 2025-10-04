@@ -7,13 +7,18 @@ const isProduction = import.meta.env.MODE === 'production'
 {
   isProduction && (
     <>
-      <script async src={`https://www.googletagmanager.com/gtag/js?id=${measurementId}`} />
-      <script is:inline define:vars={{ measurementId }}>
+      <script
+        is:inline
+        type="text/partytown"
+        async
+        src={`https://www.googletagmanager.com/gtag/js?id=${measurementId}`}
+      />
+      <script is:inline type="text/partytown">
         window.dataLayer = window.dataLayer || []
         function gtag(){' '}
         {dataLayer.push(arguments)}
         gtag('js', new Date())
-        gtag('config', measurementId)
+        gtag('config', '{measurementId}')
       </script>
     </>
   )

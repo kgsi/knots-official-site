@@ -1,11 +1,23 @@
 // @ts-check
+import partytown from '@astrojs/partytown'
 import { defineConfig } from 'astro/config'
 
 // https://astro.build/config
 export default defineConfig({
-  alias: {
-    '@': './src',
-    '@components': './src/components',
-    '@assets': './src/assets',
-  }
+  vite: {
+    resolve: {
+      alias: {
+        '@': './src',
+        '@components': './src/components',
+        '@assets': './src/assets',
+      },
+    },
+  },
+  integrations: [
+    partytown({
+      config: {
+        forward: ['dataLayer.push', 'gtag'],
+      },
+    }),
+  ],
 })
