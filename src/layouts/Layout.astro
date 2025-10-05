@@ -57,7 +57,20 @@ const ogpImageURL = new URL('/ogp.png', canonicalURL)
       rel="stylesheet"
       href="https://morisawafonts.net/c/01K5X3Y8N3AVASGV3JMEPG3NEM/mf.css"
     />
-    <GoogleAnalytics />
+    <script
+      is:inline
+      type="text/partytown"
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-0L3D47G404"></script>
+    <script is:inline type="text/partytown">
+      window.dataLayer = window.dataLayer || []
+      function gtag() {
+        dataLayer.push(arguments)
+      }
+      gtag('js', new Date())
+      gtag('config', 'G-0L3D47G404')
+    </script>
+    <!-- <GoogleAnalytics /> -->
   </head>
   <body>
     <div class="root">
