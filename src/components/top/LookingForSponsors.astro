@@ -7,10 +7,15 @@ import Btn from '@components/ui/Btn.astro'
     <div class="row">
       <h3>スポンサー企業募集</h3>
       <div class="reading-inner">
-        <p>KNOTSはデザインだけのイベントではなく、『デザイン×AI×エンジニアリング』の交わりに焦点を当てる国内でも数少ないイベントです。「先進技術に対する深い理解と実践意欲」や「次世代のスキルやキャリアパス」に関心がある参加者層と、深い議論が期待でき、エンジニアとデザイナー双方に訴求するプログラム構成により、参加者・登壇者それぞれ、将来の採用へとつながるタッチポイントを創出します。スポンサー検討されている企業の方は、「申し込みボタン」からお問い合わせください。</p>
+        <p>
+          KNOTSはデザインだけのイベントではなく、『デザイン×AI×エンジニアリング』の交わりに焦点を当てる国内でも数少ないイベントです。「先進技術に対する深い理解と実践意欲」や「次世代のスキルやキャリアパス」に関心がある参加者層と、深い議論が期待でき、エンジニアとデザイナー双方に訴求するプログラム構成により、参加者・登壇者それぞれ、将来の採用へとつながるタッチポイントを創出します。スポンサー検討されている企業の方は、「申し込みボタン」からお問い合わせください。
+        </p>
       </div>
       <div class="btn-wrapper">
-        <Btn href="https://forms.gle/AfVbLJEp7Vwnn4X2A" txt="スポンサー申し込み" />
+        <Btn
+          href="https://forms.gle/AfVbLJEp7Vwnn4X2A"
+          txt="スポンサー申し込み"
+        />
       </div>
     </div>
   </div>
@@ -47,7 +52,7 @@ import Btn from '@components/ui/Btn.astro'
       font-feature-settings: 'halt' on;
       font-size: rem(16);
       font-weight: 600;
-      line-height: 2.0;
+      line-height: 2;
       letter-spacing: 0.02em;
     }
     .btn-wrapper {
@@ -60,7 +65,7 @@ import Btn from '@components/ui/Btn.astro'
         padding-block: 96px 120px;
       }
       .row {
-        grid-template-areas: 
+        grid-template-areas:
           'title'
           'content'
           'btn';
