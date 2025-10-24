@@ -1,0 +1,90 @@
+---
+const { title } = Astro.props
+---
+<div class="item">
+  <h3>{title}</h3>
+  <slot />
+</div>
+
+<style>
+  @layer components {
+    :global(.no-counter) .item h3:before {
+      content: '';
+    }
+    .item {
+      font-feature-settings: 'halt' on;
+      color: var(--color_text_grey);
+      font-size: rem(17);
+      font-weight: 600;
+      line-height: 2.0;
+      letter-spacing: 0.04em;
+      counter-increment: termItem;
+      h3 {
+        font-family: var(--font_ja_bold);
+        color: var(--color_text);
+        font-size: rem(24);
+        line-height: 1.8;
+        margin-bottom: 24px;
+        letter-spacing: 0.04em;
+        position: relative;
+        &:before {
+          content: '第'counter(termItem)'条 ';
+        }
+      }
+      :global(p) {
+        + :global(p) {
+          margin-top: 2.0em;
+        }
+      }
+      :global(ol) {
+        padding-left: 1.5em;
+        text-indent: -0.7em;
+        > :global(li) {
+          &:before {
+            content: counter(list-item)'）';
+            display: inline-block;
+          }
+        }
+      }
+      :global(ul) {
+        padding-left: 1.2em;
+        text-indent: -0.8em;
+        > :global(li) {
+          &:before {
+            content: '';
+            display: inline-block;
+            width: 0.25em;
+            aspect-ratio: 1;
+            margin-right: 0.5em;
+            background-color: currentColor;
+            border-radius: 50%;
+            vertical-align: middle;
+            transform: translate(0, -0.1em);
+          }
+          > :global(ul) {
+            > :global(li) {
+              &:before {
+                border: 1px solid currentColor;
+                background-color: var(--color_white);
+              }
+            }
+          }
+        }
+      }
+      :global(a) {
+        color: var(--color_primary_deep);
+        text-decoration: underline;
+      }
+    }
+    @media (--sp) {
+      .item {
+        font-size: rem(16);
+        h3 {
+          font-size: rem(18);
+          line-height: 1.5;
+          margin-bottom: 12px;
+        }
+      }
+    }
+  }
+</style>

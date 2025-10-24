@@ -5,32 +5,43 @@
     --color_primary: #0064FF;
     --color_primary_deep: #1A32EF;
     --color_white: #FFF;
+    --color_dark_grey: #656565;
     --color_grey: #CFCFCF;
     --color_text: #1A1A1A;
-
+    --color_text_grey: var(--color_dark_grey);
+    --color_bg_white: #eff2f5;
+    
     --transition_hover: 0.3s ease;
-
+    
+    --z_header: 100000;
     --z_above: 10000;
     --z_over: 1000;
+    --z_behind: -100;
     --z_under: -1000;
-
+    
     --font_ja_base: "MFW-KoburinaGoStdN-W6", 'こぶりなゴシック Std W6', 'Hiragino Sans', Meiryo, 'Helvetica Neue', Arial, sans-serif;
-
+    
     --font_ja_thin: "MFW-KoburinaGoStdN-W1", 'こぶりなゴシック Std W1', 'Hiragino Sans', Meiryo, 'Helvetica Neue', Arial, sans-serif;
     --font_ja_light: "MFW-KoburinaGoStdN-W3", 'こぶりなゴシック Std W3', 'Hiragino Sans', Meiryo, 'Helvetica Neue', Arial, sans-serif;
     --font_ja_bold: "MFW-KoburinaGoStdN-W6", 'こぶりなゴシック Std W6', 'Hiragino Sans', Meiryo, 'Helvetica Neue', Arial, sans-serif;
+    
+    --font_en: "Gotham", sans-serif;
+
+    --text_box_trim: trim-both cap alphabetic;
   }
   html {
     scroll-behavior: smooth;
   }
   body {
-    overflow-x: clip;
     font-family: var(--font_ja_base);
     color: var(--color_text);
+    background-color: var(--color_bg_white);
+  }
+  .root {
+    overflow-x: hidden;
   }
   .font-en {
-    font-family: "Gotham", sans-serif;
-    font-weight: 700;
+    font-family: var(--font_en);
     font-optical-sizing: auto;
   }
   .font-ja-thin {
@@ -42,12 +53,37 @@
   .font-ja-bold {
     font-family: var(--font_ja_bold);
   }
+  .util-img-cover {
+    display: block;
+    width: stretch;
+    height: stretch;
+    object-fit: cover;
+  }
+  .util-lower-main {
+    position: relative;
+    &:before {
+      content: '';
+      position: absolute;
+      top: 102px;
+      left: 0;
+      width: 100%;
+      aspect-ratio: 1440 / 854;
+      background-image: url('/assets/common/wave_lower.png');
+      background-size: contain;
+      background-repeat: no-repeat;
+      mix-blend-mode: overlay;
+      z-index: var(--z_under);
+    }
+  }
   .inner {
     width: 100%;
-		max-width: 1200px;
-    padding-inline: 40px;
+		max-width: min(1440px, calc(100vw - 360 / 1440 * 100vw));
 		margin-inline: auto;
 	}
+  .inner--term {
+    max-width: 1200px;
+    padding-inline: 40px;
+  }
   .link-alpha {
     transition: opacity var(--transition_hover);
     @media (--hover) {
@@ -65,7 +101,13 @@
     }
   }
   @media (--pc) {
+    .only-tb {
+      display: none;
+    }
     .only-sp {
+      display: none;
+    }
+    .excepting-pc {
       display: none;
     }
     .pc-space {
@@ -73,12 +115,39 @@
       width: 0.5em;
     }
   }
+  @media (--tb) {
+    .only-pc {
+      display: none;
+    }
+    .only-sp {
+      display: none;
+    }
+    .inner {
+      max-width: none;
+      padding-inline: 56px;
+    }
+  }
   @media (--sp) {
     .only-pc {
       display: none;
     }
+    .only-tb {
+      display: none;
+    }
+    .excepting-sp {
+      display: none;
+    }
     .inner {
+      max-width: none;
       padding-inline: 32px;
+    }
+    .util-lower-main {
+      &:before {
+        top: vw(-100);
+        left: 0;
+        aspect-ratio: 750 / 1467;
+        background-image: url('/assets/common/wave_lower_sp.png');
+      }
     }
   }
 }

@@ -1,7 +1,7 @@
 ---
 import { Image } from 'astro:assets';
-import logo from '@assets/logo_knots.svg';
-import Btn from '../ui/Btn.astro';
+import logo from '@assets/common/logo_knots.svg';
+import Btn from '@/components/util/Btn.astro';
 ---
 
 <div class="kv">
@@ -21,7 +21,8 @@ import Btn from '../ui/Btn.astro';
         <span class="place">@東京都中央区日本橋 日本橋タワー<span class="pc-space"></span><br class="only-sp">サイボウズ本社スペース</span>
       </div>
       <div class="btn-wrapper">
-        <Btn href="#looking-for-sponsors" txt="スポンサー募集要項" modifier="kv"/>
+        <Btn href="#looking-for-sponsors" txt="チケット購入" modifier="kv"/>
+        <a href="#looking-for-sponsors" class="text-link">スポンサー申し込みについて</a>
       </div>
     </div>
   </div>
@@ -32,8 +33,6 @@ import Btn from '../ui/Btn.astro';
     .kv {
       color: var(--color_white);
       text-align: center;
-    }
-    .inner {
       container-type: inline-size;
     }
     .logo {
@@ -54,17 +53,20 @@ import Btn from '../ui/Btn.astro';
       line-height: 1.45;
     }
     .info {
-      padding-block: 146px;
+      padding-block: 120px 96px;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 20px;
-      @container (max-width: 900px) {
-        flex-direction: column;
+      column-gap: 20px;
+      row-gap: 64px;
+      container-type: inline-size;
+      @container (max-width: 1400px) {
         justify-content: center;
+        flex-direction: column;
       }
     }
     .meta {
+      flex: 0 0 auto;
       display: grid;
       text-box: trim-both cap alphabetic;
       justify-items: center;
@@ -75,12 +77,12 @@ import Btn from '../ui/Btn.astro';
       align-items: baseline;
     }
     .date-body {
-      font-size: rem(80);
+      font-size: rem(98);
       font-weight: 500;
     }
     .day-of-week {
       margin-left: 0.3em;
-      font-size: rem(28);
+      font-size: rem(34);
       font-weight: 500;
       letter-spacing: -0.008em;
       leading-trim: both;
@@ -91,12 +93,39 @@ import Btn from '../ui/Btn.astro';
     }
     .place {
       font-feature-settings: 'halt' on, 'palt' on;
-      font-size: rem(20);
+      font-size: rem(24);
       font-weight: 600;
       letter-spacing: -0.02em;
     }
     .btn-wrapper {
+      flex: 0 0 auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      row-gap: 24px;
       padding-top: 14px;
+    }
+    .text-link {
+      font-size: rem(18);
+      background-image: linear-gradient(currentColor, currentColor);
+      background-size: 100% 1px;
+      background-repeat: no-repeat;
+      background-position: bottom;
+      transition: opacity 0.3s ease;
+      @media (--hover) {
+        &:hover {
+          opacity: 0.8;
+        }
+      }
+    }
+    @media (--tb) {
+      .logo {
+        width: vwTb(528);
+        margin-bottom: vwTb(24);
+      }
+      .catch {
+        font-size: vwTb(24);
+      }
     }
     @media (--sp) {
       .logo {
@@ -104,16 +133,21 @@ import Btn from '../ui/Btn.astro';
         margin-inline: auto;
         margin-bottom: 20px;
       }
+      .logo-img {
+        width: 100%;
+        height: auto;
+      }
       .catch {
-        width: vw(308);
+        width: vw(300);
         margin-inline: auto;
         font-size: vw(16);
       }
       .info {
         display: flex;
         flex-direction: column;
-        padding-block: vw(50) 32px;
+        padding-block: vw(50) 40px;
         border-bottom: 1px solid rgb(255 255 255 / 0.6);
+        row-gap: 56px;
       }
       .meta {
         row-gap: 10px;
@@ -133,8 +167,8 @@ import Btn from '../ui/Btn.astro';
       }
       .btn-wrapper {
         width: stretch;
+        padding-block: 0;
         padding-inline: 20px;
-        margin-top: 40px;
       }
     }
   }

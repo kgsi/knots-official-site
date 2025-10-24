@@ -1,0 +1,38 @@
+[
+  {
+    "id": "session1_1",
+    "name": "登壇者名",
+    "image": "session1_1.jpg",
+		"affiliation": "株式会社Lumilinks代表取締役 / デジタルプロダクトデザイナー"
+  },
+	{
+		"id": "session2_1",
+		"name": "登壇者名",
+		"image": "session2_1.jpg",
+		"affiliation": "株式会社Lumilinks代表取締役 / デジタルプロダクトデザイナー"
+	},
+	{
+		"id": "session2_2",
+		"name": "登壇者名",
+		"image": "session2_2.jpg",
+		"affiliation": "株式会社Lumilinks代表取締役 / デジタルプロダクトデザイナー"
+	},
+	{
+		"id": "session3_1",
+		"name": "登壇者名",
+		"image": "session3_1.jpg",
+		"affiliation": "株式会社Lumilinks代表取締役 / デジタルプロダクトデザイナー"
+	},
+	{
+		"id": "session3_2",
+		"name": "登壇者名",
+		"image": "session3_2.jpg",
+		"affiliation": "株式会社Lumilinks代表取締役 / デジタルプロダクトデザイナー"
+	},
+	{
+		"id": "session3_3",
+		"name": "登壇者名",
+		"image": "session3_3.jpg",
+		"affiliation": "株式会社Lumilinks代表取締役 / デジタルプロダクトデザイナー"
+	}
+]

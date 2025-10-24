@@ -2,18 +2,25 @@
 import '../styles/terms.css'
 import Layout from '../layouts/Layout.astro'
 
-import HeaderLower from '../components/HeaderLower.astro'
-import Footer from '../components/Footer.astro'
-import TermItem from '../components/TermItem.astro'
+import HeaderLower from '@/components/header/HeaderLower.astro'
+import Footer from '@/components/footer/Footer.astro'
+
+import TermItem from '@/components/util/TermItem.astro'
+import SectionTitle from '@/components/util/SectionTitle.astro'
+import BackToHomeBtn from '@/components/util/BackToHomeBtn.astro'
 ---
 
 <Layout>
   <HeaderLower />
-  <main class="main">
-    <div class="inner">
+  <main class="main util-lower-main">
+    <div class="inner inner--term">
       <div class="terms">
         <div class="terms-head">
-          <h1>KNOTS 2026 プライバシーポリシー</h1>
+          <SectionTitle
+            en="Privacy policy"
+            ja="プライバシーポリシー"
+            heading_lv='h1'
+          />
           <p class="read">
             このプライバシーポリシー（以下「本ポリシー」）は、KNOTS
             2026事務局（以下「本事務局」）が運営する「KNOTS
@@ -118,8 +125,11 @@ import TermItem from '../components/TermItem.astro'
               </li>
             </ul>
           </TermItem>
-					<div class="terms-date">2025年8月1日　初版制定</div>
+          <p class="terms-date">2025年8月1日　初版制定</p>
         </div>
+        <div class="btn-wrapper">
+					<BackToHomeBtn />
+				</div>
       </div>
     </div>
   </main>
@@ -127,13 +137,20 @@ import TermItem from '../components/TermItem.astro'
 </Layout>
 
 <style>
-  .term-contents {
-    counter-set: termItem;
-  }
-	.terms-date {
-		text-align: right;
-	}
-  .main {
-    padding-bottom: 120px;
+  @layer components {
+    .terms {
+      padding-block: 260px 120px;
+    }
+    .term-contents {
+      counter-set: termItem;
+    }
+    .terms-date {
+      font-size: rem(17);
+      color: var(--color_text_grey);
+    }
+    .btn-wrapper {
+			margin-top: 48px;
+			text-align: center;
+		}
   }
 </style>

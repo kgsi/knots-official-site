@@ -1,0 +1,60 @@
+---
+const { timetableData, stage } = Astro.props
+import SessionCard from '@/components/top/modules/SessionCard.astro'
+---
+
+{timetableData.map((item) => (
+  <div class="row">
+    {(stage === 'main' ? item.content_main : item.content_sub).map((content) => (
+      content.type === 'text'
+      ? (
+        <div class="text-schedule">
+          <dl>
+            <dt class="font-en">{content.time}</dt>
+            <dd>{content.title}</dd>
+          </dl>
+        </div>
+      )
+      : content.type === 'card'
+      ? (
+        <SessionCard
+        time={content.time}
+        duration={content.duration}
+        tag={content.tag}
+        title={content.title}
+        speakers={content.speakers}
+        />
+      )
+      : content.type === 'spacer'
+      ? (
+        <div class="spacer">
+        </div>
+      )
+      : null
+    ))}
+  </div>
+))}
+
+<style>
+  @layer components {
+    .row {
+      display: flex;
+      flex-direction: column;
+      &:has(.session-card) {
+        padding-top: 36px;
+        + .row:has(.session-card) {
+          padding-top: 0;
+        }
+      }
+    }
+    .text-schedule {
+      padding-block: 42px;
+      dl {
+        display: flex;
+        justify-content: space-between;
+        font-size: rem(20);
+        font-weight: 500;
+      }
+    }
+  }
+</style>

@@ -1,0 +1,145 @@
+---
+interface Props {
+  list: {
+    href: string;
+    job: string;
+    label: string;
+    company: string;
+  }[];
+}
+
+const { list } = Astro.props;
+---
+
+<div class="btn-container">
+  {list.map(({ href, job, label, company }) => (
+    <a href={href} target="_blank" class="btn">
+      <div class="detail">
+        <p class="job">{job}</p>
+        <p class="label">{label}</p>
+      </div>
+      <p class="company">{company}</p>
+      <span class="icon-arrow"></span>
+    </a>
+  ))}
+</div>
+
+<style>
+  @layer components {
+    .btn-container {
+			display: grid;
+      grid-template-columns: 1fr auto calc(64px + 24px + 20px); /* icon width + 右側余白 + 左側gapの調整 */
+      column-gap: 72px;
+      row-gap: 32px;
+		}
+    .btn {
+      display: grid;
+      grid-column: span 3;
+      grid-template-columns: subgrid;
+      align-items: center;
+      background-color: var(--color_white);
+      color: var(--color_text);
+      border-radius: 8px;
+      padding: 32px 24px;
+    }
+    .detail {
+      display: flex;
+      flex-direction: column;
+      row-gap: 8px;
+    }
+    .job {
+      text-box: var(--text_box_trim);
+      font-feature-settings: 'pwid' on, 'palt' on;
+      font-size: rem(15);
+      font-weight: 300;
+      line-height: 1.5;
+    }
+    .label {
+      font-size: rem(20);
+      font-weight: 600;
+      line-height: 1.35;
+      letter-spacing: 0.01em;
+    }
+    .company {
+      justify-self: end;
+      font-size: rem(17);
+      line-height: 2.0;
+      font-weight: 600;
+      text-box: var(--text_box_trim);
+    }
+    .icon-arrow {
+      justify-self: end;
+      display: inline-block;
+      width: 64px;
+      aspect-ratio: 1;
+      color: inherit;
+      background-color: var(--color_primary);
+      border-radius: 50%;
+      position: relative;
+      &:before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        margin: auto;
+        width: 50%;
+        min-width: 0;
+        aspect-ratio: 1;
+        background-image: url('/assets/common/icon_arrow.svg');
+        background-size: contain;
+        background-repeat: no-repeat;
+      }
+    }
+    @media (--under-pc) {
+      .btn-container {
+        grid-template-columns: 1fr;
+      }
+      .btn {
+        display: grid;
+        grid-template-columns: 1fr auto;
+        column-gap: 40px;
+        row-gap: 12px;
+        grid-template-areas: 
+          'detail icon'
+          'company icon';
+      }
+      .detail {
+        grid-area: detail;
+      }
+      .company {
+        grid-area: company;
+        justify-self: start;
+      }
+      .icon-arrow {
+        grid-area: icon;
+      }
+    }
+    @media (--sp) {
+      .btn-container {
+        row-gap: 16px;
+      }
+      .btn {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 24px 16px;
+        row-gap: 24px;
+        position: relative;
+      }
+      .job {
+        font-size: rem(14);
+      }
+      .label {
+        font-size: rem(18);
+      }
+      .company {
+        font-size: rem(16);
+      }
+      .icon-arrow {
+        width: 24px;
+        position: absolute;
+        top: 8px;
+        right: 8px;
+      }
+    } 
+  }
+</style>

@@ -1,0 +1,157 @@
+---
+import Image from 'astro/components/Image.astro';
+
+import waveRight from '@assets/top/wave_conference_right.png';
+import waveLeft from '@assets/top/wave_conference_left.png';
+
+import SectionTitle from '@/components/util/SectionTitle.astro';
+---
+
+<div class="conference">
+  <Image
+    src={waveRight}
+    alt=""
+    width={365}
+    height={796}
+    class="wave wave--right only-pc"
+  />
+  <Image
+    src={waveLeft}
+    alt=""
+    width={496}
+    height={873}
+    class="wave wave--left only-pc"
+  />
+	<div class="inner">
+    <SectionTitle
+      en="Conference overview"
+      ja="カンファレンス概要"
+    />
+    <dl class="list">
+      <div class="item">
+        <dt class="term">カンファレンステーマ</dt>
+        <dd class="desc">
+          <p>
+            次世代に求められる技術と人材、そして組織とは。
+          </p>
+          <p>
+            AIの進化により、個人・組織・技術の関係は急速に変化しています。<br>
+            本カンファレンスでは、<br>
+            「個人への問い：変化に対応できるスキルとは？」<br>
+            「組織への問い：変化に強いチームをどうつくるか？」<br>
+            「技術への問い：AIは可能性をどう拡張するのか？」<br>
+            という三つの視点から、変化の時代に私たちがどう向き合うべきかを探ります。
+          </p>
+        </dd>
+      </div>
+      <div class="item">
+        <dt class="term">トークセッション</dt>
+        <dd class="desc">
+          <p>
+            業界をリードする実践者によるプレゼンテーション。
+          </p>
+          <p>
+            デザイン、AI、エンジニアリングの各分野で第一線を走る専門家が登壇し、実際のプロジェクト事例や知見をもとに「次の現場」で必要となる考え方を共有します。
+          </p>
+        </dd>
+      </div>
+      <div class="item">
+        <dt class="term">ディスカッションセッション</dt>
+        <dd class="desc">
+          <p>
+            複数の登壇者同士が議論する対話型セッション。
+          </p>
+          <p>
+            専門領域を持つ登壇者各人が視点を交わし、来場者の方々から質問や意見をもらいつつ、トークいただきます。
+          </p>
+        </dd>
+      </div>
+      <div class="item">
+        <dt class="term">交流セッション</dt>
+        <dd class="desc">
+          <p>
+            学びを“交流”で深める、カジュアルなディスカッション。
+          </p>
+          <p>
+            カンファレンスを通して行う交流エリアでは、登壇者や他の参加者と自由に意見交換ができる場を提供します。<br>
+            飲食を交えながら、発表内容の延長線上で新しいつながりをつくる時間です。
+          </p>
+        </dd>
+      </div>
+    </dl>
+	</div>
+</div>
+
+<style>
+	@layer components {
+		.conference {
+      padding-block: 160px;
+      position: relative;
+		}
+    .wave {
+      position: absolute;
+    }
+    .wave--right {
+      top: 0;
+      right: -203px;
+    }
+    .wave--left {
+      bottom: 0;
+      left: -251px;
+    }
+    .list {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      counter-reset: conference;
+    }
+    .item {
+      display: grid;
+      grid-column: span 2;
+      grid-template-columns: subgrid;
+      border-bottom: 1px solid var(--color_grey);
+      padding-block: 64px;
+      counter-increment: conference;
+      &:first-child {
+        border-top: 1px solid var(--color_grey);
+      }
+    }
+    .term {
+      font-size: rem(20);
+      font-weight: 600;
+      position: relative;
+      line-height: 1.5;
+      &:before {
+        position: relative;
+        content: '0'counter(conference);
+        color: #0064ff;
+        font-family: var(--font_en);
+        font-size: rem(12);
+        font-weight: 400;
+        vertical-align: top;
+        margin-right: 0.5em;
+      }
+    }
+    .desc {
+      font-size: rem(17);
+      font-weight: 600;
+      line-height: 2.0;
+      color: var(--color_text_grey);
+      p + p {
+        margin-top: 1.5em;
+      }
+    }
+		@media (--under-pc) {
+      .conference {
+        padding-block: 80px;
+      }
+      .list {
+        grid-template-columns: 1fr;
+      }
+      .item {
+        grid-column: auto;
+        row-gap: 24px;
+        padding-block: 40px;
+      }
+		}
+	}
+</style>

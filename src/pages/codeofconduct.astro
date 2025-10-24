@@ -2,14 +2,14 @@
 import "../styles/terms.css";
 import Layout from '../layouts/Layout.astro';
 
-import HeaderLower from '../components/HeaderLower.astro';
-import Footer from '../components/Footer.astro';
-import TermItem from '../components/TermItem.astro';
+import HeaderLower from '@/components/header/HeaderLower.astro';
+import Footer from '@/components/footer/Footer.astro';
+import TermItem from '@/components/util/TermItem.astro'
 ---
 
 <Layout>
 	<HeaderLower />
-	<main class="main">
+	<main class="main util-lower-main">
 		<div class="inner">
 				<div class="terms">
 				<div class="terms-head">

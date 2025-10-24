@@ -5,7 +5,7 @@
 <style>
   @layer components {
     .wrapper {
-      background-image: url('/assets/wave_header.png'), url('/assets/wave_footer.png');
+      background-image: url('/assets/top/wave_kv_header.png'), url('/assets/top/wave_kv_footer.png');
       background-color: var(--color_primary);
       background-size: 100% auto, 100% auto;
       background-repeat: repeat-x, repeat-x;
@@ -14,13 +14,20 @@
       padding-block: 264px max(200px, pw(308));
       position: relative;
     }
+    @media (--tb) {
+      .wrapper {
+        background-image: url('/assets/top/wave_kv_header_tb.png'), url('/assets/top/wave_kv_footer_tb.png');
+        background-position: top center, bottom center;
+        background-size: 100% auto, 100% auto;
+        padding-block: 218px vwTb(294);
+      }
+    }
     @media (--sp) {
       .wrapper {
-        background-image: url('/assets/wave_header_sp.png'), url('/assets/wave_footer_sp.png');
+        background-image: url('/assets/top/wave_kv_header_sp.png'), url('/assets/top/wave_kv_footer_sp.png');
         background-color: var(--color_primary);
         background-position: top center, bottom center;
         background-size: 100% auto, 100% auto;
-        background-blend-mode: luminosity;
         padding-block: vw(195) vw(186);
       }
     }

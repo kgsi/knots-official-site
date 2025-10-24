@@ -1,0 +1,67 @@
+---
+import SectionTitle from '@/components/util/SectionTitle.astro';
+import Btn from '@/components/util/Btn.astro';
+---
+
+<div class="job-board">
+	<div class="inner">
+		<SectionTitle
+			en="Job Board"
+			ja="ジョブボード"
+			modifier={['center', 'white']}
+		/>
+		<p class="lead">
+			スポンサー企業様の様々な求人情報を掲載しています。<br>
+			デザイナー、エンジニア、プロダクトマネージャーなど、<br>
+			多種多様な採用情報をぜひご覧ください。
+		</p>
+		<div class="btn-wrapper">
+			<Btn
+				href="/job-board"
+				txt="求人情報を見る"
+				modifier="wide"
+			/>
+		</div>
+	</div>
+</div>
+
+<style>
+	@layer components {
+		.job-board {
+			background-color: var(--color_primary);
+			color: var(--color_white);
+			padding-block: 120px 142px;
+      background-image: url('/assets/top/wave_job-board_top.png'), url('/assets/top/wave_job-board_bottom.png');
+			background-blend-mode: luminosity;
+			background-position: top right, bottom left;
+			background-size: calc(1688px / 2) auto, calc(1552px / 2) auto;
+			background-repeat: no-repeat;
+		}
+		.lead {
+			font-size: rem(20);
+			font-weight: 600;
+			line-height: 1.5;
+			text-align: center;
+		}
+		.btn-wrapper {
+			margin-top: 72px;
+			text-align: center;
+		}
+		@media (--sp) {
+			.job-board {
+				padding-block: 120px 200px;
+				background-image: url('/assets/top/wave_job-board_top_sp.png'), url('/assets/top/wave_job-board_bottom_sp.png');
+				background-size: vw(375) auto, vw(328) auto;
+			}
+			.lead {
+				text-align: left;
+				font-size: rem(18);
+				line-height: 1.8;
+			}
+			.btn-wrapper {
+				margin-top: 48px;
+				width: 100%;
+			}
+		}
+	}
+</style>

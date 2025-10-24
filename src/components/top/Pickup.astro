@@ -1,0 +1,111 @@
+---
+import SectionTitle from '@/components/util/SectionTitle.astro';
+import SessionItem from './modules/SessionItem.astro';
+import Speaker from './modules/Speaker.astro';
+import speakers from '@/data/speakers.json';
+
+const images = import.meta.glob('@/assets/top/speakers/*.{png,jpg,jpeg,webp,gif}', { eager: true });
+
+const speakerImages = Object.fromEntries(
+	speakers.map(speaker => {
+		const imagePath = `/src/assets/top/speakers/${speaker.image}`;
+		const imageModule = images[imagePath] as any;
+		return [
+			speaker.id,
+			imageModule?.default || imageModule || undefined
+		];
+	})
+);
+
+---
+
+<div class="pickup">
+	<div class="inner">
+    <SectionTitle
+      en="Pickup"
+      ja="ピックアップ"
+    />
+		<ul class="list">
+			<li class="item">
+				<SessionItem
+					title="KNOTSが生み出す全く新しいイベントビジョン/新しいイベントビジョン"
+					description="多様な人々やアイデアが結び合うことで、社会を動かす原動力となるイベントへ。KNOTSは「つながり」を核に、これまでにないビジョンを提示します。本セッションでは、未来のイベントデザインの方向性を探ります。">
+					<Speaker
+						name="登壇者名"
+						affiliation="株式会社Lumilinks代表取締役 / デジタルプロダクトデザイナー"
+						img={speakerImages.session1_1}
+					/>
+				</SessionItem>
+			</li>
+			<li class="item">
+				<SessionItem
+					title="多様化が進む現代で、本当に良いデザインとは？"
+					description="社会の多様化が進む現代において、「良いデザイン」とは一体何を意味するのでしょうか。美しさや機能性だけではなく、人・文化・価値観をどう取り込み、共感を生むかが問われています。本セッションでは、多様性を受け入れながら進化するデザインのあり方を探求します。">
+					<Speaker
+						name="登壇者名"
+						affiliation="株式会社Lumilinks代表取締役 / デジタルプロダクトデザイナー"
+						img={speakerImages.session2_1}
+					/>
+					<Speaker
+						name="登壇者名"
+						affiliation="株式会社Lumilins代表取締役 / デジタルプロダクトデザイナー"
+						img={speakerImages.session2_2}
+					/>
+				</SessionItem>
+			</li>
+			<li class="item">
+				<SessionItem
+					title="KNOTSが生み出す全く新しいイベントビジョン/新しいイベントビジョン"
+					description="「AIが人間を超える」のではなく、「AIと人間が共に創る」。本セッションでは、エンジニアリングの現場で生成AIをどのように活かすのか、そして人間だからこそできる判断や発想との融合をディスカッションします。参加者の皆さんと共に“新しい未来”を描いていきます。">
+					<Speaker
+						name="登壇者名"
+						affiliation="株式会社Lumilinks代表取締役 / デジタルプロダクトデザイナー"
+						img={speakerImages.session3_1}
+					/>
+					<Speaker
+						name="登壇者名"
+						affiliation="株式会社Lumilinks代表取締役 / デジタルプロダクトデザイナー"
+						img={speakerImages.session3_2}
+					/>
+					<Speaker
+						name="登壇者名"
+						affiliation="株式会社Lumilinks代表取締役 / デジタルプロダクトデザイナー"
+						img={speakerImages.session3_3}
+					/>
+				</SessionItem>
+			</li>
+		</ul>
+	</div>
+</div>
+
+<style>
+	@layer components {
+		.pickup {
+			padding-block: 100px 176px;
+			position: relative;
+			&:before {
+				content: '';
+				position: absolute;
+				top: 0;
+				left: 50%;
+				translate: -50% 0;
+				width: 100%;
+				height: auto;
+				aspect-ratio: 1440 / 1472;
+				background-image: url('/assets/top/wave_pickup.png');
+				background-size: 100% auto;
+				mix-blend-mode: overlay;
+				background-repeat: no-repeat;
+				z-index: var(--z_behind);
+			}
+		}
+		.lead {
+			font-feature-settings: 'halt' on;
+			font-size: rem(20);
+			font-weight: 600;
+			line-height: 150%;
+			letter-spacing: 0.01em;
+			margin-bottom: 52px;
+		}
+	}
+</style>

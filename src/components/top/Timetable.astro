@@ -1,0 +1,166 @@
+---
+
+import timetableData from '@/data/timetable.json';
+
+import SectionTitle from '@/components/util/SectionTitle.astro';
+import TimeTableRow from '@/components/top/modules/TimeTableRow.astro';
+
+---
+<div class="timetable">
+  <div class="inner">
+    <div class="head">
+      <SectionTitle
+        en="Time table"
+        ja="タイムテーブル"
+        modifier={["center", "white"]}
+      />
+      <p class="lead">
+        スピーカーセッション、パネルセッション、エクスチェンジセッションがメインステージとサブステージで行われます。<br>登壇者と参加者が垣根を超えて“交わる”スペシャルなセッションを紹介。
+      </p>
+    </div>
+    <div class="body">
+      <div class="col col--time">
+        <div class="row"></div>
+        {timetableData.map((item) => (
+          <div class="row">
+            {item.timeline &&
+              <div class="time-label" style={item.timeline_position ? `--this_time_position: ${item.timeline_position};` : ''}>
+                <span class="font-en">{item.timeline}</span>
+              </div>
+            }
+          </div>
+        ))}
+      </div>
+      <div class="col col--main">
+        <div class="row">
+          <hgroup class="stage-label">
+            <h3 class="stage-label-body">メインステージ</h3>
+            <p class="stage-label-sub">キーノート/トーク</p>
+          </hgroup>
+        </div>
+        <TimeTableRow timetableData={timetableData} stage="main"/>
+      </div>
+      <div class="col col--sub">
+        <div class="row">
+          <hgroup class="stage-label">
+            <h3 class="stage-label-body">サブステージ</h3>
+            <p class="stage-label-sub">トーク/ディスカッション</p>
+          </hgroup>
+        </div>
+        <TimeTableRow timetableData={timetableData} stage="sub"/>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+	@layer components {
+    .head {
+      display: grid;
+      place-items: center;
+      align-content: center;
+      background-color: var(--color_primary);
+      width: 540px;
+      aspect-ratio: 1;
+      margin-inline: auto;
+      border-radius: 50%;
+      padding: 90px;
+      margin-bottom: 180px;
+    }
+    .lead {
+      color: #fff;
+      font-size: rem(20);
+      font-weight: 600;
+      line-height: 1.2;
+      letter-spacing: 0.01em;
+    }
+    .body {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      column-gap: 160px;
+    }
+    .col {
+      display: grid;
+      grid-template-rows: subgrid;
+      grid-row: 1 / span 100;
+      row-gap: 16px;
+    }
+    .col--time {
+      grid-column: 1 / span 2;
+      width: min(calc(100vw - 152px), 100%);
+      justify-self: end;
+      z-index: var(--z_under);
+    }
+    .col--main {
+      grid-column: 1;
+    }
+    .col--sub {
+      grid-column: 2;
+    }
+    .row {
+      display: flex;
+      flex-direction: column;
+      &:has(.session-card) {
+        padding-top: 36px;
+        + .row:has(.session-card) {
+          padding-top: 0;
+        }
+      }
+    }
+    .stage-label {
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      row-gap: 4px;
+      padding-bottom: 32px;
+    }
+    .stage-label-body {
+      color: var(--color_primary);
+      font-size: rem(32);
+      line-height: 1.5;
+      font-weight: 600;
+    }
+    .stage-label-sub {
+      font-size: rem(12);
+      font-weight: 300;
+      line-height: 1.2;
+      color: var(--color_text_grey);
+    }
+    .time-label {
+      display: flex;
+      align-items: center;
+      position: relative;
+      height: 100%;
+      span {
+        position: absolute;
+        top: var(--this_time_position, 0);
+        right: calc(100% + 16px);
+        transform: translate3d(0 , -50%, 0);
+        color: var(--color_primary);
+        font-weight: 500;
+        font-size: rem(20);
+      }
+      &:after {
+        content: '';
+        flex: 1 1 100%;
+        height: 100%;
+        background-image: linear-gradient(to right, color-mix(in srgb, var(--color_primary) 80%, transparent 80%) 50%, transparent 50%);
+        background-size: 16px 1px;
+        background-repeat: repeat-x;
+        background-position: 0 var(--this_time_position, 0);
+      }
+    }
+    @media (--tb) {
+      .body {
+        column-gap: vwTb(88);
+      }
+    }
+		@media (--sp) {
+      .body {
+        overflow: hidden;
+        column-gap: vw(64);
+      }
+      
+		}
+	}
+</style>

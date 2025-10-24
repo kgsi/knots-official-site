@@ -1,18 +1,19 @@
 ---
+import SectionTitle from '@/components/util/SectionTitle.astro';
 import SponsorLogo from './SponsorLogo.astro';
 
-import chotinc from '@assets/sponsors/chotinc.png';
-import cybozu from '@assets/sponsors/cybozu.png';
-import figma from '@assets/sponsors/figma.png';
-import findy from '@assets/sponsors/findy.png';
-import gaudiy from '@assets/sponsors/gaudiy.png';
-import money_forward from '@assets/sponsors/money_forward.png';
-import morisawa from '@assets/sponsors/morisawa.png';
-import concent from '@assets/sponsors/concent.png';
-import notion from '@assets/sponsors/notion.png';
-import web_designing from '@assets/sponsors/web_designing.png';
-import cocoda from '@assets/sponsors/cocoda.png';
-import reazon from '@assets/sponsors/reazon.png';
+import chotinc from '@assets/top/sponsors/chotinc.png';
+import cybozu from '@assets/top/sponsors/cybozu.png';
+import figma from '@assets/top/sponsors/figma.png';
+import findy from '@assets/top/sponsors/findy.png';
+import gaudiy from '@assets/top/sponsors/gaudiy.png';
+import money_forward from '@assets/top/sponsors/money_forward.png';
+import morisawa from '@assets/top/sponsors/morisawa.png';
+import concent from '@assets/top/sponsors/concent.png';
+import notion from '@assets/top/sponsors/notion.png';
+import web_designing from '@assets/top/sponsors/web_designing.png';
+import cocoda from '@assets/top/sponsors/cocoda.png';
+import reazon from '@assets/top/sponsors/reazon.png';
 
 const images = {
 	chotinc,
@@ -32,7 +33,11 @@ const images = {
 
 <section class="sponsors">
 	<div class="inner">
-		<h2 class="font-en">SPONSORS</h2>
+		<SectionTitle
+      en="Sponsors"
+      ja="スポンサー"
+			modifier="center"
+    />
 		<div class="sponsors-wrapper">
 			<div class="item">
 				<div class="logo-wrapper">

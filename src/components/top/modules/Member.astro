@@ -1,0 +1,63 @@
+---
+import { Image } from 'astro:assets';
+import type { ImageMetadata } from 'astro';
+
+interface Props {
+  img?: ImageMetadata;
+  name?: string;
+  href?: string;
+}
+const { img = null, name = null, href = null } = Astro.props;
+---
+
+{href
+  ? (
+    <a class="member" href={`https://x.com/${href}`} target="_blank">
+      {img && (
+        <Image src={img} alt='' class="avatar"/>
+      )}
+      <p>{name}</p>
+    </a>
+  )
+  : (
+    <div class="member">
+      {img && (
+        <Image src={img} alt='' class="avatar"/>
+      )}
+      <p>{name}</p>
+    </div>
+  )
+}
+
+<style>
+  @layer components {
+    .member {
+      display: flex;
+      align-items: center;
+      column-gap: 8px;
+      color: var(--this_color, var(--color_text));
+      transition: color var(--transition_hover);
+      padding-right: 8px;
+    }
+    a.member {
+      @media(--hover) {
+        &:hover {
+          --this_avatar_filter: brightness(105%);
+        }
+      }
+    }
+    .avatar {
+      width: 64px;
+      height: auto;
+      aspect-ratio: 1;
+      object-fit: cover;
+      transition: filter var(--transition_hover);
+      filter: var(--this_avatar_filter, none);
+    }
+    @media (--sp) {
+      .avatar {
+        width: min(vw(48), 48px);
+      }
+    }
+  }
+</style>

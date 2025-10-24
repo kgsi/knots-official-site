@@ -1,0 +1,76 @@
+---
+import "../styles/terms.css"
+import Layout from '@/layouts/Layout.astro'
+
+import HeaderLower from '@/components/header/HeaderLower.astro'
+import Footer from '@/components/footer/Footer.astro'
+
+import SectionTitle from '@/components/util/SectionTitle.astro'
+import BackToHomeBtn from '@/components/util/BackToHomeBtn.astro'
+
+import JobBtns from "@/components/job-board/JobBtns.astro"
+
+const jobList = [
+	{
+		href: "#",
+		job: "/プロダクトデザイナー",
+		label: "チームワークを届ける、プロダクトデザイナー募集中！",
+		company: "サイボウズ株式会社"
+	},
+	{
+		href: "#",
+		job: "/デザイナー",
+		label: "プロダクトデザイナー(オープンポジション)",
+		company: "Visionalグループ株式会社ビズリーチ"
+	},
+	{
+		href: "#",
+		job: "/プロダクトデザイナー",
+		label: "「つくる人」のキャリアをデザインの力で加速させるプロダクトデザイナー（マネージャー候補）募集！",
+		company: "サイボウズ株式会社"
+	},
+	{
+		href: "#",
+		job: "/プロダクトデザイナー",
+		label: "チームワークを届ける、プロダクトデザイナー募集中！",
+		company: "サイボウズ株式会社"
+	}
+];
+
+
+---
+
+<Layout>
+	<HeaderLower />
+	<main class="main util-lower-main">
+		<div class="inner">
+			<div class="job-board">
+				<SectionTitle
+					en="Job Board"
+					ja="ジョブボード"
+					modifier={['center']}
+					heading_lv='h1'
+				/>
+				<div class="body">
+					<JobBtns list={jobList} />
+					<div class="btn-wrapper">
+						<BackToHomeBtn />
+					</div>
+				</div>
+			</div>
+		</div>
+	</main>
+	<Footer />
+</Layout>
+
+<style>
+	@layer components {
+		.job-board {
+			padding-block: 260px 160px;
+		}
+		.btn-wrapper {
+			margin-top: 48px;
+			text-align: center;
+		}
+	}
+</style>

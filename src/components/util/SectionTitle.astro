@@ -1,0 +1,64 @@
+---
+interface Props {
+  en?: string;
+  ja?: string;
+  modifier?: [string] | string;
+  heading_lv?: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
+}
+
+const { en='', ja='', modifier=null, heading_lv='h2' } = Astro.props
+const HeadingTag = heading_lv;
+---
+
+<hgroup
+  class={`section-title${
+    Array.isArray(modifier)
+      ? modifier.map(m => ` section-title--${m}`).join('')
+      : modifier ? ` section-title--${modifier}` : ''
+  }`}
+>
+  <span class="en font-en">{en}</span>
+  <HeadingTag class="ja">{ja}</HeadingTag>
+</hgroup>
+
+<style>
+  @layer components {
+    .section-title {
+      text-align: left;
+      display: grid;
+      row-gap: 16px;
+      margin-bottom: 64px;
+      .en {
+        display: block;
+        text-transform: uppercase;
+        color: var(--color_dark_grey);
+        font-size: var(--this_font_size_en, rem(16));
+        font-weight: 300;
+      }
+      .ja {
+        font-size: var(--this_font_size_ja, rem(40));
+        font-weight: 600;
+        color: var(--color_primary);
+      }
+    }
+    .section-title--center {
+      text-align: center;
+    }
+    .section-title--white {
+      .en {
+        color: var(--color_bg_white);
+      }
+      .ja {
+        color: var(--color_white);
+      }
+    }
+    @media (--sp) {
+      .section-title {
+        row-gap: 12px;
+        margin-bottom: 48px;
+        --this_font_size_en: rem(14);
+        --this_font_size_ja: rem(24);
+      }
+    }
+  }
+</style>

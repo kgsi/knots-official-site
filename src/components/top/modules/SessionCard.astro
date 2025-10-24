@@ -1,0 +1,91 @@
+---
+interface Props {
+  time?: string;
+  duration?: string;
+  tag?: string;
+  title?: string;
+  speakers?: string[];
+}
+const { time = null, duration = null, tag = null, title = null, speakers = [] } = Astro.props;
+
+import Speaker from './Speaker.astro';
+
+import speakersData from '@/data/speakers.json';
+
+const images = import.meta.glob('@/assets/top/speakers/*.{png,jpg,jpeg,webp,gif}', { eager: true });
+const speakerImages = Object.fromEntries(
+	speakersData.map(speaker => {
+		const imagePath = `/src/assets/top/speakers/${speaker.image}`;
+		const imageModule = images[imagePath] as any;
+		return [
+			speaker.id,
+			imageModule?.default || imageModule || undefined
+		];
+	})
+);
+const getSpeakerById = (id: string) => {
+  return speakersData.find(speaker => speaker.id === id);
+}
+
+---
+
+<div class="session-card">
+  <div class="head">
+    <span class="time font-en">{time}<span class="duration">({duration})</span></span>
+    <span class="tag font-en">{tag}</span>
+  </div>
+  <h4 class="title">{title}</h4>
+  <ul class="speakers">
+    {speakers?.map((speakerId) => {
+      const speaker = getSpeakerById(speakerId);
+      return speaker ? (
+        <li>
+          <Speaker img={speakerImages[speaker.id]} name={speaker.name} affiliation={speaker.affiliation} modifier="timetable"/>
+        </li>
+      ) : null;
+    })}
+  </ul>
+</div>
+
+<style>
+	@layer components {
+    .session-card {
+      background-color: #fff;
+      border-radius: 8px;
+      padding: 16px 24px;
+      display: grid;
+      row-gap: 16px;
+    }
+    .head {
+      display: flex;
+      justify-content: space-between;
+    }
+    .time {
+      font-size: rem(16);
+      display: flex;
+      align-items: center;
+      column-gap: 4px;
+    }
+    .duration {
+      color: var(--color_text_grey);
+      font-size: rem(12);
+    }
+    .tag {
+      color: var(--color_primary);
+      font-size: rem(12);
+    }
+    .title {
+      font-size: rem(20);
+      font-weight: 600;
+      line-height: 1.5;
+    }
+    .speakers {
+      display: grid;
+      row-gap: 16px;
+    }
+		@media (--sp) {
+      
+		}
+	}
+
+</style>

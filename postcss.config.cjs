@@ -1,4 +1,5 @@
 const desktopBaseWidth = 1440; // for calculation with vw when tablet
+const tabletBaseWidth = 880; // for vw calculation
 const mobileBaseWidth = 375; // for vw calculation
 const vwPassThroughRatio = 1; // for decimal point problems with small values.
 
@@ -21,7 +22,11 @@ module.exports = {
           return `${getRoundedVw((num / desktopBaseWidth) * 100)}vw`;
         },
         rem(num) {
-          return `${Math.round(10 * num / 16) / 10}rem`;
+          return `${Math.floor(100 * num / 16) / 100}rem`;
+        },
+        vwTb(num) {
+          if (Math.abs(num) <= vwPassThroughRatio) return `${num}px`;
+          return `${getRoundedVw((num / tabletBaseWidth) * 100)}vw`;
         },
         vw(num) {
           if (Math.abs(num) <= vwPassThroughRatio) return `${num}px`;

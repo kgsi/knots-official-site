@@ -1,0 +1,33 @@
+---
+import { Image } from "astro:assets"
+import knots from "@assets/common/logo_knots.svg"
+---
+
+<header class="header">
+	<a href="/">
+		<Image src={knots} alt="KNOTS" class="logo"/>
+	</a>
+</header>
+
+<style>
+	@layer components {
+		.header {
+			padding: 40px;
+			position: fixed;
+			z-index: var(--z_header);
+		}
+		.logo {
+			width: 143px;
+			height: auto;
+			filter: brightness(0);
+		}
+		@media (--sp) {
+			.header {
+				padding: 24px;
+			}
+			.logo {
+				width: vw(90);
+			}
+		}
+	}
+</style>

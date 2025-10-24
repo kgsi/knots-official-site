@@ -1,49 +1,58 @@
+---
+import SectionTitle from '@/components/util/SectionTitle.astro';
+---
+
 <section class="information">
 	<div class="inner">
-		<h2 class="font-en">INFORMATION</h2>
+    <SectionTitle
+      en="Information"
+      ja="インフォメーション"
+    />
 		<div class="information-wrapper">
-			<div class="item">
-				<h3 class="line-heading"><span>開催情報</span></h3>
-				<div class="reading-inner">
-					<dl class="info-dl">
-						<div class="dl-item">
-							<dt>セッション</dt>
-							<dd>合計30セッション程度</dd>
-						</div>
-						<div class="dl-item">
-							<dt>人数</dt>
-							<dd>200人 (予定)</dd>
-						</div>
-						<div class="dl-item">
-							<dt>対象者</dt>
-							<dd>デザイン・エンジニアリング現場のデザイナー、エンジニア<br class="only-pc">プロダクトマネージャーや事業推進、生成AI活用を担うリーダー</dd>
-						</div>
-						<div class="dl-item">
-							<dt>日時</dt>
-							<dd>2026年1月25日(日)</dd>
-						</div>
-						<div class="dl-item">
-							<dt>主催</dt>
-							<dd>CrossRel（株式会社Lumilinks）</dd>
-						</div>
-					</dl>
+			<dl class="info-dl">
+				<div class="dl-item">
+					<dt>イベント名</dt>
+					<dd>KNOTS 2026┃デザイン・AI・エンジニアリング<br>境界を結び、共創をひらくカンファレンス</dd>
 				</div>
-			</div>
-			<div class="item">
-				<h3 class="line-heading"><span>開催場所</span></h3>
-				<div class="reading-inner">
-					<p class="txt">サイボウズ本社スペース</p>
-					<div class="map-wrapper">
-						<div class="map">
-							<iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d2920.7548529157525!2d139.77406452870076!3d35.68240307358832!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60188c46de1a941d%3A0x4fe7d8e930a3b4e!2z44K144Kk44Oc44Km44K644ix!5e0!3m2!1sja!2sus!4v1758683536550!5m2!1sja!2sus" width="760" height="400" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Google Maps" class="map-iframe"></iframe>
-						</div>
-						<div class="address">
-							<p>〒103-0027<span class="pc-space"></span><br class="only-sp">東京都中央区日本橋2-7-1 東京日本橋タワー 27階</p>
-							<a href="https://www.google.com/maps/place/%E3%82%B5%E3%82%A4%E3%83%9C%E3%82%A6%E3%82%BA%E3%88%B1/@35.682075,139.773887,15z/data=!4m6!3m5!1s0x60188c46de1a941d:0x4fe7d8e930a3b4e!8m2!3d35.6820753!4d139.7738867!16s%2Fg%2F1wg5x_jy?hl=ja&entry=ttu&g_ep=EgoyMDI1MDkyMy4wIKXMDSoASAFQAw%3D%3D" target="_blank" class="link-color">Open Google Map</a>
-						</div>
-					</div>
+				<div class="dl-item">
+					<dt>開催日時</dt>
+					<dd>2026年1月25日(日)11:00-18:30</dd>
 				</div>
-			</div>
+				<div class="dl-item">
+					<dt>人数</dt>
+					<dd>200人 (予定)</dd>
+				</div>
+				<div class="dl-item">
+					<dt>対象者</dt>
+					<dd>
+						<ul>
+							<li>プロダクト開発やサービス設計に関わるデザイナー、エンジニア、プロダクトマネージャー</li>
+							<li>生成AI活用を担う事業推進者</li>
+						</ul>
+					</dd>
+				</div>
+				<div class="dl-item">
+					<dt>主催</dt>
+					<dd><a href="https://crossrel.jp/" target="_blank" class="text-link">CrossRel</a></dd>
+				</div>
+				<div class="dl-item">
+					<dt>運営会社</dt>
+					<dd><a href="https://lumilinks.jp/" target="_blank" class="text-link">株式会社Lumilinks</a></dd>
+				</div>
+				<div class="dl-item">
+					<dt>開催場所</dt>
+					<dd>
+						<span class="place">サイボウズ本社スペース<span class="text-grey address">〒103-6027 <br class="only-sp">東京都中央区日本橋2-7-1 東京日本橋タワー 27階</span></span>
+						<a href="https://www.google.com/maps/place/%E3%82%B5%E3%82%A4%E3%83%9C%E3%82%A6%E3%82%BA%E3%88%B1/@35.682075,139.773887,15z/data=!4m6!3m5!1s0x60188c46de1a941d:0x4fe7d8e930a3b4e!8m2!3d35.6820753!4d139.7738867!16s%2Fg%2F1wg5x_jy?hl=ja&entry=ttu&g_ep=EgoyMDI1MDkyMy4wIKXMDSoASAFQAw%3D%3D" target="_blank" class="map-btn">Google Mapを開く</a>
+					</dd>
+				</div>
+				<div class="dl-item">
+					<dt>イベント<br class="only-tb">ハッシュタグ</dt>
+					<dd>
+						<a href="" target="_blank" class="text-link">#knots2026</a>
+					</dd>
+				</div>
+			</dl>
 		</div>
 	</div>
 </section>
@@ -53,127 +62,126 @@
 		.information {
 			padding-block: 160px 128px;
 		}
-		h2 {
-			margin-bottom: 116px;
-		}
-		.item {
-			text-align: center;
-			&:not(:first-child) {
-				margin-top: 130px;
-			}
-		}
 		.info-dl {
+			width: 100%;
 			display: grid;
-			grid-template-columns: auto 1fr;
-			column-gap: 40px;
-			row-gap: 24px;
+			grid-template-columns: max(180px, calc(180 / 1080 * 100%)) 1fr;
 		}
 		.dl-item {
+			padding-block: 40px;
 			grid-column: span 2;
 			display: grid;
 			grid-template-columns: subgrid;
 			text-align: left;
-			font-size: rem(20);
-			font-feature-settings: 'palt' on;
-			line-height: 1.8;
+			font-feature-settings: 'halt' on;
+			font-size: rem(17);
+			line-height: 1.5;
 			letter-spacing: 0.02em;
+			border-bottom: 1px solid var(--color_grey);
+			&:first-child {
+				border-top: 1px solid var(--color_grey);
+			}
 			dt {
-				color: #9a9a9a;
-				&:after {
-					content: ':';
+				color: var(--color_text_grey);
+			}
+			ul {
+				li {
+					padding-left: 1.2em;
+					text-indent: -1.0em;
+					&:before {
+						content: '・';
+						margin-right: 0.5em;
+					}
 				}
 			}
-			dd {
-			}
 		}
-		.map-wrapper {
-			width: 100%;
-			margin-top: 44px;
-			text-align: left;
+		.place {
 			display: flex;
-			flex-direction: column;
-			row-gap: 24px;
-		}
-		.map-iframe {
-			max-width: 100%;
-			height: auto;
-			aspect-ratio: 19 / 10;
-		}
-		.txt {
-			font-size: rem(20);
-			font-weight: 600;
+			flex-wrap: wrap;
+			column-gap: 16px;
 		}
 		.address {
-			display: flex;
-			justify-content: space-between;
+			flex-shrink: 0;
+			display: inline-block;
+		}
+		.text-grey {
+			color: var(--color_text_grey);
+		}
+		.text-link {
+			text-decoration: underline;
+			text-decoration-thickness: 1px;
+			text-underline-offset: 2px;
+			transition: opacity var(--transition_hover);
+			@media (--hover) {
+				&:hover {
+					opacity: 0.7;
+				}
+			}
+		}
+		.map-btn {
+			display: inline-block;
+			margin-top: 24px;
+			border: 1px solid currentColor;
+			border-radius: 9999px;
+			padding: 12px 68px;
 			font-size: rem(16);
-			font-weight: 600;
-			letter-spacing: 0.02em;
-			a {
-				text-decoration: underline;
+			transition: color var(--transition_hover), background-color var(--transition_hover);
+			@media (--hover) {
+				&:hover {
+					background-color: var(--color_white);
+					color: var(--color_primary);
+				}
+			}
+		}
+		@media (--tb) {
+			.info-dl {
+				grid-template-columns: minmax(0, auto) 1fr;
+				column-gap: 20px;
 			}
 		}
 		@media (--sp) {
 			.information {
 				padding-block: 120px 80px;
 			}
-			h2 {
-				margin-bottom: 92px;
-			}
-			.item {
-				&:not(:first-child) {
-					margin-top: 112px;
-				}
-			}
 			.info-dl {
 				display: flex;
 				flex-direction: column;
-				row-gap: 32px;
 			}
 			.dl-item {
 				display: flex;
 				flex-direction: column;
-				row-gap: 4px;
+				row-gap: 16px;
 				text-align: left;
 				dt {
-					font-size: rem(13);
-					letter-spacing: 0.02em;
-					line-height: 1.5;
-					color: #9a9a9a;
-					&:after {
-						content: ':';
-					}
-				}
-				dd {
 					font-size: rem(16);
 					letter-spacing: 0.02em;
 					line-height: 1.5;
+					color: var(--color_text_grey);
+				}
+				dd {
+					font-size: rem(18);
+					letter-spacing: 0.01em;
+					line-height: 1.8;
 				}
 			}
-			.map-wrapper {
-				margin-top: 36px;
-			}
-			.txt {
-				font-size: rem(18);
+			.place {
+				flex-direction: column;
+				row-gap: 8px;
 			}
 			.address {
-				display: flex;
-				flex-direction: column;
-				align-items: flex-start;
-				row-gap: 16px;
-				font-size: rem(13);
-				line-height: 1.5;
-				font-weight: 600;
-				letter-spacing: 0.02em;
-				a {
-					text-decoration: none;
-					display: inline-block;
-					border: 1px solid currentColor;
-					font-family: rem(12);
-					letter-spacing: 0.01em;
-					border-radius: 9999px;
-					padding: 5px 22px;
-				}
+				margin-left: 0;
+				display: block;
+				color: inherit;
+				font-size: rem(16);
+				line-height: 2.0;
+			}
+			.map-btn {
+				margin-top: 16px;
+				padding: 10px 16px;
+				font-size: rem(14);
+				letter-spacing: 0;
+				line-height: 1.2;
+				font-weight: 300;
 			}
 		}
 	}
