@@ -1,7 +1,4 @@
 @layer component {
-  .terms {
-    padding-top: 160px;
-  }
   h1 {
     font-size: rem(32);
     font-weight: 600;

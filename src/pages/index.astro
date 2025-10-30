@@ -1,7 +1,9 @@
 ---
 import Layout from '../layouts/Layout.astro'
 
-import FixBtn from '@/components/top/FixBtn.astro'
+import ScrollSmoothWrapper from '@/components/util/ScrollSmoothWrapper.astro'
+import Header from '@/components/header/Header.astro'
+// import FixBtn from '@/components/top/FixBtn.astro'
 import TopHeadWrapper from '@/components/top/TopHeadWrapper.astro'
 import Kv from '@/components/top/Kv.astro'
 import About from '@/components/top/About.astro'
@@ -20,25 +22,30 @@ import Footer from '@/components/footer/Footer.astro'
 ---
 
 <Layout>
-	<FixBtn />
-	<main class="main">
-		<TopHeadWrapper>
-			<Kv />
-			<About />
-		</TopHeadWrapper>
-		<div class="fix-wrapper">
-			<div class="fix" data-trigger="fix-btn"></div>
-			<Conference />
-			<Pickup />
-			<!-- <Timetable /> -->
-			<Information />
-			<JobBoard />
-			<Sponsors />
-		</div>
-		<LookingForSponsors />
-		<Members />
-	</main>
-	<Footer />
+	<!-- <FixBtn /> -->
+	<Header />
+	<ScrollSmoothWrapper>
+		<main class="main" data-trigger="page-wrapper">
+			<TopHeadWrapper>
+				<Kv />
+				<About />
+			</TopHeadWrapper>
+			<div class="bg-wrapper" data-trigger="header-state-change">
+				<div class="fix-wrapper">
+					<div class="fix" data-trigger="fix-btn"></div>
+					<Conference />
+					<Pickup />
+					<!-- <Timetable /> -->
+					<Information />
+					<JobBoard />
+					<Sponsors />
+				</div>
+				<LookingForSponsors />
+				<Members />
+			</div>
+		</main>
+		<Footer />
+	</ScrollSmoothWrapper>
 </Layout>
 
 <style>
@@ -91,3 +98,9 @@ import Footer from '@/components/footer/Footer.astro'
 		}
 	}
 </style>
+
+<script is:inline>
+	import('/src/scripts/intersectAnimation.js').then(({ initAnimation }) =>
+		initAnimation()
+	);
+</script>

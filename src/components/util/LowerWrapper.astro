@@ -1,0 +1,51 @@
+---
+import Image from "astro/components/Image.astro"
+import lower_wave from '@/assets/common/wave_lower.png';
+---
+
+<main class="lower-main">
+  <Image
+    src={lower_wave}
+    alt=""
+    width={1440}
+    height={854}
+    class="wave"
+  />
+  <div class="lower-content">
+    <slot />
+  </div>
+</main>
+
+<style>
+  @layer components {
+    .lower-main {
+      padding-block: 260px 160px;
+      position: relative;
+      background-color: var(--color_bg_white);
+    }
+    .wave {
+      position: absolute;
+      top: 102px;
+      left: 0;
+      width: 100%;
+      min-width: 0;
+      aspect-ratio: 1440 / 854;
+      mix-blend-mode: overlay;
+      z-index: var(--z_over);
+      pointer-events: none;
+    }
+    .lower-content {
+      position: relative;
+      z-index: var(--z_over);
+    }
+    @media (--sp) {
+      .lower-main {
+        padding-block: 160px 100px;
+      }
+      .wave {
+        top: 72px;
+      }
+    }
+  }
+</style>
+

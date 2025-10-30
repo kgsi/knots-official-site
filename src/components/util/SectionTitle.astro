@@ -4,9 +4,10 @@ interface Props {
   ja?: string;
   modifier?: [string] | string;
   heading_lv?: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
+  id?: string;
 }
 
-const { en='', ja='', modifier=null, heading_lv='h2' } = Astro.props
+const { en='', ja='', modifier=null, heading_lv='h2', id=null } = Astro.props
 const HeadingTag = heading_lv;
 ---
 
@@ -16,6 +17,7 @@ const HeadingTag = heading_lv;
       ? modifier.map(m => ` section-title--${m}`).join('')
       : modifier ? ` section-title--${modifier}` : ''
   }`}
+  id={id && id}
 >
   <span class="en font-en">{en}</span>
   <HeadingTag class="ja">{ja}</HeadingTag>
@@ -43,6 +45,9 @@ const HeadingTag = heading_lv;
     }
     .section-title--center {
       text-align: center;
+    }
+    .section-title--no-margin {
+      margin-bottom: 0;
     }
     .section-title--white {
       .en {

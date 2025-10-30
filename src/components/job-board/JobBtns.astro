@@ -41,6 +41,18 @@ const { list } = Astro.props;
       color: var(--color_text);
       border-radius: 8px;
       padding: 32px 24px;
+      border: 2px solid var(--color_white);
+      transition: border-color var(--transition_hover, 0.3s ease);
+      @media (--hover) {
+        &:hover {
+          border-color: var(--color_primary);
+          .icon-arrow {
+            &:before {
+              mask-position: var(--this_arrow_size) center;
+            }
+          }
+        }
+      }
     }
     .detail {
       display: flex;
@@ -68,6 +80,7 @@ const { list } = Astro.props;
       text-box: var(--text_box_trim);
     }
     .icon-arrow {
+      --this_arrow_size: 34px;
       justify-self: end;
       display: inline-block;
       width: 64px;
@@ -81,12 +94,18 @@ const { list } = Astro.props;
         position: absolute;
         inset: 0;
         margin: auto;
-        width: 50%;
-        min-width: 0;
+        border-radius: 50%;
+        width: var(--this_arrow_size);
+        height: auto;
         aspect-ratio: 1;
-        background-image: url('/assets/common/icon_arrow.svg');
-        background-size: contain;
-        background-repeat: no-repeat;
+        min-width: 0;
+        mask-image: url('/assets/common/icon_arrow.svg');
+        mask-size: contain;
+        mask-repeat: repeat-x;
+        mask-position: center;
+        rotate: -45deg;
+        background-color: var(--color_white);
+        transition: mask-position var(--this_hover_transition, 0.3s ease);
       }
     }
     @media (--under-pc) {
@@ -135,6 +154,7 @@ const { list } = Astro.props;
         font-size: rem(16);
       }
       .icon-arrow {
+        --this_arrow_size: 14px;
         width: 24px;
         position: absolute;
         top: 8px;

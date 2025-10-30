@@ -3,55 +3,50 @@ import "../styles/terms.css";
 import Layout from '../layouts/Layout.astro';
 
 import HeaderLower from '@/components/header/HeaderLower.astro';
+import LowerWrapper from '@/components/util/LowerWrapper.astro';
 import Footer from '@/components/footer/Footer.astro';
 import TermItem from '@/components/util/TermItem.astro'
 ---
 
 <Layout>
 	<HeaderLower />
-	<main class="main util-lower-main">
-		<div class="inner">
-				<div class="terms">
-				<div class="terms-head">
-					<h1>行動規範</h1>
-				</div>
-				<div class="terms-contents no-counter">
-					<TermItem title="他分野を尊重する">
-						<p>
-							CrossRelのイベントで登壇される方々は、多種多様な分野で日々の業務を行っています。そのため意見が一致するとは限りません。共に楽しみながら、より良いコミュニティを作るためにお互いに敬意を持ちましょう。
-						</p>
-					</TermItem>
-					<TermItem title="すべての人にとって安全な場を提供する">
-						<p>
-							私たちは下記のような事柄に関わりません。
-						</p>
-						<ul>
-							<li>社会的あるいは法的な性、性自認、性表現（外見の性）、性指向</li>
-							<li>年齢、障がい、容姿、体格</li>
-							<li>人種、民族、宗教（無宗教を含む）</li>
-							<li>技術の選択</li>
-						</ul>
-						<p>そして下記のようなハラスメント行為をいかなる形であっても決して許容しません。</p>
-						<ul>
-							<li>脅迫、つきまとい、ストーキング</li>
-							<li>不適切な画像、動画、録音の再生（性的な画像など）</li>
-							<li>発表や他のイベントに対する妨害行為</li>
-							<li>不適切な身体的接触</li>
-							<li>これらに限らない性的嫌がらせ</li>
-						</ul>
-						<p>ハラスメント行為をやめるように指示された場合、直ちに従うことが求められます。ルールを守らない参加者は、主催者およびスポンサーの判断により、退場処分や今後のイベントに聴講者、登壇者、スタッフとして関わることを禁止します。</p>
-						<p>もしハラスメントを受けていると感じたり、他の誰かがハラスメントされていることに気がついた場合、または他に何かお困りのことがあれば、すぐにスタッフまでご連絡ください。警備員や警察への連絡などを含め、安心してCrossRelのイベントに参加できるようにお手伝いさせていただきます。</p>
-						<p>この行動規範は、CC-BY-3.0で公開されている<a href="http://www.ubuntulinux.jp/community/conduct" target="_blank">Ubuntu Japanese TeamのCode of Conduct</a>、<a href="https://portal.droidkaigi.jp/about/code-of-conduct" target="_blank">DroidKaigiの行動規範</a>を元に作成しています。</p>
-					</TermItem>
+		<LowerWrapper>
+			<div class="inner">
+					<div class="terms">
+					<div class="terms-head">
+						<h1>行動規範</h1>
+					</div>
+					<div class="terms-contents no-counter">
+						<TermItem title="他分野を尊重する">
+							<p>
+								CrossRelのイベントで登壇される方々は、多種多様な分野で日々の業務を行っています。そのため意見が一致するとは限りません。共に楽しみながら、より良いコミュニティを作るためにお互いに敬意を持ちましょう。
+							</p>
+						</TermItem>
+						<TermItem title="すべての人にとって安全な場を提供する">
+							<p>
+								私たちは下記のような事柄に関わりません。
+							</p>
+							<ul>
+								<li>社会的あるいは法的な性、性自認、性表現（外見の性）、性指向</li>
+								<li>年齢、障がい、容姿、体格</li>
+								<li>人種、民族、宗教（無宗教を含む）</li>
+								<li>技術の選択</li>
+							</ul>
+							<p>そして下記のようなハラスメント行為をいかなる形であっても決して許容しません。</p>
+							<ul>
+								<li>脅迫、つきまとい、ストーキング</li>
+								<li>不適切な画像、動画、録音の再生（性的な画像など）</li>
+								<li>発表や他のイベントに対する妨害行為</li>
+								<li>不適切な身体的接触</li>
+								<li>これらに限らない性的嫌がらせ</li>
+							</ul>
+							<p>ハラスメント行為をやめるように指示された場合、直ちに従うことが求められます。ルールを守らない参加者は、主催者およびスポンサーの判断により、退場処分や今後のイベントに聴講者、登壇者、スタッフとして関わることを禁止します。</p>
+							<p>もしハラスメントを受けていると感じたり、他の誰かがハラスメントされていることに気がついた場合、または他に何かお困りのことがあれば、すぐにスタッフまでご連絡ください。警備員や警察への連絡などを含め、安心してCrossRelのイベントに参加できるようにお手伝いさせていただきます。</p>
+							<p>この行動規範は、CC-BY-3.0で公開されている<a href="http://www.ubuntulinux.jp/community/conduct" target="_blank">Ubuntu Japanese TeamのCode of Conduct</a>、<a href="https://portal.droidkaigi.jp/about/code-of-conduct" target="_blank">DroidKaigiの行動規範</a>を元に作成しています。</p>
+						</TermItem>
+					</div>
 				</div>
 			</div>
-		</div>
-	</main>
+		</LowerWrapper>
 	<Footer />
 </Layout>
-
-<style>
-	.main {
-		padding-bottom: 120px;
-	}
-</style>

@@ -71,9 +71,15 @@ const ogpImageURL = new URL('/ogp.png', canonicalURL)
     </script>
   </head>
   <body>
-    <div class="root">
+    <div class="root" id="root" data-trigger="root">
       <slot />
     </div>
+    <script is:inline>
+      import('/src/scripts/scrollPerformer.js').then(({ initScrollSmoother, refreshScrollTrigger }) => {
+        initScrollSmoother()
+        if (typeof refreshScrollTrigger === 'function') refreshScrollTrigger()
+      })
+    </script>
   </body>
 </html>
 

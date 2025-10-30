@@ -1,14 +1,31 @@
 ---
 import SectionTitle from '@/components/util/SectionTitle.astro';
 import Btn from '@/components/util/Btn.astro';
+
+import DistortionWave from '@/components/top/modules/distortionWave.astro';
 ---
 
 <div class="job-board">
-	<div class="inner">
+	<div class="wave wave--top only-pc">
+		<DistortionWave
+			imageSrc='/assets/top/wave_job-board_top.png'
+			width={844}
+			height={624}
+		/>
+	</div>
+	<div class="wave wave--bottom only-pc">
+		<DistortionWave
+			imageSrc='/assets/top/wave_job-board_bottom.png'
+			width={776}
+			height={624}
+		/>
+	</div>
+	<div class="job-board-inner inner">
 		<SectionTitle
 			en="Job Board"
 			ja="ジョブボード"
 			modifier={['center', 'white']}
+			id="job-board"
 		/>
 		<p class="lead">
 			スポンサー企業様の様々な求人情報を掲載しています。<br>
@@ -31,13 +48,29 @@ import Btn from '@/components/util/Btn.astro';
 			background-color: var(--color_primary);
 			color: var(--color_white);
 			padding-block: 120px 142px;
-      background-image: url('/assets/top/wave_job-board_top.png'), url('/assets/top/wave_job-board_bottom.png');
-			background-blend-mode: luminosity;
-			background-position: top right, bottom left;
-			background-size: calc(1688px / 2) auto, calc(1552px / 2) auto;
 			background-repeat: no-repeat;
+			background-position: top right, bottom left;
+			position: relative;
+		}
+		.job-board-inner {
+			position: relative;
+			z-index: var(--z_over);
+		}
+		.wave {
+			position: absolute;
+			mix-blend-mode: luminosity;
+			z-index: var(--z_flat);
+		}
+		.wave--top {
+			top: 0;
+			right: 0;
+		}
+		.wave--bottom {
+			bottom: 0;
+			left: 0;
 		}
 		.lead {
+			padding-top: 8px;
 			font-size: rem(20);
 			font-weight: 600;
 			line-height: 1.5;
@@ -47,10 +80,23 @@ import Btn from '@/components/util/Btn.astro';
 			margin-top: 72px;
 			text-align: center;
 		}
+		@media (--tb) {
+			.job-board {
+				padding-block: 88px 122px;
+				background-image: url('/assets/top/wave_job-board_top.png'), url('/assets/top/wave_job-board_bottom.png');
+				background-blend-mode: luminosity;
+				background-size: vwTb(572) auto, vwTb(508) auto;
+			}
+			.btn-wrapper {
+				margin-top: 64px;
+				text-align: center;
+			}
+		}
 		@media (--sp) {
 			.job-board {
-				padding-block: 120px 200px;
+				padding-block: 140px 200px;
 				background-image: url('/assets/top/wave_job-board_top_sp.png'), url('/assets/top/wave_job-board_bottom_sp.png');
+				background-blend-mode: luminosity;
 				background-size: vw(375) auto, vw(328) auto;
 			}
 			.lead {
@@ -59,7 +105,7 @@ import Btn from '@/components/util/Btn.astro';
 				line-height: 1.8;
 			}
 			.btn-wrapper {
-				margin-top: 48px;
+				margin-top: 56px;
 				width: 100%;
 			}
 		}

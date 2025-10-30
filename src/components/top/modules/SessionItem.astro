@@ -23,9 +23,9 @@ const { title="", description="" } = Astro.props
   @layer components {
     .session-item {
       display: grid;
-      grid-template-columns: calc(540 / 1080 * 100%) calc(450 / 1080 * 100%) ;
+      grid-template-columns: calc(540 / 1080 * 100%) calc(450 / 1080 * 100%);
       column-gap: calc(90 / 1080 * 100%);
-      padding-block: 32px;
+      padding-block: 38px;
       border-bottom: 1px solid var(--color_grey);
       &:first-child {
         border-top: 1px solid var(--color_grey);
@@ -78,8 +78,12 @@ const { title="", description="" } = Astro.props
       }
     }
     @media (--sp) {
+      .session-item {
+        row-gap: 32px;
+      }
       .title {
         font-size: rem(18);
+        line-height: 1.8;
       }
       .description {
         font-size: rem(16);

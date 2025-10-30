@@ -1,0 +1,270 @@
+---
+import { Image } from "astro:assets"
+import PictureComponent from '@/components/util/PictureComponent.astro';
+import knots from "@assets/common/logo_knots.svg"
+import wave_header_pc from '@/assets/top/wave_kv_header.png'
+import wave_header_tb from '@/assets/top/wave_kv_header_tb.png'
+import wave_header_sp from '@/assets/top/wave_kv_header_sp.png'
+
+import Btn from "@/components/util/Btn.astro"
+---
+
+<header class="header" id="header" data-trigger="header">
+	<div class="header-inner">
+    <h1 class="header-logo">
+      <a href="/">
+        <Image src={knots} alt="KNOTS" class="logo"/>
+      </a>
+    </h1>
+    <button type="button" class="menu-btn excepting-pc" aria-label="ヘッダーメニューを開く" data-trigger="menu-btn">
+      <span class="menu-btn-bar"></span>
+    </button>
+    <div class="menu-wrapper">
+      <div class="menu-container">
+        <nav class="nav">
+          <ul class="nav-list">
+            <li class="nav-item">
+              <a href="#conference" class="nav-link">カンファレンス概要</a>
+            </li>
+            <li class="nav-item">
+              <a href="#pickup" class="nav-link">ピックアップ</a>
+            </li>
+            <li class="nav-item">
+              <a href="#information" class="nav-link">インフォメーション</a>
+            </li>
+            <li class="nav-item">
+              <a href="#job-board" class="nav-link">ジョブボード</a>
+            </li>
+            <li class="nav-item">
+              <a href="#sponsors" class="nav-link">スポンサー</a>
+            </li>
+            <li class="nav-item nav-item--btn">
+              <Btn href="" txt="チケット購入" modifier="header"/>
+            </li>
+          </ul>
+        </nav>
+        <div class="sponsor-link excepting-pc">
+          <a href="#looking-for-sponsor" class="text-link">スポンサー申し込みについて</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+<div class="wave wave--header" data-trigger="header-wave">
+  <PictureComponent
+    mobileImgUrl={wave_header_sp}
+    tabletImgUrl={wave_header_tb}
+    desktopImgUrl={wave_header_pc}
+    alt=""
+  />
+</div>
+
+<style>
+	@layer components {
+		.header {
+      width: 100%;
+			padding: 24px 40px;
+			position: fixed;
+			z-index: var(--z_header);
+      translate: 0 -100%;
+      opacity: 0;
+      &.is-inversion {
+        .logo {
+          filter: invert(1);
+        }
+      }
+		}
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+		.logo {
+			width: 143px;
+			height: auto;
+      transition: filter 0.6s ease;
+		}
+    .nav-list {
+      color: var(--this_color, var(--color_white));
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      transition: color 0.6s ease;
+    }
+    .wave {
+      width: 100%;
+      position: fixed;
+      top: 0;
+      left: 0;
+      mix-blend-mode: luminosity;
+      z-index: var(--z_over);
+    }
+    @media (--pc) {
+      .header {
+        &.is-inversion {
+          --this_color: var(--color_black);
+        }
+      }
+    }
+    @media(--under-pc) {
+      .header {
+        &.is-inversion {
+          --this_btn_color: var(--color_black);
+          &:has(.is-menuOpen) {
+            --this_btn_color: var(--color_white);
+            .logo {
+              filter: invert(0);
+            }
+          }
+        }
+      }
+      .header-logo {
+        z-index: var(--z_over);
+      }
+      .menu-btn {
+        display: grid;
+        align-items: center;
+        justify-items: end;
+        width: min(vw(32), 48px);
+        height: min(vw(20), 30px);
+        position: relative;
+        z-index: var(--z_over);
+        cursor: pointer;
+        background-color: transparent;
+        border: none;
+        &:before,
+        &:after {
+          content: '';
+          position: absolute;
+          right: 0;
+          margin: auto;
+          background-color: var(--this_btn_color, var(--color_white));
+          height: 2px;
+          transition: translate 0.3s 0.3s ease, rotate 0.3s 0s ease, width 0.3s 0.3s ease, background-color 0.6s ease;
+        }
+        &:before {
+          width: 100%;
+          translate: 0 max(vw(-12), -12px);
+        }
+        &:after {
+          width: 50%;
+          translate: 0 min(vw(12), 12px);
+        }
+        @media (--hover) {
+          &:hover {
+            &:before {
+              translate: 0 max(vw(-10), -10px);
+            }
+            &:after {
+              translate: 0 min(vw(10), 10px);
+            }
+          }
+        }
+      }
+      .menu-btn-bar {
+        width: 75%;
+        height: 2px;
+        background-color: var(--this_btn_color, var(--color_white));
+        transition: opacity 0.3s ease, background-color 0.6s ease;
+      }
+      .menu-wrapper {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100lvh;
+        background-color: color-mix(in srgb, var(--color_black) 70%, transparent);
+        z-index: var(--z_under);
+        pointer-events: none;
+        opacity: 0;
+        transition: opacity 0.3s linear;
+      }
+      .menu-container {
+        height: auto;
+        max-height: 100dvh;
+        overflow-y: auto;
+        background-color: var(--color_primary);
+        border-bottom: 1px solid var(--color_white);
+        padding-block: 128px 136px;
+        padding-inline: 40px;
+        translate: 0 -100%;
+        opacity: 0;
+        transition: translate 0.6s ease, opacity 0.3s ease;
+      }
+      .nav-list {
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0;
+      }
+      .nav-item {
+        border-bottom: 1px solid #1052ba;
+      }
+      .nav-item--btn {
+        margin-top: 40px;
+        border-bottom: none;
+      }
+      .nav-link {
+        display: flex;
+        padding-block: 24px 16px;
+        font-size: min(vw(20), 20px);
+      }
+      .sponsor-link {
+        text-align: center;
+        margin-top: 32px;
+      }
+      .text-link {
+        color: var(--color_white);
+        font-size: min(vw(16), 16px);
+        text-decoration: underline;
+        text-decoration-thickness: 1px;
+        text-underline-offset: 2px;
+      }
+      .header {
+        &:has(.is-menuOpen) {
+          .menu-btn {
+            &:before,
+            &:after {
+              width: 80%;
+              translate: 0 0;
+              border-radius: 9999px;
+              transition: translate var(--transition_hover), rotate 0.3s 0.3s ease, width 0.3s 0s ease;
+            }
+            &:before {
+              rotate: 45deg;
+            }
+            &:after {
+              rotate: -45deg;
+            }
+          }
+          .menu-btn-bar {
+            background-color: transparent;
+          }
+          .menu-wrapper {
+            opacity: 1;
+            pointer-events: all;
+          }
+          .menu-container {
+            opacity: 1;
+            translate: 0 0;
+          }
+        }
+      }
+    }
+		@media (--sp) {
+			.header {
+				padding: 24px;
+			}
+			.logo {
+				width: vw(90);
+			}
+		}
+	}
+</style>
+
+<script>
+  import { headerAnimation, toggleMenu, headerStateOnScroll } from '@/scripts/header.ts';
+  headerAnimation();
+  toggleMenu();
+  headerStateOnScroll();
+</script>

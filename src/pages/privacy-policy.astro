@@ -8,11 +8,12 @@ import Footer from '@/components/footer/Footer.astro'
 import TermItem from '@/components/util/TermItem.astro'
 import SectionTitle from '@/components/util/SectionTitle.astro'
 import BackToHomeBtn from '@/components/util/BackToHomeBtn.astro'
+import LowerWrapper from '@/components/util/LowerWrapper.astro'
 ---
 
 <Layout>
   <HeaderLower />
-  <main class="main util-lower-main">
+  <LowerWrapper>
     <div class="inner inner--term">
       <div class="terms">
         <div class="terms-head">
@@ -132,15 +133,12 @@ import BackToHomeBtn from '@/components/util/BackToHomeBtn.astro'
 				</div>
       </div>
     </div>
-  </main>
+  </LowerWrapper>
   <Footer />
 </Layout>
 
 <style>
   @layer components {
-    .terms {
-      padding-block: 260px 120px;
-    }
     .term-contents {
       counter-set: termItem;
     }

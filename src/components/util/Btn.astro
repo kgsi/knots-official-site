@@ -39,7 +39,7 @@ const ExLink = ({ href }: { href: string }) => {
           border-color: var(--this_color);
           .icon-arrow {
             &:before {
-              mask-position: 12px -12px;
+              mask-position: var(--this_arrow_size) center;
             }
           }
         }
@@ -47,10 +47,20 @@ const ExLink = ({ href }: { href: string }) => {
     }
     .btn--kv {
       --this_base_width: 360px;
+      --this_base_height: 72px;
     }
     .btn--fix {
       --this_base_width: 280px;
       pointer-events: var(--this_toggle_btn, none);
+    }
+    .btn--header {
+      --this_base_width: 200px;
+      --this_base_height: 48px;
+      --this_font_size: rem(14);
+      .icon-arrow {
+        --this_arrow_size: 10px;
+        width: 16px;
+      }
     }
     .btn--wide {
       --this_base_width: 360px;
@@ -58,6 +68,7 @@ const ExLink = ({ href }: { href: string }) => {
       --this_font_size: rem(16);
     }
     .icon-arrow {
+      --this_arrow_size: 12px;
       width: 1.0em;
       aspect-ratio: 1;
       display: inline-block;
@@ -73,14 +84,23 @@ const ExLink = ({ href }: { href: string }) => {
         position: absolute;
         inset: 0;
         margin: auto;
-        width: 12px;
-        height: 12px;
+        width: var(--this_arrow_size);
+        height: auto;
+        aspect-ratio: 1;
+        min-width: 0;
         mask-image: url('/assets/common/icon_arrow.svg');
         mask-size: contain;
-        mask-repeat: repeat;
-        mask-position: 0% 0%;
+        mask-repeat: repeat-x;
+        mask-position: center center;
+        rotate: -45deg;
         background-color: var(--this_bg);
         transition: mask-position var(--this_hover_transition, 0.3s ease);
+      }
+    }
+    @media(--under-pc) {
+      .btn--header {
+        --this_font_size: min(vw(16), 16px);
+        width: 100%;
       }
     }
     @media (--sp) {

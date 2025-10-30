@@ -4,6 +4,7 @@ import Layout from '@/layouts/Layout.astro'
 
 import HeaderLower from '@/components/header/HeaderLower.astro'
 import Footer from '@/components/footer/Footer.astro'
+import LowerWrapper from '@/components/util/LowerWrapper.astro'
 
 import SectionTitle from '@/components/util/SectionTitle.astro'
 import BackToHomeBtn from '@/components/util/BackToHomeBtn.astro'
@@ -42,32 +43,29 @@ const jobList = [
 
 <Layout>
 	<HeaderLower />
-	<main class="main util-lower-main">
-		<div class="inner">
-			<div class="job-board">
-				<SectionTitle
-					en="Job Board"
-					ja="ジョブボード"
-					modifier={['center']}
-					heading_lv='h1'
-				/>
-				<div class="body">
-					<JobBtns list={jobList} />
-					<div class="btn-wrapper">
-						<BackToHomeBtn />
+		<LowerWrapper>
+			<div class="inner">
+				<div class="job-board">
+					<SectionTitle
+						en="Job Board"
+						ja="ジョブボード"
+						modifier={['center']}
+						heading_lv='h1'
+					/>
+					<div class="body">
+						<JobBtns list={jobList} />
+						<div class="btn-wrapper">
+							<BackToHomeBtn />
+						</div>
 					</div>
 				</div>
 			</div>
-		</div>
-	</main>
+		</LowerWrapper>
 	<Footer />
 </Layout>
 
 <style>
 	@layer components {
-		.job-board {
-			padding-block: 260px 160px;
-		}
 		.btn-wrapper {
 			margin-top: 48px;
 			text-align: center;

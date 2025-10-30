@@ -1,0 +1,12 @@
+<div class="smooth-wrapper" id="smooth-wrapper">
+  <div id="smooth-content">
+    <slot />
+  </div>
+</div>
+
+<script is:inline>
+  import("/src/scripts/scrollPerformer.js").then(({ initScrollSmoother, initSmoothAnchorLinks }) => {
+    initScrollSmoother();
+    initSmoothAnchorLinks();
+  });
+</script>

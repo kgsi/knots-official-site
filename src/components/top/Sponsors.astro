@@ -33,11 +33,14 @@ const images = {
 
 <section class="sponsors">
 	<div class="inner">
-		<SectionTitle
-      en="Sponsors"
-      ja="スポンサー"
-			modifier="center"
-    />
+		<div class="sponsors-title">
+			<SectionTitle
+				en="Sponsors"
+				ja="スポンサー"
+				modifier={["center", "no-margin"]}
+				id="sponsors"
+			/>
+		</div>
 		<div class="sponsors-wrapper">
 			<div class="item">
 				<div class="logo-wrapper">
@@ -58,6 +61,18 @@ const images = {
 				<div class="logo-wrapper small">
 					<SponsorLogo level="ume" href="https://www.notion.com/ja" img={images.notion} alt="Notion"/>
 					<SponsorLogo level="ume" href="https://chot-inc.com/" img={images.chotinc} alt="chot Inc."/>
+				</div>
+				<div class="personal-list">
+					<p>山下 祥也</p>
+					<p>山下 祥也</p>
+					<p>山下 祥也</p>
+					<p>山下 祥也</p>
+					<p>山下 祥也</p>
+					<p>山下 祥也</p>
+					<p>山下 祥也</p>
+					<p>山下 祥也</p>
+					<p>山下 祥也</p>
+					<p>山下 祥也</p>
 				</div>
 			</div>
 			<div class="item">
@@ -86,14 +101,26 @@ const images = {
 <style>
 	@layer components {
 		.sponsors {
-			padding-block: 120px 200px;
+			padding-block: 164px 120px;
+			background-color: var(--color_bg_white);
 		}
-		h2 {
-			margin-bottom: 104px;
+		.sponsors-title {
+			margin-bottom: 112px;
 		}
 		.sponsors-wrapper {
 			display: grid;
 			row-gap: 120px;
+		}
+		.personal-list {
+			margin-top: 120px;
+			display: grid;
+			grid-template-columns: repeat(5, auto);
+			justify-content: center;
+			gap: 40px;
+			font-size: rem(20);
+			font-weight: 600;
+			line-height: 1.5;
+			justify-items: center;
 		}
 		.item {
 			text-align: center;
@@ -101,22 +128,38 @@ const images = {
 		.logo-wrapper {
 			display: flex;
 			flex-wrap: wrap;
-			padding-inline: 60px;
 			justify-content: center;
 			gap: 40px;
 			&.small {
 				gap: 32px;
 			}
 		}
+		@media (--tb) {
+			.sponsors {
+				padding-block: 124px 120px;
+			}
+			.logo-wrapper {
+				gap: 32px;
+			}
+		}
 		@media (--sp) {
 			.sponsors {
-				padding-block: 80px 96px;
+				padding-block: 80px 80px;
 			}
-			h2 {
-				margin-bottom: 84px;
+			.sponsors-title {
+				margin-bottom: 90px;
 			}
 			.sponsors-wrapper {
 				row-gap: 80px;
+			}
+			.personal-list {
+				margin-top: 80px;
+				display: flex;
+				flex-wrap: wrap;
+				gap: 20px;
+				justify-content: center;
+				font-size: rem(17);
+				line-height: 2.0;
 			}
 			.sponsor-label {
 				margin-top: 8px;
@@ -124,9 +167,9 @@ const images = {
 			}
 			.logo-wrapper {
 				padding-inline: 0;
-				gap: 16px;
+				gap: 14px;
 				&.small {
-					gap: 16px;
+					gap: 14px;
 				}
 			}
 		}

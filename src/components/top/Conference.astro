@@ -1,34 +1,35 @@
 ---
-import Image from 'astro/components/Image.astro';
-
-import waveRight from '@assets/top/wave_conference_right.png';
-import waveLeft from '@assets/top/wave_conference_left.png';
-
 import SectionTitle from '@/components/util/SectionTitle.astro';
+import DistortionWave from '@/components/top/modules/distortionWave.astro';
 ---
 
 <div class="conference">
-  <Image
-    src={waveRight}
-    alt=""
-    width={365}
-    height={796}
-    class="wave wave--right only-pc"
-  />
-  <Image
-    src={waveLeft}
-    alt=""
-    width={496}
-    height={873}
-    class="wave wave--left only-pc"
-  />
+  <div class="wave-wrapper">
+    <div class="wave wave--right only-pc" data-speed="1.2" data-lag="0.2">
+      <DistortionWave 
+        imageSrc='/assets/top/wave_conference_right.png'
+        width={364}
+        height={796}
+      />
+    </div>
+  </div>
+  <div class="wave-wrapper">
+    <div class="wave wave--left only-pc" data-speed="0.7" data-lag="0.2">
+      <DistortionWave 
+        imageSrc='/assets/top/wave_conference_left.png'
+        width={496}
+        height={873}
+      />
+    </div>
+  </div>
 	<div class="inner">
     <SectionTitle
       en="Conference overview"
       ja="カンファレンス概要"
+      id="conference"
     />
     <dl class="list">
-      <div class="item">
+      <div class="item js-animation">
         <dt class="term">カンファレンステーマ</dt>
         <dd class="desc">
           <p>
@@ -44,7 +45,7 @@ import SectionTitle from '@/components/util/SectionTitle.astro';
           </p>
         </dd>
       </div>
-      <div class="item">
+      <div class="item js-animation">
         <dt class="term">トークセッション</dt>
         <dd class="desc">
           <p>
@@ -55,7 +56,7 @@ import SectionTitle from '@/components/util/SectionTitle.astro';
           </p>
         </dd>
       </div>
-      <div class="item">
+      <div class="item js-animation">
         <dt class="term">ディスカッションセッション</dt>
         <dd class="desc">
           <p>
@@ -66,7 +67,7 @@ import SectionTitle from '@/components/util/SectionTitle.astro';
           </p>
         </dd>
       </div>
-      <div class="item">
+      <div class="item js-animation">
         <dt class="term">交流セッション</dt>
         <dd class="desc">
           <p>
@@ -87,13 +88,16 @@ import SectionTitle from '@/components/util/SectionTitle.astro';
 		.conference {
       padding-block: 160px;
       position: relative;
+      background-color: var(--color_bg_white);
+      z-index: var(--z_over);
 		}
     .wave {
       position: absolute;
+      z-index: var(--z_over);
     }
     .wave--right {
       top: 0;
-      right: -203px;
+      right: -200px;
     }
     .wave--left {
       bottom: 0;
@@ -103,16 +107,48 @@ import SectionTitle from '@/components/util/SectionTitle.astro';
       display: grid;
       grid-template-columns: 1fr 1fr;
       counter-reset: conference;
+      @media (--desktop-pc) {
+        grid-template-columns: 540px 1fr;
+      }
     }
     .item {
       display: grid;
       grid-column: span 2;
       grid-template-columns: subgrid;
-      border-bottom: 1px solid var(--color_grey);
       padding-block: 64px;
       counter-increment: conference;
-      &:first-child {
-        border-top: 1px solid var(--color_grey);
+      position: relative;
+      &:before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 1px;
+        background-color: var(--color_grey);
+        scale: 0 1;
+        transform-origin: left;
+        transition: scale 0.7s ease;
+      }
+      &:last-child {
+        &:after {
+          content: '';
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          width: 100%;
+          height: 1px;
+          background-color: var(--color_grey);
+          scale: 0 1;
+          transform-origin: left;
+          transition: scale 0.7s 0.7s ease;
+        }
+      }
+      &.is-animated {
+        &:before,
+        &:after {
+          scale: 1 1;
+        }
       }
     }
     .term {
@@ -132,24 +168,26 @@ import SectionTitle from '@/components/util/SectionTitle.astro';
       }
     }
     .desc {
+      font-feature-settings: 'palt' on;
       font-size: rem(17);
       font-weight: 600;
+      letter-spacing: 0.04em;
       line-height: 2.0;
       color: var(--color_text_grey);
       p + p {
-        margin-top: 1.5em;
+        margin-top: 2.0em;
       }
     }
 		@media (--under-pc) {
       .conference {
-        padding-block: 80px;
+        padding-block: 84px;
       }
       .list {
         grid-template-columns: 1fr;
       }
       .item {
         grid-column: auto;
-        row-gap: 24px;
+        row-gap: 30px;
         padding-block: 40px;
       }
 		}

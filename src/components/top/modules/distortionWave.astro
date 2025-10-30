@@ -1,0 +1,20 @@
+---
+interface Props {
+  imageSrc: string;
+  width: number;
+  height: number;
+}
+const { imageSrc, width, height }: Props = Astro.props;
+---
+
+<canvas
+  data-hover-effect="wave"
+  data-width={width}
+  data-height={height}
+  data-image={imageSrc}
+></canvas>
+
+<script>
+  import { hoverWaves } from '@/scripts/hoverWaves.ts';
+  hoverWaves();
+</script>

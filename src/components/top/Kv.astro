@@ -39,7 +39,7 @@ import Btn from '@/components/util/Btn.astro';
       width: 100%;
       max-width: 680px;
       overflow: hidden;
-      margin: 0 auto 40px;
+      margin: 0 auto 38px;
     }
     .logo-img {
       width: 100%;
@@ -53,7 +53,7 @@ import Btn from '@/components/util/Btn.astro';
       line-height: 1.45;
     }
     .info {
-      padding-block: 120px 96px;
+      padding-block: 104px 86px;
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -103,7 +103,7 @@ import Btn from '@/components/util/Btn.astro';
       flex-direction: column;
       align-items: center;
       row-gap: 24px;
-      padding-top: 14px;
+      padding-top: 8px;
     }
     .text-link {
       font-size: rem(18);
@@ -125,6 +125,24 @@ import Btn from '@/components/util/Btn.astro';
       }
       .catch {
         font-size: vwTb(24);
+      }
+      .info {
+        padding-block: vwTb(56) vwTb(100);
+        row-gap: 56px;
+      }
+      .meta {
+        row-gap: vwTb(8);
+      }
+      .date-body {
+        font-size: rem(64);
+        font-weight: 500;
+      }
+      .day-of-week {
+        font-size: rem(22);
+      }
+      .place {
+        line-height: 1.0;
+        font-size: rem(15);
       }
     }
     @media (--sp) {
@@ -168,7 +186,11 @@ import Btn from '@/components/util/Btn.astro';
       .btn-wrapper {
         width: stretch;
         padding-block: 0;
+        row-gap: 28px;
         padding-inline: 20px;
+      }
+      .text-link {
+        font-size: rem(16);
       }
     }
   }
