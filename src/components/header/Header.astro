@@ -1,11 +1,6 @@
 ---
 import { Image } from "astro:assets"
-import PictureComponent from '@/components/util/PictureComponent.astro';
 import knots from "@assets/common/logo_knots.svg"
-import wave_header_pc from '@/assets/top/wave_kv_header.png'
-import wave_header_tb from '@/assets/top/wave_kv_header_tb.png'
-import wave_header_sp from '@/assets/top/wave_kv_header_sp.png'
-
 import Btn from "@/components/util/Btn.astro"
 ---
 
@@ -50,14 +45,6 @@ import Btn from "@/components/util/Btn.astro"
     </div>
   </div>
 </header>
-<div class="wave wave--header" data-trigger="header-wave">
-  <PictureComponent
-    mobileImgUrl={wave_header_sp}
-    tabletImgUrl={wave_header_tb}
-    desktopImgUrl={wave_header_pc}
-    alt=""
-  />
-</div>
 
 <style>
 	@layer components {
@@ -68,6 +55,11 @@ import Btn from "@/components/util/Btn.astro"
 			z-index: var(--z_header);
       translate: 0 -100%;
       opacity: 0;
+      transition: translate 0.6s ease, opacity 0.6s ease;
+      &.is-active {
+        translate: 0 0;
+        opacity: 1;
+      }
       &.is-inversion {
         .logo {
           filter: invert(1);
@@ -90,14 +82,6 @@ import Btn from "@/components/util/Btn.astro"
       align-items: center;
       gap: 20px;
       transition: color 0.6s ease;
-    }
-    .wave {
-      width: 100%;
-      position: fixed;
-      top: 0;
-      left: 0;
-      mix-blend-mode: luminosity;
-      z-index: var(--z_over);
     }
     @media (--pc) {
       .header {

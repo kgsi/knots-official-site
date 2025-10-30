@@ -3,32 +3,15 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 gsap.registerPlugin(ScrollTrigger);
 
 export function headerAnimation() {
-  const pageWrapper = document.querySelector('[data-trigger="page-wrapper"]');
+  const headerActiveTrigger = document.querySelector('[data-trigger="header-active"]');
   const header = document.querySelector('[data-trigger="header"]');
-  const wave = document.querySelector('[data-trigger="header-wave"]');
   
-  if (pageWrapper || header || wave) {
-    const headerAnimation = gsap.timeline();
-    headerAnimation.to(wave, {
-      translateY: '-100%',
-      ease: 'none',
-    })
-    .to(header, {
-      translateY: 0,
-      opacity: 1,
-      ease: 'none',
-      onComplete: () => {
-        ScrollTrigger.refresh();
-      }
-    });
-    
+  if (headerActiveTrigger || header) {
     ScrollTrigger.create({
-      trigger: pageWrapper,
-      start: 'top top',
-      end: '+=400',
-      pin: true,
-      animation: headerAnimation,
-      scrub: true,
+      trigger: headerActiveTrigger,
+      start: 'bottom top',
+      end: () => ScrollTrigger.maxScroll(window) + 1,
+      toggleClass: { targets: header, className: 'is-active' }
     });
   }
 }

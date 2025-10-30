@@ -1,11 +1,22 @@
 ---
 import PictureComponent from '@/components/util/PictureComponent.astro';
+import wave_header_pc from '@/assets/top/wave_kv_header.png'
+import wave_header_tb from '@/assets/top/wave_kv_header_tb.png'
+import wave_header_sp from '@/assets/top/wave_kv_header_sp.png'
 import wave_footer_pc from '@/assets/top/wave_kv_footer.png';
 import wave_footer_tb from '@/assets/top/wave_kv_footer_tb.png';
 import wave_footer_sp from '@/assets/top/wave_kv_footer_sp.png';
 ---
 
 <div class="wrapper" data-trigger="kv-wrapper">
+  <div class="wave wave--header">
+    <PictureComponent
+      mobileImgUrl={wave_header_sp}
+      tabletImgUrl={wave_header_tb}
+      desktopImgUrl={wave_header_pc}
+      alt=""
+    />
+  </div>
   <div class="container" data-trigger="kv-container">
     <div class="content" data-trigger="kv-content">
       <slot />
@@ -33,7 +44,11 @@ import wave_footer_sp from '@/assets/top/wave_kv_footer_sp.png';
       width: 100%;
       left: 0;
       mix-blend-mode: luminosity;
-      z-index: var(--z_flat);
+      position: absolute;
+      z-index: var(--z_over);
+    }
+    .wave--header {
+      top: 0;
     }
     .wave--footer {
       position: absolute;
