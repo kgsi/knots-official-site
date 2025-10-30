@@ -83,6 +83,9 @@ import Btn from "@/components/util/Btn.astro"
       gap: 20px;
       transition: color 0.6s ease;
     }
+    .nav-link {
+      font-size: rem(16);
+    }
     @media (--pc) {
       .header {
         &.is-inversion {
@@ -191,7 +194,9 @@ import Btn from "@/components/util/Btn.astro"
       .nav-link {
         display: flex;
         padding-block: 24px 16px;
+        font-family: var(--font_ja_bold);
         font-size: min(vw(20), 20px);
+        font-weight: 600;
       }
       .sponsor-link {
         text-align: center;

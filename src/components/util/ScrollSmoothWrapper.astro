@@ -5,8 +5,9 @@
 </div>
 
 <script>
-  import("@/scripts/scrollPerformer.js").then(({ initScrollSmoother, initSmoothAnchorLinks }) => {
+  import("@/scripts/scrollPerformer.js").then(({ initScrollSmoother, initSmoothAnchorLinks, refreshScrollTrigger }) => {
     initScrollSmoother();
     initSmoothAnchorLinks();
+    refreshScrollTrigger();
   });
 </script>

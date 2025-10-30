@@ -3,7 +3,7 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 gsap.registerPlugin(ScrollTrigger);
 
 export function setupPickupAnimation() {
-  const pickupSection = document.querySelector('.pickup');
+  const pickupSection = document.querySelector('[data-trigger="pickup"]');
   const wave = document.querySelector('[data-trigger="pickup-wave"]');
   if (!wave) return;
   const waveHeight = wave.clientHeight;

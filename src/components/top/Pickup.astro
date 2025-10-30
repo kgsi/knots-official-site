@@ -1,6 +1,8 @@
 ---
-import Image from 'astro/components/Image.astro';
-import pickup_wave from '@/assets/top/wave_pickup.png';
+import PictureComponent from '@/components/util/PictureComponent.astro';
+import wave_pickup_pc from '@/assets/top/wave_pickup_pc.png';
+import wave_pickup_tb from '@/assets/top/wave_pickup_tb.png';
+import wave_pickup_sp from '@/assets/top/wave_pickup_sp.png';
 
 import SectionTitle from '@/components/util/SectionTitle.astro';
 import SessionItem from './modules/SessionItem.astro';
@@ -22,15 +24,13 @@ const speakerImages = Object.fromEntries(
 
 ---
 
-<div class="pickup">
+<div class="pickup" data-trigger="pickup">
 	<div class="wave" data-trigger="pickup-wave">
-		<Image
-			src={pickup_wave}
+		<PictureComponent
+			mobileImgUrl={wave_pickup_sp}
+			tabletImgUrl={wave_pickup_tb}
+			desktopImgUrl={wave_pickup_pc}
 			alt=""
-			width={1024}
-			height={1046}
-			loading="eager"
-			class="util-img-cover"
 		/>
 	</div>
 	<div class="inner">

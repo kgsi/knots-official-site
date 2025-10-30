@@ -8,12 +8,15 @@ export function setupKvAnimation() {
   
   if (!kvWrapper || !kvContainer) return;
   
-  ScrollTrigger.create({
-    trigger: kvContainer,
-    start: 'bottom 80%',
-    end: 'bottom top',
-    scrub: true,
-    pin: true,
-    pinSpacing: false
-  });
+  gsap.to(kvContainer, {
+    yPercent: -20,
+    scrollTrigger: {
+      trigger: kvContainer,
+      start: 'bottom bottom',
+      end: 'bottom top',
+      scrub: true,
+      pin: true,
+      pinSpacing: false
+    }
+  })
 }

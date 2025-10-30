@@ -14,6 +14,10 @@ export function initScrollSmoother() {
     normalizeScroll: true
   });
 
+  window.addEventListener('load', () => {
+    ScrollTrigger.refresh();
+  });
+
   // メニューの開閉イベントをリッスン
   document.addEventListener('menu:toggle', (event) => {
     const customEvent = event as CustomEvent;
