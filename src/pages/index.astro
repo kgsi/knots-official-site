@@ -99,8 +99,8 @@ import Footer from '@/components/footer/Footer.astro'
 	}
 </style>
 
-<script is:inline>
-	import('/src/scripts/intersectAnimation.js').then(({ initAnimation }) =>
+<script>
+	import('@/scripts/intersectAnimation.js').then(({ initAnimation }) =>
 		initAnimation()
 	);
 </script>
