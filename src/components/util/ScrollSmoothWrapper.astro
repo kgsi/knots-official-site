@@ -4,8 +4,8 @@
   </div>
 </div>
 
-<script is:inline>
-  import("/src/scripts/scrollPerformer.js").then(({ initScrollSmoother, initSmoothAnchorLinks }) => {
+<script>
+  import("@/scripts/scrollPerformer.js").then(({ initScrollSmoother, initSmoothAnchorLinks }) => {
     initScrollSmoother();
     initSmoothAnchorLinks();
   });
