@@ -14,7 +14,7 @@ export function initScrollSmoother() {
     normalizeScroll: true
   });
 
-  window.addEventListener('load', () => {
+  window.addEventListener('DOMContentLoaded', () => {
     ScrollTrigger.refresh();
   });
 
@@ -65,10 +65,8 @@ export function initSmoothAnchorLinks() {
 }
 
 export function refreshScrollTrigger() {
-  const resizeObserver = new ResizeObserver(() => {
-    ScrollTrigger.refresh()
-  })
-  document.querySelectorAll('body, main, header, footer').forEach(el => {
-    resizeObserver.observe(el)
-  })
+  const resizeObserver = new ResizeObserver((entries) => {
+    ScrollTrigger.refresh();
+  });
+  resizeObserver.observe(document.body);
 }

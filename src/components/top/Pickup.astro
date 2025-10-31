@@ -95,7 +95,7 @@ const speakerImages = Object.fromEntries(
 <style>
 	@layer components {
 		.pickup {
-			padding-block: 100px 100vh;
+			padding-block: 400px;
 			position: relative;
 			background-color: var(--color_bg_white);
 		}
@@ -104,6 +104,9 @@ const speakerImages = Object.fromEntries(
 			z-index: var(--z_above);
 		}
 		.wave {
+			position: absolute;
+			top: 0;
+			left: 0;
 			width: 100%;
 			height: auto;
 			min-height: 100vh;
@@ -111,7 +114,6 @@ const speakerImages = Object.fromEntries(
 			mix-blend-mode: overlay;
 			display: grid;
 			place-items: center;
-			position: relative;
 		}
 		.lead {
 			font-feature-settings: 'halt' on;
@@ -130,6 +132,11 @@ const speakerImages = Object.fromEntries(
 		@media (--tb) {
 			.wave {
 				aspect-ratio: 1760 / 1891;
+			}
+		}
+		@media (--sp) {
+			.wave {
+				aspect-ratio: 750 / 1548;
 			}
 		}
 	}

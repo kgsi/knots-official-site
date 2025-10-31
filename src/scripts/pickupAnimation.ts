@@ -6,18 +6,15 @@ export function setupPickupAnimation() {
   const pickupSection = document.querySelector('[data-trigger="pickup"]');
   const wave = document.querySelector('[data-trigger="pickup-wave"]');
   if (!wave) return;
-  const waveHeight = wave.clientHeight;
-  const triggerStart = (waveHeight - window.innerHeight) / 2;
-
   gsap.set(wave, { opacity: 0 });
 
   const waveAnimation = gsap.timeline();
   waveAnimation.to(wave, {
     opacity: 1,
-    duration: 3
+    duration: 1,
   })
   .to(wave, {
-    duration: 3
+    duration: 5
   }, '>')
   .to(wave, {
     opacity: 0,
@@ -26,7 +23,7 @@ export function setupPickupAnimation() {
 
   ScrollTrigger.create({
     trigger: pickupSection,
-    start: `${triggerStart} top`,
+    start: `top top`,
     end: 'bottom bottom',
     scrub: true,
     pin: '[data-trigger="pickup-wave"]',
