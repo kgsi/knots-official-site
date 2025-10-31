@@ -65,7 +65,7 @@ async function initSingleWaveEffect(canvasElement: HTMLCanvasElement) {
     displacementSprite.anchor.set(0.5, 0.5); // 中央アンカー
     displacementSprite.x = width / 2;  // 中央に配置
     displacementSprite.y = height / 2;
-    
+
     // ディスプレイスメントフィルターを作成
     const displacementFilter = new PIXI.DisplacementFilter({
       sprite: displacementSprite,
@@ -136,7 +136,7 @@ async function initSingleWaveEffect(canvasElement: HTMLCanvasElement) {
     startWaveAnimation(displacementSprite);
     
     // マウストラッキングを追加
-    setupMouseTracking(canvasElement, mask);
+  setupMouseTracking(canvasElement, mask);
   } catch (error) {
     console.error('Failed to load image:', error);
     
@@ -151,29 +151,23 @@ async function initSingleWaveEffect(canvasElement: HTMLCanvasElement) {
 function startWaveAnimation(displacementSprite: PIXI.Sprite) {
   // 初期の中央位置を保存
   const centerX = displacementSprite.x;
-  const centerY = displacementSprite.y;
-  
-  // 複雑な波アニメーション用のタイムラインを作成
-  const tl = gsap.timeline({ repeat: -1 });
   
   // 中央を基準としたX位置のアニメーション
-  tl.to(displacementSprite, {
-    pixi: { x: centerX + 100 },
-    duration: 3,
-    ease: "sine.inOut"
-  })
+  const tl = gsap.timeline({ repeat: -1 });
+  tl.fromTo(displacementSprite,
+    { pixi: { x: centerX + 50 } },
+    {
+      pixi: { x: centerX - 50 },
+      duration: 3,
+      ease: "sine.inOut"
+    }
+  )
   .to(displacementSprite, {
-    pixi: { x: centerX - 50 },
-    duration: 4,
-    ease: "sine.inOut"
-  })
-  .to(displacementSprite, {
-    pixi: { x: centerX },
+    pixi: { x: centerX + 50 },
     duration: 3,
     ease: "sine.inOut"
   });
-  
-  // よりダイナミックな効果のため微細な回転を追加
+
   gsap.to(displacementSprite, {
     pixi: { rotation: 0.05 },
     duration: 8,
@@ -187,9 +181,20 @@ function startWaveAnimation(displacementSprite: PIXI.Sprite) {
 function setupMouseTracking(canvasElement: HTMLCanvasElement, mask: PIXI.Sprite) {
   let mouseX = 0;
   let mouseY = 0;
+  const centerX = mask.x;
+  const centerY = mask.y;
+  const hiddenScale = 0.01;
+  let isMaskActive = false;
+
+  // 初期状態ではマスクを縮小・非表示にしておく
+  mask.scale.set(hiddenScale);
+  mask.alpha = 0;
+  mask.position.set(centerX, centerY);
   
   // マウス移動時のマスク位置更新
   const updateMaskPosition = (event: MouseEvent) => {
+    if (!isMaskActive) return;
+
     const rect = canvasElement.getBoundingClientRect();
     
     // CSSスケールを考慮してcanvas中央を基準としたマウス位置を計算
@@ -210,17 +215,40 @@ function setupMouseTracking(canvasElement: HTMLCanvasElement, mask: PIXI.Sprite)
   
   // マウスがcanvasを離れたときマスクを非表示
   const hideMask = () => {
-    gsap.to(mask, {
+    isMaskActive = false;
+    gsap.killTweensOf(mask);
+    gsap.killTweensOf(mask.scale);
+
+    const tl = gsap.timeline();
+    tl.to(mask, {
       pixi: { alpha: 0 },
-      duration: 0.3,
+      duration: 0.15,
       ease: "power2.out"
     });
+    tl.to(mask.scale, {
+      x: hiddenScale,
+      y: hiddenScale,
+      duration: 0.2,
+      ease: "power2.out"
+    }, 0);
+    tl.add(() => {
+      mask.position.set(centerX, centerY);
+    }, ">" );
   };
   
   // マウスがcanvasに入ったときマスクを表示
   const showMask = () => {
+    gsap.killTweensOf(mask);
+    gsap.killTweensOf(mask.scale);
+    isMaskActive = true;
     gsap.to(mask, {
       pixi: { alpha: 1 },
+      duration: 0.3,
+      ease: "power2.out"
+    });
+    gsap.to(mask.scale, {
+      x: 1,
+      y: 1,
       duration: 0.3,
       ease: "power2.out"
     });
@@ -231,6 +259,5 @@ function setupMouseTracking(canvasElement: HTMLCanvasElement, mask: PIXI.Sprite)
   canvasElement.addEventListener('mouseenter', showMask);
   canvasElement.addEventListener('mouseleave', hideMask);
   
-  // 初期状態でマスクを非表示
-  mask.alpha = 0;
+  mask.position.set(centerX, centerY);
 }

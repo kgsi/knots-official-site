@@ -49,6 +49,7 @@ import Btn from "@/components/util/Btn.astro"
 <style>
 	@layer components {
 		.header {
+      container-type: inline-size;
       width: 100%;
 			padding: 24px 40px;
 			position: fixed;
@@ -65,6 +66,7 @@ import Btn from "@/components/util/Btn.astro"
           filter: invert(1);
         }
       }
+
 		}
     .header-inner {
       display: flex;
@@ -85,6 +87,9 @@ import Btn from "@/components/util/Btn.astro"
     }
     .nav-link {
       font-size: rem(16);
+      @container (width <= 1024px) {
+        font-size: rem(14);
+      }
     }
     @media (--pc) {
       .header {

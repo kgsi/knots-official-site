@@ -111,6 +111,7 @@ const speakerImages = Object.fromEntries(
 			mix-blend-mode: overlay;
 			display: grid;
 			place-items: center;
+			position: relative;
 		}
 		.lead {
 			font-feature-settings: 'halt' on;
@@ -119,6 +120,17 @@ const speakerImages = Object.fromEntries(
 			line-height: 150%;
 			letter-spacing: 0.01em;
 			margin-bottom: 52px;
+		}
+		.item {
+			border-bottom: 1px solid var(--color_grey);
+			&:first-child {
+				border-top: 1px solid var(--color_grey);
+			}
+		}
+		@media (--tb) {
+			.wave {
+				aspect-ratio: 1760 / 1891;
+			}
 		}
 	}
 </style>
