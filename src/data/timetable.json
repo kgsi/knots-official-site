@@ -36,29 +36,13 @@
     "content_main": [
       {
         "type": "card",
-        "tag": "Keynote #1",
-        "time": "11:10~11:40",
-        "duration": "30min",
-        "title" : "キーノートトーク #1タイトルサンプル",
-        "speakers": [
-          "session1_1",
-          "session2_1",
-          "session3_1",
-          "session3_2"
-        ]
+        "key": "keynote_1"
       }
     ],
     "content_sub": [
       {
         "type": "card",
-        "tag": "Keynote #2",
-        "time": "11:10~11:40",
-        "duration": "30min",
-        "title" : "キーノートトーク #1タイトルサンプル",
-        "speakers": [
-          "session3_1",
-          "session3_2"
-        ]
+        "key": "talk_1"
       }
     ]
   },
@@ -67,25 +51,13 @@
     "content_main": [
       {
         "type": "card",
-        "tag": "Keynote #1",
-        "time": "11:10~11:40",
-        "duration": "30min",
-        "title" : "キーノートトーク #1タイトルサンプル",
-        "speakers": [
-          "session1_1"
-        ]
+        "key": "talk_2"
       }
     ],
     "content_sub": [
       {
         "type": "card",
-        "tag": "Keynote #2",
-        "time": "11:10~11:40",
-        "duration": "30min",
-        "title" : "キーノートトーク #1タイトルサンプル",
-        "speakers": [
-          "session3_1"
-        ]
+        "key": "keynote_2"
       }
     ]
   },
@@ -111,25 +83,13 @@
     "content_main": [
       {
         "type": "card",
-        "tag": "Keynote #2",
-        "time": "11:10~11:40",
-        "duration": "30min",
-        "title" : "キーノートトーク #1タイトルサンプル",
-        "speakers": [
-          "session3_1"
-        ]
+        "key": "keynote_1"
       }
     ],
     "content_sub": [
       {
         "type": "card",
-        "tag": "Keynote #2",
-        "time": "11:10~11:40",
-        "duration": "30min",
-        "title" : "キーノートトーク #1タイトルサンプル",
-        "speakers": [
-          "session3_1"
-        ]
+        "key": "talk_3"
       }
     ]
   },
@@ -139,25 +99,13 @@
     "content_main": [
       {
         "type": "card",
-        "tag": "Talk #6",
-        "time": "14:50~15:10",
-        "duration": "20min",
-        "title" : "キーノートトーク #1タイトルサンプル",
-        "speakers": [
-          "session3_1"
-        ]
+        "key": "talk_4"
       }
     ],
     "content_sub": [
       {
         "type": "card",
-        "tag": "Talk #6",
-        "time": "14:50~15:10",
-        "duration": "20min",
-        "title" : "キーノートトーク #1タイトルサンプル",
-        "speakers": [
-          "session3_1"
-        ]
+        "key": "talk_5"
       }
     ]
   },

@@ -36,6 +36,13 @@
     color: var(--color_text);
     background-color: var(--color_primary);
   }
+  /* Page loading scroll lock */
+  html.is-loading,
+  body.is-loading {
+    overflow: hidden;
+    height: 100vh;
+    touch-action: none;
+  }
   .root {
     overflow-x: hidden;
   }
@@ -57,9 +64,6 @@
     width: stretch;
     height: stretch;
     object-fit: cover;
-  }
-  .util-lower-main {
-
   }
   .inner {
     width: 100%;

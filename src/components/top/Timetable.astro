@@ -1,53 +1,61 @@
 ---
+import rawTimetableData from '@/data/timetable.json'
+import SectionTitle from '@/components/util/SectionTitle.astro'
+import TimeTableRow from '@/components/top/modules/TimeTableRow.astro'
+import type { TimetableEntry } from '@/types/timetable'
 
-import timetableData from '@/data/timetable.json';
-
-import SectionTitle from '@/components/util/SectionTitle.astro';
-import TimeTableRow from '@/components/top/modules/TimeTableRow.astro';
+// 型を明示して strict 下での暗黙 any 警告を防止
+const timetableData: TimetableEntry[] = rawTimetableData as TimetableEntry[]
 
 ---
-<div class="timetable">
-  <div class="inner">
+<div class="timetable" data-trigger="timetable">
+  <div class="wrapper">
+    <div class="circle only-pc" data-trigger="timetable-circle-pc"></div>
     <div class="head">
-      <SectionTitle
-        en="Time table"
-        ja="タイムテーブル"
-        modifier={["center", "white"]}
-      />
-      <p class="lead">
-        スピーカーセッション、パネルセッション、エクスチェンジセッションがメインステージとサブステージで行われます。<br>登壇者と参加者が垣根を超えて“交わる”スペシャルなセッションを紹介。
-      </p>
+      <div class="head-inner">
+        <SectionTitle
+          en="Time table"
+          ja="タイムテーブル"
+          modifier={["center", "white"]}
+        />
+        <p class="lead">
+          スピーカーセッション、パネルセッション、エクスチェンジセッションがメインステージとサブステージで行われます。<br>登壇者と参加者が垣根を超えて“交わる”スペシャルなセッションを紹介。
+        </p>
+      </div>
     </div>
-    <div class="body">
-      <div class="col col--time">
-        <div class="row"></div>
-        {timetableData.map((item) => (
+    <div class="inner timetable__inner">
+      <div class="body" data-trigger="timetable-body">
+        <div class="circle only-sp" data-trigger="timetable-circle-sp"></div>
+        <div class="col col--main">
           <div class="row">
-            {item.timeline &&
-              <div class="time-label" style={item.timeline_position ? `--this_time_position: ${item.timeline_position};` : ''}>
-                <span class="font-en">{item.timeline}</span>
-              </div>
-            }
+            <hgroup class="stage-label">
+              <h3 class="stage-label-body">メインステージ</h3>
+              <p class="stage-label-sub">キーノート/トーク</p>
+            </hgroup>
           </div>
-        ))}
-      </div>
-      <div class="col col--main">
-        <div class="row">
-          <hgroup class="stage-label">
-            <h3 class="stage-label-body">メインステージ</h3>
-            <p class="stage-label-sub">キーノート/トーク</p>
-          </hgroup>
+          <TimeTableRow timetableData={timetableData} stage="main" />
         </div>
-        <TimeTableRow timetableData={timetableData} stage="main"/>
-      </div>
-      <div class="col col--sub">
-        <div class="row">
-          <hgroup class="stage-label">
-            <h3 class="stage-label-body">サブステージ</h3>
-            <p class="stage-label-sub">トーク/ディスカッション</p>
-          </hgroup>
+        <div class="col col--sub">
+          <div class="row">
+            <hgroup class="stage-label">
+              <h3 class="stage-label-body">サブステージ</h3>
+              <p class="stage-label-sub">トーク/ディスカッション</p>
+            </hgroup>
+          </div>
+          <TimeTableRow timetableData={timetableData} stage="sub" />
         </div>
-        <TimeTableRow timetableData={timetableData} stage="sub"/>
+        <div class="col col--time">
+          <div class="row"></div>
+          {timetableData.map((item) => (
+            <div class="row">
+              {item.timeline &&
+                <div class="time-label" style={item.timeline_position ? `--this_time_position: ${item.timeline_position};` : ''}>
+                  <span class="font-en">{item.timeline}</span>
+                </div>
+              }
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   </div>
@@ -58,17 +66,33 @@ import TimeTableRow from '@/components/top/modules/TimeTableRow.astro';
     .timetable {
       background-color: var(--color_bg_white);
     }
+    .wrapper {
+      position: relative;
+      z-index: var(--z_over);
+    }
+    .circle {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      margin: auto;
+      width: 540px;
+      height: auto;
+      aspect-ratio: 1;
+      background-color: var(--color_primary);
+      border-radius: 50%;
+      z-index: var(--z_under);
+    }
     .head {
       display: grid;
       place-items: center;
       align-content: center;
-      background-color: var(--color_primary);
       width: 540px;
       aspect-ratio: 1;
       margin-inline: auto;
+      margin-bottom: 400px;
       border-radius: 50%;
       padding: 90px;
-      margin-bottom: 180px;
     }
     .lead {
       color: #fff;
@@ -81,6 +105,7 @@ import TimeTableRow from '@/components/top/modules/TimeTableRow.astro';
       display: grid;
       grid-template-columns: repeat(2, 1fr);
       column-gap: 160px;
+      padding-bottom: 320px;
     }
     .col {
       display: grid;
@@ -157,13 +182,81 @@ import TimeTableRow from '@/components/top/modules/TimeTableRow.astro';
       .body {
         column-gap: vwTb(88);
       }
+      .circle {
+        display: none;
+      }
+      .head {
+        width: 100%;
+        aspect-ratio: auto;
+        margin-bottom: 0;
+        position: relative;
+        padding-bottom: 80px;
+        &:before {
+          content: '';
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100vw;
+          height: 100%;
+          background-color: var(--color_primary);
+          z-index: var(--z_under);
+          clip-path: circle(vwTb(720) at center vwTb(720));
+        }
+      }
+      .head-inner {
+        width: vwTb(530);
+      }
+      .lead {
+        line-height: 1.5;
+      }
+      .body {
+        padding-top: 96px;
+        padding-bottom: 0;
+      }
     }
 		@media (--sp) {
       .body {
         overflow: hidden;
         column-gap: vw(64);
+        position: relative;
+        padding-bottom: 0;
       }
-      
+      .circle {
+        width: vw(96);
+        margin: auto;
+      }
+      .head {
+        width: 100%;
+        aspect-ratio: auto;
+        margin-bottom: 0;
+        position: relative;
+        padding: 80px 0;
+        &:before {
+          content: '';
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100vw;
+          height: 100%;
+          background-color: var(--color_primary);
+          z-index: var(--z_under);
+          clip-path: circle(vw(355) at center vw(355));
+        }
+      }
+      .head-inner {
+        width: auto;
+        padding-inline: 32px;
+      }
+      .lead {
+        font-size: rem(18);
+        line-height: 1.8;
+      }
 		}
 	}
 </style>
+
+<script>
+  // パスをエイリアスに変更して型解決エラーを回避
+  import { initTimeTableAnimation } from '@/scripts/timeTableAnimation.ts'
+  initTimeTableAnimation();
+</script>

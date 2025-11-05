@@ -1,15 +1,18 @@
 ---
 interface Props {
-  time?: string;
-  duration?: string;
-  tag?: string;
-  title?: string;
-  speakers?: string[];
+  key?: string;
+  session?: {
+    time?: string;
+    duration?: string;
+    tag?: string;
+    title?: string;
+    speakers?: string[];
+  };
 }
-const { time = null, duration = null, tag = null, title = null, speakers = [] } = Astro.props;
+const { key ='', session = { time: null, duration: null, tag: null, title: null, speakers: [] } } = Astro.props;
+const { time, duration, tag, title, speakers } = session;
 
 import Speaker from './Speaker.astro';
-
 import speakersData from '@/data/speakers.json';
 
 const images = import.meta.glob('@/assets/top/speakers/*.{png,jpg,jpeg,webp,gif}', { eager: true });
@@ -29,7 +32,7 @@ const getSpeakerById = (id: string) => {
 
 ---
 
-<div class="session-card">
+<button type="button" class="session-card" data-modal-open={key || ''}>
   <div class="head">
     <span class="time font-en">{time}<span class="duration">({duration})</span></span>
     <span class="tag font-en">{tag}</span>
@@ -45,7 +48,7 @@ const getSpeakerById = (id: string) => {
       ) : null;
     })}
   </ul>
-</div>
+</button>
 
 <style>
 	@layer components {
@@ -55,6 +58,16 @@ const getSpeakerById = (id: string) => {
       padding: 16px 24px;
       display: grid;
       row-gap: 16px;
+      border: none;
+      text-align: left;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      mix-blend-mode: difference;
+      @media (--hover) {
+        &:hover {
+          background-color: color-mix(in srgb, #fff 97%, #000 3%);
+        }
+      }
     }
     .head {
       display: flex;
@@ -83,9 +96,11 @@ const getSpeakerById = (id: string) => {
       display: grid;
       row-gap: 16px;
     }
-		@media (--sp) {
-      
-		}
 	}
-
 </style>
+
+<script>
+	import('@/scripts/modal.ts').then(({ initModal }) =>
+		initModal()
+	);
+</script>

@@ -14,12 +14,33 @@ export function initScrollSmoother() {
     normalizeScroll: true
   });
 
+  // 初期ロード中はスクロールを停止（is-loading クラスが付いている間）
+  if (document.body.classList.contains('is-loading')) {
+    smoother.paused(true)
+    const resume = () => {
+      smoother?.paused(false)
+      ScrollTrigger.refresh()
+    }
+    document.addEventListener('page:loaded', resume, { once: true })
+  }
+
   window.addEventListener('DOMContentLoaded', () => {
     ScrollTrigger.refresh();
   });
 
   // メニューの開閉イベントをリッスン
   document.addEventListener('menu:toggle', (event) => {
+    const customEvent = event as CustomEvent;
+    if (smoother) {
+      if (customEvent.detail.isOpen) {
+        smoother.paused(true);
+      } else {
+        smoother.paused(false);
+      }
+    }
+  });
+  // モーダルの開閉イベントをリッスン
+  document.addEventListener('modal:toggle', (event) => {
     const customEvent = event as CustomEvent;
     if (smoother) {
       if (customEvent.detail.isOpen) {

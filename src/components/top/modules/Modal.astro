@@ -1,0 +1,219 @@
+---
+interface Props {
+  key?: string;
+  session?: {
+    time?: string;
+    duration?: string;
+    tag?: string;
+    title?: string;
+    speakers?: string[];
+    description?: string;
+  };
+}
+const { key ='', session = { time: null, duration: null, tag: null, title: null, speakers: [], description:'' } } = Astro.props;
+const { time, duration, tag, title, speakers, description } = session;
+
+import Speaker from './Speaker.astro';
+import speakersData from '@/data/speakers.json';
+
+const images = import.meta.glob('@/assets/top/speakers/*.{png,jpg,jpeg,webp,gif}', { eager: true });
+const speakerImages = Object.fromEntries(
+	speakersData.map(speaker => {
+		const imagePath = `/src/assets/top/speakers/${speaker.image}`;
+		const imageModule = images[imagePath] as any;
+		return [
+			speaker.id,
+			imageModule?.default || imageModule || undefined
+		];
+	})
+);
+const getSpeakerById = (id: string) => {
+  return speakersData.find(speaker => speaker.id === id);
+}
+
+---
+
+<dialog id={key} autofocus>
+  <div class="modal">
+    <div class="container">
+      <button class="close-btn" type="button" data-trigger="modal-close" aria-label="モーダルを閉じる">
+      </button>
+      <div class="content">
+        <p class="tag font-en">{tag}</p>
+        <p class="time font-en">{time}<span class="duration">({duration})</span></p>
+        <div class="row">
+          <div class="col col--left">
+            <p class="title">{title}</p>
+            <ul class="speakers">
+              {speakers?.map((speakerId) => {
+                const speaker = getSpeakerById(speakerId);
+                return speaker ? (
+                  <li>
+                    <Speaker img={speakerImages[speaker.id]} name={speaker.name} affiliation={speaker.affiliation} modifier="timetable"/>
+                  </li>
+                ) : null;
+              })}
+            </ul>
+          </div>
+          <div class="col col--right">
+            <p class="description">{description}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</dialog>
+
+<style>
+  @layer components {
+    :where(dialog) {
+      width: unset;
+      max-width: unset;
+      height: unset;
+      max-height: unset;
+      padding: unset;
+      color: unset;
+      background-color: unset;
+      border: unset;
+      overflow: unset;
+      &::backdrop {
+        background-color: color-mix(in srgb, var(--color_black) 70%, transparent 30%);
+      } 
+    }
+    .modal {
+      width: 100%;
+      height: 100%;
+      overscroll-behavior: contain;
+      display: grid;
+      place-items: center;
+      padding: 90px 180px;
+    }
+    .container {
+      width: clamp(calc(1024px - 80px), 100%, 1440px);
+      background-color: var(--color_bg_white);
+      border-radius: 8px;
+      padding: 56px 90px 72px;
+      position: relative;
+    }
+    .close-btn {
+      position: absolute;
+      top: 24px;
+      right: 24px;
+      background-color: var(--color_primary);
+      border-radius: 50%;
+      width: 56px;
+      aspect-ratio: 1;
+      border: none;
+      cursor: pointer;
+      &:before,
+      &:after {
+        content: '';
+        width: 24px;
+        height: 2px;
+        border-radius: 100px;
+        background-color: var(--color_white);
+        position: absolute;
+        inset: 0;
+        margin: auto;
+      }
+      &:before {
+        rotate: 45deg;
+      }
+      &:after {
+        rotate: -45deg;
+      }
+    }
+    .tag {
+      color: var(--color_primary);
+      font-size: rem(12);
+      margin-bottom: 16px;
+    }
+    .time {
+      font-size: rem(20);
+      display: flex;
+      align-items: center;
+      column-gap: 4px;
+    }
+    .duration {
+      font-size: rem(16);
+    }
+    .row {
+      margin-top: 56px;
+      display: flex;
+      column-gap: 60px;
+    }
+    .col--left {
+      flex: 1 1 435px;
+    }
+    .title {
+      font-size: rem(20);
+      line-height: 1.5;
+      letter-spacing: 0.01em;
+      margin-bottom: 24px;
+    }
+    .speakers {
+      display: flex;
+      flex-direction: column;
+      row-gap: 16px;
+    }
+    .col--right {
+      flex: 1 1 405px;
+    }
+    .description {
+      font-feature-settings: 'halt' on;
+      font-size: rem(17);
+      font-weight: 600;
+      line-height: 2.0;
+      letter-spacing: 0.05em;
+    }
+    @media (--tb) {
+      .modal {
+        padding-inline: 40px;
+      }
+      .container {
+        width: 100%;
+      }
+      .row {
+        flex-direction: column;
+        row-gap: 16px;
+      }
+      .col--left {
+        flex: 0 0 auto;
+      }
+      .col--right {
+        flex: 0 0 auto;
+      }
+    }
+  }
+</style>
+
+<script>
+  const closeBtn = Array.from(document.querySelectorAll(`[data-trigger="modal-close"]`));
+  const modals = Array.from(document.querySelectorAll('dialog'));
+
+  closeBtn?.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const modal = btn.closest('dialog') as HTMLDialogElement;
+      if (modal) {
+        closeModal(modal);
+      }
+    });
+  });
+
+  modals?.forEach(modal => {
+    modal.addEventListener('click', (event) => handleBackdropClick(event, modal));
+  })
+  const handleBackdropClick = (event: MouseEvent, modal: HTMLDialogElement): void => {
+    const target = modal.querySelector('.container');
+    if (!target?.contains(event.target as Node)) {
+      closeModal(modal);
+    }
+  };
+
+  const closeModal = (modal: HTMLDialogElement): void => {
+    modal.close();
+    document.dispatchEvent(new CustomEvent('modal:toggle', {
+      detail: { isOpen: false }
+    }));
+  }
+</script>

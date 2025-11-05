@@ -70,10 +70,19 @@ const ogpImageURL = new URL('/ogp.png', canonicalURL)
       gtag('config', 'G-0L3D47G404')
     </script>
   </head>
-  <body>
+  <body class="is-loading">
     <div class="root" id="root" data-trigger="root">
       <slot />
     </div>
+    <script is:inline>
+      window.addEventListener('load', () => {
+        const body = document.body;
+        if (body.classList.contains('is-loading')) {
+          body.classList.remove('is-loading')
+          document.dispatchEvent(new CustomEvent('page:loaded'))
+        }
+      })
+    </script>
   </body>
 </html>
 
