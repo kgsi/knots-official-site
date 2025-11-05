@@ -5,7 +5,7 @@ import DistortionWave from '@/components/top/modules/distortionWave.astro';
 
 <div class="conference">
   <div class="wave-wrapper">
-    <div class="wave wave--right only-pc" data-speed="1.2" data-lag="0.2">
+    <div class="wave wave--right only-pc" data-parallax="160">
       <DistortionWave 
         imageSrc='/assets/top/wave_conference_right.png'
         width={364}
@@ -14,7 +14,7 @@ import DistortionWave from '@/components/top/modules/distortionWave.astro';
     </div>
   </div>
   <div class="wave-wrapper">
-    <div class="wave wave--left only-pc" data-speed="0.7" data-lag="0.2">
+    <div class="wave wave--left only-pc" data-parallax="160">
       <DistortionWave 
         imageSrc='/assets/top/wave_conference_left.png'
         width={496}
@@ -128,7 +128,7 @@ import DistortionWave from '@/components/top/modules/distortionWave.astro';
         background-color: var(--color_grey);
         scale: 0 1;
         transform-origin: left;
-        transition: scale 0.7s ease;
+        transition: scale 1.0s ease;
       }
       &:last-child {
         &:after {
@@ -141,7 +141,7 @@ import DistortionWave from '@/components/top/modules/distortionWave.astro';
           background-color: var(--color_grey);
           scale: 0 1;
           transform-origin: left;
-          transition: scale 0.7s 0.7s ease;
+          transition: scale 1.0s 1.0s ease;
         }
       }
       &.is-animated {
@@ -193,3 +193,8 @@ import DistortionWave from '@/components/top/modules/distortionWave.astro';
 		}
 	}
 </style>
+
+<script>
+  import { parallaxElem } from '@/scripts/parallax-elem';
+  parallaxElem();
+</script>

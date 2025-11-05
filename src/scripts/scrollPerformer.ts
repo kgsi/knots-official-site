@@ -24,7 +24,7 @@ export function initScrollSmoother() {
     document.addEventListener('page:loaded', resume, { once: true })
   }
 
-  window.addEventListener('DOMContentLoaded', () => {
+  window.addEventListener('load', () => {
     ScrollTrigger.refresh();
   });
 

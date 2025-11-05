@@ -34,6 +34,14 @@ import Btn from '@/components/util/Btn.astro';
       color: var(--color_white);
       text-align: center;
       container-type: inline-size;
+			&::selection {
+				background-color: var(--color_white);
+				color: var(--color_primary);
+			}
+			&::-moz-selection {
+				background-color: var(--color_white);
+				color: var(--color_primary);
+			}
     }
     .logo {
       width: 100%;
@@ -111,10 +119,11 @@ import Btn from '@/components/util/Btn.astro';
       background-size: 100% 1px;
       background-repeat: no-repeat;
       background-position: bottom;
-      transition: opacity 0.3s ease;
+      transition: opacity 0.3s ease, color 0.3s ease, background-color 0.3s ease;
       @media (--hover) {
         &:hover {
-          opacity: 0.8;
+          color: var(--color_primary);
+          background-color: var(--color_white);
         }
       }
     }

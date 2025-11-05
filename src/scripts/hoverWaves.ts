@@ -24,7 +24,7 @@ export async function hoverWaves() {
 
 // 単一のcanvas要素に対するwave効果の初期化
 async function initSingleWaveEffect(canvasElement: HTMLCanvasElement) {
-  const canvasWidth = canvasElement.dataset.width;
+  const canvasWidth = canvasElement.dataset.width; 
   const canvasHeight = canvasElement.dataset.height;
   const canvasSprite = canvasElement.dataset.image;
 
@@ -52,7 +52,6 @@ async function initSingleWaveEffect(canvasElement: HTMLCanvasElement) {
     // メインテクスチャを読み込み（data属性から画像パスを取得、なければデフォルト）
     const imagePath = canvasSprite || '/assets/top/wave_conference_right.png';
     const texture = await PIXI.Assets.load(imagePath);
-    const imageSprite = new PIXI.Sprite(texture);
     
     // ディスプレイスメント用テクスチャを読み込み
     const displacementTexture = await PIXI.Assets.load('/assets/top/wave_distortion.png');
@@ -72,22 +71,23 @@ async function initSingleWaveEffect(canvasElement: HTMLCanvasElement) {
       scale: 80,
     });
     
-    // メインスプライトをcanvasに合わせてスケール
-    imageSprite.width = width;
-    imageSprite.height = height;
+  // 旧: imageSprite を直接 width/height にフィットさせていたが未使用のため削除（高解像度対応へ簡素化）
     
     // フィルターなしの通常画像を作成（背景）
-    const normalImageSprite = new PIXI.Sprite(texture);
-    normalImageSprite.width = width;
-    normalImageSprite.height = height;
+  const normalImageSprite = new PIXI.Sprite(texture);
+  // 実際のテクスチャを2倍サイズに設定し、あとでscaleで1/2にする
+  normalImageSprite.width = width * 2;
+  normalImageSprite.height = height * 2;
+  normalImageSprite.scale.set(0.5); // 見た目は元サイズ、でもソースは高解像度
     normalImageSprite.anchor.set(0.5, 0.5); // 中央アンカー
     normalImageSprite.x = width / 2;  // 中央に配置
     normalImageSprite.y = height / 2;
     
     // フィルター付きのアニメーション画像を作成
-    const animatedImageSprite = new PIXI.Sprite(texture);
-    animatedImageSprite.width = width;
-    animatedImageSprite.height = height;
+  const animatedImageSprite = new PIXI.Sprite(texture);
+  animatedImageSprite.width = width * 2;
+  animatedImageSprite.height = height * 2;
+  animatedImageSprite.scale.set(0.5); // 同上 高精細維持
     animatedImageSprite.anchor.set(0.5, 0.5); // 中央アンカー
     // ディスプレイスメントフィルターのオフセットを補正 - 左上に移動
     const offsetX = 0; // 左方向補正

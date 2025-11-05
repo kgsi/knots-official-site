@@ -2,7 +2,7 @@
 import Btn from '@/components/util/Btn.astro';
 ---
 
-<div class="fix-btn" tabindex="-1">
+<div class="fix-btn only-sp" tabindex="-1">
 	<Btn href="https://forms.gle/AfVbLJEp7Vwnn4X2A" txt="チケット購入" modifier="fix" />
 </div>
 
@@ -12,7 +12,7 @@ import Btn from '@/components/util/Btn.astro';
 			position: fixed;
 			top: 40px;
 			right: 48px;
-			z-index: var(--z_above);
+			z-index: var(--z_fix_btn);
 			opacity: 0;
 			pointer-events: none;
 			transition: opacity 0.5s ease;
@@ -26,7 +26,7 @@ import Btn from '@/components/util/Btn.astro';
 				top: auto;
 				left: 0;
 				right: 0;
-				bottom: 20px;
+				bottom: 24px;
 				margin: auto;
 				text-align: center;
 				padding-inline: 32px;

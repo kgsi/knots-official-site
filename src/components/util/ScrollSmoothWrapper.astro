@@ -1,13 +1,11 @@
-<div class="smooth-wrapper" id="smooth-wrapper">
-  <div id="smooth-content">
-    <slot />
-  </div>
-</div>
+<slot />
 
 <script>
-  import("@/scripts/scrollPerformer.js").then(({ initScrollSmoother, initSmoothAnchorLinks, refreshScrollTrigger }) => {
-    initScrollSmoother();
-    initSmoothAnchorLinks();
-    refreshScrollTrigger();
-  });
+  // import("@/scripts/scrollPerformer.js").then(({ initScrollSmoother, initSmoothAnchorLinks, refreshScrollTrigger }) => {
+  //   initScrollSmoother();
+  //   initSmoothAnchorLinks();
+  //   refreshScrollTrigger();
+  // });
+  import { initLenis } from '@/scripts/lenisScroll.js';
+  initLenis();
 </script>

@@ -8,6 +8,7 @@
 	@layer components {
 		.about {
 			color: var(--color_white);
+
 		}
 		h2 {
 			text-align: left;
@@ -21,6 +22,14 @@
 			font-weight: 600;
 			letter-spacing: calc(1.2 / 24 * 1em);
 			line-height: 2.2;
+			&::selection {
+				background-color: var(--color_white);
+				color: var(--color_primary);
+			}
+			&::-moz-selection {
+				background-color: var(--color_white);
+				color: var(--color_primary);
+			}
 		}
 		@media (--sp) {
 			.about {

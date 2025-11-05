@@ -66,7 +66,6 @@ import Btn from "@/components/util/Btn.astro"
           filter: invert(1);
         }
       }
-
 		}
     .header-inner {
       display: flex;
@@ -79,14 +78,19 @@ import Btn from "@/components/util/Btn.astro"
       transition: filter 0.6s ease;
 		}
     .nav-list {
-      color: var(--this_color, var(--color_white));
       display: flex;
       align-items: center;
-      gap: 20px;
+      gap: 4px;
       transition: color 0.6s ease;
     }
+    .nav-item--btn {
+      margin-left: 20px;
+    }
     .nav-link {
+      color: var(--this_color, var(--color_white));
       font-size: rem(16);
+      padding: 8px 8px;
+      transition: color var(--transition_hover), background-color var(--transition_hover);
       @container (width <= 1024px) {
         font-size: rem(14);
       }
@@ -95,6 +99,22 @@ import Btn from "@/components/util/Btn.astro"
       .header {
         &.is-inversion {
           --this_color: var(--color_black);
+          .nav-link {
+            @media (--hover) {
+              &:hover {
+                --this_color: var(--color_white);
+                background-color: var(--color_primary);
+              }
+            }
+          }
+        }
+      }
+      .nav-link {
+        @media (--hover) {
+          &:hover {
+            --this_color: var(--color_primary);
+            background-color: var(--color_white);
+          }
         }
       }
     }

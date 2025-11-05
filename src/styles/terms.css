@@ -25,6 +25,10 @@
 		flex-direction: column;
 		row-gap: 48px;
   }
+  .btn-wrapper {
+    margin-top: 48px;
+    text-align: center;
+  }
   @media (--sp) {
     .terms {
       padding-top: 40px;

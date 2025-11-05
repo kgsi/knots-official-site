@@ -29,14 +29,14 @@ import DistortionWave from '@/components/top/modules/distortionWave.astro';
 		/>
 		<p class="lead">
 			スポンサー企業様の様々な求人情報を掲載しています。<br>
-			デザイナー、エンジニア、プロダクトマネージャーなど、<br>
+			デザイナー、エンジニア、プロダクトマネージャーなど、<br class="excepting-sp">
 			多種多様な採用情報をぜひご覧ください。
 		</p>
 		<div class="btn-wrapper">
 			<Btn
 				href="/job-board"
 				txt="求人情報を見る"
-				modifier="wide"
+				modifier={["wide", "arrow-right"]}
 			/>
 		</div>
 	</div>

@@ -5,41 +5,17 @@ import members_production from '@/data/members_production.json';
 import SectionTitle from '@/components/util/SectionTitle.astro';
 import Member from './modules/Member.astro';
 
-
-import member_1 from '@assets/top/members/1_kogiso.jpg';
-import member_2 from '@assets/top/members/2_kocho.jpg';
-import member_3 from '@assets/top/members/3_ryo-kagaya.jpg';
-import member_4 from '@assets/top/members/4_mewmo.jpg';
-import member_5 from '@assets/top/members/5_take.jpg';
-import member_6 from '@assets/top/members/6_yamaguchi.jpg';
-import member_7 from '@assets/top/members/7_mos.jpg';
-import member_8 from '@assets/top/members/8_yamashita.jpg';
-import member_9 from '@assets/top/members/9_nakamura.jpg';
-import member_10 from '@assets/top/members/10_satoh.jpg';
-import member_11 from '@assets/top/members/11_kobayashi.jpg';
-import member_12 from '@assets/top/members/12_yamada.jpg';
-import member_13 from '@assets/top/members/13_suzuki.jpg';
-import member_14 from '@assets/top/members/14_tanaka.jpg';
-import member_15 from '@assets/top/members/15_matsumoto.jpg';
-
-// keyで画像を紐付け
-const memberImages = {
-  member_1,
-  member_2,
-  member_3,
-  member_4,
-  member_5,
-  member_6,
-  member_7,
-  member_8,
-  member_9,
-  member_10,
-  member_11,
-  member_12,
-  member_13,
-  member_14,
-  member_15,
-};
+const images = import.meta.glob('@/assets/top/members/*.{png,jpg,jpeg,webp,gif}', { eager: true });
+const memberImages = Object.fromEntries(
+  [...members_office, ...members_production].map(member => {
+    const imagePath = `/src/assets/top/members/${member.id}.jpg`;
+    const imageModule = images[imagePath] as any;
+    return [
+      member.id,
+      imageModule?.default || imageModule || undefined
+    ];
+  })
+);
 
 ---
 
@@ -80,7 +56,7 @@ const memberImages = {
 <style>
   @layer components {
     .members {
-      padding-block: 44px 312px;
+      padding-block: 44px 160px;
       background-color: var(--color_bg_white);
     }
     .members-category {

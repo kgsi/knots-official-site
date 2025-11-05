@@ -1,46 +1,30 @@
 ---
 import type { ImageMetadata } from 'astro'
-import { getImage } from 'astro:assets'
 
 interface Props {
-  mobileImgUrl: string | ImageMetadata
-  tabletImgUrl: string | ImageMetadata
-  desktopImgUrl: string | ImageMetadata
+  mobileImgUrl: ImageMetadata
+  tabletImgUrl: ImageMetadata
+  desktopImgUrl: ImageMetadata
   alt: string | ''
 }
 
 const { mobileImgUrl, tabletImgUrl, desktopImgUrl, alt } = Astro.props
 
-const mobileImg = await getImage({
-  src: mobileImgUrl,
-  format: 'webp',
-  width: 750,
-  height: 200,
-})
-
-const tabletImg = await getImage({
-  src: tabletImgUrl || mobileImgUrl,
-  format: 'webp',
-  width: 768,
-  height: 100,
-})
-
-const desktopImg = await getImage({
-  src: desktopImgUrl,
-  format: 'webp',
-  width: 1440,
-  height: 200,
-})
 ---
 
 <picture>
-  <source media="(max-width: 767px)" srcset={mobileImg.src} />
+  <source media="(max-width: 767px)" srcset={mobileImgUrl.src} />
   <source
     media="(min-width: 768px) and (max-width: 1024px)"
-    srcset={tabletImg.src}
+    srcset={tabletImgUrl.src || mobileImgUrl.src}
   />
-  <source media="(min-width: 1025px)" srcset={desktopImg.src} />
-  <img src={desktopImg.src} alt={alt} />
+  <source media="(min-width: 1025px)" srcset={desktopImgUrl.src} />
+  <img
+    src={desktopImgUrl.src}
+    alt={alt}
+    width={desktopImgUrl.width}
+    height={desktopImgUrl.height}
+  />
 </picture>
 
 <style>

@@ -15,8 +15,7 @@ import icon_x from '@assets/common/icon_x.svg';
     </div>
     <div class="sns-links">
       <a href="https://crossrel.jp/" target="_blank" class="sns-text-link link-color">https://crossrel.jp/</a>
-      <a href="https://x.com/crossrel_commu" target="_blank" class="sns-link link-color">
-        <Image src={icon_x} alt="X" />
+      <a href="https://x.com/crossrel_commu" target="_blank" class="sns-link link-bg-color" aria-label="XでCrossRelを開く">
       </a>
     </div>
   </div>
@@ -26,11 +25,11 @@ import icon_x from '@assets/common/icon_x.svg';
   @layer components {
     .operator {
       margin-top: 4px;
-      border-bottom: 1px solid var(--color_grey);
+      border-bottom: 1px solid var(--color_white);
     }
     .label {
       font-size: rem(16);
-      color: var(--color_grey);
+      color: var(--color_white);
       margin-top: -0.6lh;
       text-align: left;
       display: flex;
@@ -97,17 +96,34 @@ import icon_x from '@assets/common/icon_x.svg';
       letter-spacing: 0.02em;
     }
     .sns-link {
-      --this_color_hover: var(--color_grey);
+      --this_color_hover: var(--color_white);
+      --this_bg_color_hover: var(--color_primary);
       width: 40px;
       min-width: 0;
       aspect-ratio: 1;
       display: grid;
       place-items: center;
-      color: var(--color_white);
-      background-color: currentColor;
+      color: var(--color_text);
+      background-color: var(--color_white);
       border-radius: 50%;
       overflow: hidden;
       position: relative;
+      border: 1px solid transparent;
+      transition: border-color var(--transition_hover);
+      &:before {
+        content: '';
+        width: calc(18 / 40 * 100%);
+        aspect-ratio: 1;
+        background-color: currentColor;
+        mask-image: url('/assets/common/icon_x.svg');
+        mask-size: contain;
+        mask-position: contain;
+      }
+      @media (--hover) {
+        &:hover {
+          border-color: var(--color_white);
+        }
+      }
     }
     @media (--under-pc) {
       .content {

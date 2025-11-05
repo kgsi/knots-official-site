@@ -62,6 +62,7 @@ const { list } = Astro.props;
     .job {
       text-box: var(--text_box_trim);
       font-feature-settings: 'pwid' on, 'palt' on;
+      font-family: var(--font_ja_light);
       font-size: rem(15);
       font-weight: 300;
       line-height: 1.5;
@@ -146,9 +147,11 @@ const { list } = Astro.props;
       }
       .job {
         font-size: rem(14);
+        margin-bottom: 4px;
       }
       .label {
         font-size: rem(18);
+        line-height: 1.5;
       }
       .company {
         font-size: rem(16);

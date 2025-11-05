@@ -7,7 +7,11 @@ const ExLink = ({ href }: { href: string }) => {
 };
 ---
 
-<a href={href} class={`btn${modifier ? ` btn--${modifier}` : ''}`} target={ExLink({ href })}>
+<a href={href} class={`btn${
+    Array.isArray(modifier)
+      ? modifier.map(m => ` btn--${m}`).join('')
+      : modifier ? ` btn--${modifier}` : ''
+  }`} target={ExLink({ href })}>
   {txt && txt}
   <span class="icon-arrow"></span>
 </a>
@@ -66,6 +70,11 @@ const ExLink = ({ href }: { href: string }) => {
       --this_base_width: 360px;
       --this_base_height: 56px;
       --this_font_size: rem(16);
+    }
+    .btn--arrow-right {
+      .icon-arrow {
+        rotate: 45deg;
+      }
     }
     .icon-arrow {
       --this_arrow_size: 12px;

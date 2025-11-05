@@ -3,7 +3,7 @@ import Layout from '../layouts/Layout.astro'
 
 import ScrollSmoothWrapper from '@/components/util/ScrollSmoothWrapper.astro'
 import Header from '@/components/header/Header.astro'
-// import FixBtn from '@/components/top/FixBtn.astro'
+import FixBtn from '@/components/top/FixBtn.astro'
 import TopHeadWrapper from '@/components/top/TopHeadWrapper.astro'
 import Kv from '@/components/top/Kv.astro'
 import About from '@/components/top/About.astro'
@@ -22,7 +22,7 @@ import Footer from '@/components/footer/Footer.astro'
 ---
 
 <Layout>
-	<!-- <FixBtn /> -->
+	<FixBtn />
 	<Header />
 	<ScrollSmoothWrapper>
 		<main class="main" data-trigger="page-wrapper">
@@ -39,9 +39,9 @@ import Footer from '@/components/footer/Footer.astro'
 					<Information />
 					<JobBoard />
 					<Sponsors />
+					<LookingForSponsors />
+					<Members />
 				</div>
-				<LookingForSponsors />
-				<Members />
 			</div>
 		</main>
 		<Footer />

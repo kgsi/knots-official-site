@@ -11,12 +11,12 @@ export function setupKvAnimation() {
   gsap.to(kvContainer, {
     yPercent: -20,
     scrollTrigger: {
-      trigger: kvContainer,
+      trigger: kvWrapper,
       start: 'bottom bottom',
       end: 'bottom top',
-      scrub: true,
       pin: true,
-      pinSpacing: false
+      pinSpacing: false,
+      scrub: true
     }
-  })
+  });
 }
