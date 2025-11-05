@@ -4,7 +4,7 @@ import logo from '@assets/common/logo_knots.svg';
 import Btn from '@/components/util/Btn.astro';
 ---
 
-<div class="kv">
+<div class="kv selected-inversion">
   <div class="inner">
     <hgroup class="hgroup">
       <h1 class="logo">
@@ -22,7 +22,7 @@ import Btn from '@/components/util/Btn.astro';
       </div>
       <div class="btn-wrapper">
         <Btn href="#looking-for-sponsors" txt="チケット購入" modifier="kv"/>
-        <a href="#looking-for-sponsors" class="text-link">スポンサー申し込みについて</a>
+        <a href="#looking-for-sponsors" class="text-link link-bg-color">スポンサー申し込みについて</a>
       </div>
     </div>
   </div>
@@ -34,14 +34,6 @@ import Btn from '@/components/util/Btn.astro';
       color: var(--color_white);
       text-align: center;
       container-type: inline-size;
-			&::selection {
-				background-color: var(--color_white);
-				color: var(--color_primary);
-			}
-			&::-moz-selection {
-				background-color: var(--color_white);
-				color: var(--color_primary);
-			}
     }
     .logo {
       width: 100%;
@@ -115,17 +107,10 @@ import Btn from '@/components/util/Btn.astro';
     }
     .text-link {
       font-size: rem(18);
-      background-image: linear-gradient(currentColor, currentColor);
-      background-size: 100% 1px;
-      background-repeat: no-repeat;
-      background-position: bottom;
-      transition: opacity 0.3s ease, color 0.3s ease, background-color 0.3s ease;
-      @media (--hover) {
-        &:hover {
-          color: var(--color_primary);
-          background-color: var(--color_white);
-        }
-      }
+			text-decoration: underline;
+			text-decoration-thickness: 1px;
+			text-underline-offset: 2px;
+      padding-block: 4px;
     }
     @media (--tb) {
       .logo {

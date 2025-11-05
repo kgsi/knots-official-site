@@ -3,23 +3,27 @@ import SectionTitle from '@/components/util/SectionTitle.astro';
 import DistortionWave from '@/components/top/modules/distortionWave.astro';
 ---
 
-<div class="conference">
+<div class="conference bg-white">
   <div class="wave-wrapper">
-    <div class="wave wave--right only-pc" data-parallax="160">
-      <DistortionWave 
-        imageSrc='/assets/top/wave_conference_right.png'
-        width={364}
-        height={796}
-      />
+    <div class="wave wave--right only-pc" data-parallax="300">
+      <div class="wave-canvas-wrapper">
+        <DistortionWave
+          imageSrc='/assets/top/wave_conference_right.png'
+          width={364}
+          height={796}
+        />
+      </div>
     </div>
   </div>
   <div class="wave-wrapper">
-    <div class="wave wave--left only-pc" data-parallax="160">
-      <DistortionWave 
-        imageSrc='/assets/top/wave_conference_left.png'
-        width={496}
-        height={873}
-      />
+    <div class="wave wave--left only-pc" data-parallax="300">
+      <div class="wave-canvas-wrapper">
+        <DistortionWave
+          imageSrc='/assets/top/wave_conference_left.png'
+          width={496}
+          height={873}
+        />
+      </div>
     </div>
   </div>
 	<div class="inner">
@@ -88,20 +92,22 @@ import DistortionWave from '@/components/top/modules/distortionWave.astro';
 		.conference {
       padding-block: 160px;
       position: relative;
-      background-color: var(--color_bg_white);
       z-index: var(--z_over);
 		}
     .wave {
       position: absolute;
-      z-index: var(--z_over);
     }
     .wave--right {
       top: 0;
       right: -200px;
+      scale: 0.5;
+      transform-origin: right top;
     }
     .wave--left {
       bottom: 0;
       left: -251px;
+      scale: 0.5;
+      transform-origin: left bottom;
     }
     .list {
       display: grid;

@@ -46,6 +46,14 @@
   }
   .root {
     overflow-x: clip;
+    &::selection {
+      background-color: var(--color_primary);
+      color: var(--color_white);
+    }
+    &::-moz-selection {
+      background-color: var(--color_primary);
+      color: var(--color_white);
+    }
   }
   .font-en {
     font-family: var(--font_en);
@@ -100,6 +108,21 @@
       }
     }
   }
+
+  .bg-white {
+    background-color: var(--color_bg_white);
+  }
+  .selected-inversion {
+    &::selection {
+      background-color: var(--color_white);
+      color: var(--color_primary);
+    }
+    &::-moz-selection {
+      background-color: var(--color_white);
+      color: var(--color_primary);
+    }
+  }
+
   @media (--pc) {
     .only-tb {
       display: none;

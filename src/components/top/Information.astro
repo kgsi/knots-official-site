@@ -2,7 +2,7 @@
 import SectionTitle from '@/components/util/SectionTitle.astro';
 ---
 
-<section class="information">
+<section class="information bg-white">
 	<div class="inner">
     <SectionTitle
       en="Information"
@@ -34,11 +34,11 @@ import SectionTitle from '@/components/util/SectionTitle.astro';
 				</div>
 				<div class="dl-item" data-trigger="intersect-anim">
 					<dt>主催</dt>
-					<dd><a href="https://crossrel.jp/" target="_blank" class="text-link">CrossRel</a></dd>
+					<dd><a href="https://crossrel.jp/" target="_blank" class="text-link link-bg-color">CrossRel</a></dd>
 				</div>
 				<div class="dl-item" data-trigger="intersect-anim">
 					<dt>運営会社</dt>
-					<dd><a href="https://lumilinks.jp/" target="_blank" class="text-link">株式会社Lumilinks</a></dd>
+					<dd><a href="https://lumilinks.jp/" target="_blank" class="text-link link-bg-color">株式会社Lumilinks</a></dd>
 				</div>
 				<div class="dl-item" data-trigger="intersect-anim">
 					<dt>開催場所</dt>
@@ -50,7 +50,7 @@ import SectionTitle from '@/components/util/SectionTitle.astro';
 				<div class="dl-item" data-trigger="intersect-anim">
 					<dt>イベント<br class="only-tb">ハッシュタグ</dt>
 					<dd>
-						<a href="https://x.com/search?q=%23knots2026&src=typed_query" target="_blank" class="text-link">#knots2026</a>
+						<a href="https://x.com/search?q=%23knots2026&src=typed_query" target="_blank" class="text-link link-bg-color">#knots2026</a>
 					</dd>
 				</div>
 			</dl>
@@ -62,7 +62,6 @@ import SectionTitle from '@/components/util/SectionTitle.astro';
 	@layer components {
 		.information {
 			padding-block: 160px 120px;
-			background-color: var(--color_bg_white);
 		}
 		.info-dl {
 			width: 100%;
@@ -145,12 +144,8 @@ import SectionTitle from '@/components/util/SectionTitle.astro';
 			text-decoration: underline;
 			text-decoration-thickness: 1px;
 			text-underline-offset: 2px;
-			transition: opacity var(--transition_hover);
-			@media (--hover) {
-				&:hover {
-					opacity: 0.7;
-				}
-			}
+			padding-block: 4px;
+			margin-block: -4px;
 		}
 		.map-btn {
 			display: inline-block;

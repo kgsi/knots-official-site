@@ -2,7 +2,7 @@
 import Operator from './modules/Operator.astro';
 ---
 
-<footer class="footer">
+<footer class="footer selected-inversion">
 	<div class="inner">
 		<div class="row">
 			<div class="operator">
@@ -11,16 +11,16 @@ import Operator from './modules/Operator.astro';
 			<div class="nav">
 				<ul class="nav-list">
 					<li class="nav-item">
-						<a href="https://lumilinks.jp/" target="_blank" class="link-color">運営会社</a>
+						<a href="https://lumilinks.jp/" target="_blank" class="link-bg-color">運営会社</a>
 					</li>
 					<li class="nav-item">
-						<a href="https://forms.gle/CRVsrNFNX6XHFCDP6" target="_blank" class="link-color">お問い合わせ</a>
+						<a href="https://forms.gle/CRVsrNFNX6XHFCDP6" target="_blank" class="link-bg-color">お問い合わせ</a>
 					</li>
 					<li class="nav-item">
-						<a href="/codeofconduct" class="link-color">行動規範</a>
+						<a href="/codeofconduct" class="link-bg-color">行動規範</a>
 					</li>
 					<li class="nav-item">
-						<a href="/privacy-policy" class="link-color">プライバシーポリシー</a>
+						<a href="/privacy-policy" class="link-bg-color">プライバシーポリシー</a>
 					</li>
 				</ul>
 			</div>
@@ -65,7 +65,7 @@ import Operator from './modules/Operator.astro';
 		.nav-list {
 			display: flex;
 			flex-direction: column;
-			row-gap: 32px;
+			row-gap: 24px;
 		}
 		.nav-item {
 			font-family: var(--font_ja_light);
@@ -73,7 +73,7 @@ import Operator from './modules/Operator.astro';
 			line-height: 1.5;
 			letter-spacing: 0.02em;
 			a {
-				--this_color_hover: var(--color_grey);
+				padding-block: 4px;
 			}
 		}
 		.copyright {

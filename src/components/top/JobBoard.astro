@@ -5,7 +5,7 @@ import Btn from '@/components/util/Btn.astro';
 import DistortionWave from '@/components/top/modules/distortionWave.astro';
 ---
 
-<div class="job-board">
+<div class="job-board selected-inversion">
 	<div class="wave wave--top only-pc">
 		<DistortionWave
 			imageSrc='/assets/top/wave_job-board_top.png'
@@ -64,10 +64,14 @@ import DistortionWave from '@/components/top/modules/distortionWave.astro';
 		.wave--top {
 			top: 0;
 			right: 0;
+			scale: 0.5;
+			transform-origin: top right;
 		}
 		.wave--bottom {
 			bottom: 0;
 			left: 0;
+			scale: 0.5;
+			transform-origin: left bottom;
 		}
 		.lead {
 			padding-top: 8px;
