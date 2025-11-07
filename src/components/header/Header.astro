@@ -135,49 +135,55 @@ import Btn from "@/components/util/Btn.astro"
       }
       .menu-btn {
         display: grid;
-        align-items: center;
-        justify-items: end;
+        place-items: center;
         width: min(vw(32), 48px);
-        height: min(vw(20), 30px);
+        height: min(vw(24), 30px);
         position: relative;
         z-index: var(--z_over);
         cursor: pointer;
         background-color: transparent;
         border: none;
+        position: relative;
         &:before,
         &:after {
           content: '';
           position: absolute;
           right: 0;
-          margin: auto;
           background-color: var(--this_btn_color, var(--color_white));
           height: 2px;
+          border-radius: 9999px;
           transition: translate 0.3s 0.3s ease, rotate 0.3s 0s ease, width 0.3s 0.3s ease, background-color 0.6s ease;
         }
         &:before {
           width: 100%;
-          translate: 0 max(vw(-12), -12px);
+          translate: 0 max(vw(-10), -12px);
         }
         &:after {
           width: 50%;
-          translate: 0 min(vw(12), 12px);
+          translate: 0 min(vw(10), 12px);
         }
         @media (--hover) {
           &:hover {
             &:before {
-              translate: 0 max(vw(-10), -10px);
+              translate: 0 max(vw(-8), -10px);
             }
             &:after {
-              translate: 0 min(vw(10), 10px);
+              translate: 0 min(vw(8), 10px);
             }
           }
         }
       }
       .menu-btn-bar {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        margin: auto;
         width: 75%;
         height: 2px;
         background-color: var(--this_btn_color, var(--color_white));
         transition: opacity 0.3s ease, background-color 0.6s ease;
+        border-radius: 9999px;
       }
       .menu-wrapper {
         position: fixed;

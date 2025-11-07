@@ -106,6 +106,20 @@ const ExLink = ({ href }: { href: string }) => {
         transition: mask-position var(--this_hover_transition, 0.3s ease);
       }
     }
+    @media (--pc) {
+      :global(.is-inversion) {
+        .btn--header {
+          --this_bg: var(--color_primary);
+          --this_color: var(--color_white);
+          @media (--hover) {
+            &:hover {
+              --this_bg: var(--color_white);
+              --this_color: var(--color_primary);
+            }
+          }
+        }
+      }
+    }
     @media(--under-pc) {
       .btn--header {
         --this_font_size: min(vw(16), 16px);

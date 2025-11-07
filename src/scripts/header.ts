@@ -56,13 +56,14 @@ export function toggleMenu() {
 }
 export function headerStateOnScroll() {
   const header = document.querySelector('[data-trigger="header"]');
-  const headerStateChangeElement = document.querySelector('[data-trigger="header-state-change"]');
   if (header) {
-    ScrollTrigger.create({
-      trigger: headerStateChangeElement,
+    document.querySelectorAll('[data-trigger="header-state-change"]').forEach((triggerEl) => {
+      ScrollTrigger.create({
+      trigger: triggerEl,
       start: 'top top',
       end: 'bottom top',
       toggleClass: { targets: header, className: 'is-inversion' },
+      });
     });
   }
 }

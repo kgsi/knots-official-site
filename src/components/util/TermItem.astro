@@ -74,6 +74,12 @@ const { title } = Astro.props
       :global(a) {
         color: var(--color_primary_deep);
         text-decoration: underline;
+        padding-block: 4px;
+        transition: color var(--transition_hover), background-color var(--transition_hover);
+        &:hover {
+          color: var(--color_white);
+          background-color: var(--color_primary);
+        }
       }
     }
     @media (--sp) {

@@ -3,24 +3,23 @@ import { ScrollTrigger } from 'gsap/all';
 gsap.registerPlugin(ScrollTrigger);
 
 export function parallaxElem() {
-  const parallaxElems= Array.from(document.querySelectorAll('[data-parallax]') as NodeListOf<Element>);
-  if (parallaxElems.length === 0) return;
+  const parallaxElements= Array.from(document.querySelectorAll('[data-parallax]') as NodeListOf<Element>);
+  if (parallaxElements.length === 0) return;
 
-  console.log(parallaxElems);
-
-  parallaxElems.forEach((elem) => {
+  parallaxElements.forEach((elem) => {
     const speed = Number((elem as HTMLElement).dataset.parallax) || 0;
-    gsap.fromTo(
-      elem,
-      { y: speed * -0.5 },
-      {
-        y: speed * 0.5,
-        scrollTrigger: {
-          trigger: elem,
-          scrub: 1.2,
-        },
+    gsap.fromTo(elem, {
+      y: speed * -0.5
+    },{
+      y: speed * 0.5,
+      ease: 'none',
+      scrollTrigger: {
+        trigger: elem,
+        start: 'top bottom',
+        end: 'bottom top',
+        scrub: 1.2
       }
-    );
+    })
   });
 };
 

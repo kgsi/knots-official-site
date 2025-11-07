@@ -5,7 +5,7 @@ import DistortionWave from '@/components/top/modules/distortionWave.astro';
 
 <div class="conference bg-white">
   <div class="wave-wrapper">
-    <div class="wave wave--right only-pc" data-parallax="300">
+    <div class="wave wave--right only-pc" data-parallax="-300">
       <div class="wave-canvas-wrapper">
         <DistortionWave
           imageSrc='/assets/top/wave_conference_right.png'
@@ -16,7 +16,7 @@ import DistortionWave from '@/components/top/modules/distortionWave.astro';
     </div>
   </div>
   <div class="wave-wrapper">
-    <div class="wave wave--left only-pc" data-parallax="300">
+    <div class="wave wave--left only-pc" data-parallax="500">
       <div class="wave-canvas-wrapper">
         <DistortionWave
           imageSrc='/assets/top/wave_conference_left.png'
@@ -100,14 +100,18 @@ import DistortionWave from '@/components/top/modules/distortionWave.astro';
     .wave--right {
       top: 0;
       right: -200px;
-      scale: 0.5;
-      transform-origin: right top;
+      .wave-canvas-wrapper {
+        transform-origin: right top;
+        scale: 0.5;
+      }
     }
     .wave--left {
       bottom: 0;
       left: -251px;
-      scale: 0.5;
-      transform-origin: left bottom;
+      .wave-canvas-wrapper {
+        transform-origin: left bottom;
+        scale: 0.5;
+      }
     }
     .list {
       display: grid;

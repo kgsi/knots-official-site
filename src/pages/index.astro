@@ -30,17 +30,23 @@ import Footer from '@/components/footer/Footer.astro'
 				<Kv />
 				<About />
 			</TopHeadWrapper>
-			<div class="bg-wrapper" data-trigger="header-state-change">
+			<div class="bg-wrapper">
 				<div class="fix-wrapper">
 					<div class="fix" data-trigger="fix-btn"></div>
-					<Conference />
-					<Pickup />
-					<!-- <Timetable /> -->
-					<Information />
+					<div data-trigger="header-state-change">
+						<Conference />
+						<Pickup />
+						<!-- <Timetable /> -->
+						<Information />
+					</div>
 					<JobBoard />
-					<Sponsors />
+					<div data-trigger="header-state-change">
+						<Sponsors />
+					</div>
 					<LookingForSponsors />
-					<Members />
+					<div data-trigger="header-state-change">
+						<Members />
+					</div>
 				</div>
 			</div>
 		</main>
