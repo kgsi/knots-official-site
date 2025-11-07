@@ -16,6 +16,7 @@ export function headerAnimation() {
   }
 }
 export function toggleMenu() {
+  const headerMenu = document.querySelector('[data-trigger="header-menu-wrapper"]') as HTMLElement;
   const menuBtn = document.querySelector('[data-trigger="menu-btn"]');
   if (menuBtn) {
     menuBtn.addEventListener('click', () => {

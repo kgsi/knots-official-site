@@ -8,8 +8,7 @@ export const initLenis = () => {
 
   const lenis = new Lenis({
     duration: 1.0,
-    smoothWheel: true,
-    wrapper: '#root'
+    smoothWheel: true
   });
 
   lenis.on('scroll', ScrollTrigger.update)
