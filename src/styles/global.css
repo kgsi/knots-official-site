@@ -14,6 +14,7 @@
 
     --transition_hover: 0.3s ease;
 
+    --z_footer: 200000;
     --z_header: 100000;
     --z_fix_btn: 90000;
     --z_above: 10000;

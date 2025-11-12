@@ -22,6 +22,175 @@ const speakerImages = Object.fromEntries(
 	})
 );
 
+const sessionList = [
+	{
+		id: 'session1',
+		title: 'AI時代、UXリサーチャーはどこへ？',
+		description: 'AIが到来し、当たり前になる世の中において、リサーチャーという職業が近い将来いなくなるのではないか？と思うことがあります。一方、顧客理解でチームを繋ぐ根幹の役割は残るのも、日々AIと一緒に仕事を進めながら確信しているところです。今後、リサーチャーという名前（＝調査を実行する人）で残らず、リサーチャー的な振る舞いをしながら、PM、事業家、マーケターなど別の自分のWillと重ね合うところに落ち着くように思います。リサーチャーとしてAIを使いながら進める実例と、進めてみてリサーチャーという職種について感じるところをお話します。',
+		speakers: [
+			'session1_1'
+		],
+	},
+	{
+		id: 'session2',
+		title: 'プロトタイプドリブン要件定義 〜 PdM・デザイナー・エンジニアの協働を加速するAI活用開発プロセス',
+		description: '要求定義後、プロトタイプを作りながらデザイナー・エンジニアと協働する開発プロセスを紹介します。AIでPRDを標準化し、Figma MakeやCursorでプロトタイプを作成。従来は要件を作り込んでから実装する流れでしたが、プロトファーストで「作ってみたら違った」という手戻りを削減しました。動くものを見せることでステークホルダーの理解が深まり、的確なFBが得られます。プロトから要件定義・ユーザーストーリーを自動生成する仕組みも構築。デザイナーとPdM両視点での効果と、チームで民主化した取り組みをお伝えします。',
+		speakers: [
+			'session2_1',
+			'session2_2',
+		],
+	},
+	{
+		id: 'session3',
+		title: 'AI × フォント × デザインツール：非デザイナーも"フォントが使える"体験をPoCで実現',
+		description: '生成AIやエージェント技術の発展により、「必要なときに、必要な人に、必要なフォントを届ける」仕組みが現実味を帯びてきました。本セッションでは、エージェント経由でFigma上で誰もが一時的にフォントが利用できるPoC事例を紹介。ブランド整合性とデザイナー以外の利便性を両立し、新しい提供体験をシェアします。',
+		speakers: [
+			'session3_1'
+		],
+	},
+	{
+		id: 'session4',
+		title: 'セッション4',
+		description: 'セッション4サンプルセッション4サンプルセッション4サンプルセッション4サンプルセッション4サンプルセッション4サンプルセッション4サンプル',
+		speakers: [
+			'session0'
+		],
+	}
+	,
+	{
+		id: 'session5',
+		title: 'セッション5',
+		description: 'セッション5サンプルセッション5サンプルセッション5サンプルセッション5サンプルセッション5サンプルセッション5サンプルセッション5サンプルセッション5サンプル',
+		speakers: [
+			'session0'
+		],
+	},
+	{
+		id: 'session6',
+		title: 'セッション6',
+		description: 'セッション6サンプルセッション6サンプルセッション6サンプルセッション6サンプルセッション6サンプルセッション6サンプルセッション6サンプルセッション6サンプル',
+		speakers: [
+			'session0'
+		],
+	},
+	{
+		id: 'session7',
+		title: 'セッション7',
+		description: 'セッション7サンプルセッション7サンプルセッション7サンプルセッション7サンプルセッション7サンプルセッション7サンプルセッション7サンプルセッション7サンプル',
+		speakers: [
+			'session0'
+		],
+	},
+	{
+		id: 'session8',
+		title: 'セッション8',
+		description: 'セッション8サンプルセッション8サンプルセッション8サンプルセッション8サンプルセッション8サンプルセッション8サンプルセッション8サンプルセッション8サンプル',
+		speakers: [
+			'session0'
+		],
+	},
+	{
+		id: 'session9',
+		title: 'セッション9',
+		description: 'セッション9サンプルセッション9サンプルセッション9サンプルセッション9サンプルセッション9サンプルセッション9サンプルセッション9サンプルセッション9サンプル',
+		speakers: [
+			'session0'
+		],
+	},
+	{
+		id: 'session10',
+		title: 'セッション10',
+		description: 'セッション10サンプルセッション10サンプルセッション10サンプルセッション10サンプルセッション10サンプルセッション10サンプルセッション10サンプルセッション10サンプル',
+		speakers: [
+			'session0'
+		],
+	},
+	{
+		id: 'session11',
+		title: 'セッション11',
+		description: 'セッション11サンプルセッション11サンプルセッション11サンプルセッション11サンプルセッション11サンプルセッション11サンプルセッション11サンプルセッション11サンプル',
+		speakers: [
+			'session0'
+		],
+	},
+	{
+		id: 'session12',
+		title: 'セッション12',
+		description: 'セッション12サンプルセッション12サンプルセッション12サンプルセッション12サンプルセッション12サンプルセッション12サンプルセッション12サンプルセッション12サンプル',
+		speakers: [
+			'session0'
+		],
+	},
+	{
+		id: 'session13',
+		title: 'セッション13',
+		description: 'セッション13サンプルセッション13サンプルセッション13サンプルセッション13サンプルセッション13サンプルセッション13サンプルセッション13サンプルセッション13サンプル',
+		speakers: [
+			'session0'
+		],
+	},
+	{
+		id: 'session14',
+		title: 'セッション14',
+		description: 'セッション14サンプルセッション14サンプルセッション14サンプルセッション14サンプルセッション14サンプルセッション14サンプルセッション14サンプルセッション14サンプル',
+		speakers: [
+			'session0'
+		],
+	},
+	{
+		id: 'session15',
+		title: 'セッション15',
+		description: 'セッション15サンプルセッション15サンプルセッション15サンプルセッション15サンプルセッション15サンプルセッション15サンプルセッション15サンプルセッション15サンプル',
+		speakers: [
+			'session0'
+		],
+	},
+	{
+		id: 'session16',
+		title: 'セッション16',
+		description: 'セッション16サンプルセッション16サンプルセッション16サンプルセッション16サンプルセッション16サンプルセッション16サンプルセッション16サンプルセッション16サンプル',
+		speakers: [
+			'session0'
+		],
+	},
+	{
+		id: 'session17',
+		title: 'セッション17',
+		description: 'セッション17サンプルセッション17サンプルセッション17サンプルセッション17サンプルセッション17サンプルセッション17サンプルセッション17サンプルセッション17サンプル',
+		speakers: [
+			'session0'
+		],
+	},
+	{
+		id: 'session18',
+		title: 'セッション18',
+		description: 'セッション18サンプルセッション18サンプルセッション18サンプルセッション18サンプルセッション18サンプルセッション18サンプルセッション18サンプルセッション18サンプル',
+		speakers: [
+			'session0'
+		],
+	},
+	{
+		id: 'session19',
+		title: 'セッション19',
+		description: 'セッション19サンプルセッション19サンプルセッション19サンプルセッション19サンプルセッション19サンプルセッション19サンプルセッション19サンプルセッション19サンプル',
+		speakers: [
+			'session0'
+		],
+	},
+	{
+		id: 'session20',
+		title: 'セッション20',
+		description: 'セッション20サンプルセッション20サンプルセッション20サンプルセッション20サンプルセッション20サンプルセッション20サンプルセッション20サンプルセッション20サンプル',
+		speakers: [
+			'session0'
+		],
+	}
+]
+
+const pickupSession = [...sessionList]
+  .sort(() => Math.random() - 0.5)
+  .slice(0, 3);
+
 ---
 
 <div class="pickup bg-white" data-trigger="pickup">
@@ -40,54 +209,25 @@ const speakerImages = Object.fromEntries(
 			id="pickup"
 		/>
 		<ul class="list">
+		{pickupSession.map(content => (
 			<li class="item">
 				<SessionItem
-					title="KNOTSが生み出す全く新しいイベントビジョン"
-					description="多様な人々やアイデアが結び合うことで、社会を動かす原動力となるイベントへ。KNOTSは「つながり」を核に、これまでにないビジョンを提示します。本セッションでは、未来のイベントデザインの方向性を探ります。">
-					<Speaker
-						name="登壇者名"
-						affiliation="株式会社Lumilinks代表取締役 / デジタルプロダクトデザイナー"
-						img={speakerImages.session1_1}
-					/>
+					title={content.title}
+					description={content.description}
+				>
+					{content.speakers.map(speakerId => {
+						const speakerData = speakers.find(s => s.id === speakerId)
+						return speakerData ? (
+							<Speaker
+								name={speakerData.name}
+								affiliation={speakerData.affiliation}
+								img={speakerData.image ? speakerImages[speakerData.id] : undefined}
+							/>
+						) : null
+					})}
 				</SessionItem>
 			</li>
-			<li class="item">
-				<SessionItem
-					title="多様化が進む現代で、本当に良いデザインとは？"
-					description="社会の多様化が進む現代において、「良いデザイン」とは一体何を意味するのでしょうか。美しさや機能性だけではなく、人・文化・価値観をどう取り込み、共感を生むかが問われています。本セッションでは、多様性を受け入れながら進化するデザインのあり方を探求します。">
-					<Speaker
-						name="登壇者名"
-						affiliation="株式会社Lumilinks代表取締役 / デジタルプロダクトデザイナー"
-						img={speakerImages.session2_1}
-					/>
-					<Speaker
-						name="登壇者名"
-						affiliation="株式会社Lumilins代表取締役 / デジタルプロダクトデザイナー"
-						img={speakerImages.session2_2}
-					/>
-				</SessionItem>
-			</li>
-			<li class="item">
-				<SessionItem
-					title="KNOTSが生み出す全く新しいイベントビジョン/新しいイベントビジョン"
-					description="「AIが人間を超える」のではなく、「AIと人間が共に創る」。本セッションでは、エンジニアリングの現場で生成AIをどのように活かすのか、そして人間だからこそできる判断や発想との融合をディスカッションします。参加者の皆さんと共に“新しい未来”を描いていきます。">
-					<Speaker
-						name="登壇者名"
-						affiliation="株式会社Lumilinks代表取締役 / デジタルプロダクトデザイナー"
-						img={speakerImages.session3_1}
-					/>
-					<Speaker
-						name="登壇者名"
-						affiliation="株式会社Lumilinks代表取締役 / デジタルプロダクトデザイナー"
-						img={speakerImages.session3_2}
-					/>
-					<Speaker
-						name="登壇者名"
-						affiliation="株式会社Lumilinks代表取締役 / デジタルプロダクトデザイナー"
-						img={speakerImages.session3_3}
-					/>
-				</SessionItem>
-			</li>
+		))}
 		</ul>
 	</div>
 </div>

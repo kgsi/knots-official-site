@@ -28,24 +28,29 @@ import DistortionWave from '@/components/top/modules/distortionWave.astro';
   </div>
 	<div class="inner">
     <SectionTitle
-      en="Conference overview"
-      ja="カンファレンス概要"
+      en="Content overview"
+      ja="コンテンツ概要"
       id="conference"
     />
+    <div class="lead">
+      <p>
+        次世代に求められる技術と人材、そして組織とは。AIの進化により、個人・組織・技術の関係は急速に変化しています。<br>本カンファレンスでは、3つの問いから、変化の時代に私たちがどう向き合うべきかを探ります。
+      </p>
+      <ul>
+        <li>個人への問い：変化に対応できるスキルとは？</li>
+        <li>組織への問い：変化に強いチームをどうつくるか？</li>
+        <li>技術への問い：AIは可能性をどう拡張するのか？</li>
+      </ul>
+        <p>
+          セッションの種類は3つ、エンジニア、デザイナー、プロダクトマネージャーの3職能の方々にご登壇いただきます。
+        </p>
+    </div>
     <dl class="list">
       <div class="item" data-trigger="intersect-anim">
-        <dt class="term">カンファレンステーマ</dt>
+        <dt class="term">キーノート</dt>
         <dd class="desc">
           <p>
-            次世代に求められる技術と人材、そして組織とは。
-          </p>
-          <p>
-            AIの進化により、個人・組織・技術の関係は急速に変化しています。<br>
-            本カンファレンスでは、<br>
-            「個人への問い：変化に対応できるスキルとは？」<br>
-            「組織への問い：変化に強いチームをどうつくるか？」<br>
-            「技術への問い：AIは可能性をどう拡張するのか？」<br>
-            という三つの視点から、変化の時代に私たちがどう向き合うべきかを探ります。
+            業界のトップランナーや識者を迎え、変容する「共創・技術・組織」の未来を考えます。プレゼンテーション+AMA（Ask Me Anything）の30分のセッションを通して、未来への具体的な視座を得ることで、みなさんの一年のスタートを後押しします。
           </p>
         </dd>
       </div>
@@ -53,21 +58,7 @@ import DistortionWave from '@/components/top/modules/distortionWave.astro';
         <dt class="term">トークセッション</dt>
         <dd class="desc">
           <p>
-            業界をリードする実践者によるプレゼンテーション。
-          </p>
-          <p>
-            デザイン、AI、エンジニアリングの各分野で第一線を走る専門家が登壇し、実際のプロジェクト事例や知見をもとに「次の現場」で必要となる考え方を共有します。
-          </p>
-        </dd>
-      </div>
-      <div class="item" data-trigger="intersect-anim">
-        <dt class="term">ディスカッションセッション</dt>
-        <dd class="desc">
-          <p>
-            複数の登壇者同士が議論する対話型セッション。
-          </p>
-          <p>
-            専門領域を持つ登壇者各人が視点を交わし、来場者の方々から質問や意見をもらいつつ、トークいただきます。
+            現場で新たな「KNOTS（結び目）」を生み出しているプレイヤーたちが登壇します。彼らが直面した具体的な課題、新しいアプローチ、実験的な取り組みなど、現場発のリアリティ溢れる知見を、プレゼンテーション+AMA（Ask Me Anything）の20分のセッションで深化させます。
           </p>
         </dd>
       </div>
@@ -75,11 +66,7 @@ import DistortionWave from '@/components/top/modules/distortionWave.astro';
         <dt class="term">交流セッション</dt>
         <dd class="desc">
           <p>
-            学びを“交流”で深める、カジュアルなディスカッション。
-          </p>
-          <p>
-            カンファレンスを通して行う交流エリアでは、登壇者や他の参加者と自由に意見交換ができる場を提供します。<br>
-            飲食を交えながら、発表内容の延長線上で新しいつながりをつくる時間です。
+            2名の登壇者による濃密なクロストークセッションです。テーマであるデザインとエンジニアリングの再近接を体現するように、実践知を交差させます。一方向の知識提供に留まらず、活発な議論の軌跡を追うことで、多角的な解や、共創のヒントを発見できる40分です。
           </p>
         </dd>
       </div>
@@ -111,6 +98,31 @@ import DistortionWave from '@/components/top/modules/distortionWave.astro';
       .wave-canvas-wrapper {
         transform-origin: left bottom;
         scale: 0.5;
+      }
+    }
+    .lead {
+      font-feature-settings: "halt" on;
+      font-family: var(--font_ja_bold);
+      color: var(--color_text_grey);
+      font-size: rem(17);
+      font-weight: 600;
+      line-height: 2.0;
+      letter-spacing: 0.04em;
+      padding-bottom: 64px;
+      p, ul {
+        + p {
+          margin-top: 1.0lh;
+        }
+      }
+      ul {
+        li {
+          padding-left: 1.0em;
+          text-indent: -1.0em;
+          &:before {
+            content: '・';
+            margin-right: 0.5em;
+          }
+        }
       }
     }
     .list {
@@ -178,10 +190,10 @@ import DistortionWave from '@/components/top/modules/distortionWave.astro';
       }
     }
     .desc {
-      font-feature-settings: 'palt' on;
+      font-feature-settings: 'halt' on;
       font-size: rem(17);
       font-weight: 600;
-      letter-spacing: 0.04em;
+      letter-spacing: 0.02em;
       line-height: 2.0;
       color: var(--color_text_grey);
       p + p {

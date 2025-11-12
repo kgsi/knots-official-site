@@ -1,5 +1,11 @@
 [
   {
+    "id": "session0",
+    "name": "登壇 者名",
+    "image": "session0.jpg",
+		"affiliation": "株式会社**** / **********"
+  },
+  {
     "id": "session1_1",
     "name": "登壇者名",
     "image": "session1_1.jpg",

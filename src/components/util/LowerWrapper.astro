@@ -1,20 +1,26 @@
 ---
 import Image from "astro/components/Image.astro"
+import PictureComponent from '@/components/util/PictureComponent.astro';
+import ScrollSmoothWrapper from '@/components/util/ScrollSmoothWrapper.astro';
 import lower_wave from '@/assets/common/wave_lower.png';
+import lower_wave_sp from '@/assets/common/wave_lower_sp.png';
 ---
 
-<main class="lower-main">
-  <Image
-    src={lower_wave}
-    alt=""
-    width={1440}
-    height={854}
-    class="wave"
-  />
-  <div class="lower-content">
-    <slot />
-  </div>
-</main>
+<ScrollSmoothWrapper>
+  <main class="lower-main">
+		<div class="wave">
+      <PictureComponent
+        mobileImgUrl={lower_wave_sp}
+        tabletImgUrl={lower_wave_sp}
+        desktopImgUrl={lower_wave}
+        alt=""
+      />
+    </div>
+    <div class="lower-content">
+      <slot />
+    </div>
+  </main>
+</ScrollSmoothWrapper>
 
 <style>
   @layer components {
@@ -24,7 +30,7 @@ import lower_wave from '@/assets/common/wave_lower.png';
       background-color: var(--color_bg_white);
     }
     .wave {
-      position: absolute;
+      position: fixed;
       top: 102px;
       left: 0;
       width: 100%;
@@ -43,7 +49,7 @@ import lower_wave from '@/assets/common/wave_lower.png';
         padding-block: 160px 100px;
       }
       .wave {
-        top: 72px;
+        top: 0;
       }
     }
   }

@@ -6,13 +6,14 @@ interface Props {
   tabletImgUrl: ImageMetadata
   desktopImgUrl: ImageMetadata
   alt: string | ''
+  class?: string | ''
 }
 
-const { mobileImgUrl, tabletImgUrl, desktopImgUrl, alt } = Astro.props
+const { mobileImgUrl, tabletImgUrl, desktopImgUrl, alt, class: className } = Astro.props
 
 ---
 
-<picture>
+<picture class={className}>
   <source media="(max-width: 767px)" srcset={mobileImgUrl.src} />
   <source
     media="(min-width: 768px) and (max-width: 1024px)"
