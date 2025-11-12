@@ -9,7 +9,6 @@
     "astro": "astro"
   },
   "dependencies": {
-    "@astrojs/cloudflare": "^12.6.10",
     "@astrojs/partytown": "^2.1.4",
     "@csstools/postcss-global-data": "^3.1.0",
     "@studio-freight/lenis": "^1.0.42",
