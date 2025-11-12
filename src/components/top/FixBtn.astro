@@ -20,6 +20,13 @@ import Btn from '@/components/util/Btn.astro';
 				opacity: 1;
 				--this_toggle_btn: auto;
 			}
+			&.is-inversion {
+				:global(.btn) {
+					--this_bg: var(--color_white);
+					--this_color: var(--color_primary);
+					--this_border_color: var(--color_primary);
+				}
+			}
 		}
 		@media (--sp) {
 			.fix-btn {
@@ -36,6 +43,10 @@ import Btn from '@/components/util/Btn.astro';
 </style>
 
 <script>
+	import { gsap } from 'gsap';
+	import { ScrollTrigger } from 'gsap/ScrollTrigger';
+	gsap.registerPlugin(ScrollTrigger);
+
 	const fixBtn = document.querySelector('.fix-btn');
 	const triggerElement = document.querySelector('.fix[data-trigger="fix-btn"]');
 	if (fixBtn && triggerElement) {
@@ -55,4 +66,16 @@ import Btn from '@/components/util/Btn.astro';
 		);
 		io.observe(triggerElement);
 	}
+
+  const colorChangeElements = document.querySelectorAll('[data-trigger="fix-btn-color"]');
+  if (colorChangeElements.length > 0) {
+    colorChangeElements.forEach((triggerEl) => {
+      ScrollTrigger.create({
+				trigger: triggerEl,
+				start: 'top bottom',
+				end: 'bottom bottom',
+				toggleClass: { targets: fixBtn, className: 'is-inversion' },
+      });
+    });
+  }
 </script>
