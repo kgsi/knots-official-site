@@ -1,7 +1,7 @@
 {
   "name": "knots-official-site",
   "compatibility_date": "2025-08-02",
-  "compatibility_flags": ["nodejs_compat"],
+  "compatibility_flags": ["nodejs_compat", "global_fetch_strictly_public"],
   "main": "./dist/_worker.js/index.js",
   "assets": {
     "directory": "./dist",
