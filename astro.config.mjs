@@ -8,10 +8,10 @@ export default defineConfig({
   output: 'server',
   adapter: cloudflare(),
   integrations: [
-    partytown({
-      config: {
-        forward: ['dataLayer.push', 'gtag'],
-      },
-    }),
+    // partytown({
+    //   config: {
+    //     forward: ['dataLayer.push', 'gtag'],
+    //   },
+    // }),
   ],
 })
