@@ -2,6 +2,7 @@
   "name": "knots-official-site",
   "compatibility_date": "2025-08-02",
   "compatibility_flags": ["nodejs_compat"] ,
+  "main": "./dist/server/entry.mjs",
   "assets": {
     "directory": "./dist",
     "not_found_handling": "404-page"
