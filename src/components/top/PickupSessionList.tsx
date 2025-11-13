@@ -48,6 +48,7 @@ export const PickupSessionList = () => {
                   name={speakerData.name}
                   affiliation={speakerData.affiliation}
                   img={speakerData.image}
+                  sns={speakerData.sns}
                 />
               ) : null
             })}

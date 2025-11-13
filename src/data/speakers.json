@@ -16,114 +16,133 @@
 		"id": "talk6_1",
 		"name": "松島慎",
 		"image": "talk6_1.jpg",
-		"affiliation": "株式会社Gaudiy / ビルダーズノート事業部ソフトウェアエンジニア"
+		"affiliation": "株式会社Gaudiy / ビルダーズノート事業部ソフトウェアエンジニア",
+		"sns": ""
 	},
 	{
 		"id": "talk7_1",
 		"name": "相川 晴俊",
 		"image": "talk7_1.jpg",
-		"affiliation": "株式会社モリサワ / サービス企画部ゼネラルマネージャー"
+		"affiliation": "株式会社モリサワ / サービス企画部ゼネラルマネージャー",
+		"sns": "https://www.linkedin.com/in/harutoshi-aikawa-ba0834329"
 	},
 	{
 		"id": "talk7_2",
 		"name": "小室 貴史",
 		"image": "talk7_2.jpg",
-		"affiliation": "株式会社モリサワ / 開発イノベーション課シニアテックマネージャー"
+		"affiliation": "株式会社モリサワ / 開発イノベーション課シニアテックマネージャー",
+		"sns": "https://x.com/omuron"
 	},
 	{
 		"id": "talk8_1",
 		"name": "宮内 北斗",
 		"image": "talk8_1.jpg",
-		"affiliation": "株式会社マネーフォワード / ビジネスカンパニー ERPプロダクトマネジメント本部プロダクトマネージャー"
+		"affiliation": "株式会社マネーフォワード / ビジネスカンパニー ERPプロダクトマネジメント本部プロダクトマネージャー",
+		"sns": ""
 	},
 	{
 		"id": "talk8_2",
 		"name": "重枝 敦也",
 		"image": "talk8_2.jpg",
-		"affiliation": "株式会社マネーフォワード / ビジネスカンパニー ERPデザイン本部プロダクトデザイナー"
+		"affiliation": "株式会社マネーフォワード / ビジネスカンパニー ERPデザイン本部プロダクトデザイナー",
+		"sns": ""
 	},
 	{
 		"id": "talk10_1",
 		"name": "栢菅 美咲",
 		"image": "talk10_1.jpg",
-		"affiliation": "サイボウズ株式会社 / kintoneプラットフォーム開発 プロダクトデザイン部プロダクトデザイナー"
+		"affiliation": "サイボウズ株式会社 / kintoneプラットフォーム開発 プロダクトデザイン部プロダクトデザイナー",
+		"sns": "https://x.com/tree_1oo"
 	},
 	{
 		"id": "talk12_1",
 		"name": "土手 知花",
 		"image": "talk12_1.jpg",
-		"affiliation": "ファインディ株式会社 / CTO室 コミュニケーションデザイナー／デザインディレクター"
+		"affiliation": "ファインディ株式会社 / CTO室 コミュニケーションデザイナー／デザインディレクター",
+		"sns": "https://x.com/_tomd4"
 	},
 	{
 		"id": "talk16_1",
 		"name": "小山 直樹",
 		"image": "talk16_1.jpg",
-		"affiliation": "株式会社コンセント / Design Engineering group グループマネージャー"
+		"affiliation": "株式会社コンセント / Design Engineering group グループマネージャー",
+		"sns": ""
 	},
 	{
 		"id": "talk18_1",
 		"name": "瀧本 はろか",
 		"image": "talk18_1.jpg",
-		"affiliation": "株式会社スマートバンク / UXリサーチ部 部長・UXリサーチャー"
+		"affiliation": "株式会社スマートバンク / UXリサーチ部 部長・UXリサーチャー",
+		"sns": "https://x.com/mawarisuru"
 	},
 	{
 		"id": "discussion1_1",
 		"name": "平田 智基",
 		"image": "discussion1_1.jpg",
-		"affiliation": "East Ventures / プリンシパル"
+		"affiliation": "East Ventures / プリンシパル",
+		"sns": "https://x.com/t_10_a"
 	},
 	{
 		"id": "discussion2_1",
 		"name": "田川 欣哉",
 		"image": "discussion2_1.jpg",
-		"affiliation": "Takram株式会社 / 代表取締役"
+		"affiliation": "Takram株式会社 / 代表取締役",
+		"sns": "https://x.com/_tagawa"
 	},
 	{
 		"id": "discussion2_3",
 		"name": "坪田 朋",
 		"image": "discussion2_3.jpg",
-		"affiliation": "クラシル株式会社 / 上級執行役員 CPO"
+		"affiliation": "クラシル株式会社 / 上級執行役員 CPO",
+		"sns": "https://x.com/tsubotax"
 	},
 	{
 		"id": "talk3_1",
 		"name": "坂津 潤平",
 		"image": "talk3_1.jpg",
-		"affiliation": "株式会社PeopleX / Product Division"
+		"affiliation": "株式会社PeopleX / Product Division",
+		"sns": "https://x.com/saka2jp"
 	},
 	{
 		"id": "talk5_1",
 		"name": "佐藤 咲",
 		"image": "talk5_1.jpg",
-		"affiliation": "GMOペパボ株式会社 / コーポレートコミュニケーション室プリンシパルデザイナー"
+		"affiliation": "GMOペパボ株式会社 / コーポレートコミュニケーション室プリンシパルデザイナー",
+		"sns": "https://x.com/satosio"
 	},
 	{
 		"id": "keynote3_1",
 		"name": "谷 拓樹",
 		"image": "keynote3_1.jpg",
-		"affiliation": "Figma / Marketing Designer Advocate"
+		"affiliation": "Figma / Marketing Designer Advocate",
+		"sns": "https://x.com/hiloki"
 	},
 	{
 		"id": "talk9_1",
 		"name": "久米 史也",
 		"image": "talk9_1.jpg",
-		"affiliation": "株式会社メルカリ / AI/LLM Office, AI taskforce Software Engineer, AI Platform"
+		"affiliation": "株式会社メルカリ / AI/LLM Office, AI taskforce Software Engineer, AI Platform",
+		"sns": "https://x.com/Fumiya_Kume"
 	},
 	{
 		"id": "talk13_1",
 		"name": "藤岡 和真",
 		"image": "talk13_1.jpg",
-		"affiliation": "株式会社PKSHA Technology / CEO室 ソフトウエアエンジニア"
+		"affiliation": "株式会社PKSHA Technology / CEO室 ソフトウエアエンジニア",
+		"sns": "https://x.com/kakka_q"
 	},
 	{
 		"id": "talk19_1",
 		"name": "Brandon HIll",
 		"image": "talk19_1.jpg",
-		"affiliation": "btrax / Management CEO"
+		"affiliation": "btrax / Management CEO",
+		"sns": ""
 	},
 	{
 		"id": "talk20_1",
 		"name": "桑原 真一郎",
 		"image": "talk20_1.jpg",
-		"affiliation": "NTTドコモビジネス株式会社 / イノベーションセンター　デザイン部門KOEL UXデザイナー"
+		"affiliation": "NTTドコモビジネス株式会社 / イノベーションセンター　デザイン部門KOEL UXデザイナー",
+		"sns": "https://x.com/BrandonKHill"
 	}
 ]

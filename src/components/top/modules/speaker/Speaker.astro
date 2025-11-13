@@ -7,9 +7,10 @@ interface Props {
   affiliation?: string;
   img?: ImageMetadata;
   modifier?: string;
+  sns?: string;
 }
 
-const { name='', affiliation='', img='', modifier=null } = Astro.props
+const { name='', affiliation='', img='', modifier=null, sns='' } = Astro.props
 ---
 
 <div class={styles.speaker + (modifier ? ` ${styles[modifier]}` : '')}>
