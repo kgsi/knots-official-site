@@ -16,7 +16,7 @@ export const SessionItem: FC<SessionItemProps> = ({
     <div className={styles.sessionItem}>
       <div className={styles.column}>
         <h3 className={styles.title}>{title}</h3>
-        <p className={styles.description}>{description}</p>
+        <p className={styles.description} dangerouslySetInnerHTML={{ __html: description.replace(/\n/g, '<br />') }} />
       </div>
       <div className={styles.column}>
         <div className={styles.speakers}>{children}</div>
