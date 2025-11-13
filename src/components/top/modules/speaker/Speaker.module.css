@@ -5,7 +5,7 @@
     column-gap: 16px;
   }
   .timetable {
-    --this_avatar_size: 80px;
+    --this_avatar_size: 72px;
     --this_name_font_size: rem(17);
     --this_affiliation_font_size: rem(15);
   }

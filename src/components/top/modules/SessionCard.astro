@@ -30,11 +30,20 @@ const getSpeakerById = (id: string) => {
   return speakersData.find(speaker => speaker.id === id);
 }
 
+const showTime = (timeStr: string | undefined, duration?: number | 0) => {
+  if (!timeStr || timeStr.length !== 4) return '';
+  const start_hours = timeStr.slice(0, 2);
+  const start_minutes = timeStr.slice(2, 4);
+  const end_hours = String(Number(start_hours) + Math.floor((Number(start_minutes) + Number(duration || 0)) / 60)).padStart(2, '0');
+  const end_minutes = String((Number(start_minutes) + Number(duration || 0)) % 60).padStart(2, '0');
+  return `${start_hours}:${start_minutes}〜${end_hours}:${end_minutes}`;
+};
+
 ---
 
 <button type="button" class="session-card" data-modal-open={key || ''}>
   <div class="head">
-    <span class="time font-en">{time}<span class="duration">({duration})</span></span>
+    <span class="time font-en">{showTime(time, duration)}<span class="duration">({duration}min)</span></span>
     <span class="tag font-en">{tag}</span>
   </div>
   <h4 class="title">{title}</h4>
@@ -53,16 +62,19 @@ const getSpeakerById = (id: string) => {
 <style>
 	@layer components {
     .session-card {
+      height: 100%;
       background-color: #fff;
       border-radius: 8px;
       padding: 16px 24px;
       display: grid;
+      align-content: center;
       row-gap: 16px;
       border: none;
       text-align: left;
       cursor: pointer;
       transition: background-color 0.3s ease;
       mix-blend-mode: difference;
+      overflow: hidden;
       @media (--hover) {
         &:hover {
           background-color: color-mix(in srgb, #fff 97%, #000 3%);

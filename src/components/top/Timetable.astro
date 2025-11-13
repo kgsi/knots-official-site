@@ -1,12 +1,7 @@
 ---
-import rawTimetableData from '@/data/timetable.json'
+import sessionList from '@/data/sessionList.json'
 import SectionTitle from '@/components/util/SectionTitle.astro'
 import TimeTableRow from '@/components/top/modules/TimeTableRow.astro'
-import type { TimetableEntry } from '@/types/timetable'
-
-// 型を明示して strict 下での暗黙 any 警告を防止
-const timetableData: TimetableEntry[] = rawTimetableData as TimetableEntry[]
-
 ---
 <div class="timetable" data-trigger="timetable">
   <div class="wrapper">
@@ -26,35 +21,26 @@ const timetableData: TimetableEntry[] = rawTimetableData as TimetableEntry[]
     <div class="inner timetable__inner">
       <div class="body" data-trigger="timetable-body">
         <div class="circle only-sp" data-trigger="timetable-circle-sp"></div>
-        <div class="col col--main">
+        <div class="col col--cross">
           <div class="row">
             <hgroup class="stage-label">
               <h3 class="stage-label-body">Cross Stage</h3>
               <p class="stage-label-sub">キーノート/トーク</p>
             </hgroup>
           </div>
-          <TimeTableRow timetableData={timetableData} stage="main" />
+          <TimeTableRow timetableData={sessionList.filter(session => session.column === 'cross')} />
         </div>
-        <div class="col col--sub">
+        <div class="col col--wave">
           <div class="row">
             <hgroup class="stage-label">
               <h3 class="stage-label-body">Wave Stage</h3>
               <p class="stage-label-sub">トーク/ディスカッション</p>
             </hgroup>
           </div>
-          <TimeTableRow timetableData={timetableData} stage="sub" />
+          <TimeTableRow timetableData={sessionList.filter(session => session.column === 'wave')} />
         </div>
         <div class="col col--time">
           <div class="row"></div>
-          {timetableData.map((item) => (
-            <div class="row">
-              {item.timeline &&
-                <div class="time-label" style={item.timeline_position ? `--this_time_position: ${item.timeline_position};` : ''}>
-                  <span class="font-en">{item.timeline}</span>
-                </div>
-              }
-            </div>
-          ))}
         </div>
       </div>
     </div>
@@ -64,6 +50,7 @@ const timetableData: TimetableEntry[] = rawTimetableData as TimetableEntry[]
 <style>
 	@layer components {
     .timetable {
+      padding-top: 128px;
       background-color: var(--color_bg_white);
     }
     .wrapper {
@@ -109,8 +96,6 @@ const timetableData: TimetableEntry[] = rawTimetableData as TimetableEntry[]
     }
     .col {
       display: grid;
-      grid-template-rows: subgrid;
-      grid-row: 1 / span 100;
       row-gap: 16px;
     }
     .col--time {
@@ -119,21 +104,15 @@ const timetableData: TimetableEntry[] = rawTimetableData as TimetableEntry[]
       justify-self: end;
       z-index: var(--z_under);
     }
-    .col--main {
+    .col--cross {
       grid-column: 1;
     }
-    .col--sub {
+    .col--wave {
       grid-column: 2;
     }
     .row {
       display: flex;
       flex-direction: column;
-      &:has(.session-card) {
-        padding-top: 36px;
-        + .row:has(.session-card) {
-          padding-top: 0;
-        }
-      }
     }
     .stage-label {
       text-align: center;

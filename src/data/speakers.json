@@ -1,6 +1,6 @@
 [
   {
-    "id": "session0",
+    "id": "dummy",
     "name": "登壇 者名",
     "image": "session0.jpg",
 		"affiliation": "株式会社**** / **********"
@@ -142,7 +142,14 @@
 		"id": "talk20_1",
 		"name": "桑原 真一郎",
 		"image": "talk20_1.jpg",
-		"affiliation": "NTTドコモビジネス株式会社 / イノベーションセンター　デザイン部門KOEL UXデザイナー",
+		"affiliation": "NTTドコモビジネス株式会社 / イノベーションセンター デザイン部門KOEL UXデザイナー",
 		"sns": "https://x.com/BrandonKHill"
+	},
+	{
+		"id": "findy_takai",
+		"name": "髙井 香菜子",
+		"image": "findy_takai.jpg",
+		"affiliation": "ファインディ株式会社 / CTO室 Design デザインマネージャー",
+		"sns": "https://x.com/mrt_kanako"
 	}
 ]

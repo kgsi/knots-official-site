@@ -2,8 +2,8 @@ import type { FC, ReactNode } from 'react'
 import styles from './SessionItem.module.css'
 
 interface SessionItemProps {
-  title: string
-  description: string
+  title: string | undefined
+  description: string | undefined
   children: ReactNode
 }
 

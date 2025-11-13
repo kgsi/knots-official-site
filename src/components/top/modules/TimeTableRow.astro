@@ -14,48 +14,52 @@ type Session = {
 
 interface Props {
   timetableData: TimetableEntry[]
-  stage: 'main' | 'sub'
 }
 
-const { timetableData, stage } = Astro.props as Props
-const sessions = sessionList as Record<string, Session>
-const timetable = timetableData
+const { timetableData } = Astro.props as Props
+const sessions: Record<string, Session> = Object.fromEntries(
+  sessionList.map((session) => [session.id, session])
+)
+
+const showTime = (timeStr: string | undefined, duration?: number | 0) => {
+  if (!timeStr || timeStr.length !== 4) return '';
+  const start_hours = timeStr.slice(0, 2);
+  const start_minutes = timeStr.slice(2, 4);
+  const end_hours = String(Number(start_hours) + Math.floor((Number(start_minutes) + Number(duration || 0)) / 60)).padStart(2, '0');
+  const end_minutes = String((Number(start_minutes) + Number(duration || 0)) % 60).padStart(2, '0');
+  return `${start_hours}:${start_minutes}〜${end_hours}:${end_minutes}`;
+};
+
 ---
 
-{timetable.map(item => (
-  <div class="row">
-    {(stage === 'main' ? item.content_main : item.content_sub).map(content => (
-      content.type === 'text'
-        ? (
-          <div class="text-schedule">
-            <dl>
-              <dt class="font-en">{content.time}</dt>
-              <dd>{content.title}</dd>
-            </dl>
-          </div>
-        )
-        : content.type === 'card'
-        ? (() => {
-            const session = sessions[content.key]
-            if (!session) {
-              return null
-            }
+{timetableData.map(item => (
+  <div class="row" style={`--start_time: ${item.time}; --time_duration: ${item.type !== "text" && item.duration ? item.duration / 10 : 1}`}>
+    {item.type === 'text' ? (
+      <div class="text-schedule">
+        <dl>
+          <dt class="font-en">{showTime(item.time, item.duration)}</dt>
+          <dd>{item.title}</dd>
+        </dl>
+      </div>
+    ) : item.type === 'card' ? (
+      (() => {
+      const session = sessions[item.id]
+      if (!session) return null
 
-            return (
-              <SessionCard
-                key={content.key}
-                session={session}
-              />
-              <Modal
-                key={content.key}
-                session={session}
-              />
-            )
-          })()
-        : content.type === 'spacer'
-        ? <div class="spacer"></div>
-        : null
-    ))}
+      return (
+        <>
+        <SessionCard
+          key={item.id}
+          session={session}
+        />
+        <Modal
+          key={item.id}
+          session={session}
+        />
+        </>
+      )
+      })()
+    ) : null}
   </div>
 ))}
 
@@ -64,15 +68,17 @@ const timetable = timetableData
     .row {
       display: flex;
       flex-direction: column;
-      &:has(.session-card) {
-        padding-top: 36px;
-        + .row:has(.session-card) {
-          padding-top: 0;
-        }
+      justify-content: start;
+      height: calc((140px * var(--time_duration, 1) + 16px * (var(--time_duration, 1) - 1)));
+      grid-row: span var(--time_duration);
+      &:has(.text-schedule) {
+        height: auto;
       }
     }
     .text-schedule {
-      padding-block: 42px;
+      border: 1px solid currentColor;
+      border-radius: 8px;
+      padding: 24px;
       dl {
         display: flex;
         justify-content: space-between;
