@@ -1,7 +1,7 @@
 ---
 import SessionCard from '@/components/top/modules/SessionCard.astro'
 import Modal from './Modal.astro'
-import SessionData from '@/data/sessions.json'
+import sessionList from '@/data/sessionList.json'
 import type { TimetableEntry, TimetableContent } from '@/types/timetable'
 
 type Session = {
@@ -18,7 +18,7 @@ interface Props {
 }
 
 const { timetableData, stage } = Astro.props as Props
-const sessions = SessionData as Record<string, Session>
+const sessions = sessionList as Record<string, Session>
 const timetable = timetableData
 ---
 

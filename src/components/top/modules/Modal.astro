@@ -13,7 +13,7 @@ interface Props {
 const { key ='', session = { time: null, duration: null, tag: null, title: null, speakers: [], description:'' } } = Astro.props;
 const { time, duration, tag, title, speakers, description } = session;
 
-import Speaker from './Speaker.astro';
+import Speaker from './speaker/Speaker.astro';
 import speakersData from '@/data/speakers.json';
 
 const images = import.meta.glob('@/assets/top/speakers/*.{png,jpg,jpeg,webp,gif}', { eager: true });
