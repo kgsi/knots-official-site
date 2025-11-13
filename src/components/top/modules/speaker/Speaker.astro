@@ -1,0 +1,25 @@
+---
+import styles from './Speaker.module.css'
+import { Image } from "astro:assets"
+
+interface Props {
+  name?: string;
+  affiliation?: string;
+  img?: ImageMetadata;
+  modifier?: string;
+}
+
+const { name='', affiliation='', img='', modifier=null } = Astro.props
+---
+
+<div class={styles.speaker + (modifier ? ` ${styles[modifier]}` : '')}>
+  <div class={styles.avatar}>
+    {img && (
+      <Image src={img} alt='' class="util-img-cover"/>
+    )}
+  </div>
+  <div class={styles.speakerDetail}>
+    <p class={styles.name}>{name}</p>
+    <p class={styles.affiliation}>{affiliation}</p>
+  </div>
+</div>

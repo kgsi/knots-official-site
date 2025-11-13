@@ -1,0 +1,22 @@
+---
+import styles from './SessionItem.module.css'
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const { title="", description="" } = Astro.props
+---
+
+<div class={styles.sessionItem}>
+  <div class={styles.column}>
+    <h3 class={styles.title}>{title}</h3>
+    <p class={styles.description}>{description}</p>
+  </div>
+  <div class={styles.column}>
+    <div class={styles.speakers}>
+      <slot />
+    </div>
+  </div>
+</div>

@@ -6,39 +6,124 @@
 		"affiliation": "株式会社**** / **********"
   },
   {
-    "id": "session1_1",
-    "name": "登壇者名",
-    "image": "session1_1.jpg",
-		"affiliation": "株式会社Lumilinks代表取締役 / デジタルプロダクトデザイナー"
+    "id": "talk1_1",
+    "name": "石橋 尚武",
+    "image": "talk1_1.jpg",
+		"affiliation": "株式会社オープンエイト / プロダクト開発部CTO",
+		"sns": "https://x.com/hisatake"
   },
 	{
-		"id": "session2_1",
-		"name": "登壇者名",
-		"image": "session2_1.jpg",
-		"affiliation": "株式会社Lumilinks代表取締役 / デジタルプロダクトデザイナー"
+		"id": "talk6_1",
+		"name": "松島慎",
+		"image": "talk6_1.jpg",
+		"affiliation": "株式会社Gaudiy / ビルダーズノート事業部ソフトウェアエンジニア"
 	},
 	{
-		"id": "session2_2",
-		"name": "登壇者名",
-		"image": "session2_2.jpg",
-		"affiliation": "株式会社Lumilinks代表取締役 / デジタルプロダクトデザイナー"
+		"id": "talk7_1",
+		"name": "相川 晴俊",
+		"image": "talk7_1.jpg",
+		"affiliation": "株式会社モリサワ / サービス企画部ゼネラルマネージャー"
 	},
 	{
-		"id": "session3_1",
-		"name": "登壇者名",
-		"image": "session3_1.jpg",
-		"affiliation": "株式会社Lumilinks代表取締役 / デジタルプロダクトデザイナー"
+		"id": "talk7_2",
+		"name": "小室 貴史",
+		"image": "talk7_2.jpg",
+		"affiliation": "株式会社モリサワ / 開発イノベーション課シニアテックマネージャー"
 	},
 	{
-		"id": "session3_2",
-		"name": "登壇者名",
-		"image": "session3_2.jpg",
-		"affiliation": "株式会社Lumilinks代表取締役 / デジタルプロダクトデザイナー"
+		"id": "talk8_1",
+		"name": "宮内 北斗",
+		"image": "talk8_1.jpg",
+		"affiliation": "株式会社マネーフォワード / ビジネスカンパニー ERPプロダクトマネジメント本部プロダクトマネージャー"
 	},
 	{
-		"id": "session3_3",
-		"name": "登壇者名",
-		"image": "session3_3.jpg",
-		"affiliation": "株式会社Lumilinks代表取締役 / デジタルプロダクトデザイナー"
+		"id": "talk8_2",
+		"name": "重枝 敦也",
+		"image": "talk8_2.jpg",
+		"affiliation": "株式会社マネーフォワード / ビジネスカンパニー ERPデザイン本部プロダクトデザイナー"
+	},
+	{
+		"id": "talk10_1",
+		"name": "栢菅 美咲",
+		"image": "talk10_1.jpg",
+		"affiliation": "サイボウズ株式会社 / kintoneプラットフォーム開発 プロダクトデザイン部プロダクトデザイナー"
+	},
+	{
+		"id": "talk12_1",
+		"name": "土手 知花",
+		"image": "talk12_1.jpg",
+		"affiliation": "ファインディ株式会社 / CTO室 コミュニケーションデザイナー／デザインディレクター"
+	},
+	{
+		"id": "talk16_1",
+		"name": "小山 直樹",
+		"image": "talk16_1.jpg",
+		"affiliation": "株式会社コンセント / Design Engineering group グループマネージャー"
+	},
+	{
+		"id": "talk18_1",
+		"name": "瀧本 はろか",
+		"image": "talk18_1.jpg",
+		"affiliation": "株式会社スマートバンク / UXリサーチ部 部長・UXリサーチャー"
+	},
+	{
+		"id": "discussion1_1",
+		"name": "平田 智基",
+		"image": "discussion1_1.jpg",
+		"affiliation": "East Ventures / プリンシパル"
+	},
+	{
+		"id": "discussion2_1",
+		"name": "田川 欣哉",
+		"image": "discussion2_1.jpg",
+		"affiliation": "Takram株式会社 / 代表取締役"
+	},
+	{
+		"id": "discussion2_3",
+		"name": "坪田 朋",
+		"image": "discussion2_3.jpg",
+		"affiliation": "クラシル株式会社 / 上級執行役員 CPO"
+	},
+	{
+		"id": "talk3_1",
+		"name": "坂津 潤平",
+		"image": "talk3_1.jpg",
+		"affiliation": "株式会社PeopleX / Product Division"
+	},
+	{
+		"id": "talk5_1",
+		"name": "佐藤 咲",
+		"image": "talk5_1.jpg",
+		"affiliation": "GMOペパボ株式会社 / コーポレートコミュニケーション室プリンシパルデザイナー"
+	},
+	{
+		"id": "keynote3_1",
+		"name": "谷 拓樹",
+		"image": "keynote3_1.jpg",
+		"affiliation": "Figma / Marketing Designer Advocate"
+	},
+	{
+		"id": "talk9_1",
+		"name": "久米 史也",
+		"image": "talk9_1.jpg",
+		"affiliation": "株式会社メルカリ / AI/LLM Office, AI taskforce Software Engineer, AI Platform"
+	},
+	{
+		"id": "talk13_1",
+		"name": "藤岡 和真",
+		"image": "talk13_1.jpg",
+		"affiliation": "株式会社PKSHA Technology / CEO室 ソフトウエアエンジニア"
+	},
+	{
+		"id": "talk19_1",
+		"name": "藤岡 和真",
+		"image": "talk19_1.jpg",
+		"affiliation": "Brandon HIll / btrax Management"
+	},
+	{
+		"id": "talk20_1",
+		"name": "桑原 真一郎",
+		"image": "talk20_1.jpg",
+		"affiliation": "NTTドコモビジネス株式会社 / イノベーションセンター　デザイン部門KOEL UXデザイナー"
 	}
 ]

@@ -1,0 +1,69 @@
+@layer components {
+  .sessionItem {
+    display: grid;
+    grid-template-columns: calc(540 / 1080 * 100%) calc(450 / 1080 * 100%);
+    column-gap: calc(90 / 1080 * 100%);
+    padding-block: 38px;
+  }
+  .title {
+    font-feature-settings: 'halt' on;
+    font-size: rem(24);
+    font-weight: 600;
+    line-height: 1.5;
+    letter-spacing: 0.02em;
+    margin-bottom: 0.8em;
+  }
+  .description {
+    font-feature-settings: 'halt' on;
+    color: var(--color_text_grey);
+    font-size: rem(17);
+    font-weight: 600;
+    line-height: 2.0;
+    letter-spacing: 0.02em;
+  }
+  .speakers {
+    display: grid;
+    row-gap: 16px;
+  }
+  @media (--under-pc) {
+    .sessionItem {
+      grid-template-columns: 1fr;
+      grid-template-areas: 
+        "title"
+        "speakers"
+        "description";
+      row-gap: 24px;
+    }
+    .column {
+      display: contents;
+    }
+    .title {
+      grid-area: title;
+      margin-bottom: 0;
+    }
+    .description {
+      grid-area: description;
+    }
+    .speakers {
+      grid-area: speakers;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+  }
+  @media (--sp) {
+    .sessionItem {
+      row-gap: 32px;
+    }
+    .title {
+      font-size: rem(18);
+      line-height: 1.8;
+    }
+    .description {
+      font-size: rem(16);
+    }
+    .speakers {
+      grid-template-columns: 1fr;
+    }
+  }
+}
