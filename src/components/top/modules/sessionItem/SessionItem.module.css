@@ -39,7 +39,7 @@
         "title"
         "speakers"
         "description";
-      row-gap: 24px;
+      row-gap: 32px;
     }
     .column {
       display: contents;
@@ -63,23 +63,15 @@
     }
   }
   @media (--sp) {
-    .sessionItem {
-      row-gap: 0;
-    }
-    .tag {
-      margin-bottom: 12px;
-    }
     .title {
       font-size: rem(18);
       line-height: 1.8;
-      margin-bottom: 24px;
     }
     .description {
       font-size: rem(16);
     }
     .speakers {
       grid-template-columns: 1fr;
-      margin-bottom: 24px;
     }
   }
 }

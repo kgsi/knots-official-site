@@ -24,6 +24,9 @@ import { PickupSessionList } from './PickupSessionList';
 			ja="登壇予告"
 			id="pickup"
 		/>
+		<p class="lead">
+			業界を牽引するエンジニア、デザイナー、プロダクトマネージャーら、多彩な登壇者による全27セッションを予定しています。
+		</p>
 		<PickupSessionList client:load/>
 	</div>
 </div>
@@ -56,11 +59,12 @@ import { PickupSessionList } from './PickupSessionList';
 		}
 		.lead {
 			font-feature-settings: 'halt' on;
-			font-size: rem(20);
+			color: var(--color_text_grey);
+			font-size: rem(17);
 			font-weight: 600;
 			line-height: 150%;
 			letter-spacing: 0.01em;
-			margin-bottom: 52px;
+			margin-bottom: 64px;
 		}
 		.item {
 			border-bottom: 1px solid var(--color_grey);
@@ -76,6 +80,9 @@ import { PickupSessionList } from './PickupSessionList';
 		@media (--sp) {
 			.pickup {
 				padding-block: 100px 80px;
+			}
+			.lead {
+				font-size: rem(16);
 			}
 			.wave {
 				aspect-ratio: 750 / 1548;
