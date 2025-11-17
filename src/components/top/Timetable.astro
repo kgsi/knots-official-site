@@ -41,7 +41,7 @@ import TimeTableRow from '@/components/top/modules/TimeTableRow.astro'
           <TimeTableRow timetableData={timetable_wave} />
         </div>
         <div class="col col--time">
-          {Array.from({ length: 55 }, () => <div class="row"></div>)}
+          {Array.from({ length: 10 }, () => <div class="row"></div>)}
         </div>
       </div>
     </div>
@@ -87,7 +87,7 @@ import TimeTableRow from '@/components/top/modules/TimeTableRow.astro'
       font-size: rem(20);
       font-weight: 600;
       line-height: 1.2;
-      letter-spacing: 0.01em;
+      letter-spacing: 0.1em;
     }
     .body {
       display: grid;

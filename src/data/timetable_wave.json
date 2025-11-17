@@ -28,5 +28,23 @@
     "duration": "20",
     "type": "session",
     "content": "talk_1"
+  },
+  {
+    "start": "1210",
+    "duration": "20",
+    "type": "session",
+    "content": "talk_6"
+  },
+  {
+    "start": "1230",
+    "duration": "30",
+    "type": "session",
+    "content": "talk_6"
+  },
+  {
+    "start": "1300",
+    "duration": "60",
+    "type": "shrink",
+    "content": "ランチ休憩"
   }
 ]
