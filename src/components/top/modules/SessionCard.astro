@@ -1,4 +1,5 @@
 ---
+import Modal from './Modal.astro';
 import Speaker from './speaker/Speaker.astro';
 import speakersData from '@/data/speakers.json';
 import type { Session } from '@/types/dataTypes';
@@ -11,7 +12,7 @@ interface Props {
     duration: number;
   }
 }
-const { key ='', session = { tag: null, title: null, speakers: [] } } = Astro.props;
+const { key ='', session = { id: '', tag: '', title: '', speakers: [], description: '' } } = Astro.props;
 const { tag, title, speakers } = session;
 const { start, duration } = Astro.props.timeData;
 
@@ -58,6 +59,11 @@ const showTime = (timeStr: string | undefined, duration?: number | 0) => {
     })}
   </ul>
 </button>
+<Modal 
+  key={key || ''}
+  session={session}
+  timeData={{ start: start || '', duration: duration || 0 }}
+/>
 
 <style>
 	@layer components {

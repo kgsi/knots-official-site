@@ -55,18 +55,11 @@ const calculateRowCount = (start: number) => {
       const session = sessions[item.content || '']
       if (!session) return null
       return (
-        <>
         <SessionCard
           key={item.content+'_'+index}
           session={session}
           timeData={{ start: item.start || '', duration: item.duration || 0 }}
-          />
-        <Modal
-          key={item.content+'_'+index}
-          session={session}
-          timeData={{ start: item.start || '', duration: item.duration || 0 }}
         />
-        </>
       )
       })()
     ) : null}
@@ -79,10 +72,10 @@ const calculateRowCount = (start: number) => {
       display: flex;
       flex-direction: column;
       justify-content: start;
-      min-height: calc((140px * var(--this_time_duration, 1) + 16px * (var(--this_time_duration, 1) - 1)));
+      height: calc((140px * var(--this_time_duration, 1) + 16px * (var(--this_time_duration, 1) - 1)));
       grid-row: var(--this_start_row, 0) / span var(--this_time_duration);
       &:has(.shrink) {
-        min-height: auto;
+        height: auto;
       }
     }
     .spacer {
@@ -109,6 +102,8 @@ const calculateRowCount = (start: number) => {
         font-weight: 500;
       }
       &.shrink {
+        display: grid;
+        align-items: center;
         background-color: transparent;
         border: 1px solid currentColor;
       }

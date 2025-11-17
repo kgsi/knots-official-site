@@ -1,17 +1,17 @@
 ---
-import type { Session } from '@/types/dataTypes';
 import Speaker from './speaker/Speaker.astro';
 import speakersData from '@/data/speakers.json';
+import type { Session } from '@/types/dataTypes';
 
 interface Props {
   key?: string;
-  session?: Session
+  session?: Session;
   timeData: {
     start: string;
     duration: number;
   }
 }
-const { key ='', session = { time: null, duration: null, tag: null, title: null, speakers: [], description:'' } } = Astro.props;
+const { key ='', session = { id: '', tag: '', title: '', speakers: [], description: '' } } = Astro.props;
 const { tag, title, speakers, description } = session;
 const { start, duration } = Astro.props.timeData;
 
@@ -29,6 +29,14 @@ const speakerImages = Object.fromEntries(
 const getSpeakerById = (id: string) => {
   return speakersData.find(speaker => speaker.id === id);
 }
+const showTime = (timeStr: string | undefined, duration?: number | 0) => {
+  if (!timeStr || timeStr.length !== 4) return '';
+  const start_hours = timeStr.slice(0, 2);
+  const start_minutes = timeStr.slice(2, 4);
+  const end_hours = String(Number(start_hours) + Math.floor((Number(start_minutes) + Number(duration || 0)) / 60)).padStart(2, '0');
+  const end_minutes = String((Number(start_minutes) + Number(duration || 0)) % 60).padStart(2, '0');
+  return `${start_hours}:${start_minutes}〜${end_hours}:${end_minutes}`;
+};
 
 ---
 
@@ -39,24 +47,20 @@ const getSpeakerById = (id: string) => {
       </button>
       <div class="content">
         <p class="tag font-en">{tag}</p>
-        <p class="time font-en">{start}<span class="duration">({duration}min)</span></p>
-        <div class="row">
-          <div class="col col--left">
-            <p class="title">{title}</p>
-            <ul class="speakers">
-              {speakers?.map((speakerId) => {
-                const speaker = getSpeakerById(speakerId);
-                return speaker ? (
-                  <li>
-                    <Speaker img={speakerImages[speaker.id]} name={speaker.name} affiliation={speaker.affiliation} modifier="timetable"/>
-                  </li>
-                ) : null;
-              })}
-            </ul>
-          </div>
-          <div class="col col--right">
-            <p class="description">{description}</p>
-          </div>
+        <p class="time font-en">{showTime(start, duration)}<span class="duration">({duration}min)</span></p>
+        <div class="details">
+          <p class="title">{title}</p>
+          <p class="description">{description}</p>
+          <ul class="speakers">
+            {speakers?.map((speakerId) => {
+              const speaker = getSpeakerById(speakerId);
+              return speaker ? (
+                <li>
+                  <Speaker img={speakerImages[speaker.id]} name={speaker.name} affiliation={speaker.affiliation} modifier="modal" introduction={speaker.introduction} />
+                </li>
+              ) : null;
+            })}
+          </ul>
         </div>
       </div>
     </div>
@@ -75,17 +79,38 @@ const getSpeakerById = (id: string) => {
       background-color: unset;
       border: unset;
       overflow: unset;
-      &::backdrop {
-        background-color: color-mix(in srgb, var(--color_black) 70%, transparent 30%);
-      } 
+    }
+    dialog[open] {
+      opacity: 1;
+    }
+    dialog {
+      opacity: 0;
+      transition:
+        opacity 0.3s ease-out,
+        transform 0.3s ease-out,
+        overlay 0.3s ease-out allow-discrete,
+        display 0.3s ease-out allow-discrete;
+    }
+    @starting-style {
+      dialog[open] {
+        opacity: 0;
+      }
+    }
+    dialog::backdrop {
+      background-color: transparent;
+      transition:
+        display 0.3s allow-discrete,
+        overlay 0.3s allow-discrete,
+        background-color 0.3s;
     }
     .modal {
-      width: 100%;
-      height: 100%;
+      height: 100vh;
+      overflow: auto;
       overscroll-behavior: contain;
       display: grid;
       place-items: center;
       padding: 90px 180px;
+      background-color: color-mix(in srgb, var(--color_black) 70%, transparent);
     }
     .container {
       width: clamp(calc(1024px - 80px), 100%, 1440px);
@@ -95,6 +120,8 @@ const getSpeakerById = (id: string) => {
       position: relative;
     }
     .close-btn {
+      --this_color_hover: var(--color_primary);
+      --this_bg_color_hover: var(--color_white);
       position: absolute;
       top: 24px;
       right: 24px;
@@ -104,6 +131,8 @@ const getSpeakerById = (id: string) => {
       aspect-ratio: 1;
       border: none;
       cursor: pointer;
+      transition: background-color var(--transition_hover);
+      border: 1px solid var(--color_primary);
       &:before,
       &:after {
         content: '';
@@ -114,12 +143,22 @@ const getSpeakerById = (id: string) => {
         position: absolute;
         inset: 0;
         margin: auto;
+        transition: background-color var(--transition_hover);
       }
       &:before {
         rotate: 45deg;
       }
       &:after {
         rotate: -45deg;
+      }
+      @media (--hover) {
+        &:hover {
+          background-color: var(--this_bg_color_hover);
+          &:before,
+          &:after {
+            background-color: var(--this_color_hover);
+          }
+        }
       }
     }
     .tag {
@@ -136,27 +175,21 @@ const getSpeakerById = (id: string) => {
     .duration {
       font-size: rem(16);
     }
-    .row {
-      margin-top: 56px;
+    .details {
+      padding-top: 56px;
       display: flex;
-      column-gap: 60px;
-    }
-    .col--left {
-      flex: 1 1 435px;
+      flex-direction: column;
+      row-gap: 40px;
     }
     .title {
       font-size: rem(20);
       line-height: 1.5;
       letter-spacing: 0.01em;
-      margin-bottom: 24px;
     }
     .speakers {
       display: flex;
       flex-direction: column;
       row-gap: 16px;
-    }
-    .col--right {
-      flex: 1 1 405px;
     }
     .description {
       font-feature-settings: 'halt' on;
@@ -185,34 +218,3 @@ const getSpeakerById = (id: string) => {
     }
   }
 </style>
-
-<script>
-  const closeBtn = Array.from(document.querySelectorAll(`[data-trigger="modal-close"]`));
-  const modals = Array.from(document.querySelectorAll('dialog'));
-
-  closeBtn?.forEach(btn => {
-    btn.addEventListener('click', () => {
-      const modal = btn.closest('dialog') as HTMLDialogElement;
-      if (modal) {
-        closeModal(modal);
-      }
-    });
-  });
-
-  modals?.forEach(modal => {
-    modal.addEventListener('click', (event) => handleBackdropClick(event, modal));
-  })
-  const handleBackdropClick = (event: MouseEvent, modal: HTMLDialogElement): void => {
-    const target = modal.querySelector('.container');
-    if (!target?.contains(event.target as Node)) {
-      closeModal(modal);
-    }
-  };
-
-  const closeModal = (modal: HTMLDialogElement): void => {
-    modal.close();
-    document.dispatchEvent(new CustomEvent('modal:toggle', {
-      detail: { isOpen: false }
-    }));
-  }
-</script>

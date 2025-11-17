@@ -25,7 +25,7 @@ import TimeTableRow from '@/components/top/modules/TimeTableRow.astro'
         <div class="col col--cross">
           <div class="row">
             <hgroup class="stage-label">
-              <h3 class="stage-label-body">Cross Stage</h3>
+              <h3 class="stage-label-body font-en">Cross Stage</h3>
               <p class="stage-label-sub">キーノート/トーク</p>
             </hgroup>
           </div>
@@ -34,7 +34,7 @@ import TimeTableRow from '@/components/top/modules/TimeTableRow.astro'
         <div class="col col--wave">
           <div class="row">
             <hgroup class="stage-label">
-              <h3 class="stage-label-body">Wave Stage</h3>
+              <h3 class="stage-label-body font-en">Wave Stage</h3>
               <p class="stage-label-sub">トーク/ディスカッション</p>
             </hgroup>
           </div>
@@ -107,7 +107,6 @@ import TimeTableRow from '@/components/top/modules/TimeTableRow.astro'
       justify-self: end;
       .row {
         grid-row: span 6;
-        border-top: 2px solid red;
         &:first-child {
           grid-row: span 1;
           border-top: none;
@@ -138,7 +137,7 @@ import TimeTableRow from '@/components/top/modules/TimeTableRow.astro'
       color: var(--color_primary);
       font-size: rem(32);
       line-height: 1.5;
-      font-weight: 600;
+      font-weight: 500;
     }
     .stage-label-sub {
       font-size: rem(12);

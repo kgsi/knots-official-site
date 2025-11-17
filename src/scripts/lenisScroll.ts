@@ -19,6 +19,13 @@ export const initLenis = () => {
 
   gsap.ticker.lagSmoothing(0);
   
+  // pickup-renderedイベントをリッスン（常にScrollTriggerを更新）
+  document.addEventListener('pickup-rendered', () => {
+    setTimeout(() => {
+      ScrollTrigger.refresh();
+    }, 100);
+  }, { once: true });
+
   // ページ内リンク対応
   const header = document.getElementById('header');
   const headerHeight = header ? header.offsetHeight : 0;
@@ -65,10 +72,9 @@ export const initLenis = () => {
     // 初回チェック
     setTimeout(checkAndScroll, 100);
 
-    // pickup-renderedイベントをリッスン
+    // pickup-renderedイベントが来たらスクロール実行
     document.addEventListener('pickup-rendered', () => {
-      setTimeout(scrollToTarget, 100);
-      ScrollTrigger.update();
+      setTimeout(scrollToTarget, 200);
     }, { once: true });
   }
 
