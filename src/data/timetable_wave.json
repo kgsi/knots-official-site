@@ -46,5 +46,17 @@
     "duration": "60",
     "type": "shrink",
     "content": "ランチ休憩"
+  },
+  {
+    "start": "1700",
+    "duration": "60",
+    "type": "session",
+    "content": "talk_6"
+  },
+  {
+    "start": "1830",
+    "duration": "60",
+    "type": "shrink",
+    "content": "懇親会🍺"
   }
 ]
