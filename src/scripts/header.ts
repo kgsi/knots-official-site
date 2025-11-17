@@ -6,7 +6,7 @@ export function headerAnimation() {
   const headerActiveTrigger = document.querySelector('[data-trigger="header-active"]');
   const header = document.querySelector('[data-trigger="header"]');
   
-  if (headerActiveTrigger || header) {
+  if (headerActiveTrigger && header) {
     ScrollTrigger.create({
       trigger: headerActiveTrigger,
       start: 'bottom top',
@@ -58,7 +58,7 @@ export function toggleMenu() {
 export function headerStateOnScroll() {
   const header = document.querySelector('[data-trigger="header"]');
   if (header) {
-    document.querySelectorAll('[data-trigger="header-state-change"]').forEach((triggerEl) => {
+    document.querySelectorAll('[data-header-trigger="state-change"]').forEach((triggerEl) => {
       ScrollTrigger.create({
       trigger: triggerEl,
       start: 'top top',

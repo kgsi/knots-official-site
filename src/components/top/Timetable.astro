@@ -1,5 +1,6 @@
 ---
-import sessionList from '@/data/sessionList.json'
+import timetable_cross from '@/data/timetable_cross.json'
+import timetable_wave from '@/data/timetable_wave.json'
 import SectionTitle from '@/components/util/SectionTitle.astro'
 import TimeTableRow from '@/components/top/modules/TimeTableRow.astro'
 ---
@@ -28,7 +29,7 @@ import TimeTableRow from '@/components/top/modules/TimeTableRow.astro'
               <p class="stage-label-sub">キーノート/トーク</p>
             </hgroup>
           </div>
-          <TimeTableRow timetableData={sessionList.filter(session => session.column === 'cross')} />
+          <TimeTableRow timetableData={timetable_cross} />
         </div>
         <div class="col col--wave">
           <div class="row">
@@ -37,10 +38,10 @@ import TimeTableRow from '@/components/top/modules/TimeTableRow.astro'
               <p class="stage-label-sub">トーク/ディスカッション</p>
             </hgroup>
           </div>
-          <TimeTableRow timetableData={sessionList.filter(session => session.column === 'wave')} />
+          <TimeTableRow timetableData={timetable_wave} />
         </div>
         <div class="col col--time">
-          <div class="row"></div>
+          {Array.from({ length: 55 }, () => <div class="row"></div>)}
         </div>
       </div>
     </div>
@@ -96,13 +97,25 @@ import TimeTableRow from '@/components/top/modules/TimeTableRow.astro'
     }
     .col {
       display: grid;
+      grid-template-rows: subgrid;
+      grid-row: 1/ span 54;
       row-gap: 16px;
     }
     .col--time {
       grid-column: 1 / span 2;
       width: min(calc(100vw - 152px), 100%);
       justify-self: end;
-      z-index: var(--z_under);
+      .row {
+        grid-row: span 6;
+        border-top: 2px solid red;
+        &:first-child {
+          grid-row: span 1;
+          border-top: none;
+        }
+        &:nth-child(2) {
+          grid-row: span 1;
+        }
+      }
     }
     .col--cross {
       grid-column: 1;

@@ -14,7 +14,7 @@
   },
 	{
 		"id": "talk6_1",
-		"name": "松島慎",
+		"name": "matsushima",
 		"image": "talk6_1.jpg",
 		"affiliation": "株式会社Gaudiy / ビルダーズノート事業部ソフトウェアエンジニア",
 		"sns": ""
@@ -55,8 +55,15 @@
 		"sns": "https://x.com/tree_1oo"
 	},
 	{
+		"id": "talk11_1",
+		"name": "Ryo Nakae",
+		"image": "talk11_1.jpg",
+		"affiliation": "株式会社ディー・エヌ・エー / ニンテンドーシステムズ システム開発部 マネージャー",
+		"sns": "https://twitter.com/ryo_dg"
+	},
+	{
 		"id": "talk12_1",
-		"name": "土手 知花",
+		"name": "トム",
 		"image": "talk12_1.jpg",
 		"affiliation": "ファインディ株式会社 / CTO室 コミュニケーションデザイナー／デザインディレクター",
 		"sns": "https://x.com/_tomd4"
@@ -119,7 +126,7 @@
 	},
 	{
 		"id": "talk9_1",
-		"name": "久米 史也",
+		"name": "Kuu(Kume Fumiya)",
 		"image": "talk9_1.jpg",
 		"affiliation": "株式会社メルカリ / AI/LLM Office, AI taskforce Software Engineer, AI Platform",
 		"sns": "https://x.com/Fumiya_Kume"
@@ -147,7 +154,7 @@
 	},
 	{
 		"id": "findy_takai",
-		"name": "髙井 香菜子",
+		"name": "たかなこ",
 		"image": "findy_takai.jpg",
 		"affiliation": "ファインディ株式会社 / CTO室 Design デザインマネージャー",
 		"sns": "https://x.com/mrt_kanako"

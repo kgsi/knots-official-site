@@ -2,12 +2,12 @@
 interface Props {
   en?: string;
   ja?: string;
-  modifier?: [string] | string;
+  modifier?: string[];
   heading_lv?: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
   id?: string;
 }
 
-const { en='', ja='', modifier=null, heading_lv='h2', id=null } = Astro.props
+const { en='', ja='', modifier=[], heading_lv='h2', id=null } = Astro.props
 const HeadingTag = heading_lv;
 ---
 
@@ -35,11 +35,13 @@ const HeadingTag = heading_lv;
         text-transform: uppercase;
         color: var(--color_dark_grey);
         font-size: var(--this_font_size_en, rem(16));
+        letter-spacing: 0.02em;
         font-weight: 300;
       }
       .ja {
         font-size: var(--this_font_size_ja, rem(40));
         font-weight: 600;
+        letter-spacing: 0.04em;
         color: var(--color_primary);
       }
     }

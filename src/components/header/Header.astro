@@ -2,15 +2,28 @@
 import { Image } from "astro:assets"
 import knots from "@assets/common/logo_knots.svg"
 import Btn from "@/components/util/Btn.astro"
+
+interface Props {
+  modifier?: string
+  defaultState?: string | null
+  lower?: boolean | null
+}
+
+
+const { modifier, defaultState, lower=false }: Props = Astro.props
+
+const defaultStates = Array.isArray(defaultState) ? defaultState.join(' ') : defaultState;
+const headerClass = ['header', modifier && `header--${modifier}`, defaultStates].filter(Boolean).join(' ')
+const LogoTag = lower === true ? 'p' : 'h1';
 ---
 
-<header class="header" id="header" data-trigger="header">
+<header class={headerClass} id="header" data-trigger="header">
 	<div class="header-inner">
-    <h1 class="header-logo">
+    <LogoTag class="header-logo">
       <a href="/">
-        <Image src={knots} alt="KNOTS" class="logo"/>
+      <Image src={knots} alt="KNOTS" class="logo" />
       </a>
-    </h1>
+    </LogoTag>
     <button type="button" class="menu-btn excepting-pc" aria-label="ヘッダーメニューを開く" data-trigger="menu-btn">
       <span class="menu-btn-bar"></span>
     </button>
@@ -19,19 +32,19 @@ import Btn from "@/components/util/Btn.astro"
         <nav class="nav">
           <ul class="nav-list">
             <li class="nav-item">
-              <a href="#conference" class="nav-link">コンテンツ概要</a>
+              <a href={lower ? "/#conference" : "#conference"} class="nav-link">コンテンツ概要</a>
             </li>
             <li class="nav-item">
-              <a href="#pickup" class="nav-link">登壇予告</a>
+              <a href={lower ? "/#pickup" : "#pickup"} class="nav-link">登壇予告</a>
             </li>
             <li class="nav-item">
-              <a href="#information" class="nav-link">インフォメーション</a>
+              <a href={lower ? "/#information" : "#information"} class="nav-link">インフォメーション</a>
             </li>
             <li class="nav-item">
               <a href="#job-board" class="nav-link">ジョブボード</a>
             </li>
             <li class="nav-item">
-              <a href="#sponsors" class="nav-link">スポンサー</a>
+              <a href={lower ? "/#sponsors" : "#sponsors"} class="nav-link">スポンサー</a>
             </li>
             <li class="nav-item nav-item--btn">
               <Btn href="https://knots2026.peatix.com/" txt="チケット購入" modifier="header"/>
@@ -39,7 +52,7 @@ import Btn from "@/components/util/Btn.astro"
           </ul>
         </nav>
         <div class="sponsor-link excepting-pc">
-          <a href="#looking-for-sponsors" class="text-link">スポンサー申し込みについて</a>
+          <a href={lower ? "/#looking-for-sponsors" : "#looking-for-sponsors"} class="text-link">スポンサー申し込みについて</a>
         </div>
       </div>
     </div>
@@ -57,13 +70,16 @@ import Btn from "@/components/util/Btn.astro"
       translate: 0 -100%;
       opacity: 0;
       transition: translate 0.6s ease, opacity 0.6s ease;
+      .logo {
+        filter: invert(1);
+      }
       &.is-active {
         translate: 0 0;
         opacity: 1;
       }
       &.is-inversion {
         .logo {
-          filter: invert(1);
+          filter: invert(0);
         }
       }
 		}
@@ -87,8 +103,9 @@ import Btn from "@/components/util/Btn.astro"
       margin-left: 20px;
     }
     .nav-link {
-      color: var(--this_color, var(--color_white));
+      color: var(--this_color, var(--color_black));
       font-size: rem(16);
+      letter-spacing: 0.04em;
       padding: 8px 8px;
       transition: color var(--transition_hover), background-color var(--transition_hover);
       @container (width <= 1024px) {
@@ -98,12 +115,12 @@ import Btn from "@/components/util/Btn.astro"
     @media (--pc) {
       .header {
         &.is-inversion {
-          --this_color: var(--color_black);
+          --this_color: var(--color_white);
           .nav-link {
             @media (--hover) {
               &:hover {
-                --this_color: var(--color_white);
-                background-color: var(--color_primary);
+                --this_color: var(--color_primary);
+                background-color: var(--color_white);
               }
             }
           }
@@ -112,8 +129,8 @@ import Btn from "@/components/util/Btn.astro"
       .nav-link {
         @media (--hover) {
           &:hover {
-            --this_color: var(--color_primary);
-            background-color: var(--color_white);
+            --this_color: var(--color_white);
+            background-color: var(--color_primary);
           }
         }
       }
@@ -121,12 +138,13 @@ import Btn from "@/components/util/Btn.astro"
     @media(--under-pc) {
       .header {
         &.is-inversion {
-          --this_btn_color: var(--color_black);
-          &:has(.is-menuOpen) {
-            --this_btn_color: var(--color_white);
-            .logo {
-              filter: invert(0);
-            }
+          --this_btn_color: var(--color_white);
+        }
+        &:has(.is-menuOpen) {
+          --this_color: var(--color_white);
+          --this_btn_color: var(--color_white);
+          .logo {
+            filter: invert(0);
           }
         }
       }
@@ -149,7 +167,7 @@ import Btn from "@/components/util/Btn.astro"
           content: '';
           position: absolute;
           right: 0;
-          background-color: var(--this_btn_color, var(--color_white));
+          background-color: var(--this_btn_color, var(--color_black));
           height: 2px;
           border-radius: 9999px;
           transition: translate 0.3s 0.3s ease, rotate 0.3s 0s ease, width 0.3s 0.3s ease, background-color 0.6s ease;
@@ -181,7 +199,7 @@ import Btn from "@/components/util/Btn.astro"
         margin: auto;
         width: 75%;
         height: 2px;
-        background-color: var(--this_btn_color, var(--color_white));
+        background-color: var(--this_btn_color, var(--color_black));
         transition: opacity 0.3s ease, background-color 0.6s ease;
         border-radius: 9999px;
       }

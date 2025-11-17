@@ -31,7 +31,7 @@ import { PickupSessionList } from './PickupSessionList';
 <style>
 	@layer components {
 		.pickup {
-			padding-block: 100px 160px;
+			padding-block: 100px 120px;
 			position: relative;
 		}
 		.inner {
@@ -74,6 +74,9 @@ import { PickupSessionList } from './PickupSessionList';
 			}
 		}
 		@media (--sp) {
+			.pickup {
+				padding-block: 100px 80px;
+			}
 			.wave {
 				aspect-ratio: 750 / 1548;
 			}

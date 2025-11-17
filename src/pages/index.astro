@@ -25,36 +25,36 @@ import Footer from '@/components/footer/Footer.astro'
 	<FixBtn />
 	<Header />
 	<ScrollSmoothWrapper>
-		<main class="main" data-trigger="page-wrapper">
-			<TopHeadWrapper>
-				<Kv />
-				<About />
-			</TopHeadWrapper>
+		<div data-trigger="page-wrapper">
+			<div data-header-trigger="state-change">
+				<TopHeadWrapper>
+					<Kv />
+					<About />
+				</TopHeadWrapper>
+			</div>
 			<div class="bg-wrapper">
 				<div class="fix-wrapper">
 					<div class="fix" data-trigger="fix-btn"></div>
-					<div data-trigger="header-state-change">
+					<main class="main">
 						<Conference />
 						<Pickup />
 						<!-- <Timetable /> -->
 						<Information />
-					</div>
-					<div data-trigger="fix-btn-color">
-						<JobBoard />
-					</div>
-					<div data-trigger="header-state-change">
+						<div data-trigger="fix-btn-color" data-header-trigger="state-change">
+							<JobBoard />
+						</div>
 						<Sponsors />
-					</div>
-					<div data-trigger="fix-btn-color">
-						<LookingForSponsors />
-					</div>
-					<div data-trigger="header-state-change">
+						<div data-trigger="fix-btn-color" data-header-trigger="state-change">
+							<LookingForSponsors />
+						</div>
 						<Members />
+					</main>
+					<div data-trigger="fix-btn-color" data-header-trigger="state-change">
+						<Footer />
 					</div>
 				</div>
 			</div>
-		</main>
-		<Footer />
+		</div>
 	</ScrollSmoothWrapper>
 </Layout>
 

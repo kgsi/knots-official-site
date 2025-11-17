@@ -58,9 +58,15 @@ const ExLink = ({ href }: { href: string }) => {
       pointer-events: var(--this_toggle_btn, none);
     }
     .btn--header {
+      --this_bg: var(--color_primary);
+      --this_color: var(--color_white);
       --this_base_width: 200px;
       --this_base_height: 48px;
       --this_font_size: rem(14);
+      &:hover {
+        --this_bg: var(--color_white);
+        --this_color: var(--color_primary);
+      }
       .icon-arrow {
         --this_arrow_size: 10px;
         width: 16px;
@@ -109,12 +115,12 @@ const ExLink = ({ href }: { href: string }) => {
     @media (--pc) {
       :global(.is-inversion) {
         .btn--header {
-          --this_bg: var(--color_primary);
-          --this_color: var(--color_white);
+          --this_bg: var(--color_white);
+          --this_color: var(--color_primary);
           @media (--hover) {
             &:hover {
-              --this_bg: var(--color_white);
-              --this_color: var(--color_primary);
+              --this_bg: var(--color_primary);
+              --this_color: var(--color_white);
             }
           }
         }
@@ -124,6 +130,12 @@ const ExLink = ({ href }: { href: string }) => {
       .btn--header {
         --this_font_size: min(vw(16), 16px);
         width: 100%;
+      }
+      :global(.is-active) {
+        .btn--header {
+          --this_bg: var(--color_white);
+          --this_color: var(--color_primary);
+        }
       }
     }
     @media (--sp) {

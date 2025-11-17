@@ -5,6 +5,12 @@
     column-gap: calc(90 / 1080 * 100%);
     padding-block: 38px;
   }
+  .tag {
+    font-size: rem(16);
+    color: var(--color_primary);
+    line-height: 1.2;
+    margin-bottom: 20px;
+  }
   .title {
     font-feature-settings: 'halt' on;
     font-size: rem(24);
@@ -29,6 +35,7 @@
     .sessionItem {
       grid-template-columns: 1fr;
       grid-template-areas: 
+        "tag"
         "title"
         "speakers"
         "description";
@@ -36,6 +43,10 @@
     }
     .column {
       display: contents;
+    }
+    .tag {
+      grid-area: tag;
+      margin-bottom: 0;
     }
     .title {
       grid-area: title;
@@ -53,17 +64,22 @@
   }
   @media (--sp) {
     .sessionItem {
-      row-gap: 32px;
+      row-gap: 0;
+    }
+    .tag {
+      margin-bottom: 12px;
     }
     .title {
       font-size: rem(18);
       line-height: 1.8;
+      margin-bottom: 24px;
     }
     .description {
       font-size: rem(16);
     }
     .speakers {
       grid-template-columns: 1fr;
+      margin-bottom: 24px;
     }
   }
 }

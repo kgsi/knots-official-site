@@ -1,0 +1,134 @@
+[
+  {
+    "start": "1030",
+    "duration": "30",
+    "type": "shrink",
+    "content": "受付"
+  },
+  {
+    "start": "1100",
+    "duration": "10",
+    "type": "text",
+    "content": "オープニング"
+  },
+  {
+    "start": "1110",
+    "duration": "30",
+    "type": "session",
+    "content": "talk_1"
+  },
+  {
+    "start": "1140",
+    "duration": "20",
+    "type": "session",
+    "content": "talk_6"
+  },
+  {
+    "start": "1200",
+    "duration": "20",
+    "type": "session",
+    "content": "talk_6"
+  },
+  {
+    "start": "1220",
+    "duration": "30",
+    "type": "session",
+    "content": "talk_6"
+  },
+  {
+    "start": "1250",
+    "duration": "10",
+    "type": "spacer",
+    "content": ""
+  },
+  {
+    "start": "1300",
+    "duration": "60",
+    "type": "shrink",
+    "content": "ランチ休憩"
+  },
+  {
+    "start": "1400",
+    "duration": "30",
+    "type": "session",
+    "content": "keynote_3"
+  },
+  {
+    "start": "1430",
+    "duration": "20",
+    "type": "session",
+    "content": "talk_9"
+  },
+  {
+    "start": "1450",
+    "duration": "20",
+    "type": "session",
+    "content": "talk_9"
+  },
+  {
+    "start": "1510",
+    "duration": "20",
+    "type": "session",
+    "content": "talk_9"
+  },
+  {
+    "start": "1530",
+    "duration": "20",
+    "type": "session",
+    "content": "talk_9"
+  },
+  {
+    "start": "1550",
+    "duration": "20",
+    "type": "session",
+    "content": "talk_9"
+  },
+  {
+    "start": "1610",
+    "duration": "20",
+    "type": "text",
+    "content": "コーヒーブレイク☕️"
+  },
+  {
+    "start": "1630",
+    "duration": "30",
+    "type": "session",
+    "content": "talk_9"
+  },
+  {
+    "start": "1700",
+    "duration": "20",
+    "type": "session",
+    "content": "talk_9"
+  },
+  {
+    "start": "1720",
+    "duration": "20",
+    "type": "session",
+    "content": "talk_9"
+  },
+  {
+    "start": "1740",
+    "duration": "30",
+    "type": "session",
+    "content": "talk_9"
+  },
+  {
+    "start": "1810",
+    "duration": "10",
+    "type": "text",
+    "content": "クロージング"
+  },
+  {
+    "start": "1820",
+    "duration": "10",
+    "type": "text",
+    "content": "懇親会準備"
+  },
+  {
+    "start": "1830",
+    "duration": "60",
+    "type": "shrink",
+    "content": "懇親会🍺"
+  }
+]

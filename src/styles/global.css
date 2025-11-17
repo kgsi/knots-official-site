@@ -14,9 +14,9 @@
 
     --transition_hover: 0.3s ease;
 
-    --z_footer: 200000;
     --z_header: 100000;
     --z_fix_btn: 90000;
+    --z_footer: 80000;
     --z_above: 10000;
     --z_over: 1000;
     --z_flat: 0;
@@ -34,6 +34,7 @@
     --text_box_trim: trim-both cap alphabetic;
   }
   body {
+    font-feature-settings: "palt";
     font-family: var(--font_ja_base);
     color: var(--color_text);
     background-color: var(--color_bg_white);

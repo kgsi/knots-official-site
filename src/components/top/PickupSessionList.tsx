@@ -38,13 +38,28 @@ export const PickupSessionList = () => {
     } else {
       setPickedSessions(getRandomItems(pickupList, 3))
     }
-    }, [])
+  }, [])
+
+  // レンダリング完了を通知
+  useEffect(() => {
+    if (pickedSessions.length > 0) {
+      // レンダリングが完了したことを通知
+      requestAnimationFrame(() => {
+        const event = new CustomEvent('pickup-rendered');
+        document.dispatchEvent(event);
+      });
+    }
+  }, [pickedSessions])
 
   return (
     <ul className="list" style={{ borderTop: '1px solid var(--color_grey)'}}>
       {pickedSessions.map((content) => (
         <li key={content.id} className="item" style={{ borderBottom: '1px solid var(--color_grey)'}}>
-          <SessionItem title={content.title} description={content.description}>
+          <SessionItem
+            sessionTag={content.tag}
+            title={content.title}
+            description={content.description}
+          >
             {content.speakers?.map((speakerId) => {
               const speakerData = speakers.find((s) => s.id === speakerId)
               return speakerData ? (

@@ -1,19 +1,19 @@
 ---
 import Speaker from './speaker/Speaker.astro';
 import speakersData from '@/data/speakers.json';
+import type { Session } from '@/types/dataTypes';
 
 interface Props {
   key?: string;
-  session?: {
-    time?: string;
-    duration?: string;
-    tag?: string;
-    title?: string;
-    speakers?: string[];
-  };
+  session?: Session
+  timeData: {
+    start: string;
+    duration: number;
+  }
 }
-const { key ='', session = { time: null, duration: null, tag: null, title: null, speakers: [] } } = Astro.props;
-const { time, duration, tag, title, speakers } = session;
+const { key ='', session = { tag: null, title: null, speakers: [] } } = Astro.props;
+const { tag, title, speakers } = session;
+const { start, duration } = Astro.props.timeData;
 
 const images = import.meta.glob('@/assets/top/speakers/*.{png,jpg,jpeg,webp,gif}', { eager: true });
 const speakerImages = Object.fromEntries(
@@ -43,7 +43,7 @@ const showTime = (timeStr: string | undefined, duration?: number | 0) => {
 
 <button type="button" class="session-card" data-modal-open={key || ''}>
   <div class="head">
-    <span class="time font-en">{showTime(time, duration)}<span class="duration">({duration}min)</span></span>
+    <span class="time font-en">{showTime(start, duration)}<span class="duration">({duration}min)</span></span>
     <span class="tag font-en">{tag}</span>
   </div>
   <h4 class="title">{title}</h4>
@@ -67,7 +67,7 @@ const showTime = (timeStr: string | undefined, duration?: number | 0) => {
       border-radius: 8px;
       padding: 16px 24px;
       display: grid;
-      align-content: center;
+      align-content: start;
       row-gap: 16px;
       border: none;
       text-align: left;

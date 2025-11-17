@@ -2,12 +2,14 @@ import type { FC, ReactNode } from 'react'
 import styles from './SessionItem.module.css'
 
 interface SessionItemProps {
+  sessionTag?: string | undefined
   title: string | undefined
   description: string | undefined
   children: ReactNode
 }
 
 export const SessionItem: FC<SessionItemProps> = ({
+  sessionTag,
   title,
   description,
   children,
@@ -15,6 +17,9 @@ export const SessionItem: FC<SessionItemProps> = ({
   return (
     <div className={styles.sessionItem}>
       <div className={styles.column}>
+        {sessionTag && (
+          <p className={`${styles.tag} font-en`}>{sessionTag}</p>
+        )}
         <h3 className={styles.title}>{title}</h3>
         <p className={styles.description} dangerouslySetInnerHTML={{ __html: description.replace(/\n/g, '<br />') }} />
       </div>

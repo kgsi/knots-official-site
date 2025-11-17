@@ -1,0 +1,32 @@
+[
+  {
+    "start": "1030",
+    "duration": "30",
+    "type": "shrink",
+    "content": "受付"
+  },
+  {
+    "start": "1100",
+    "duration": "10",
+    "type": "spacer",
+    "content": ""
+  },
+  {
+    "start": "1110",
+    "duration": "20",
+    "type": "session",
+    "content": "talk_1"
+  },
+  {
+    "start": "1130",
+    "duration": "20",
+    "type": "session",
+    "content": "talk_1"
+  },
+  {
+    "start": "1150",
+    "duration": "20",
+    "type": "session",
+    "content": "talk_1"
+  }
+]

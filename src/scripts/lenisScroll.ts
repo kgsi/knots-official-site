@@ -34,6 +34,43 @@ export const initLenis = () => {
     });
   });
 
+  // 他のページから/#idで遷移してきた場合の処理
+  if (window.location.hash) {
+    const targetId = window.location.hash;
+    const scrollToTarget = () => {
+      const targetElement = document.querySelector(targetId) as HTMLElement;
+      if (targetElement) {
+        lenis.scrollTo(targetElement, { offset: -headerHeight, immediate: false });
+      }
+    };
+
+    // Reactコンポーネントのレンダリング完了を待つ
+    let attempts = 0;
+    const maxAttempts = 20;
+    const checkAndScroll = () => {
+      const targetElement = document.querySelector(targetId) as HTMLElement;
+      if (targetElement) {
+        // 要素が見つかったら、さらにレイアウトが安定するまで待つ
+        requestAnimationFrame(() => {
+          setTimeout(() => {
+            scrollToTarget();
+          }, 150);
+        });
+      } else if (attempts < maxAttempts) {
+        attempts++;
+        setTimeout(checkAndScroll, 50);
+      }
+    };
+
+    // 初回チェック
+    setTimeout(checkAndScroll, 100);
+
+    // pickup-renderedイベントをリッスン
+    document.addEventListener('pickup-rendered', () => {
+      setTimeout(scrollToTarget, 100);
+    }, { once: true });
+  }
+
   // メニューの開閉イベントをリッスン
   document.addEventListener('menu:toggle', (event) => {
     const customEvent = event as CustomEvent;
