@@ -68,6 +68,7 @@ export const initLenis = () => {
     // pickup-renderedイベントをリッスン
     document.addEventListener('pickup-rendered', () => {
       setTimeout(scrollToTarget, 100);
+      ScrollTrigger.update();
     }, { once: true });
   }
 
