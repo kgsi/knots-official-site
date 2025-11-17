@@ -51,4 +51,5 @@ export const initModal = () => {
       closeModal(modal);
     }
   };
+
 };

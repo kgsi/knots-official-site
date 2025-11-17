@@ -100,4 +100,29 @@ export const initLenis = () => {
       }
     }
   });
+
+  // data-lenis-prevent要素のスクロールイベント伝播を防止
+  const lenisPreventElements = document.querySelectorAll<HTMLElement>('[data-lenis-prevent]');
+  lenisPreventElements.forEach(element => {
+    element.addEventListener('wheel', (event) => {
+      const target = event.currentTarget as HTMLElement;
+      const isScrollable = target.scrollHeight > target.clientHeight;
+      const isAtTop = target.scrollTop === 0;
+      const isAtBottom = target.scrollTop + target.clientHeight >= target.scrollHeight;
+      
+      const deltaY = (event as WheelEvent).deltaY;
+      
+      // スクロール不可能、または端でのスクロールアウト時はpreventDefault
+      if (!isScrollable || (deltaY < 0 && isAtTop) || (deltaY > 0 && isAtBottom)) {
+        event.preventDefault();
+      }
+      
+      event.stopPropagation();
+    }, { passive: false });
+    
+    element.addEventListener('touchmove', (event) => {
+      event.preventDefault();
+      event.stopPropagation();
+    }, { passive: false });
+  });
 };
