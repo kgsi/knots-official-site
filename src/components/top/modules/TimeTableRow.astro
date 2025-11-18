@@ -1,6 +1,5 @@
 ---
 import SessionCard from '@/components/top/modules/SessionCard.astro'
-import Modal from './Modal.astro'
 import sessionList from '@/data/sessionList.json'
 import type { TimetableContent, Session } from '@/types/dataTypes'
 
@@ -32,7 +31,7 @@ const calculateRowCount = (start: number) => {
 ---
 
 {timetableData.map((item, index) => (
-  <div class="row" style={`--this_start_row: ${calculateRowCount(Number(item.start))}; --this_time_duration: ${item.duration ? item.duration / 10 : 1}`}>
+  <div class="row" style={`--this_start_row: ${calculateRowCount(Number(item.start)) + 1}; --this_time_duration: ${item.duration ? item.duration / 10 : 1}`}>
     {item.type === 'spacer' ? (
       <div class="spacer">
       </div>
@@ -72,7 +71,7 @@ const calculateRowCount = (start: number) => {
       display: flex;
       flex-direction: column;
       justify-content: start;
-      height: calc((140px * var(--this_time_duration, 1) + 16px * (var(--this_time_duration, 1) - 1)));
+      height: max(calc((140px * var(--this_time_duration, 1) + 16px * (var(--this_time_duration, 1) - 1))), auto);
       grid-row: var(--this_start_row, 0) / span var(--this_time_duration);
       &:has(.shrink) {
         height: auto;
@@ -87,6 +86,8 @@ const calculateRowCount = (start: number) => {
       mix-blend-mode: difference;
     }
     .text-schedule {
+      display: grid;
+      align-items: center;
       height: 100%;
       min-height: 84px;
       border-radius: 8px;
@@ -106,6 +107,18 @@ const calculateRowCount = (start: number) => {
         align-items: center;
         background-color: transparent;
         border: 1px solid currentColor;
+      }
+    }
+    @media (--sp) {
+      .row {
+        height: max(calc((132px * var(--this_time_duration, 1) + 16px * (var(--this_time_duration, 1) - 1))), auto);
+      }
+      .text-schedule {
+        min-height: 64px;
+        padding-inline: 8px;
+        dl {
+          font-size: rem(18);
+        }
       }
     }
   }

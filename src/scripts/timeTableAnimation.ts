@@ -7,8 +7,9 @@ export function initTimeTableAnimation() {
   const circlePc = document.querySelector('[data-trigger="timetable-circle-pc"]');
   const circleSp = document.querySelector('[data-trigger="timetable-circle-sp"]');
   const timeTableBody = document.querySelector('[data-trigger="timetable-body"]');
+  const timeTableWrap = document.querySelector('[data-trigger="timetable-wrap"]');
 
-  if (!timeTableSection || !circlePc || !circleSp || !timeTableBody) return
+  if (!timeTableSection || !circlePc || !circleSp || !timeTableBody || !timeTableWrap) return
   
   gsap.to(circlePc, {
     scale: 0.35,
@@ -46,4 +47,11 @@ export function initTimeTableAnimation() {
     scrub: true,
     invalidateOnRefresh: true
   })
+  ScrollTrigger.create({
+    trigger: timeTableWrap,
+    start: 'top 30%',
+    end: 'bottom bottom',
+    pin: circleSp,
+    pinType: "transform"
+  });
 }

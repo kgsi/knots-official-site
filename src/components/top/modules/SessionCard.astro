@@ -42,11 +42,11 @@ const showTime = (timeStr: string | undefined, duration?: number | 0) => {
 
 ---
 
-<button type="button" class="session-card" data-modal-open={key || ''}>
-  <div class="head">
+<div role="button" tabindex="0" class="session-card" data-modal-open={key || ''}>
+  <span class="head">
     <span class="time font-en">{showTime(start, duration)}<span class="duration">({duration}min)</span></span>
     <span class="tag font-en">{tag}</span>
-  </div>
+  </span>
   <h4 class="title">{title}</h4>
   <ul class="speakers">
     {speakers?.map((speakerId) => {
@@ -58,7 +58,7 @@ const showTime = (timeStr: string | undefined, duration?: number | 0) => {
       ) : null;
     })}
   </ul>
-</button>
+</div>
 <Modal 
   key={key || ''}
   session={session}
@@ -81,6 +81,7 @@ const showTime = (timeStr: string | undefined, duration?: number | 0) => {
       transition: background-color 0.3s ease;
       mix-blend-mode: difference;
       overflow: hidden;
+      color: var(--color_text);
       @media (--hover) {
         &:hover {
           background-color: color-mix(in srgb, #fff 97%, #000 3%);
@@ -106,13 +107,30 @@ const showTime = (timeStr: string | undefined, duration?: number | 0) => {
       font-size: rem(12);
     }
     .title {
+      font-family: var(--font_ja_bold);
       font-size: rem(20);
+      letter-spacing: 0.04em;
       font-weight: 600;
       line-height: 1.5;
     }
     .speakers {
       display: grid;
       row-gap: 16px;
+    }
+    @media (--sp) {
+      .session-card {
+        row-gap: 20px;
+        padding-inline: 16px;
+        position: relative;
+        translate: translateZ(0);
+        z-index: var(--z_over);
+      }
+      .time {
+        font-size: rem(14);
+      }
+      .title {
+        font-size: rem(18);
+      }
     }
 	}
 </style>
