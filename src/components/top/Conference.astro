@@ -37,13 +37,13 @@ import DistortionWave from '@/components/top/modules/distortionWave.astro';
         次世代に求められる技術と人材、そして組織とは。AIの進化により、個人・組織・技術の関係は急速に変化しています。<br>本カンファレンスでは、3つの問いから、変化の時代に私たちがどう向き合うべきかを探ります。
       </p>
       <ul>
-        <li>個人への問い：変化に対応できるスキルとは？</li>
-        <li>組織への問い：変化に強いチームをどうつくるか？</li>
-        <li>技術への問い：AIは可能性をどう拡張するのか？</li>
+        <li>個人への問い：<br class="only-sp">変化に対応できるスキルとは？</li>
+        <li>組織への問い：<br class="only-sp">変化に強いチームをどうつくるか？</li>
+        <li>技術への問い：<br class="only-sp">AIは可能性をどう拡張するのか？</li>
       </ul>
-        <p>
-          セッションの種類は3つ、エンジニア、デザイナー、プロダクトマネージャーの3職能の方々にご登壇いただきます。
-        </p>
+      <p>
+        セッションの種類は3つ、エンジニア、デザイナー、プロダクトマネージャーの3職能の方々にご登壇いただきます。
+      </p>
     </div>
     <dl class="list">
       <div class="item" data-trigger="intersect-anim">
@@ -219,6 +219,15 @@ import DistortionWave from '@/components/top/modules/distortionWave.astro';
     @media (--sp) {
       .conference {
         padding-block: 84px 60px;
+      }
+      .lead {
+        ul {
+          li {
+            + li {
+              margin-top: 0.2lh;
+            }
+          }
+        }
       }
     }
 	}
