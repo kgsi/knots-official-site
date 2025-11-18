@@ -72,7 +72,7 @@ const calculateRowCount = (start: number) => {
       display: flex;
       flex-direction: column;
       justify-content: start;
-      height: max(calc((140px * var(--this_time_duration, 1) + 16px * (var(--this_time_duration, 1) - 1))), auto);
+      height: calc((140px * var(--this_time_duration, 1) + 16px * (var(--this_time_duration, 1) - 1)));
       grid-row: var(--this_start_row, 0) / span var(--this_time_duration);
       &:has(.shrink) {
         height: auto;
