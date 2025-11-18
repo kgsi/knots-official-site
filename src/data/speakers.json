@@ -3,25 +3,25 @@
     "id": "dummy",
     "name": "登壇 者名",
     "image": "session0.jpg",
-		"affiliation": "株式会社**** / **********",
-		"introduction": ""
+    "affiliation": "株式会社**** / **********",
+    "introduction": ""
   },
-	{
-		"id": "talk1_1",
-		"name": "matsushima",
-		"image": "talk1_1.jpg",
-		"affiliation": "株式会社Gaudiy / ビルダーズノート事業部ソフトウェアエンジニア",
-		"sns": "",
-		"introduction": "フロントエンド開発をメインで行っているエンジニアです。大体 React + TypeScript"
-	},
-	{
-		"id": "talk4_1",
-		"name": "michiru_da",
-		"image": "talk4_1.jpg",
-		"affiliation": "株式会社LayerX / CEO室 プロダクトマネージャー",
-		"sns": "https://x.com/applism118",
-		"introduction": "ベンチャー企業にてエンタープライズ向け受託システム開発の営業・プロジェクトマネージャー、新規事業の企画・立ち上げに従事。2021年11月に株式会社LayerXに入社し、バックオフィスSaaS バクラクシリーズのカスタマーサクセスとして100社以上のお客様運用を支援。エンタープライズCS・テックタッチベースのオンボーディングを立ち上げ、2023年5月よりプロダクト企画部へ異動、申請・経費精算のプロダクトマネジメントを担当。2025年10月からはCEO室へ異動しBPO事業の企画を担当。"
-	},
+  {
+    "id": "talk1_1",
+    "name": "matsushima",
+    "image": "talk1_1.jpg",
+    "affiliation": "株式会社Gaudiy / ビルダーズノート事業部ソフトウェアエンジニア",
+    "sns": "",
+    "introduction": "フロントエンド開発をメインで行っているエンジニアです。大体 React + TypeScript"
+  },
+  {
+    "id": "talk4_1",
+    "name": "michiru_da",
+    "image": "talk4_1.jpg",
+    "affiliation": "株式会社LayerX / CEO室 プロダクトマネージャー",
+    "sns": "https://x.com/applism118",
+    "introduction": "ベンチャー企業にてエンタープライズ向け受託システム開発の営業・プロジェクトマネージャー、新規事業の企画・立ち上げに従事。2021年11月に株式会社LayerXに入社し、バックオフィスSaaS バクラクシリーズのカスタマーサクセスとして100社以上のお客様運用を支援。エンタープライズCS・テックタッチベースのオンボーディングを立ち上げ、2023年5月よりプロダクト企画部へ異動、申請・経費精算のプロダクトマネジメントを担当。2025年10月からはCEO室へ異動しBPO事業の企画を担当。"
+  },
   {
     "id": "talk6_1",
     "name": "石橋 尚武",
@@ -178,7 +178,7 @@
 		"id": "talk19_1",
 		"name": "Brandon HIll",
 		"image": "talk19_1.jpg",
-		"affiliation": "btrax /Founder & CEO",
+		"affiliation": "btrax / Founder & CEO",
 		"sns": "",
 		"introduction": "サンフランシスコと東京に拠点を置くデザインエージェンシー btrax のFounder&CEO。世界最大のAIコミュニティである、The AI Collective日本代表としてAI×デザイン分野の国際的コミュニティを牽引し、サンフランシスコ市政府のアドバイザーも務める。デザインとテクノロジーを融合させた事業を展開。経済産業省「始動NEXT Innovator」公式メンターやStartup Weekendデザインメンターを、九州大学フェロー、崇城大学起業部メンター等を通じて500人以上の次世起業家代育成と日米のスタートアップ育成に注力。サンフランシスコ州立大学デザイン科卒業後"
 	},
