@@ -115,6 +115,7 @@ import TimeTableRow from '@/components/top/modules/TimeTableRow.astro'
       grid-template-rows: subgrid;
       grid-row: 1/ span 54;
       row-gap: 16px;
+      min-width: 0;
     }
     .col--time {
       grid-column: 1 / span 2;
@@ -173,6 +174,7 @@ import TimeTableRow from '@/components/top/modules/TimeTableRow.astro'
       font-weight: 500;
       font-size: rem(20);
       margin-right: 0.5em;
+      white-space: nowrap;
     }
     @media (--tb) {
       .body {
@@ -218,18 +220,18 @@ import TimeTableRow from '@/components/top/modules/TimeTableRow.astro'
       .timetable-content {
         &:has(:checked) {
           --this_switch_translate: calc( -100% + vw(-64));
-          --this_switch_toggle1: auto;
-          --this_switch_toggle2: none;
           label[for="stage-switch"] {
             &[data-switch-trigger="cross"] {
+              pointer-events: auto;
               --this_font_color: var(--color_white);
             }
             &[data-switch-trigger="wave"] {
+              pointer-events: none;
               --this_font_color: var(--color_primary);
             }
           }
           .circle-sp {
-            --this_circle_translate: calc(-100vw - vw(16));
+            --this_circle_translate: calc(vw(48) * -1);
           }
         }
         input[data-switch] {
@@ -241,12 +243,13 @@ import TimeTableRow from '@/components/top/modules/TimeTableRow.astro'
           white-space: nowrap;
         }
         label[for="stage-switch"] {
+          display: block;
           &[data-switch-trigger="cross"] {
-            pointer-events: var(--this_switch_toggle1, none);
+            pointer-events: none;
             --this_font_color: var(--color_primary);
           }
           &[data-switch-trigger="wave"] {
-            pointer-events: var(--this_switch_toggle2, auto);
+            pointer-events: auto;
             --this_font_color: var(--color_white)
           }
         }
@@ -304,6 +307,7 @@ import TimeTableRow from '@/components/top/modules/TimeTableRow.astro'
         color: var(--this_font_color, var(--color_white));
         text-box: var(--text_box_trim);
         transition: color 0.4s ease;
+        will-change: opacity;
       }
       .stage-label-sub {
         display: none;
@@ -327,17 +331,21 @@ import TimeTableRow from '@/components/top/modules/TimeTableRow.astro'
       }
       .circle-sp {
         position: absolute;
+        margin-inline: calc(var(--inner_padding_sp) * -1);
         top: vw(100);
-        left: calc(100% - vw(16));
+        left: 0;
+        right: 0;
       }
-      .circle-sp-body{
+      .circle-sp-body {
+        position: static;
         width: vw(96);
         aspect-ratio: 1;
         background-color: var(--color_primary);
         border-radius: 50%;
         mix-blend-mode: difference;
-        translate: var(--this_circle_translate, 0) 0;
+        translate: var(--this_circle_translate, calc(100vw - vw(48))) 0;
         transition: translate 0.8s 0.1s cubic-bezier(0.65, 0, 0.35, 1);
+        will-change: opacity;
       }
       .head {
         width: 100%;

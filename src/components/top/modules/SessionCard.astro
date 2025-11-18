@@ -52,7 +52,7 @@ const showTime = (timeStr: string | undefined, duration?: number | 0) => {
     {speakers?.map((speakerId) => {
       const speaker = getSpeakerById(speakerId);
       return speaker ? (
-        <li>
+        <li class="speakers-item">
           <Speaker img={speakerImages[speaker.id]} name={speaker.name} affiliation={speaker.affiliation} modifier="timetable"/>
         </li>
       ) : null;
@@ -68,6 +68,7 @@ const showTime = (timeStr: string | undefined, duration?: number | 0) => {
 <style>
 	@layer components {
     .session-card {
+      min-height: inherit;
       height: 100%;
       background-color: #fff;
       border-radius: 8px;
@@ -116,6 +117,9 @@ const showTime = (timeStr: string | undefined, duration?: number | 0) => {
     .speakers {
       display: grid;
       row-gap: 16px;
+    }
+    .speakers-item {
+      min-width: 0;
     }
     @media (--sp) {
       .session-card {

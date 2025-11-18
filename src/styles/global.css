@@ -40,7 +40,10 @@
     font-family: var(--font_ja_base);
     color: var(--color_text);
     background-color: var(--color_bg_white);
-    scroll-behavior: auto !important
+    scroll-behavior: auto !important;
+    overflow-wrap: anywhere;
+    word-break: normal;
+    line-break: strict;
   }
   /* Page loading scroll lock */
   html.is-loading,

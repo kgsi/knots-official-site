@@ -71,10 +71,12 @@ const calculateRowCount = (start: number) => {
       display: flex;
       flex-direction: column;
       justify-content: start;
-      height: max(calc((140px * var(--this_time_duration, 1) + 16px * (var(--this_time_duration, 1) - 1))), auto);
+      min-height: calc((140px * var(--this_time_duration, 1) + 16px * (var(--this_time_duration, 1) - 1)));
+      height: auto;
       grid-row: var(--this_start_row, 0) / span var(--this_time_duration);
+      min-width: 0;
       &:has(.shrink) {
-        height: auto;
+        min-height: auto;
       }
     }
     .spacer {
@@ -89,7 +91,7 @@ const calculateRowCount = (start: number) => {
       display: grid;
       align-items: center;
       height: 100%;
-      min-height: 84px;
+      min-height: inherit;
       border-radius: 8px;
       padding-inline: 24px;
       background-color: var(--color_white);
@@ -103,6 +105,7 @@ const calculateRowCount = (start: number) => {
         font-weight: 500;
       }
       &.shrink {
+        min-height: 84px;
         display: grid;
         align-items: center;
         background-color: transparent;
@@ -111,13 +114,16 @@ const calculateRowCount = (start: number) => {
     }
     @media (--sp) {
       .row {
-        height: max(calc((132px * var(--this_time_duration, 1) + 16px * (var(--this_time_duration, 1) - 1))), auto);
+        min-height: calc((132px * var(--this_time_duration, 1) + 16px * (var(--this_time_duration, 1) - 1)));
       }
       .text-schedule {
-        min-height: 64px;
+        min-height: inherit;
         padding-inline: 8px;
         dl {
           font-size: rem(18);
+        }
+        &.shrink {
+          min-height: 64px;
         }
       }
     }

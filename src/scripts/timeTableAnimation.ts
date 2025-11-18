@@ -47,11 +47,29 @@ export function initTimeTableAnimation() {
     scrub: true,
     invalidateOnRefresh: true
   })
+
+  const ua = navigator.userAgent;
+  const isSafari = /^((?!chrome|android).)*safari/i.test(ua);
+
   ScrollTrigger.create({
     trigger: timeTableWrap,
     start: 'top 30%',
-    end: 'bottom bottom',
+    end: 'bottom 55%',
     pin: circleSp,
-    pinType: "transform"
+    pinType: isSafari ? 'fixed' : 'transform',
+    onLeave: () => {
+      gsap.to(circleSp, {
+        opacity: 0,
+        duration: 0.3,
+        ease: 'power2.inOut',
+      });
+    },
+    onEnterBack: () => {
+      gsap.to(circleSp, {
+        opacity: 1,
+        duration: 0.3,
+        ease: 'power2.inOut',
+      });
+    },
   });
 }

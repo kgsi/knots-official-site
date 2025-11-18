@@ -15,25 +15,25 @@
     "start": "1110",
     "duration": "30",
     "type": "session",
-    "content": "talk_1"
+    "content": "keynote_1"
   },
   {
     "start": "1140",
     "duration": "20",
     "type": "session",
-    "content": "talk_6"
+    "content": "talk_3"
   },
   {
     "start": "1200",
     "duration": "20",
     "type": "session",
-    "content": "talk_7"
+    "content": "talk_5"
   },
   {
     "start": "1220",
     "duration": "30",
     "type": "session",
-    "content": "talk_6"
+    "content": "dummy"
   },
   {
     "start": "1250",
@@ -63,25 +63,25 @@
     "start": "1450",
     "duration": "20",
     "type": "session",
-    "content": "talk_9"
+    "content": "talk_11"
   },
   {
     "start": "1510",
     "duration": "20",
     "type": "session",
-    "content": "talk_9"
+    "content": "talk_13"
   },
   {
     "start": "1530",
     "duration": "20",
     "type": "session",
-    "content": "talk_9"
+    "content": "dummy"
   },
   {
     "start": "1550",
     "duration": "20",
     "type": "session",
-    "content": "talk_9"
+    "content": "dummy"
   },
   {
     "start": "1610",
@@ -93,25 +93,25 @@
     "start": "1630",
     "duration": "30",
     "type": "session",
-    "content": "talk_9"
+    "content": "keynote_4"
   },
   {
     "start": "1700",
     "duration": "20",
     "type": "session",
-    "content": "talk_9"
+    "content": "talk_19"
   },
   {
     "start": "1720",
     "duration": "20",
     "type": "session",
-    "content": "talk_9"
+    "content": "talk_20"
   },
   {
     "start": "1740",
     "duration": "30",
     "type": "session",
-    "content": "talk_9"
+    "content": "dummy"
   },
   {
     "start": "1810",

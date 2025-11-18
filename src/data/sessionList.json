@@ -1,5 +1,15 @@
 [
   {
+    "pickup": false,
+    "id": "dummy",
+    "tag": "Dummy #1",
+    "title" : "ダミーのセッション",
+    "speakers": [
+      "dummy"
+    ],
+    "description": "ダミーのセッション"
+  },
+  {
     "pickup": true,
     "id": "talk_1",
     "tag": "Talk #1",
