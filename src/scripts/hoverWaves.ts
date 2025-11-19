@@ -71,7 +71,7 @@ async function initSingleWaveEffect(canvasElement: HTMLCanvasElement) {
     const displacementSprite = new PIXI.Sprite(displacementTexture)
 
     // ディスプレイスメントスプライトを設定
-    displacementSprite.texture.baseTexture.wrapMode = PIXI.WRAP_MODES.REPEAT
+    displacementSprite.texture.source.style.addressMode = 'repeat'
     displacementSprite.width = width / 2
     displacementSprite.height = height / 2
     displacementSprite.anchor.set(0.5, 0.5) // 中央アンカー
@@ -135,7 +135,7 @@ async function initSingleWaveEffect(canvasElement: HTMLCanvasElement) {
     }
 
     // グラデーションをテクスチャにレンダリング
-    app.renderer.render(maskGraphics, { renderTexture: maskTexture })
+    app.renderer.render({ container: maskGraphics, target: maskTexture })
 
     // グラデーションテクスチャからマスクスプライトを作成
     const mask = new PIXI.Sprite(maskTexture)

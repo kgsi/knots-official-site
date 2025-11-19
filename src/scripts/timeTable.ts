@@ -51,8 +51,6 @@ export function initTimeTableAnimation() {
 
   const ua = navigator.userAgent;
   const isSafari = /^((?!chrome|android).)*safari/i.test(ua);
-  console.log('ua:', ua);
-  console.log('isSafari:', isSafari);
 
   ScrollTrigger.create({
     trigger: timeTableWrap,
