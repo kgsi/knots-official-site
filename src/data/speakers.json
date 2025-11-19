@@ -14,6 +14,14 @@
     "sns": "",
     "introduction": "フロントエンド開発をメインで行っているエンジニアです。大体 React + TypeScript"
   },
+	{
+		"id": "talk3_1",
+		"name": "坂津 潤平",
+		"image": "talk3_1.jpg",
+		"affiliation": "株式会社PeopleX / Engineering Group Tech Lead",
+		"sns": "https://x.com/saka2jp",
+		"introduction": "スタートアップ、AbemaTVなどを経て、PeopleXに創業から参画。PeopleWork、AI上司、AI面接などAI/HR領域の新規サービスを1年で5本立ち上げ。現在はAI面接の開発をリード。得意領域はTypeScript, Go。"
+	},
   {
     "id": "talk4_1",
     "name": "michiru_da",
@@ -22,6 +30,14 @@
     "sns": "https://x.com/applism118",
     "introduction": "ベンチャー企業にてエンタープライズ向け受託システム開発の営業・プロジェクトマネージャー、新規事業の企画・立ち上げに従事。2021年11月に株式会社LayerXに入社し、バックオフィスSaaS バクラクシリーズのカスタマーサクセスとして100社以上のお客様運用を支援。エンタープライズCS・テックタッチベースのオンボーディングを立ち上げ、2023年5月よりプロダクト企画部へ異動、申請・経費精算のプロダクトマネジメントを担当。2025年10月からはCEO室へ異動しBPO事業の企画を担当。"
   },
+	{
+		"id": "talk5_1",
+		"name": "佐藤 咲",
+		"image": "talk5_1.jpg",
+		"affiliation": "GMOペパボ株式会社 / コーポレートコミュニケーション室プリンシパルデザイナー",
+		"sns": "https://x.com/satosio",
+		"introduction": "GMOペパボ株式会社プリンシパルデザイナー。2011年paperboy&co.（現GMOペパボ）に新卒入社。Webデザイナーからキャリアを始め、リブランディングやデザイン戦略、新規サービス立ち上げを多数経験。産育休を経て、現在はコーポレートコミュニケーション室にてブランディングおよび事業部支援に従事。福岡在住、一児の母。趣味は漫画と麻雀。コーヒーが好き。"
+	},
   {
     "id": "talk6_1",
     "name": "石橋 尚武",
@@ -63,6 +79,14 @@
 		"introduction": "2019年からDMM GAMESにてデザイナーとしてジョイン。ゲームプラットフォームや管理画面、コーポレートサイトなどのUIデザインを主に担当。2022年からマネーフォワードにプロダクトデザイナーとして入社。ビジネス領域のプロダクトデザインを担当しながら、AIを活用した開発プロセスの改善に取り組んでいる。"
 	},
 	{
+		"id": "talk9_1",
+		"name": "Kuu(Kume Fumiya)",
+		"image": "talk9_1.jpg",
+		"affiliation": "株式会社メルカリ / AI/LLM Office, AI taskforce Software Engineer, AI Platform",
+		"sns": "https://x.com/Fumiya_Kume",
+		"introduction": "2020年4月 株式会社メルカリへ新卒入社。 日本向けのフリマアプリ、メルカリの開発に携わる。 "
+	},
+	{
 		"id": "talk10_1",
 		"name": "栢菅 美咲",
 		"image": "talk10_1.jpg",
@@ -85,6 +109,14 @@
 		"affiliation": "ファインディ株式会社 / CTO室 コミュニケーションデザイナー／デザインディレクター",
 		"sns": "https://x.com/_tomd4",
 		"introduction": "新卒でGMOグループに入社。クライアントワークでプロモーションやSNSのプランニング・制作進行・デザインを経験し、2023年にファインディへ。現在はFindy Toolsの1人目コミュニケーションデザイン担当としてデザインディレクションに従事。カメラとOps改善が好き。"
+	},
+	{
+		"id": "talk13_1",
+		"name": "藤岡 和真",
+		"image": "talk13_1.jpg",
+		"affiliation": "株式会社PKSHA Technology / CEO室 ソフトウエアエンジニア",
+		"sns": "https://x.com/kakka_q",
+		"introduction": "大学院博士課程前期では映像検索アルゴリズムについて研究。2023 年 4 月、 PKSHA Workplace にソフトウエアエンジニアとして新卒入社し、「PKSHA AI ヘルプデスク」の開発に従事。現在は PKSHA Technology の CEO 室に異動し、新規プロダクトの開発を行っている。2025 Microsoft Top Partner Engineer Award, Azure Data & AI 部門受賞。"
 	},
 	{
 		"id": "talk14_1",
@@ -111,6 +143,22 @@
 		"introduction": "校正・校閲担当者を経て、ベンチャー企業で新規事業の立ち上げやインタビューの企画執筆を経験。その経験からUXリサーチャーに転身、人材会社の新規事業のUXリサーチやリサーチ組織立ち上げ、リサーチャー育成に携わる。2022年4月より株式会社スマートバンクに1人目のUXリサーチャーとして入社。N1インタビューの文化を受け継ぎ、年間100件を超えるインタビューを担当。メンバー全員が「Think N1」を身近に感じられるような働きや経営・事業に伴走するリサーチを推進。著作『UXリサーチの活かし方　ユーザーの声を意思決定につなげるためにできること（翔泳社）』。"
 	},
 	{
+		"id": "talk19_1",
+		"name": "Brandon HIll",
+		"image": "talk19_1.jpg",
+		"affiliation": "btrax / Founder & CEO",
+		"sns": "",
+		"introduction": "サンフランシスコと東京に拠点を置くデザインエージェンシー btrax のFounder&CEO。世界最大のAIコミュニティである、The AI Collective日本代表としてAI×デザイン分野の国際的コミュニティを牽引し、サンフランシスコ市政府のアドバイザーも務める。デザインとテクノロジーを融合させた事業を展開。経済産業省「始動NEXT Innovator」公式メンターやStartup Weekendデザインメンターを、九州大学フェロー、崇城大学起業部メンター等を通じて500人以上の次世起業家代育成と日米のスタートアップ育成に注力。サンフランシスコ州立大学デザイン科卒業後"
+	},
+	{
+		"id": "talk20_1",
+		"name": "桑原 真一郎",
+		"image": "talk20_1.jpg",
+		"affiliation": "NTTドコモビジネス株式会社 / イノベーションセンター デザイン部門KOEL UXデザイナー",
+		"sns": "https://x.com/BrandonKHill",
+		"introduction": "米国のデザイン修士課程修了後、大手自動車メーカーにて海外市場の事業・商品計画、環境車の顧客インサイト分析等に従事。デザイン留学後、米国医療機関のデータ分析部署に初のデザイナーとして参画。人間中心デザインを導入し、医療従事者の業務効率化や多様な人材活用を推進。2024年8月よりKOELに参画。"
+	},
+	{
 		"id": "discussion1_1",
 		"name": "平田 智基",
 		"image": "discussion1_1.jpg",
@@ -135,20 +183,12 @@
 		"introduction": "livedoor、DeNAで新規事業とUI/UXデザイン組織の立ち上げに携わる。2019年に起業した株式会社Basecampをdelyに売却し、現在はクラシル株式会社 上級執行役員 CPOとしてレシピ動画サービス「クラシル」などフード、リテール領域のプロダクト戦略とUI/UXを統括。デザイナー出身のPdMとして、デザイナー／PdM／エンジニアが協働する組織づくりとAI前提の開発プロセス再設計に取り組んでいる。"
 	},
 	{
-		"id": "talk3_1",
-		"name": "坂津 潤平",
-		"image": "talk3_1.jpg",
-		"affiliation": "株式会社PeopleX / Engineering Group Tech Lead",
-		"sns": "https://x.com/saka2jp",
-		"introduction": "スタートアップ、AbemaTVなどを経て、PeopleXに創業から参画。PeopleWork、AI上司、AI面接などAI/HR領域の新規サービスを1年で5本立ち上げ。現在はAI面接の開発をリード。得意領域はTypeScript, Go。"
-	},
-	{
-		"id": "talk5_1",
-		"name": "佐藤 咲",
-		"image": "talk5_1.jpg",
-		"affiliation": "GMOペパボ株式会社 / コーポレートコミュニケーション室プリンシパルデザイナー",
-		"sns": "https://x.com/satosio",
-		"introduction": "GMOペパボ株式会社プリンシパルデザイナー。2011年paperboy&co.（現GMOペパボ）に新卒入社。Webデザイナーからキャリアを始め、リブランディングやデザイン戦略、新規サービス立ち上げを多数経験。産育休を経て、現在はコーポレートコミュニケーション室にてブランディングおよび事業部支援に従事。福岡在住、一児の母。趣味は漫画と麻雀。コーヒーが好き。"
+		"id": "keynote1_1",
+		"name": "たかなこ",
+		"image": "keynote1_1.jpg",
+		"affiliation": "ファインディ株式会社 / CTO室 Design デザインマネージャー",
+		"sns": "https://x.com/mrt_kanako",
+		"introduction": "新卒で制作会社に入社し、教育系やBtoB向けのパンフレット・Webサイト制作において、ディレクションからデザインまでを一貫して担当。\n2023年8月にファインディ株式会社へ入社し、コミュニケーションデザイナーとして複数事業に関わる。現在はエンジニア転職サービス「Findy」と、フリーランスエンジニアと企業をつなぐ「Findy Freelance」を管掌。コミュニケーションデザインとプロダクトデザイン両領域をマネジメントし、事業成長に直結するデザインを推進している。"
 	},
 	{
 		"id": "keynote3_1",
@@ -159,51 +199,12 @@
 		"introduction": "中小企業向けのSaaS、フリーランスでの受託、起業やスタートアップでの開発チーム立ち上げを経験。Webのフロントエンド開発や、UI・UX設計をおこなう。現在はFigmaのマーケティングやリソースの設計・開発に取り組んでいる。"
 	},
 	{
-		"id": "talk9_1",
-		"name": "Kuu(Kume Fumiya)",
-		"image": "talk9_1.jpg",
-		"affiliation": "株式会社メルカリ / AI/LLM Office, AI taskforce Software Engineer, AI Platform",
-		"sns": "https://x.com/Fumiya_Kume",
-		"introduction": "2020年4月 株式会社メルカリへ新卒入社。 日本向けのフリマアプリ、メルカリの開発に携わる。 "
-	},
-	{
-		"id": "talk13_1",
-		"name": "藤岡 和真",
-		"image": "talk13_1.jpg",
-		"affiliation": "株式会社PKSHA Technology / CEO室 ソフトウエアエンジニア",
-		"sns": "https://x.com/kakka_q",
-		"introduction": "大学院博士課程前期では映像検索アルゴリズムについて研究。2023 年 4 月、 PKSHA Workplace にソフトウエアエンジニアとして新卒入社し、「PKSHA AI ヘルプデスク」の開発に従事。現在は PKSHA Technology の CEO 室に異動し、新規プロダクトの開発を行っている。2025 Microsoft Top Partner Engineer Award, Azure Data & AI 部門受賞。"
-	},
-	{
-		"id": "talk19_1",
-		"name": "Brandon HIll",
-		"image": "talk19_1.jpg",
-		"affiliation": "btrax / Founder & CEO",
-		"sns": "",
-		"introduction": "サンフランシスコと東京に拠点を置くデザインエージェンシー btrax のFounder&CEO。世界最大のAIコミュニティである、The AI Collective日本代表としてAI×デザイン分野の国際的コミュニティを牽引し、サンフランシスコ市政府のアドバイザーも務める。デザインとテクノロジーを融合させた事業を展開。経済産業省「始動NEXT Innovator」公式メンターやStartup Weekendデザインメンターを、九州大学フェロー、崇城大学起業部メンター等を通じて500人以上の次世起業家代育成と日米のスタートアップ育成に注力。サンフランシスコ州立大学デザイン科卒業後"
-	},
-	{
-		"id": "talk20_1",
-		"name": "桑原 真一郎",
-		"image": "talk20_1.jpg",
-		"affiliation": "NTTドコモビジネス株式会社 / イノベーションセンター デザイン部門KOEL UXデザイナー",
-		"sns": "https://x.com/BrandonKHill",
-		"introduction": "米国のデザイン修士課程修了後、大手自動車メーカーにて海外市場の事業・商品計画、環境車の顧客インサイト分析等に従事。デザイン留学後、米国医療機関のデータ分析部署に初のデザイナーとして参画。人間中心デザインを導入し、医療従事者の業務効率化や多様な人材活用を推進。2024年8月よりKOELに参画。"
-	},
-	{
 		"id": "keynote4_1",
 		"name": "石川 洋資",
 		"image": "keynote4_1.jpg",
 		"affiliation": "株式会社10X / プロダクト本部 執行役員 CTO",
 		"sns": "https://x.com/_ishkawa",
 		"introduction": "面白法人カヤック、LINE、メルカリでソフトウェアエンジニアとして複数サービスの立ち上げを経験。2017年に10Xを共同創業し、CTOとしてプロダクト開発全般を担当する。"
-	},
-	{
-		"id": "findy_takai",
-		"name": "たかなこ",
-		"image": "findy_takai.jpg",
-		"affiliation": "ファインディ株式会社 / CTO室 Design デザインマネージャー",
-		"sns": "https://x.com/mrt_kanako",
-		"introduction": "新卒で制作会社に入社し、教育系やBtoB向けのパンフレット・Webサイト制作において、ディレクションからデザインまでを一貫して担当。\n2023年8月にファインディ株式会社へ入社し、コミュニケーションデザイナーとして複数事業に関わる。現在はエンジニア転職サービス「Findy」と、フリーランスエンジニアと企業をつなぐ「Findy Freelance」を管掌。コミュニケーションデザインとプロダクトデザイン両領域をマネジメントし、事業成長に直結するデザインを推進している。"
 	}
 ]
+
