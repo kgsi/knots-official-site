@@ -15,7 +15,7 @@
     "start": "1110",
     "duration": "30",
     "type": "session",
-    "content": "keynote_1"
+    "content": "sponsor_keynote_1"
   },
   {
     "start": "1140",
@@ -51,7 +51,7 @@
     "start": "1400",
     "duration": "30",
     "type": "session",
-    "content": "keynote_3"
+    "content": "sponsor_keynote_2"
   },
   {
     "start": "1430",
@@ -93,7 +93,7 @@
     "start": "1630",
     "duration": "30",
     "type": "session",
-    "content": "keynote_4"
+    "content": "keynote_2"
   },
   {
     "start": "1700",
