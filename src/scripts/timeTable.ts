@@ -1,3 +1,4 @@
+
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 gsap.registerPlugin(ScrollTrigger);
@@ -50,6 +51,8 @@ export function initTimeTableAnimation() {
 
   const ua = navigator.userAgent;
   const isSafari = /^((?!chrome|android).)*safari/i.test(ua);
+  console.log('ua:', ua);
+  console.log('isSafari:', isSafari);
 
   ScrollTrigger.create({
     trigger: timeTableWrap,
@@ -71,5 +74,23 @@ export function initTimeTableAnimation() {
         ease: 'power2.inOut',
       });
     },
+  });
+}
+
+export function timeTableSwitch() {
+  const switchInput = document.querySelector('input[data-switch]') as HTMLInputElement | null;
+  const switchTriggers = document.querySelectorAll('[data-switch-trigger]');
+  if (!switchInput || switchTriggers.length === 0) return;
+
+  switchTriggers.forEach(trigger => {
+    trigger.addEventListener('click', () => {
+      const stage = trigger.getAttribute('data-switch-trigger');
+      if (!stage) return;
+      if (stage === 'cross') {
+        switchInput.checked = false;
+      } else if (stage === 'wave') {
+        switchInput.checked = true;
+      }
+    });
   });
 }

@@ -23,20 +23,20 @@ import TimeTableRow from '@/components/top/modules/TimeTableRow.astro'
       <div class="stage-label-row">
         <input type="checkbox" id="stage-switch" class="only-sp" data-switch />
         <div class="stage-label-col">
-          <label for="stage-switch" data-switch-trigger="cross" class="stage-label-label">
-            <div class="stage-label" label-for="cross-stage">
-              <h3 class="stage-label-body font-en">Cross Stage</h3>
+          <div class="stage-label-switch" data-switch-trigger="cross">
+            <div class="stage-label">
+              <h3 class="stage-label-body font-en" id="cross-stage-label">Cross Stage</h3>
               <p class="stage-label-sub">キーノート/トーク</p>
             </div>
-          </label>
+          </div>
         </div>
         <div class="stage-label-col">
-          <label for="stage-switch" data-switch-trigger="wave" class="stage-label-label">
-            <div class="stage-label" label-for="wave-stage">
-              <h3 class="stage-label-body font-en">Wave Stage</h3>
+          <div class="stage-label-switch" data-switch-trigger="wave">
+            <div class="stage-label">
+              <h3 class="stage-label-body font-en" id="wave-stage-label">Wave Stage</h3>
               <p class="stage-label-sub">トーク/ディスカッション</p>
             </div>
-          </label>
+          </div>
         </div>
       </div>
       <div class="body-wrap" data-trigger="timetable-wrap">
@@ -44,11 +44,11 @@ import TimeTableRow from '@/components/top/modules/TimeTableRow.astro'
           <div class="circle-sp-body"></div>
         </div>
         <div class="body" data-trigger="timetable-body">
-          <div class="col col--cross" id="cross-stage">
-            <TimeTableRow timetableData={timetable_cross} />
+          <div class="col col--cross" aria-labelledby="cross-stage-label">
+            <TimeTableRow timetableData={timetable_cross} stageName="cross" />
           </div>
-          <div class="col col--wave" id="wave-stage">
-            <TimeTableRow timetableData={timetable_wave} />
+          <div class="col col--wave" aria-labelledby="wave-stage-label">
+            <TimeTableRow timetableData={timetable_wave} stageName="wave" />
           </div>
           <div class="col col--time">
             {Array.from({ length: 10 }, (_, index) =>
@@ -220,7 +220,7 @@ import TimeTableRow from '@/components/top/modules/TimeTableRow.astro'
       .timetable-content {
         &:has(:checked) {
           --this_switch_translate: calc( -100% + vw(-64));
-          label[for="stage-switch"] {
+          .stage-label-switch {
             &[data-switch-trigger="cross"] {
               pointer-events: auto;
               --this_font_color: var(--color_white);
@@ -242,8 +242,7 @@ import TimeTableRow from '@/components/top/modules/TimeTableRow.astro'
           clip: rect(0 0 0 0);
           white-space: nowrap;
         }
-        label[for="stage-switch"] {
-          display: block;
+        .stage-label-switch {
           &[data-switch-trigger="cross"] {
             pointer-events: none;
             --this_font_color: var(--color_primary);
@@ -382,6 +381,7 @@ import TimeTableRow from '@/components/top/modules/TimeTableRow.astro'
 
 <script>
   // パスをエイリアスに変更して型解決エラーを回避
-  import { initTimeTableAnimation } from '@/scripts/timeTableAnimation.ts'
+  import { initTimeTableAnimation, timeTableSwitch } from '@/scripts/timeTable.ts'
   initTimeTableAnimation();
+  timeTableSwitch();
 </script>
