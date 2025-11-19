@@ -183,25 +183,25 @@
 		"introduction": "livedoor、DeNAで新規事業とUI/UXデザイン組織の立ち上げに携わる。2019年に起業した株式会社Basecampをdelyに売却し、現在はクラシル株式会社 上級執行役員 CPOとしてレシピ動画サービス「クラシル」などフード、リテール領域のプロダクト戦略とUI/UXを統括。デザイナー出身のPdMとして、デザイナー／PdM／エンジニアが協働する組織づくりとAI前提の開発プロセス再設計に取り組んでいる。"
 	},
 	{
-		"id": "keynote1_1",
+		"id": "sponsor_keynote1_1",
 		"name": "たかなこ",
-		"image": "keynote1_1.jpg",
+		"image": "sponsor_keynote1_1.jpg",
 		"affiliation": "ファインディ株式会社 / CTO室 Design デザインマネージャー",
 		"sns": "https://x.com/mrt_kanako",
 		"introduction": "新卒で制作会社に入社し、教育系やBtoB向けのパンフレット・Webサイト制作において、ディレクションからデザインまでを一貫して担当。\n2023年8月にファインディ株式会社へ入社し、コミュニケーションデザイナーとして複数事業に関わる。現在はエンジニア転職サービス「Findy」と、フリーランスエンジニアと企業をつなぐ「Findy Freelance」を管掌。コミュニケーションデザインとプロダクトデザイン両領域をマネジメントし、事業成長に直結するデザインを推進している。"
 	},
 	{
-		"id": "keynote3_1",
+		"id": "sponsor_keynote2_1",
 		"name": "谷 拓樹",
-		"image": "keynote3_1.jpg",
+		"image": "keynote2_1.jpg",
 		"affiliation": "Figma / Marketing Designer Advocate",
 		"sns": "https://x.com/hiloki",
 		"introduction": "中小企業向けのSaaS、フリーランスでの受託、起業やスタートアップでの開発チーム立ち上げを経験。Webのフロントエンド開発や、UI・UX設計をおこなう。現在はFigmaのマーケティングやリソースの設計・開発に取り組んでいる。"
 	},
 	{
-		"id": "keynote4_1",
+		"id": "keynote2_1",
 		"name": "石川 洋資",
-		"image": "keynote4_1.jpg",
+		"image": "keynote2_1.jpg",
 		"affiliation": "株式会社10X / プロダクト本部 執行役員 CTO",
 		"sns": "https://x.com/_ishkawa",
 		"introduction": "面白法人カヤック、LINE、メルカリでソフトウェアエンジニアとして複数サービスの立ち上げを経験。2017年に10Xを共同創業し、CTOとしてプロダクト開発全般を担当する。"
