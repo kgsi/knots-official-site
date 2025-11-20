@@ -69,13 +69,13 @@
     "start": "1430",
     "duration": "20",
     "type": "session",
-    "content": "dummy"
+    "content": "talk_10"
   },
   {
     "start": "1450",
     "duration": "20",
     "type": "session",
-    "content": "dummy"
+    "content": "talk_12"
   },
   {
     "start": "1510",
@@ -117,7 +117,7 @@
     "start": "1730",
     "duration": "40",
     "type": "session",
-    "content": "dummy"
+    "content": "discussion_2"
   },
   {
     "start": "1810",
