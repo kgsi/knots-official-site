@@ -6,6 +6,7 @@
     padding-block: 38px;
   }
   .tag {
+    grid-column: span 2;
     font-size: rem(16);
     color: var(--color_primary);
     line-height: 1.2;

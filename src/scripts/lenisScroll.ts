@@ -120,8 +120,26 @@ export const initLenis = () => {
       event.stopPropagation();
     }, { passive: false });
     
+    let touchStartY = 0;
+    
+    element.addEventListener('touchstart', (event) => {
+      touchStartY = event.touches[0].clientY;
+    }, { passive: true });
+    
     element.addEventListener('touchmove', (event) => {
-      event.preventDefault();
+      const target = event.currentTarget as HTMLElement;
+      const isScrollable = target.scrollHeight > target.clientHeight;
+      const isAtTop = target.scrollTop === 0;
+      const isAtBottom = target.scrollTop + target.clientHeight >= target.scrollHeight;
+      
+      const touchY = event.touches[0].clientY;
+      const deltaY = touchStartY - touchY;
+      
+      // スクロール不可能、または端でのスクロールアウト時はpreventDefault
+      if (!isScrollable || (deltaY < 0 && isAtTop) || (deltaY > 0 && isAtBottom)) {
+        event.preventDefault();
+      }
+      
       event.stopPropagation();
     }, { passive: false });
   });

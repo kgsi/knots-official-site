@@ -2,6 +2,8 @@
 
 @layer base {
   :root {
+    --inner_padding_sp: 32px;
+      
     --color_primary: #0064ff;
     --color_primary_deep: #1a32ef;
     --color_white: #FFF;
@@ -38,7 +40,10 @@
     font-family: var(--font_ja_base);
     color: var(--color_text);
     background-color: var(--color_bg_white);
-    scroll-behavior: auto !important
+    scroll-behavior: auto !important;
+    overflow-wrap: anywhere;
+    word-break: normal;
+    line-break: strict;
   }
   /* Page loading scroll lock */
   html.is-loading,
@@ -60,7 +65,6 @@
   }
   .font-en {
     font-family: var(--font_en);
-    font-optical-sizing: auto;
   }
   .font-ja-thin {
     font-family: var(--font_ja_thin);
@@ -165,7 +169,7 @@
     }
     .inner {
       max-width: none;
-      padding-inline: 32px;
+      padding-inline: var(--inner_padding_sp, 32px);
     }
     .util-lower-main {
       &:before {

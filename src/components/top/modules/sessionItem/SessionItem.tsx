@@ -16,10 +16,10 @@ export const SessionItem: FC<SessionItemProps> = ({
 }) => {
   return (
     <div className={styles.sessionItem}>
+      {sessionTag && (
+        <p className={`${styles.tag} font-en`}>{sessionTag}</p>
+      )}
       <div className={styles.column}>
-        {sessionTag && (
-          <p className={`${styles.tag} font-en`}>{sessionTag}</p>
-        )}
         <h3 className={styles.title}>{title}</h3>
         <p className={styles.description} dangerouslySetInnerHTML={{ __html: description.replace(/\n/g, '<br />') }} />
       </div>

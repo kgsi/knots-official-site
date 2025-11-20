@@ -25,6 +25,12 @@ export const initModal = () => {
       trigger.addEventListener('click', () => {
         openModal(modal);
       });
+      trigger.addEventListener('keydown', (event) => {
+        if (event.key === 'Enter' || event.key === ' ') {
+          event.preventDefault();
+          openModal(modal);
+        }
+      });
     }
   });
 
