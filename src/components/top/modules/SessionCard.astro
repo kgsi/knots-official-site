@@ -80,8 +80,11 @@ const showTime = (timeStr: string | undefined, duration?: number | 0) => {
       text-align: left;
       cursor: pointer;
       transition: background-color 0.3s ease;
-      mix-blend-mode: difference;
       overflow: hidden;
+      mix-blend-mode: difference;
+      will-change: opacity;
+      -webkit-backdrop-filter: brightness(88%) contrast(126%);
+      backdrop-filter: brightness(88%) contrast(126%);
       color: var(--color_text);
       @media (--hover) {
         &:hover {

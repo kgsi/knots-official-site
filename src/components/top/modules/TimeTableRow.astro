@@ -87,6 +87,7 @@ const calculateRowCount = (start: number) => {
       opacity: 0.5;
       border-radius: 8px;
       mix-blend-mode: difference;
+      backdrop-filter: brightness(88%) contrast(126%);
     }
     .text-schedule {
       display: grid;
@@ -95,8 +96,10 @@ const calculateRowCount = (start: number) => {
       min-height: inherit;
       border-radius: 8px;
       padding-inline: 24px;
-      background-color: var(--color_white);
       mix-blend-mode: difference;
+      -webkit-backdrop-filter: brightness(88%) contrast(126%) saturate(120%);
+      backdrop-filter: brightness(88%) contrast(126%) saturate(120%);
+      background-color: var(--color_white);
       dl {
         height: 100%;
         display: flex;
@@ -109,7 +112,7 @@ const calculateRowCount = (start: number) => {
         min-height: 84px;
         display: grid;
         align-items: center;
-        background-color: transparent;
+        background-color: var(--color_bg_white);
         border: 1px solid currentColor;
       }
     }
