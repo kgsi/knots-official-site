@@ -1,5 +1,6 @@
 ---
 import Operator from './modules/Operator.astro';
+import DistortionWave from '@/components/top/modules/distortionWave.astro';
 ---
 
 <footer class="footer selected-inversion">
@@ -29,6 +30,14 @@ import Operator from './modules/Operator.astro';
 			</div>
 		</div>
 	</div>
+  <div class="distortion-wave distortion-wave--footer only-pc">
+    <div class="wave-canvas-wrapper">
+      <DistortionWave
+        imageSrc='/assets/top/wave_kv_footer.png'
+        maskRadius={1000}
+      />
+    </div>
+  </div>
 </footer>
 
 <style>
@@ -38,7 +47,6 @@ import Operator from './modules/Operator.astro';
 			background-color: var(--color_primary);
 			padding-block: 80px calc(pw(318) + 32px);
 			color: var(--color_white);
-      background-image: url('/assets/common/wave_footer.png');
       background-size: 100% auto;
       background-repeat: repeat-x;
       background-position: bottom -4px center;
@@ -87,6 +95,29 @@ import Operator from './modules/Operator.astro';
 				text-box: trim-both cap alphabetic;
 			}
 		}
+    .distortion-wave {
+      position: absolute;
+      width: 200%;
+			bottom: 0;
+      margin-inline: -50%;
+      height: auto;
+      mix-blend-mode: luminosity;
+      z-index: var(--z_over);
+      pointer-events: none;
+      .wave-canvas-wrapper {
+        pointer-events: auto;
+        width: 100%;
+				aspect-ratio: 1440 / 328;
+        height: auto;
+        scale: 0.5;
+				transform-origin: bottom center;
+        :global(canvas) {
+          width: 100%;
+          height: 100%;
+          transform-origin: center center;
+        }
+      }
+    }
 		@media (--under-pc) {
 			.row {
 				grid-template-areas:

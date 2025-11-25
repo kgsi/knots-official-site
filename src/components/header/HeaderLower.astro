@@ -12,21 +12,35 @@ import knots from "@assets/common/logo_knots.svg"
 <style>
 	@layer components {
 		.header {
-			padding: 40px;
+			width: 100%;
+			padding: 20px 40px;
 			position: fixed;
 			z-index: var(--z_header);
+			min-height: 88px;
+			display: flex;
+			align-items: center;
+			a {
+				display: inline-block;
+			}
 		}
 		.logo {
 			width: 143px;
 			height: auto;
 			filter: brightness(0);
+			display: block;
 		}
 		@media (--sp) {
 			.header {
-				padding: 24px;
+				min-height: auto;
+				padding: 20px;
+				background: linear-gradient(114deg, rgba(255, 255, 255, 0.06) 0%, rgba(255, 255, 255, 0.14) 100%);
+				backdrop-filter: blur(14px);
+				border-bottom: 1px solid color-mix(in srgb, var(--color_white) 30%, transparent);
 			}
 			.logo {
-				width: vw(90);
+        width: auto;
+        height: 24px;
+        display: block;
 			}
 		}
 	}
