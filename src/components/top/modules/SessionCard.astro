@@ -103,6 +103,9 @@ const showTime = (timeStr: string | undefined, duration?: number | 0) => {
           outline-color: var(--color_primary);
           --this_icon_bg_color: var(--color_white);
           --this_icon_color: var(--color_primary);
+          .more-icon {
+            rotate: 90deg;
+          }
         }
       }
     }
@@ -147,7 +150,7 @@ const showTime = (timeStr: string | undefined, duration?: number | 0) => {
       bottom: 16px;
       right: 16px;
       border: 1px solid var(--color_primary);
-      transition: background-color var(--transition_hover);
+      transition: background-color var(--transition_hover), rotate 0.5s cubic-bezier(0.048, 0.611, 0.307, 1.559);
       &:before,
       &:after {
         content: '';
