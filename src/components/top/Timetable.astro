@@ -3,7 +3,7 @@ import timetable_cross from '@/data/timetable_cross.json'
 import timetable_wave from '@/data/timetable_wave.json'
 import SectionTitle from '@/components/util/SectionTitle.astro'
 import TimeTableRow from '@/components/top/modules/TimeTableRow.astro'
-const leadText = `スピーカーセッション、パネルセッション、エクスチェンジセッションが<br class="excepting-sp">Cross StageとWave Stageで行われます。<br>登壇者と参加者が垣根を超えて“交わる”スペシャルなセッションを紹介。`
+const leadText = `スピーカーセッション、パネルセッション、エクスチェンジセッションが<br class="only-pc">Cross StageとWave Stageで行われます。<br>登壇者と参加者が垣根を超えて“交わる”スペシャルなセッションを紹介。`
 ---
 <div class="timetable" data-trigger="timetable">
   <div class="wrapper">
@@ -223,16 +223,16 @@ const leadText = `スピーカーセッション、パネルセッション、�
         width: auto;
         aspect-ratio: auto;
         margin-inline: auto;
-        padding-block: 80px 40px;
+        padding-block: 80px 48px;
         margin-bottom: 0;
         border-radius: 0;
       }
       .lead-wrapper {
+        max-width: 530px;
         color: var(--color_white);
         padding-bottom: 80px;
         margin-bottom: 0;
-      }
-      .lead {
+        text-align: left;
         line-height: 1.5;
       }
       .body {
@@ -391,10 +391,11 @@ const leadText = `スピーカーセッション、パネルセッション、�
         margin-bottom: 0;
       }
       .lead-wrapper {
+        text-align: left;
         color: var(--color_white);
         font-size: rem(18);
         line-height: 1.8;
-        padding-inline: 40px;
+        padding-inline: var(--inner_padding_sp);
         padding-bottom: 60px;
         margin-bottom: 80px;
       }
