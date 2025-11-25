@@ -87,7 +87,9 @@ import DistortionWave from '@/components/top/modules/distortionWave.astro';
     .wave--right {
       top: 0;
       right: -200px;
+      pointer-events: none;
       .wave-canvas-wrapper {
+        pointer-events: auto;
         transform-origin: right top;
         scale: 0.5;
       }
@@ -95,7 +97,9 @@ import DistortionWave from '@/components/top/modules/distortionWave.astro';
     .wave--left {
       bottom: 0;
       left: -251px;
+      pointer-events: none;
       .wave-canvas-wrapper {
+        pointer-events: auto;
         transform-origin: left bottom;
         scale: 0.5;
       }

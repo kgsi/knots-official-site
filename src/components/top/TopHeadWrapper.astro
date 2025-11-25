@@ -1,5 +1,6 @@
 ---
 import PictureComponent from '@/components/util/PictureComponent.astro';
+import DistortionWave from '@/components/top/modules/distortionWave.astro';
 import wave_header_pc from '@/assets/top/wave_kv_header.png'
 import wave_header_tb from '@/assets/top/wave_kv_header_tb.png'
 import wave_header_sp from '@/assets/top/wave_kv_header_sp.png'
@@ -9,7 +10,7 @@ import wave_footer_sp from '@/assets/top/wave_kv_footer_sp.png';
 ---
 
 <div class="wrapper" data-trigger="kv-wrapper">
-  <div class="wave wave--header">
+  <div class="wave wave--header excepting-pc">
     <PictureComponent
       mobileImgUrl={wave_header_sp}
       tabletImgUrl={wave_header_tb}
@@ -17,17 +18,33 @@ import wave_footer_sp from '@/assets/top/wave_kv_footer_sp.png';
       alt=""
     />
   </div>
+  <div class="distortion-wave distortion-wave--header only-pc">
+    <div class="wave-canvas-wrapper">
+      <DistortionWave
+        imageSrc='/assets/top/wave_kv_header.png'
+        maskRadius={1000}
+      />
+    </div>
+  </div>
   <div class="container" data-trigger="kv-container">
     <div class="content" data-trigger="kv-content">
       <slot />
     </div>
-    <div class="wave wave--footer">
+    <div class="wave wave--footer excepting-pc">
       <PictureComponent
         mobileImgUrl={wave_footer_sp}
         tabletImgUrl={wave_footer_tb}
         desktopImgUrl={wave_footer_pc}
         alt=""
       />
+    </div>
+    <div class="distortion-wave distortion-wave--footer only-pc">
+      <div class="wave-canvas-wrapper">
+        <DistortionWave
+          imageSrc='/assets/top/wave_kv_footer.png'
+          maskRadius={1000}
+        />
+      </div>
     </div>
   </div>
 </div>
@@ -53,6 +70,44 @@ import wave_footer_sp from '@/assets/top/wave_kv_footer_sp.png';
     }
     .wave--footer {
       bottom: -2px;
+    }
+    .distortion-wave {
+      position: absolute;
+      width: 200%;
+      margin-inline: -50%;
+      height: auto;
+      mix-blend-mode: luminosity;
+      z-index: var(--z_over);
+      .wave-canvas-wrapper {
+        width: 100%;
+        aspect-ratio: 1440 / 492;
+        height: auto;
+        scale: 0.5;
+        :global(canvas) {
+          width: 100%;
+          height: 100%;
+          transform-origin: left top;
+        }
+      }
+    }
+    .distortion-wave--header {
+      top: 0;
+      .wave-canvas-wrapper {
+        transform-origin: top center;
+        :global(canvas) {
+          transform-origin: left top;
+        }
+      }
+    }
+    .distortion-wave--footer {
+      bottom: 0;
+      .wave-canvas-wrapper {
+        aspect-ratio: 1440 / 434;
+        transform-origin: bottom center;
+        :global(canvas) {
+          transform-origin: center center;
+        }
+      }
     }
     @media (--tb) {
       .container {

@@ -36,14 +36,14 @@ async function initSingleWaveEffect(canvasElement: HTMLCanvasElement) {
     ? parseInt(canvasElement.dataset.height, 10)
     : null
 
-  // スタイルからの計算値
+  // スタイルからの計算値を取得
   const computedStyle = window.getComputedStyle(canvasElement)
-  const styleWidth = parseInt(computedStyle.width, 10) || 300
-  const styleHeight = parseInt(computedStyle.height, 10) || 300
+  const styleWidth = parseInt(computedStyle.width, 10)
+  const styleHeight = parseInt(computedStyle.height, 10)
 
-  // ユーザー指定があれば 2倍、なければスタイルサイズ
-  const width = attrWidth !== null ? attrWidth * 2 : styleWidth
-  const height = attrHeight !== null ? attrHeight * 2 : styleHeight
+  // data属性が指定されていればそれを使用、なければCSS表示サイズの2倍
+  const width = attrWidth !== null ? attrWidth * 2 : styleWidth * 2
+  const height = attrHeight !== null ? attrHeight * 2 : styleHeight * 2
 
   const app = new PIXI.Application()
 
@@ -116,7 +116,10 @@ async function initSingleWaveEffect(canvasElement: HTMLCanvasElement) {
     animatedImageSprite.filters = [displacementFilter]
 
     // 滑らかなエッジのための円形グラデーションマスクを作成
-    const maskRadius = 500
+    // data-mask-radius 属性から取得、未指定の場合はデフォルトの 500
+    const maskRadius = canvasElement.dataset.maskRadius
+      ? parseInt(canvasElement.dataset.maskRadius, 10)
+      : 500
 
     // グラデーションマスク用のレンダーテクスチャを作成
     const maskTexture = PIXI.RenderTexture.create({
@@ -155,10 +158,10 @@ async function initSingleWaveEffect(canvasElement: HTMLCanvasElement) {
     app.stage.addChild(mask) // マスクもステージに追加が必要
 
     // アニメーションを開始
-    startWaveAnimation(displacementSprite)
+    startWaveAnimation(displacementSprite, maskRadius)
 
     // マウストラッキングを追加
-    setupMouseTracking(canvasElement, mask)
+    setupMouseTracking(canvasElement, mask, maskRadius)
   } catch (error) {
     console.error('Failed to load image:', error)
 
@@ -170,29 +173,43 @@ async function initSingleWaveEffect(canvasElement: HTMLCanvasElement) {
 }
 
 // 波エフェクト用のアニメーション関数
-function startWaveAnimation(displacementSprite: PIXI.Sprite) {
+function startWaveAnimation(
+  displacementSprite: PIXI.Sprite,
+  maskRadius: number,
+) {
   // 初期の中央位置を保存
   const centerX = displacementSprite.x
+
+  // デフォルト値500を基準としてアニメーションスピードを比例計算
+  // マスク半径が大きいほどアニメーションが早くなる（duration が短くなる）
+  const baseRadius = 500
+  const baseDuration = 3
+  const baseRotationDuration = 8
+  const baseMoveDistance = 50
+  const speedRatio = baseRadius / maskRadius
+  const duration = baseDuration * speedRatio
+  const rotationDuration = baseRotationDuration * speedRatio
+  const moveDistance = baseMoveDistance * (maskRadius / baseRadius)
 
   // 中央を基準としたX位置のアニメーション
   const tl = gsap.timeline({ repeat: -1 })
   tl.fromTo(
     displacementSprite,
-    { pixi: { x: centerX + 50 } },
+    { pixi: { x: centerX + moveDistance } },
     {
-      pixi: { x: centerX - 50 },
-      duration: 3,
+      pixi: { x: centerX - moveDistance },
+      duration: duration,
       ease: 'sine.inOut',
     },
   ).to(displacementSprite, {
-    pixi: { x: centerX + 50 },
-    duration: 3,
+    pixi: { x: centerX + moveDistance },
+    duration: duration,
     ease: 'sine.inOut',
   })
 
   gsap.to(displacementSprite, {
     pixi: { rotation: 0.05 },
-    duration: 8,
+    duration: rotationDuration,
     repeat: -1,
     yoyo: true,
     ease: 'power1.inOut',
@@ -203,6 +220,7 @@ function startWaveAnimation(displacementSprite: PIXI.Sprite) {
 function setupMouseTracking(
   canvasElement: HTMLCanvasElement,
   mask: PIXI.Sprite,
+  maskRadius: number,
 ) {
   let mouseX = 0
   let mouseY = 0
@@ -210,6 +228,19 @@ function setupMouseTracking(
   const centerY = mask.y
   const hiddenScale = 0.01
   let isMaskActive = false
+
+  // デフォルト値500を基準としてアニメーションスピードを比例計算
+  // マスク半径が大きいほどアニメーションが早くなる（duration が短くなる）
+  const baseRadius = 500
+  const baseMoveSpeed = 0.1
+  const baseShowDuration = 0.3
+  const baseHideDuration = 0.15
+  const baseHideScaleDuration = 0.2
+  const speedRatio = baseRadius / maskRadius
+  const moveSpeed = baseMoveSpeed * speedRatio
+  const showDuration = baseShowDuration * speedRatio
+  const hideDuration = baseHideDuration * speedRatio
+  const hideScaleDuration = baseHideScaleDuration * speedRatio
 
   // 初期状態ではマスクを縮小・非表示にしておく
   mask.scale.set(hiddenScale)
@@ -233,7 +264,7 @@ function setupMouseTracking(
     // スムーズなアニメーションでマスク位置を更新
     gsap.to(mask, {
       pixi: { x: mouseX, y: mouseY },
-      duration: 0.1,
+      duration: moveSpeed,
       ease: 'power2.out',
     })
   }
@@ -247,7 +278,7 @@ function setupMouseTracking(
     const tl = gsap.timeline()
     tl.to(mask, {
       pixi: { alpha: 0 },
-      duration: 0.15,
+      duration: hideDuration,
       ease: 'power2.out',
     })
     tl.to(
@@ -255,7 +286,7 @@ function setupMouseTracking(
       {
         x: hiddenScale,
         y: hiddenScale,
-        duration: 0.2,
+        duration: hideScaleDuration,
         ease: 'power2.out',
       },
       0,
@@ -272,13 +303,13 @@ function setupMouseTracking(
     isMaskActive = true
     gsap.to(mask, {
       pixi: { alpha: 1 },
-      duration: 0.3,
+      duration: showDuration,
       ease: 'power2.out',
     })
     gsap.to(mask.scale, {
       x: 1,
       y: 1,
-      duration: 0.3,
+      duration: showDuration,
       ease: 'power2.out',
     })
   }

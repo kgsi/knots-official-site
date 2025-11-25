@@ -3,6 +3,7 @@ import timetable_cross from '@/data/timetable_cross.json'
 import timetable_wave from '@/data/timetable_wave.json'
 import SectionTitle from '@/components/util/SectionTitle.astro'
 import TimeTableRow from '@/components/top/modules/TimeTableRow.astro'
+const leadText = `スピーカーセッション、パネルセッション、エクスチェンジセッションが<br class="only-pc">Cross StageとWave Stageで行われます。<br>登壇者と参加者が垣根を超えて“交わる”スペシャルなセッションを紹介。`
 ---
 <div class="timetable" data-trigger="timetable">
   <div class="wrapper">
@@ -17,9 +18,12 @@ import TimeTableRow from '@/components/top/modules/TimeTableRow.astro'
       </div>
     </div>
     <div class="inner timetable-content">
-      <p class="lead">
-        スピーカーセッション、パネルセッション、エクスチェンジセッションがCross StageとWave Stageで行われます。<br>登壇者と参加者が垣根を超えて“交わる”スペシャルなセッションを紹介。
-      </p>
+      <div class="lead-wrapper">
+        <p class="lead" set:html={leadText}>
+        </p>
+        <div class="lead-inversion" aria-hidden="true" set:html={leadText}>
+        </div>
+      </div>
       <div class="stage-label-row">
         <input type="checkbox" id="stage-switch" class="only-sp" data-switch />
         <div class="stage-label-col">
@@ -99,7 +103,7 @@ import TimeTableRow from '@/components/top/modules/TimeTableRow.astro'
     .head-inner {
       margin-bottom: 16px;
     }
-    .lead {
+    .lead-wrapper {
       max-width: 720px;
       margin-inline: auto;
       text-align: center;
@@ -109,6 +113,14 @@ import TimeTableRow from '@/components/top/modules/TimeTableRow.astro'
       line-height: 1.5;
       letter-spacing: 0.1em;
       margin-bottom: 172px;
+      position: relative;
+    }
+    .lead-inversion {
+      position: absolute;
+      inset: 0;
+      margin: auto;
+      color: var(--color_white);
+      z-index: var(--z_under);
     }
     .body {
       display: grid;
@@ -357,7 +369,7 @@ import TimeTableRow from '@/components/top/modules/TimeTableRow.astro'
         width: 100%;
         aspect-ratio: auto;
         position: relative;
-        padding: 80px 0 64px;
+        padding: 80px 0 0px;
         margin-bottom: 56px;
         &:before {
           content: '';
@@ -378,6 +390,7 @@ import TimeTableRow from '@/components/top/modules/TimeTableRow.astro'
       .lead {
         font-size: rem(18);
         line-height: 1.8;
+        margin-bottom: 64px;
       }
       .time-label {
         display: none;
