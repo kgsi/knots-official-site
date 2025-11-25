@@ -185,6 +185,11 @@ const showTime = (timeStr: string | undefined, duration?: number | 0) => {
       }
       .title {
         font-size: rem(18);
+        overflow: hidden;
+        display: -webkit-box;
+        text-overflow: ellipsis;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 2;
       }
       .more-icon {
         width: 32px;

@@ -16,12 +16,12 @@ const leadText = `スピーカーセッション、パネルセッション、�
           modifier={["center", "white", "no-margin"]}
         />
       </div>
-    </div>
-    <div class="inner timetable-content">
       <div class="lead-wrapper">
         <p class="lead" set:html={leadText}>
         </p>
       </div>
+    </div>
+    <div class="inner timetable-content">
       <div class="stage-label-row">
         <input type="checkbox" id="stage-switch" class="only-sp" data-switch />
         <div class="stage-label-col">
@@ -88,7 +88,7 @@ const leadText = `スピーカーセッション、パネルセッション、�
       border-radius: 50%;
       z-index: var(--z_under);
     }
-    .head {
+    .head-inner {
       display: grid;
       place-items: center;
       align-content: center;
@@ -97,9 +97,6 @@ const leadText = `スピーカーセッション、パネルセッション、�
       margin-inline: auto;
       margin-bottom: 90px;
       border-radius: 50%;
-    }
-    .head-inner {
-      margin-bottom: 16px;
     }
     .lead-wrapper {
       max-width: 720px;
@@ -209,8 +206,7 @@ const leadText = `スピーカーセッション、パネルセッション、�
         width: 100%;
         aspect-ratio: auto;
         position: relative;
-        padding-bottom: 80px;
-        margin-bottom: 96px;
+        margin-bottom: 100px;
         &:before {
           content: '';
           position: absolute;
@@ -224,11 +220,17 @@ const leadText = `スピーカーセッション、パネルセッション、�
         }
       }
       .head-inner {
-        width: vwTb(530);
-        padding-block: vwTb(80) 0;
+        width: auto;
+        aspect-ratio: auto;
+        margin-inline: auto;
+        padding-block: 80px 40px;
+        margin-bottom: 0;
+        border-radius: 0;
       }
       .lead-wrapper {
-        margin-bottom: 80px;
+        color: var(--color_white);
+        padding-bottom: 80px;
+        margin-bottom: 0;
       }
       .lead {
         line-height: 1.5;
@@ -347,7 +349,7 @@ const leadText = `スピーカーセッション、パネルセッション、�
         padding-bottom: 0;
         position: relative;
         translate: var(--this_switch_translate, 0) 0;
-        transition: translate 0.6s cubic-bezier(0.45, 0, 0.55, 1);
+        transition: translate 0.6s 0.3s cubic-bezier(0.45, 0, 0.55, 1);
       }
       .circle-sp {
         position: absolute;
@@ -364,15 +366,11 @@ const leadText = `スピーカーセッション、パネルセッション、�
         border-radius: 50%;
         mix-blend-mode: difference;
         translate: var(--this_circle_translate, calc(100vw - vw(48))) 0;
-        transition: translate 0.8s 0.1s cubic-bezier(0.65, 0, 0.35, 1);
+        transition: translate 0.6s 0s cubic-bezier(0.65, 0, 0.35, 1);
         will-change: opacity;
       }
       .head {
-        width: 100%;
-        aspect-ratio: auto;
         position: relative;
-        padding: 80px 0 0px;
-        margin-bottom: 56px;
         &:before {
           content: '';
           position: absolute;
@@ -386,13 +384,19 @@ const leadText = `スピーカーセッション、パネルセッション、�
         }
       }
       .head-inner {
-        width: auto;
-        padding-inline: 32px;
+        aspect-ratio: auto;
+        width: 100%;
+        position: relative;
+        padding: 80px 0 0;
+        margin-bottom: 0;
       }
       .lead-wrapper {
+        color: var(--color_white);
         font-size: rem(18);
         line-height: 1.8;
-        margin-bottom: 64px;
+        padding-inline: 40px;
+        padding-bottom: 60px;
+        margin-bottom: 80px;
       }
       .time-label {
         display: none;
