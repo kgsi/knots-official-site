@@ -21,8 +21,7 @@
     "start": "1130",
     "duration": "20",
     "type": "session",
-    "content": "dummy",
-    "adjustment": true
+    "content": "talk_2"
   },
   {
     "start": "1150",
