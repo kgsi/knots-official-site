@@ -21,7 +21,8 @@
     "start": "1130",
     "duration": "20",
     "type": "session",
-    "content": "dummy"
+    "content": "dummy",
+    "adjustment": true
   },
   {
     "start": "1150",
@@ -105,7 +106,8 @@
     "start": "1640",
     "duration": "40",
     "type": "session",
-    "content": "dummy"
+    "content": "dummy",
+    "adjustment": true
   },
   {
     "start": "1720",

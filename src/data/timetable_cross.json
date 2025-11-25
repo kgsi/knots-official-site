@@ -33,7 +33,8 @@
     "start": "1220",
     "duration": "30",
     "type": "session",
-    "content": "dummy"
+    "content": "dummy",
+    "adjustment": true
   },
   {
     "start": "1250",
@@ -75,7 +76,7 @@
     "start": "1530",
     "duration": "20",
     "type": "session",
-    "content": "dummy"
+    "content": "talk_15"
   },
   {
     "start": "1550",
@@ -111,7 +112,8 @@
     "start": "1740",
     "duration": "30",
     "type": "session",
-    "content": "dummy"
+    "content": "dummy",
+    "adjustment": true
   },
   {
     "start": "1810",

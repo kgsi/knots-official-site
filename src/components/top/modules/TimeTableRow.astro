@@ -59,6 +59,7 @@ const calculateRowCount = (start: number) => {
           key={stageName+'_'+item.content+'_'+index}
           session={session}
           timeData={{ start: item.start || '', duration: item.duration || 0 }}
+          adjustment={item.adjustment || false}
         />
       )
       })()

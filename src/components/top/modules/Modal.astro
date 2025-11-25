@@ -50,7 +50,7 @@ const showTime = (timeStr: string | undefined, duration?: number | 0) => {
         <p class="time font-en">{showTime(start, duration)}<span class="duration">({duration}min)</span></p>
         <div class="details">
           <p class="title">{title}</p>
-          <p class="description">{description}</p>
+          <p class="description" set:html={description && description.replace(/\n/g, '<br />')} />
           <ul class="speakers">
             {speakers?.map((speakerId) => {
               const speaker = getSpeakerById(speakerId);
@@ -245,14 +245,10 @@ const showTime = (timeStr: string | undefined, duration?: number | 0) => {
         row-gap: 32px;
       }
       .title {
-        order: 1;
         font-size: rem(18);
       }
-      .speakers {
-        order: 2;
-      }
       .description {
-        order: 3;
+        font-size: rem(16);
         color: var(--color_text_grey)
       }
     }

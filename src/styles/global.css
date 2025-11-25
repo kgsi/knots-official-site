@@ -12,6 +12,7 @@
     --color_grey: #cfcfcf;
     --color_text: var(--color_black);
     --color_text_grey: var(--color_dark_grey);
+    --color_text_light_grey: #cfcfcf;
     --color_bg_white: #eff2f5;
 
     --transition_hover: 0.3s ease;

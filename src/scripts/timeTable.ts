@@ -13,7 +13,7 @@ export function initTimeTableAnimation() {
   if (!timeTableSection || !circlePc || !circleSp || !timeTableBody || !timeTableWrap) return
   
   gsap.to(circlePc, {
-    scale: 0.35,
+    scale: 0.42,
     ease: 'power2.inOut',
     scrollTrigger: {
       trigger: circlePc,
@@ -27,7 +27,7 @@ export function initTimeTableAnimation() {
 
   const circleAnimation = gsap.timeline();
   circleAnimation.to(circlePc, {
-    scale: 0.35,
+    scale: 0.42,
     ease: 'power2.inOut',
     duration: 10,
   })

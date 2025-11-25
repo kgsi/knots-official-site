@@ -12,14 +12,14 @@ import TimeTableRow from '@/components/top/modules/TimeTableRow.astro'
         <SectionTitle
           en="Time table"
           ja="タイムテーブル"
-          modifier={["center", "white"]}
+          modifier={["center", "white", "no-margin"]}
         />
-        <p class="lead">
-          スピーカーセッション、パネルセッション、エクスチェンジセッションがCross StageとWave Stageで行われます。<br>登壇者と参加者が垣根を超えて“交わる”スペシャルなセッションを紹介。
-        </p>
       </div>
     </div>
     <div class="inner timetable-content">
+      <p class="lead">
+        スピーカーセッション、パネルセッション、エクスチェンジセッションがCross StageとWave Stageで行われます。<br>登壇者と参加者が垣根を超えて“交わる”スペシャルなセッションを紹介。
+      </p>
       <div class="stage-label-row">
         <input type="checkbox" id="stage-switch" class="only-sp" data-switch />
         <div class="stage-label-col">
@@ -79,7 +79,7 @@ import TimeTableRow from '@/components/top/modules/TimeTableRow.astro'
       left: 0;
       right: 0;
       margin: auto;
-      width: 540px;
+      width: 450px;
       height: auto;
       aspect-ratio: 1;
       background-color: var(--color_primary);
@@ -90,19 +90,25 @@ import TimeTableRow from '@/components/top/modules/TimeTableRow.astro'
       display: grid;
       place-items: center;
       align-content: center;
-      width: 540px;
+      width: 450px;
       aspect-ratio: 1;
       margin-inline: auto;
-      margin-bottom: 400px;
+      margin-bottom: 90px;
       border-radius: 50%;
-      padding: 90px;
+    }
+    .head-inner {
+      margin-bottom: 16px;
     }
     .lead {
-      color: #fff;
+      max-width: 720px;
+      margin-inline: auto;
+      text-align: center;
+      color: var(--color_text);
       font-size: rem(20);
       font-weight: 600;
-      line-height: 1.2;
+      line-height: 1.5;
       letter-spacing: 0.1em;
+      margin-bottom: 172px;
     }
     .body {
       display: grid;
@@ -260,7 +266,7 @@ import TimeTableRow from '@/components/top/modules/TimeTableRow.astro'
         border: 3px solid var(--color_primary);
         border-radius: 8px;
         position: sticky;
-        top: 80px;
+        top: 82px;
         z-index: var(--z_above);
         margin-inline: calc(var(--inner_padding_sp) * 2 / 3 * -1);
         margin-bottom: 0;
