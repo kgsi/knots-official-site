@@ -81,7 +81,7 @@ const LogoTag = lower === true ? 'p' : 'h1';
         opacity: 1;
       }
       &.is-inversion {
-        background-color: transparent;
+        background-image: none;
         backdrop-filter: blur(0px);
         border-bottom-color: transparent;
         .logo {
@@ -160,8 +160,8 @@ const LogoTag = lower === true ? 'p' : 'h1';
       .menu-btn {
         display: grid;
         place-items: center;
-        width: min(vw(32), 48px);
-        height: min(vw(24), 30px);
+        width: 32px;
+        height: 20px;
         position: relative;
         z-index: var(--z_over);
         cursor: pointer;
@@ -180,19 +180,19 @@ const LogoTag = lower === true ? 'p' : 'h1';
         }
         &:before {
           width: 100%;
-          translate: 0 max(vw(-10), -12px);
+          translate: 0 -10px
         }
         &:after {
           width: 50%;
-          translate: 0 min(vw(10), 12px);
+          translate: 0 10px
         }
         @media (--hover) {
           &:hover {
             &:before {
-              translate: 0 max(vw(-8), -10px);
+              translate: 0 -8px
             }
             &:after {
-              translate: 0 min(vw(8), 10px);
+              translate: 0 8px;
             }
           }
         }
@@ -297,10 +297,12 @@ const LogoTag = lower === true ? 'p' : 'h1';
     }
 		@media (--sp) {
 			.header {
-				padding: 24px;
+				padding: 20px;
 			}
 			.logo {
-				width: vw(90);
+        width: auto;
+        height: 24px;
+        display: block;
 			}
 		}
 	}
