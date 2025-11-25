@@ -33,8 +33,7 @@
     "start": "1220",
     "duration": "30",
     "type": "session",
-    "content": "dummy",
-    "adjustment": true
+    "content": "keynote_1"
   },
   {
     "start": "1250",
@@ -112,8 +111,7 @@
     "start": "1740",
     "duration": "30",
     "type": "session",
-    "content": "dummy",
-    "adjustment": true
+    "content": "keynote_3"
   },
   {
     "start": "1810",

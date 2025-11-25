@@ -56,7 +56,7 @@ const showTime = (timeStr: string | undefined, duration?: number | 0) => {
               const speaker = getSpeakerById(speakerId);
               return speaker ? (
                 <li>
-                  <Speaker img={speakerImages[speaker.id]} name={speaker.name} affiliation={speaker.affiliation} modifier="modal" introduction={speaker.introduction} />
+                  <Speaker img={speakerImages[speaker.id]} name={speaker.name} affiliation={speaker.affiliation} modifier="modal" introduction={speaker.introduction} sns={speaker.sns} />
                 </li>
               ) : null;
             })}

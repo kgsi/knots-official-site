@@ -215,12 +215,28 @@
 		"introduction": "中小企業向けのSaaS、フリーランスでの受託、起業やスタートアップでの開発チーム立ち上げを経験。Webのフロントエンド開発や、UI・UX設計をおこなう。現在はFigmaのマーケティングやリソースの設計・開発に取り組んでいる。"
 	},
 	{
+		"id": "keynote1_1",
+		"name": "片芝 亮友",
+		"image": "keynote1_1.jpg",
+		"affiliation": "Sansan株式会社 / Eight事業部 Product Manager",
+		"sns": "",
+		"introduction": "2015年、Sansan株式会社に新卒として入社。Sales RepresentativeやCustomer Supportの職を経て、2017年からProduct Managerに転身。プロフェッショナルリクルーティング「Eight Career Design」の立ち上げを主導した後、現在は名刺アプリ「Eight」の製品戦略や企画全般を担う。"
+	},
+	{
 		"id": "keynote2_1",
 		"name": "石川 洋資",
 		"image": "keynote2_1.jpg",
 		"affiliation": "株式会社10X / プロダクト本部 執行役員 CTO",
 		"sns": "https://x.com/_ishkawa",
 		"introduction": "面白法人カヤック、LINE、メルカリでソフトウェアエンジニアとして複数サービスの立ち上げを経験。2017年に10Xを共同創業し、CTOとしてプロダクト開発全般を担当する。"
+	},
+	{
+		"id": "keynote3_1",
+		"name": "渡邊 恵太",
+		"image": "keynote3_1.jpg",
+		"affiliation": "明治大学 / 総合数理学部 先端メディアサイエンス学科 教授",
+		"sns": "https://x.com/100kw",
+		"introduction": "知覚に基づくインタフェースデザインや、IoTにおけるインタラクションデザインの研究を行う。昨今はインタラクションや体験の評価手法の研究や、ブレイン・コンピュータ・インターフェースの研究に従事。著書に『融けるデザイン ハードｘソフトｘネットの時代の新たな設計論 』（BNN、2015）。近著に『超軽工業へ インタラクションデザインを超えて』(BNN、2025）がある。"
 	}
 ]
 
