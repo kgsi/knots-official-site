@@ -94,6 +94,7 @@ const showTime = (timeStr: string | undefined, duration?: number | 0) => {
       -webkit-backdrop-filter: brightness(88%) contrast(126%);
       backdrop-filter: brightness(88%) contrast(126%);
       color: var(--color_text);
+      padding-bottom: 52px;
       &:has(.adjustment-label) {
         grid-template-rows: auto 1fr;
       }
@@ -182,6 +183,7 @@ const showTime = (timeStr: string | undefined, duration?: number | 0) => {
         position: relative;
         translate: translateZ(0);
         z-index: var(--z_over);
+        padding-bottom: 40px;
       }
       .time {
         font-size: rem(14);
