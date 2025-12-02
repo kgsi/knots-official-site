@@ -84,7 +84,7 @@
     "pickup": true,
     "id": "talk_8",
     "tag": "Talk #8",
-    "title" : "AI時代のデザインとフロントエンドの接続（仮）",
+    "title" : "AI時代のデザインとフロントエンドの接続",
     "speakers": [
       "gaudiy_matsushima"
     ],
