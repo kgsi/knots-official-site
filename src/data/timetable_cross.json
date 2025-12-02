@@ -13,27 +13,33 @@
   },
   {
     "start": "1110",
-    "duration": "30",
+    "duration": "20",
     "type": "session",
-    "content": "sponsor_keynote_1"
+    "content": "talk_1"
   },
   {
-    "start": "1140",
+    "start": "1130",
     "duration": "20",
     "type": "session",
     "content": "talk_3"
   },
   {
-    "start": "1200",
-    "duration": "20",
-    "type": "session",
-    "content": "talk_5"
+    "start": "1150",
+    "duration": "10",
+    "type": "spacer",
+    "content": ""
   },
   {
-    "start": "1220",
+    "start": "1200",
     "duration": "30",
     "type": "session",
-    "content": "keynote_1"
+    "content": "sponsor_keynote_1"
+  },
+  {
+    "start": "1230",
+    "duration": "20",
+    "type": "session",
+    "content": "talk_7"
   },
   {
     "start": "1250",
@@ -51,37 +57,37 @@
     "start": "1400",
     "duration": "30",
     "type": "session",
-    "content": "sponsor_keynote_2"
+    "content": "keynote_1"
   },
   {
     "start": "1430",
     "duration": "20",
     "type": "session",
-    "content": "talk_9"
+    "content": "talk_10"
   },
   {
     "start": "1450",
     "duration": "20",
     "type": "session",
-    "content": "talk_11"
+    "content": "talk_12"
   },
   {
     "start": "1510",
     "duration": "20",
     "type": "session",
-    "content": "talk_13"
+    "content": "talk_14"
   },
   {
     "start": "1530",
     "duration": "20",
     "type": "session",
-    "content": "talk_15"
+    "content": "talk_16"
   },
   {
     "start": "1550",
     "duration": "20",
     "type": "session",
-    "content": "talk_17"
+    "content": "talk_18"
   },
   {
     "start": "1610",
@@ -99,19 +105,19 @@
     "start": "1700",
     "duration": "20",
     "type": "session",
-    "content": "talk_19"
+    "content": "talk_20"
   },
   {
     "start": "1720",
     "duration": "20",
     "type": "session",
-    "content": "talk_20"
+    "content": "talk_21"
   },
   {
     "start": "1740",
     "duration": "30",
     "type": "session",
-    "content": "keynote_3"
+    "content": "keynote_2"
   },
   {
     "start": "1810",
@@ -122,8 +128,8 @@
   {
     "start": "1820",
     "duration": "10",
-    "type": "text",
-    "content": "懇親会準備"
+    "type": "spacer",
+    "content": ""
   },
   {
     "start": "1830",

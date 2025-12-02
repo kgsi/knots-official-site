@@ -15,37 +15,38 @@
     "start": "1110",
     "duration": "20",
     "type": "session",
-    "content": "talk_1"
+    "content": "talk_2"
   },
   {
     "start": "1130",
     "duration": "20",
     "type": "session",
-    "content": "talk_2"
+    "content": "talk_4"
   },
   {
     "start": "1150",
     "duration": "20",
     "type": "session",
-    "content": "talk_4"
+    "content": "talk_5"
   },
   {
     "start": "1210",
     "duration": "20",
     "type": "session",
-    "content": "talk_6"
+    "content": "talk_6",
+    "adjustment": true
+  },
+  {
+    "start": "1230",
+    "duration": "20",
+    "type": "session",
+    "content": "talk_8"
   },
   {
     "start": "1250",
     "duration": "10",
     "type": "spacer",
     "content": ""
-  },
-  {
-    "start": "1230",
-    "duration": "20",
-    "type": "session",
-    "content": "talk_7"
   },
   {
     "start": "1300",
@@ -63,37 +64,37 @@
     "start": "1410",
     "duration": "20",
     "type": "session",
-    "content": "talk_8"
+    "content": "talk_9"
   },
   {
     "start": "1430",
     "duration": "20",
     "type": "session",
-    "content": "talk_10"
+    "content": "talk_11"
   },
   {
     "start": "1450",
     "duration": "20",
     "type": "session",
-    "content": "talk_12"
+    "content": "talk_13"
   },
   {
     "start": "1510",
     "duration": "20",
     "type": "session",
-    "content": "talk_14"
+    "content": "talk_15"
   },
   {
     "start": "1530",
     "duration": "20",
     "type": "session",
-    "content": "talk_16"
+    "content": "talk_17"
   },
   {
     "start": "1550",
     "duration": "20",
     "type": "session",
-    "content": "talk_18"
+    "content": "talk_19"
   },
   {
     "start": "1610",
@@ -105,14 +106,14 @@
     "start": "1640",
     "duration": "40",
     "type": "session",
-    "content": "dummy",
+    "content": "discussion_1",
     "adjustment": true
   },
   {
     "start": "1720",
     "duration": "10",
-    "type": "spacer",
-    "content": ""
+    "type": "text",
+    "content": "転換"
   },
   {
     "start": "1730",
