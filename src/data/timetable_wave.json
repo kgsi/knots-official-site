@@ -106,8 +106,7 @@
     "start": "1640",
     "duration": "40",
     "type": "session",
-    "content": "discussion_1",
-    "adjustment": true
+    "content": "discussion_1"
   },
   {
     "start": "1720",

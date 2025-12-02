@@ -183,6 +183,14 @@
 		"introduction": "2020年同志社大学卒業、創業期のスタートアップに投資するシードベンチャーキャピタルのEast Venturesに入社。投資業務に従事しつつ、メディア運営やイベント開催なども手がける。AI関連では、VC限定でVibe Codingを教えるVCVCを開催し、100名ほどが参加。"
 	},
 	{
+		"id": "foreign_it_oikon",
+		"name": "Oikon",
+		"image": "foreign_it_oikon.jpg",
+		"affiliation": "外資系IT企業 / Software Development / Software Engineer",
+		"sns": "https://x.com/oikon48",
+		"introduction": "外資系IT企業所属。海外チームとBtoBソフトウェア製品の開発を行う。Claude Codeをはじめとした様々なAIツールを使用しており、Xで機能検証と解説を発信。2025年10月にはAIツールを駆使して開発した初めてのモバイルアプリがグローバルハッカソンShipatonで入賞。"
+	},
+	{
 		"id": "takram_tagawa",
 		"name": "田川 欣哉",
 		"image": "takram_tagawa.jpg",
