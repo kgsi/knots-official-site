@@ -32,15 +32,14 @@
   {
     "start": "1210",
     "duration": "20",
-    "type": "session",
-    "content": "talk_6",
-    "adjustment": true
+    "type": "text",
+    "content": "コーヒーブレイク☕️"
   },
   {
     "start": "1230",
     "duration": "20",
     "type": "session",
-    "content": "talk_8"
+    "content": "talk_7"
   },
   {
     "start": "1250",
@@ -64,37 +63,37 @@
     "start": "1410",
     "duration": "20",
     "type": "session",
-    "content": "talk_9"
+    "content": "talk_8"
   },
   {
     "start": "1430",
     "duration": "20",
     "type": "session",
-    "content": "talk_11"
+    "content": "talk_10"
   },
   {
     "start": "1450",
     "duration": "20",
     "type": "session",
-    "content": "talk_13"
+    "content": "talk_12"
   },
   {
     "start": "1510",
     "duration": "20",
     "type": "session",
-    "content": "talk_15"
+    "content": "talk_14"
   },
   {
     "start": "1530",
     "duration": "20",
     "type": "session",
-    "content": "talk_17"
+    "content": "talk_16"
   },
   {
     "start": "1550",
     "duration": "20",
     "type": "session",
-    "content": "talk_19"
+    "content": "talk_18"
   },
   {
     "start": "1610",

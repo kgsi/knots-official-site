@@ -39,7 +39,7 @@
     "start": "1230",
     "duration": "20",
     "type": "session",
-    "content": "talk_7"
+    "content": "talk_6"
   },
   {
     "start": "1250",
@@ -63,31 +63,31 @@
     "start": "1430",
     "duration": "20",
     "type": "session",
-    "content": "talk_10"
+    "content": "talk_9"
   },
   {
     "start": "1450",
     "duration": "20",
     "type": "session",
-    "content": "talk_12"
+    "content": "talk_11"
   },
   {
     "start": "1510",
     "duration": "20",
     "type": "session",
-    "content": "talk_14"
+    "content": "talk_13"
   },
   {
     "start": "1530",
     "duration": "20",
     "type": "session",
-    "content": "talk_16"
+    "content": "talk_15"
   },
   {
     "start": "1550",
     "duration": "20",
     "type": "session",
-    "content": "talk_18"
+    "content": "talk_17"
   },
   {
     "start": "1610",
@@ -105,13 +105,13 @@
     "start": "1700",
     "duration": "20",
     "type": "session",
-    "content": "talk_20"
+    "content": "talk_19"
   },
   {
     "start": "1720",
     "duration": "20",
     "type": "session",
-    "content": "talk_21"
+    "content": "talk_20"
   },
   {
     "start": "1740",

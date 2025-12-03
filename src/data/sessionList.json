@@ -61,19 +61,9 @@
     "description": "生成AIやエージェント技術の発展により、「必要なときに、必要な人に、必要なフォントを届ける」仕組みが現実味を帯びてきました。本セッションでは、エージェント経由でFigma上で誰もが一時的にフォントが利用できるPoC事例を紹介。ブランド整合性とデザイナー以外の利便性を両立し、新しい提供体験をシェアします。"
   },
   {
-    "pickup": false,
+    "pickup": true,
     "id": "talk_6",
     "tag": "Talk #6",
-    "title" : "",
-    "speakers": [
-      ""
-    ],
-    "description": ""
-  },
-  {
-    "pickup": true,
-    "id": "talk_7",
-    "tag": "Talk #7",
     "title" : "AIネイティブスタートアップにおけるプロダクト開発の新常識",
     "speakers": [
       "peoplex_sakatsu"
@@ -82,8 +72,8 @@
   },
   {
     "pickup": true,
-    "id": "talk_8",
-    "tag": "Talk #8",
+    "id": "talk_7",
+    "tag": "Talk #7",
     "title" : "AI時代のデザインとフロントエンドの接続",
     "speakers": [
       "gaudiy_matsushima"
@@ -92,8 +82,8 @@
   },
   {
     "pickup": true,
-    "id": "talk_9",
-    "tag": "Talk #9",
+    "id": "talk_8",
+    "tag": "Talk #8",
     "title" : "プロトタイプドリブン要件定義 〜 PdM・デザイナー・エンジニアの協働を加速するAI活用開発プロセス",
     "speakers": [
       "moneyforward_miyauchi",
@@ -103,8 +93,8 @@
   },
   {
     "pickup": true,
-    "id": "talk_10",
-    "tag": "Talk #10",
+    "id": "talk_9",
+    "tag": "Talk #9",
     "title" : "Adapt to AI Native Workflow, プロダクト開発を加速するデザイン×エンジニアリングの再設計",
     "speakers": [
       "mercari_kuu"
@@ -113,8 +103,8 @@
   },
   {
     "pickup": true,
-    "id": "talk_11",
-    "tag": "Talk #11",
+    "id": "talk_10",
+    "tag": "Talk #10",
     "title" : "ドキュメントからはじめる未来のソフトウェア──PKSHAのプロダクト開発",
     "speakers": [
       "pksha_fujioka"
@@ -123,8 +113,8 @@
   },
   {
     "pickup": true,
-    "id": "talk_12",
-    "tag": "Talk #12",
+    "id": "talk_11",
+    "tag": "Talk #11",
     "title" : "AI時代、UXリサーチャーはどこへ？",
     "speakers": [
       "smartbank_takimoto"
@@ -133,8 +123,8 @@
   },
   {
     "pickup": true,
-    "id": "talk_13",
-    "tag": "Talk #13",
+    "id": "talk_12",
+    "tag": "Talk #12",
     "title" : "新規事業を支えるデザイン──共創する組織になるまでの実践知",
     "speakers": [
       "findy_tomu"
@@ -143,8 +133,8 @@
   },
   {
     "pickup": true,
-    "id": "talk_14",
-    "tag": "Talk #14",
+    "id": "talk_13",
+    "tag": "Talk #13",
     "title" : "デザイナーが主導権を握る、AI協業の本音と実践",
     "speakers": [
       "gmo_satoh"
@@ -153,8 +143,8 @@
   },
   {
     "pickup": true,
-    "id": "talk_15",
-    "tag": "Talk #15",
+    "id": "talk_14",
+    "tag": "Talk #14",
     "title" : "職種を越えてつくるデザインプロセス",
     "speakers": [
       "cybozu_kayasuga"
@@ -163,8 +153,8 @@
   },
   {
     "pickup": true,
-    "id": "talk_16",
-    "tag": "Talk #16",
+    "id": "talk_15",
+    "tag": "Talk #15",
     "title" : "AIで拡張・交差するプロダクト開発のプロセスおよび携わるメンバーの役割",
     "speakers": [
       "open8_ishibashi"
@@ -173,8 +163,8 @@
   },
   {
     "pickup": true,
-    "id": "talk_17",
-    "tag": "Talk #17",
+    "id": "talk_16",
+    "tag": "Talk #16",
     "title" : "AI時代のデザインエンジニアリング",
     "speakers": [
       "concent_koyama"
@@ -183,8 +173,8 @@
   },
   {
     "pickup": true,
-    "id": "talk_18",
-    "tag": "Talk #18",
+    "id": "talk_17",
+    "tag": "Talk #17",
     "title" : "LLMプロダクト開発の「実態」：価値創造の原則",
     "speakers": [
       "loglass_yuki"
@@ -193,8 +183,8 @@
   },
   {
     "pickup": true,
-    "id": "talk_19",
-    "tag": "Talk #19",
+    "id": "talk_18",
+    "tag": "Talk #18",
     "title" : "デザインコンテキストのバトンをつなぐ — AI時代のプロダクトマネジメント",
     "speakers": [
       "route06_kumano"
@@ -203,8 +193,8 @@
   },
   {
     "pickup": true,
-    "id": "talk_20",
-    "tag": "Talk #20",
+    "id": "talk_19",
+    "tag": "Talk #19",
     "title" : "シリコンバレー発:AIがデザインプロセスを変える",
     "speakers": [
       "btrax_brandon"
@@ -213,8 +203,8 @@
   },
   {
     "pickup": true,
-    "id": "talk_21",
-    "tag": "Talk #21",
+    "id": "talk_20",
+    "tag": "Talk #20",
     "title" : "大企業インハウスデザイン組織におけるDesignOps改革の現在地",
     "speakers": [
       "nttdocomo_kuwahara"
