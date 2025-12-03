@@ -5,7 +5,7 @@ import SectionTitle from '@/components/util/SectionTitle.astro'
 import TimeTableRow from '@/components/top/modules/TimeTableRow.astro'
 const leadText = `キーノート、トークセッション、ディスカッションが<br class="only-pc">Cross StageとWave Stageで行われます。<br>登壇者と参加者が垣根を超えて“交わる”スペシャルなセッションを紹介。`
 ---
-<div class="timetable" data-trigger="timetable">
+<div class="timetable" data-trigger="timetable" id=timetable>
   <div class="wrapper">
     <div class="circle-pc only-pc" data-trigger="timetable-circle-pc"></div>
     <div class="head">
@@ -192,10 +192,9 @@ const leadText = `キーノート、トークセッション、ディスカッ�
       white-space: nowrap;
     }
     @media (--tb) {
-      .body {
-        column-gap: vwTb(88);
-        width: calc(100% - 40px);
-        margin-inline: auto;
+      .timetable {
+        padding-top: 0;
+        margin-top: 128px;
       }
       .stage-label-row {
         column-gap: vwTb(88);
@@ -238,10 +237,17 @@ const leadText = `キーノート、トークセッション、ディスカッ�
         mix-blend-mode: normal;
       }
       .body {
+        column-gap: vwTb(88);
+        width: calc(100% - 40px);
+        margin-inline: auto;
         padding-bottom: 0;
       }
     }
 		@media (--sp) {
+      .timetable {
+        padding-top: 0;
+        margin-top: 128px;
+      }
       .timetable-content {
         &:has(:checked) {
           --this_switch_translate: calc( -100% + vw(-64));
