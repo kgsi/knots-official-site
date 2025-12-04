@@ -12,14 +12,17 @@ interface Props {
 }
 
 const { name='', affiliation='', img='', modifier=null, sns='', introduction='' } = Astro.props
+
+const WrapperTag = sns ? 'a' : 'div'
+const wrapperProps = sns ? { href: sns, target: '_blank', rel: 'noopener noreferrer' } : {}
 ---
 
 <div class={styles.speaker + (modifier ? ` ${styles[modifier]}` : '')}>
-  <div class={styles.avatar}>
+  <WrapperTag {...wrapperProps} class={styles.avatar}>
     {img && (
       <Image src={img} alt='' class="util-img-cover"/>
     )}
-  </div>
+  </WrapperTag>
   <div class={styles.speakerDetail}>
     <p class={styles.name}>{name}</p>
     <p class={styles.affiliation}>{affiliation}</p>

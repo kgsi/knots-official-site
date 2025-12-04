@@ -1,10 +1,11 @@
 ---
 interface Props {
   imageSrc: string;
-  width: number;
-  height: number;
+  width?: number | null;
+  height?: number | null;
+  maskRadius?: number | null;
 }
-const { imageSrc, width, height }: Props = Astro.props;
+const { imageSrc, width = null, height = null, maskRadius = null }: Props = Astro.props;
 ---
 
 <canvas
@@ -12,6 +13,7 @@ const { imageSrc, width, height }: Props = Astro.props;
   data-width={width}
   data-height={height}
   data-image={imageSrc}
+  data-mask-radius={maskRadius}
 ></canvas>
 
 <script>

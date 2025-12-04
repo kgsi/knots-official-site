@@ -7,212 +7,244 @@
     "introduction": ""
   },
   {
-    "id": "talk1_1",
+    "id": "gaudiy_matsushima",
     "name": "matsushima",
-    "image": "talk1_1.jpg",
-    "affiliation": "株式会社Gaudiy / ビルダーズノート事業部ソフトウェアエンジニア",
+    "image": "gaudiy_matsushima.jpg",
+    "affiliation": "株式会社Gaudiy / ビルダーズノート事業部 / ソフトウェアエンジニア",
     "sns": "",
     "introduction": "フロントエンド開発をメインで行っているエンジニアです。大体 React + TypeScript"
   },
 	{
-		"id": "talk3_1",
+		"id": "peoplex_sakatsu",
 		"name": "坂津 潤平",
-		"image": "talk3_1.jpg",
+		"image": "peoplex_sakatsu.jpg",
 		"affiliation": "株式会社PeopleX / Engineering Group Tech Lead",
 		"sns": "https://x.com/saka2jp",
 		"introduction": "スタートアップ、AbemaTVなどを経て、PeopleXに創業から参画。PeopleWork、AI上司、AI面接などAI/HR領域の新規サービスを1年で5本立ち上げ。現在はAI面接の開発をリード。得意領域はTypeScript, Go。"
 	},
   {
-    "id": "talk4_1",
+    "id": "layerx_michiru_da",
     "name": "michiru_da",
-    "image": "talk4_1.jpg",
+    "image": "layerx_michiru_da.jpg",
     "affiliation": "株式会社LayerX / CEO室 プロダクトマネージャー",
     "sns": "https://x.com/applism118",
     "introduction": "ベンチャー企業にてエンタープライズ向け受託システム開発の営業・プロジェクトマネージャー、新規事業の企画・立ち上げに従事。2021年11月に株式会社LayerXに入社し、バックオフィスSaaS バクラクシリーズのカスタマーサクセスとして100社以上のお客様運用を支援。エンタープライズCS・テックタッチベースのオンボーディングを立ち上げ、2023年5月よりプロダクト企画部へ異動、申請・経費精算のプロダクトマネジメントを担当。2025年10月からはCEO室へ異動しBPO事業の企画を担当。"
   },
 	{
-		"id": "talk5_1",
+		"id": "gmo_satoh",
 		"name": "佐藤 咲",
-		"image": "talk5_1.jpg",
-		"affiliation": "GMOペパボ株式会社 / コーポレートコミュニケーション室プリンシパルデザイナー",
+		"image": "gmo_satoh.jpg",
+		"affiliation": "GMOペパボ株式会社 / コーポレートコミュニケーション室 / プリンシパルデザイナー",
 		"sns": "https://x.com/satosio",
 		"introduction": "GMOペパボ株式会社プリンシパルデザイナー。2011年paperboy&co.（現GMOペパボ）に新卒入社。Webデザイナーからキャリアを始め、リブランディングやデザイン戦略、新規サービス立ち上げを多数経験。産育休を経て、現在はコーポレートコミュニケーション室にてブランディングおよび事業部支援に従事。福岡在住、一児の母。趣味は漫画と麻雀。コーヒーが好き。"
 	},
   {
-    "id": "talk6_1",
+    "id": "open8_ishibashi",
     "name": "石橋 尚武",
-    "image": "talk6_1.jpg",
-		"affiliation": "株式会社オープンエイト / プロダクト開発部CTO",
+    "image": "open8_ishibashi.jpg",
+		"affiliation": "株式会社オープンエイト / プロダクト開発部 / CTO",
 		"sns": "https://x.com/hisatake",
 		"introduction": "学生時代からフリーランスエンジニアとして活動した後、制作会社THE CLIPを立ち上げ様々なWebサービスの立ち上げ支援を行う。2016年4月にオープンエイトにTHE CLIPをM&Aをする形でジョイン。CTOに就任する。オープンエイトでは、AIを活用したSaaSプロダクト「Video BRAIN」「Open BRAIN」の立ち上げ・開発に従事する。"
   },
 	{
-		"id": "talk7_1",
+		"id": "morisawa_aikawa",
 		"name": "相川 晴俊",
-		"image": "talk7_1.jpg",
-		"affiliation": "株式会社モリサワ / サービス企画部ゼネラルマネージャー",
+		"image": "morisawa_aikawa.jpg",
+		"affiliation": "株式会社モリサワ / サービス企画部 / ゼネラルマネージャー",
 		"sns": "https://www.linkedin.com/in/harutoshi-aikawa-ba0834329",
 		"introduction": "学生起業と印刷会社などを経て、2014年に営業として株式会社モリサワに入社。現在はMorisawa Fontsのプロダクトオーナーとして従事。デザインを成長ドライバーとするスタートアップの支援も行っている。"
 	},
 	{
-		"id": "talk7_2",
+		"id": "morisawa_omuro",
 		"name": "小室 貴史",
-		"image": "talk7_2.jpg",
-		"affiliation": "株式会社モリサワ / 開発イノベーション課シニアテックマネージャー",
+		"image": "morisawa_omuro.jpg",
+		"affiliation": "株式会社モリサワ / 開発イノベーション課 / シニアテックマネージャー",
 		"sns": "https://x.com/omuron",
 		"introduction": "業務アプリケーションのサーバサイドエンジニアを経て、自社サービスの開発に携われる点に魅力を感じ、2005年6月に株式会社モリサワに入社。現在は、開発組織の文化形成や技術方針の策定などを行いながら、テックリードとしてAWSのインフラ構築やバックエンドの取りまとめを行なっています。"
 	},
 	{
-		"id": "talk8_1",
+		"id": "moneyforward_miyauchi",
 		"name": "宮内 北斗",
-		"image": "talk8_1.jpg",
-		"affiliation": "株式会社マネーフォワード / ビジネスカンパニー ERPプロダクトマネジメント本部プロダクトマネージャー",
+		"image": "moneyforward_miyauchi.jpg",
+		"affiliation": "株式会社マネーフォワード / ビジネスカンパニー ERPプロダクトマネジメント本部 / プロダクトマネージャー",
 		"sns": "",
 		"introduction": "航空エンジニア、Webエンジニアを経て2021年に株式会社Another worksに1人目エンジニアとしてジョイン。PdM、開発マネージャーなど開発に関わる幅広い役割を担当。2024年からマネーフォワードにPdMとしてジョインし、プロダクトの企画開発やAI推進に取り組んでいる。"
 	},
 	{
-		"id": "talk8_2",
+		"id": "moneyforward_shigeeda",
 		"name": "重枝 敦也",
-		"image": "talk8_2.jpg",
-		"affiliation": "株式会社マネーフォワード / ビジネスカンパニー ERPデザイン本部プロダクトデザイナー",
+		"image": "moneyforward_shigeeda.jpg",
+		"affiliation": "株式会社マネーフォワード / ビジネスカンパニー ERPデザイン本部 / プロダクトデザイナー",
 		"sns": "",
 		"introduction": "2019年からDMM GAMESにてデザイナーとしてジョイン。ゲームプラットフォームや管理画面、コーポレートサイトなどのUIデザインを主に担当。2022年からマネーフォワードにプロダクトデザイナーとして入社。ビジネス領域のプロダクトデザインを担当しながら、AIを活用した開発プロセスの改善に取り組んでいる。"
 	},
 	{
-		"id": "talk9_1",
+		"id": "mercari_kuu",
 		"name": "Kuu(Kume Fumiya)",
-		"image": "talk9_1.jpg",
-		"affiliation": "株式会社メルカリ / AI/LLM Office, AI taskforce Software Engineer, AI Platform",
+		"image": "mercari_kuu.jpg",
+		"affiliation": "株式会社メルカリ / AI/LLM Office, AI taskforce / Software Engineer, AI Platform",
 		"sns": "https://x.com/Fumiya_Kume",
 		"introduction": "2020年4月 株式会社メルカリへ新卒入社。 日本向けのフリマアプリ、メルカリの開発に携わる。 "
 	},
 	{
-		"id": "talk10_1",
+		"id": "cybozu_kayasuga",
 		"name": "栢菅 美咲",
-		"image": "talk10_1.jpg",
-		"affiliation": "サイボウズ株式会社 / kintoneプラットフォーム開発 プロダクトデザイン部プロダクトデザイナー",
+		"image": "cybozu_kayasuga.jpg",
+		"affiliation": "サイボウズ株式会社 / kintoneプラットフォーム開発 プロダクトデザイン部 / プロダクトデザイナー",
 		"sns": "https://x.com/tree_1oo",
 		"introduction": "2023年に新卒でサイボウズ株式会社に入社。kintoneのプロダクトデザイナーとして、現在は主にナビゲーション/コミュニケーション領域のデザインに従事。要件検討含む上流工程からUIデザインまでを担当。"
 	},
 	{
-		"id": "talk11_1",
+		"id": "dena_nakae",
 		"name": "Ryo Nakae",
-		"image": "talk11_1.jpg",
-		"affiliation": "株式会社ディー・エヌ・エー / ニンテンドーシステムズ システム開発部 マネージャー",
+		"image": "dena_nakae.jpg",
+		"affiliation": "株式会社ディー・エヌ・エー / ニンテンドーシステムズ システム開発部 / マネージャー",
 		"sns": "https://twitter.com/ryo_dg",
 		"introduction": "Designer, Developer, Dog Lover"
 	},
 	{
-		"id": "talk12_1",
+		"id": "findy_tomu",
 		"name": "トム",
-		"image": "talk12_1.jpg",
-		"affiliation": "ファインディ株式会社 / CTO室 コミュニケーションデザイナー／デザインディレクター",
+		"image": "findy_tomu.jpg",
+		"affiliation": "ファインディ株式会社 / CTO室 / コミュニケーションデザイナー／デザインディレクター",
 		"sns": "https://x.com/_tomd4",
 		"introduction": "新卒でGMOグループに入社。クライアントワークでプロモーションやSNSのプランニング・制作進行・デザインを経験し、2023年にファインディへ。現在はFindy Toolsの1人目コミュニケーションデザイン担当としてデザインディレクションに従事。カメラとOps改善が好き。"
 	},
 	{
-		"id": "talk13_1",
+		"id": "pksha_fujioka",
 		"name": "藤岡 和真",
-		"image": "talk13_1.jpg",
-		"affiliation": "株式会社PKSHA Technology / CEO室 ソフトウエアエンジニア",
+		"image": "pksha_fujioka.jpg",
+		"affiliation": "株式会社PKSHA Technology / CEO室 / ソフトウエアエンジニア",
 		"sns": "https://x.com/kakka_q",
 		"introduction": "大学院博士課程前期では映像検索アルゴリズムについて研究。2023 年 4 月、 PKSHA Workplace にソフトウエアエンジニアとして新卒入社し、「PKSHA AI ヘルプデスク」の開発に従事。現在は PKSHA Technology の CEO 室に異動し、新規プロダクトの開発を行っている。2025 Microsoft Top Partner Engineer Award, Azure Data & AI 部門受賞。"
 	},
 	{
-		"id": "talk14_1",
+		"id": "route06_kumano",
 		"name": "熊野 亜由美",
-		"image": "talk14_1.jpg",
-		"affiliation": "株式会社ROUTE06 / AI事業本部 社長室 プロダクトマネージャー",
+		"image": "route06_kumano.jpg",
+		"affiliation": "株式会社ROUTE06 / AI事業本部 社長室 / プロダクトマネージャー",
 		"sns": "https://x.com/ayumiko",
 		"introduction": "株式会社ROUTE06でAIデザイン支援プロダクト「Vaton」に携わるプロダクトマネージャーです"
 	},
 	{
-		"id": "talk16_1",
+		"id": "bizreach_katsuura",
+		"name": "勝浦 健人",
+		"image": "bizreach_katsuura.jpg",
+		"affiliation": "Visionalグループ 株式会社ビズリーチ / プロダクトデザイン部 / デザイナー",
+		"sns": "",
+		"introduction": "広告代理店での企画職、デザイン会社でのサービス立ち上げ、ベンチャー企業などを経験し、2023年に株式会社ビズリーチ入社。「ビズリーチ」における企業様向けプロダクトのデザインを担当し、AIを活用した「求人自動作成機能」「スカウトメッセージAIカスタマイズ機能」の機能開発・デザインをリード。"
+	},
+	{
+		"id": "concent_koyama",
 		"name": "小山 直樹",
-		"image": "talk16_1.jpg",
-		"affiliation": "株式会社コンセント / Design Engineering group グループマネージャー",
+		"image": "concent_koyama.jpg",
+		"affiliation": "株式会社コンセント / Design Engineering group / グループマネージャー",
 		"sns": "",
 		"introduction": "Webデザイナーとして受託制作・サービス開発を経験し、2013年フロントエンドエンジニアとしてコンセントに入社。主にコーポレートサイト、ブランドサイトのフロントエンド開発や開発ディレクションを担当。近年はウェブアプリケーションや大規模サイトのデザインシステム構築プロジェクトのエンジニアリードを務めながら、デザインとエンジニアリングの融合を図る自組織の強化に取り組んでいる。"
 	},
 	{
-		"id": "talk17_1",
+		"id": "loglass_yuki",
 		"name": "結城 浩太",
-		"image": "talk17_1.jpg",
-		"affiliation": "株式会社ログラス / 新規事業部 開発責任者",
+		"image": "loglass_yuki.jpg",
+		"affiliation": "株式会社ログラス / 新規事業部 / 開発責任者",
 		"sns": "https://x.com/yuki_loglass",
 		"introduction": "スタートアップでの経験が多く、前職では建設業界向けスタートアップにて、1人目マーケターとして組織を立ち上げ。その後、新規SaaSプロダクトのPdMとして初期開発をリードし、主力事業に成長させる。現在は株式会社ログラスの開発責任者として、AI新規プロダクトの事業立ち上げに邁進しています。"
 	},
 	{
-		"id": "talk18_1",
+		"id": "smartbank_takimoto",
 		"name": "瀧本 はろか",
-		"image": "talk18_1.jpg",
-		"affiliation": "株式会社スマートバンク / UXリサーチ部 部長・UXリサーチャー",
+		"image": "smartbank_takimoto.jpg",
+		"affiliation": "株式会社スマートバンク / UXリサーチ部 / 部長・UXリサーチャー",
 		"sns": "https://x.com/mawarisuru",
 		"introduction": "校正・校閲担当者を経て、ベンチャー企業で新規事業の立ち上げやインタビューの企画執筆を経験。その経験からUXリサーチャーに転身、人材会社の新規事業のUXリサーチやリサーチ組織立ち上げ、リサーチャー育成に携わる。2022年4月より株式会社スマートバンクに1人目のUXリサーチャーとして入社。N1インタビューの文化を受け継ぎ、年間100件を超えるインタビューを担当。メンバー全員が「Think N1」を身近に感じられるような働きや経営・事業に伴走するリサーチを推進。著作『UXリサーチの活かし方　ユーザーの声を意思決定につなげるためにできること（翔泳社）』。"
 	},
 	{
-		"id": "talk19_1",
+		"id": "btrax_brandon",
 		"name": "Brandon HIll",
-		"image": "talk19_1.jpg",
+		"image": "btrax_brandon.jpg",
 		"affiliation": "btrax / Founder & CEO",
 		"sns": "https://x.com/BrandonKHill",
 		"introduction": "サンフランシスコと東京に拠点を置くデザインエージェンシー btrax のFounder&CEO。世界最大のAIコミュニティである、The AI Collective日本代表としてAI×デザイン分野の国際的コミュニティを牽引し、サンフランシスコ市政府のアドバイザーも務める。デザインとテクノロジーを融合させた事業を展開。経済産業省「始動NEXT Innovator」公式メンターやStartup Weekendデザインメンターを、九州大学フェロー、崇城大学起業部メンター等を通じて500人以上の次世起業家代育成と日米のスタートアップ育成に注力。サンフランシスコ州立大学デザイン科卒業後"
 	},
 	{
-		"id": "talk20_1",
+		"id": "nttdocomo_kuwahara",
 		"name": "桑原 真一郎",
-		"image": "talk20_1.jpg",
-		"affiliation": "NTTドコモビジネス株式会社 / イノベーションセンター デザイン部門KOEL UXデザイナー",
+		"image": "nttdocomo_kuwahara.jpg",
+		"affiliation": "NTTドコモビジネス株式会社 / イノベーションセンター デザイン部門KOEL / UXデザイナー",
 		"sns": "",
 		"introduction": "米国のデザイン修士課程修了後、大手自動車メーカーにて海外市場の事業・商品計画、環境車の顧客インサイト分析等に従事。デザイン留学後、米国医療機関のデータ分析部署に初のデザイナーとして参画。人間中心デザインを導入し、医療従事者の業務効率化や多様な人材活用を推進。2024年8月よりKOELに参画。"
 	},
 	{
-		"id": "discussion1_1",
+		"id": "eastventures_hirata",
 		"name": "平田 智基",
-		"image": "discussion1_1.jpg",
+		"image": "eastventures_hirata.jpg",
 		"affiliation": "East Ventures / プリンシパル",
 		"sns": "https://x.com/t_10_a",
 		"introduction": "2020年同志社大学卒業、創業期のスタートアップに投資するシードベンチャーキャピタルのEast Venturesに入社。投資業務に従事しつつ、メディア運営やイベント開催なども手がける。AI関連では、VC限定でVibe Codingを教えるVCVCを開催し、100名ほどが参加。"
 	},
 	{
-		"id": "discussion2_1",
+		"id": "foreign_it_oikon",
+		"name": "Oikon",
+		"image": "foreign_it_oikon.jpg",
+		"affiliation": "外資系IT企業 / Software Development / Software Engineer",
+		"sns": "https://x.com/oikon48",
+		"introduction": "外資系IT企業所属。海外チームとBtoBソフトウェア製品の開発を行う。Claude Codeをはじめとした様々なAIツールを使用しており、Xで機能検証と解説を発信。2025年10月にはAIツールを駆使して開発した初めてのモバイルアプリがグローバルハッカソンShipatonで入賞。"
+	},
+	{
+		"id": "takram_tagawa",
 		"name": "田川 欣哉",
-		"image": "discussion2_1.jpg",
+		"image": "takram_tagawa.jpg",
 		"affiliation": "Takram株式会社 / 代表取締役",
 		"sns": "https://x.com/_tagawa",
 		"introduction": "Takram株式会社 代表取締役。東京大学 特任教授。デザインを駆使したイノベーションやブランディングプロジェクトを数多く手がける。東京大学工学部卒業。英国ロイヤル・カレッジ・オブ・アート修士課程修了。2015年から2018年まで英国ロイヤル・カレッジ・オブ・アートにて客員教授を務め、2018年に同校から名誉フェローを授与された。経済産業省産業構造審議会 知的財産分科会委員、日本デザイン振興会理事、ポケモン・ウィズ・ユー財団理事、東京大学総長室アドバイザーなどを歴任。"
 	},
 	{
-		"id": "discussion2_3",
+		"id": "kurashiru_tsubota",
 		"name": "坪田 朋",
-		"image": "discussion2_3.jpg",
+		"image": "kurashiru_tsubota.jpg",
 		"affiliation": "クラシル株式会社 / 上級執行役員 CPO",
 		"sns": "https://x.com/tsubotax",
 		"introduction": "livedoor、DeNAで新規事業とUI/UXデザイン組織の立ち上げに携わる。2019年に起業した株式会社Basecampをdelyに売却し、現在はクラシル株式会社 上級執行役員 CPOとしてレシピ動画サービス「クラシル」などフード、リテール領域のプロダクト戦略とUI/UXを統括。デザイナー出身のPdMとして、デザイナー／PdM／エンジニアが協働する組織づくりとAI前提の開発プロセス再設計に取り組んでいる。"
 	},
 	{
-		"id": "sponsor_keynote1_1",
+		"id": "findy_takanako",
 		"name": "たかなこ",
-		"image": "sponsor_keynote1_1.jpg",
-		"affiliation": "ファインディ株式会社 / CTO室 Design デザインマネージャー",
+		"image": "findy_takanako.jpg",
+		"affiliation": "ファインディ株式会社 / CTO室 Design / デザインマネージャー",
 		"sns": "https://x.com/mrt_kanako",
 		"introduction": "新卒で制作会社に入社し、教育系やBtoB向けのパンフレット・Webサイト制作において、ディレクションからデザインまでを一貫して担当。\n2023年8月にファインディ株式会社へ入社し、コミュニケーションデザイナーとして複数事業に関わる。現在はエンジニア転職サービス「Findy」と、フリーランスエンジニアと企業をつなぐ「Findy Freelance」を管掌。コミュニケーションデザインとプロダクトデザイン両領域をマネジメントし、事業成長に直結するデザインを推進している。"
 	},
 	{
-		"id": "sponsor_keynote2_1",
+		"id": "figma_tani",
 		"name": "谷 拓樹",
-		"image": "keynote2_1.jpg",
-		"affiliation": "Figma / Marketing Designer Advocate",
+		"image": "figma_tani.jpg",
+		"affiliation": "Figma / Marketing / Designer Advocate",
 		"sns": "https://x.com/hiloki",
 		"introduction": "中小企業向けのSaaS、フリーランスでの受託、起業やスタートアップでの開発チーム立ち上げを経験。Webのフロントエンド開発や、UI・UX設計をおこなう。現在はFigmaのマーケティングやリソースの設計・開発に取り組んでいる。"
 	},
 	{
-		"id": "keynote2_1",
+		"id": "sansan_katashiba",
+		"name": "片芝 亮友",
+		"image": "sansan_katashiba.jpg",
+		"affiliation": "Sansan株式会社 / Eight事業部 / Product Manager",
+		"sns": "",
+		"introduction": "2015年、Sansan株式会社に新卒として入社。Sales RepresentativeやCustomer Supportの職を経て、2017年からProduct Managerに転身。プロフェッショナルリクルーティング「Eight Career Design」の立ち上げを主導した後、現在は名刺アプリ「Eight」の製品戦略や企画全般を担う。"
+	},
+	{
+		"id": "10x_ishikawa",
 		"name": "石川 洋資",
-		"image": "keynote2_1.jpg",
-		"affiliation": "株式会社10X / プロダクト本部 執行役員 CTO",
+		"image": "10x_ishikawa.jpg",
+		"affiliation": "株式会社10X / プロダクト本部 / 執行役員 CTO",
 		"sns": "https://x.com/_ishkawa",
 		"introduction": "面白法人カヤック、LINE、メルカリでソフトウェアエンジニアとして複数サービスの立ち上げを経験。2017年に10Xを共同創業し、CTOとしてプロダクト開発全般を担当する。"
+	},
+	{
+		"id": "meijiuniv_watanabe",
+		"name": "渡邊 恵太",
+		"image": "meijiuniv_watanabe.jpg",
+		"affiliation": "明治大学 / 総合数理学部 先端メディアサイエンス学科 / 教授",
+		"sns": "https://x.com/100kw",
+		"introduction": "知覚に基づくインタフェースデザインや、IoTにおけるインタラクションデザインの研究を行う。昨今はインタラクションや体験の評価手法の研究や、ブレイン・コンピュータ・インターフェースの研究に従事。著書に『融けるデザイン ハードｘソフトｘネットの時代の新たな設計論 』（BNN、2015）。近著に『超軽工業へ インタラクションデザインを超えて』(BNN、2025）がある。"
 	}
 ]
 

@@ -3,45 +3,62 @@ import timetable_cross from '@/data/timetable_cross.json'
 import timetable_wave from '@/data/timetable_wave.json'
 import SectionTitle from '@/components/util/SectionTitle.astro'
 import TimeTableRow from '@/components/top/modules/TimeTableRow.astro'
+const leadText = `キーノート、トークセッション、ディスカッションが<br class="only-pc">Cross StageとWave Stageで行われます。<br>登壇者と参加者が垣根を超えて“交わる”スペシャルなセッションを紹介。`
 ---
-<div class="timetable" data-trigger="timetable">
+<div class="timetable" data-trigger="timetable" id=timetable>
   <div class="wrapper">
-    <div class="circle only-pc" data-trigger="timetable-circle-pc"></div>
+    <div class="circle-pc only-pc" data-trigger="timetable-circle-pc"></div>
     <div class="head">
       <div class="head-inner">
         <SectionTitle
           en="Time table"
           ja="タイムテーブル"
-          modifier={["center", "white"]}
+          modifier={["center", "white", "no-margin"]}
         />
-        <p class="lead">
-          スピーカーセッション、パネルセッション、エクスチェンジセッションがCross StageとWave Stageで行われます。<br>登壇者と参加者が垣根を超えて“交わる”スペシャルなセッションを紹介。
+      </div>
+      <div class="lead-wrapper">
+        <p class="lead" set:html={leadText}>
         </p>
       </div>
     </div>
-    <div class="inner timetable__inner">
-      <div class="body" data-trigger="timetable-body">
-        <div class="circle only-sp" data-trigger="timetable-circle-sp"></div>
-        <div class="col col--cross">
-          <div class="row">
-            <hgroup class="stage-label">
-              <h3 class="stage-label-body font-en">Cross Stage</h3>
+    <div class="inner timetable-content">
+      <div class="stage-label-row">
+        <input type="checkbox" id="stage-switch" class="only-sp" data-switch />
+        <div class="stage-label-col">
+          <div class="stage-label-switch" data-switch-trigger="cross">
+            <div class="stage-label">
+              <h3 class="stage-label-body font-en" id="cross-stage-label">Cross Stage</h3>
               <p class="stage-label-sub">キーノート/トーク</p>
-            </hgroup>
+            </div>
           </div>
-          <TimeTableRow timetableData={timetable_cross} />
         </div>
-        <div class="col col--wave">
-          <div class="row">
-            <hgroup class="stage-label">
-              <h3 class="stage-label-body font-en">Wave Stage</h3>
+        <div class="stage-label-col">
+          <div class="stage-label-switch" data-switch-trigger="wave">
+            <div class="stage-label">
+              <h3 class="stage-label-body font-en" id="wave-stage-label">Wave Stage</h3>
               <p class="stage-label-sub">トーク/ディスカッション</p>
-            </hgroup>
+            </div>
           </div>
-          <TimeTableRow timetableData={timetable_wave} />
         </div>
-        <div class="col col--time">
-          {Array.from({ length: 10 }, () => <div class="row"></div>)}
+      </div>
+      <div class="body-wrap" data-trigger="timetable-wrap">
+        <div class="circle-sp only-sp" data-trigger="timetable-circle-sp">
+          <div class="circle-sp-body"></div>
+        </div>
+        <div class="body" data-trigger="timetable-body">
+          <div class="col col--cross" aria-labelledby="cross-stage-label">
+            <TimeTableRow timetableData={timetable_cross} stageName="cross" />
+          </div>
+          <div class="col col--wave" aria-labelledby="wave-stage-label">
+            <TimeTableRow timetableData={timetable_wave} stageName="wave" />
+          </div>
+          <div class="col col--time">
+            {Array.from({ length: 10 }, (_, index) =>
+              <div class="row">
+                <span class="time-label font-en">{index > 0 && index + 10 + ':00'}</span>
+              </div>
+            )}
+          </div>
         </div>
       </div>
     </div>
@@ -58,61 +75,74 @@ import TimeTableRow from '@/components/top/modules/TimeTableRow.astro'
       position: relative;
       z-index: var(--z_over);
     }
-    .circle {
+    .circle-pc {
       position: absolute;
       top: 0;
       left: 0;
       right: 0;
       margin: auto;
-      width: 540px;
+      width: 450px;
       height: auto;
       aspect-ratio: 1;
       background-color: var(--color_primary);
       border-radius: 50%;
       z-index: var(--z_under);
     }
-    .head {
+    .head-inner {
       display: grid;
       place-items: center;
       align-content: center;
-      width: 540px;
+      width: 450px;
       aspect-ratio: 1;
       margin-inline: auto;
-      margin-bottom: 400px;
+      margin-bottom: 90px;
       border-radius: 50%;
-      padding: 90px;
     }
-    .lead {
-      color: #fff;
-      font-size: rem(20);
+    .lead-wrapper {
+      max-width: 720px;
+      margin-inline: auto;
+      text-align: center;
+      color: var(--color_text_grey);
+      font-size: rem(17);
       font-weight: 600;
-      line-height: 1.2;
+      line-height: 2.0;
       letter-spacing: 0.1em;
+      margin-bottom: 172px;
+      position: relative;
+      mix-blend-mode: multiply;
+    }
+    .lead-inversion {
+      position: absolute;
+      inset: 0;
+      margin: auto;
+      color: var(--color_white);
+      z-index: var(--z_under);
     }
     .body {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
       column-gap: 160px;
       padding-bottom: 320px;
+      row-gap: 16px;
     }
     .col {
       display: grid;
       grid-template-rows: subgrid;
-      grid-row: 1/ span 54;
+      grid-row: 1 / span 54;
       row-gap: 16px;
+      min-width: 0;
     }
     .col--time {
       grid-column: 1 / span 2;
-      width: min(calc(100vw - 152px), 100%);
+      width: 100%;
       justify-self: end;
+      pointer-events: none;
       .row {
         grid-row: span 6;
+        position: relative;
         &:first-child {
-          grid-row: span 1;
+          grid-row: span 3;
           border-top: none;
-        }
-        &:nth-child(2) {
-          grid-row: span 1;
         }
       }
     }
@@ -126,12 +156,17 @@ import TimeTableRow from '@/components/top/modules/TimeTableRow.astro'
       display: flex;
       flex-direction: column;
     }
+    .stage-label-row {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      column-gap: 160px;
+      margin-bottom: 58px;
+    }
     .stage-label {
       text-align: center;
       display: flex;
       flex-direction: column;
       row-gap: 4px;
-      padding-bottom: 32px;
     }
     .stage-label-body {
       color: var(--color_primary);
@@ -146,42 +181,32 @@ import TimeTableRow from '@/components/top/modules/TimeTableRow.astro'
       color: var(--color_text_grey);
     }
     .time-label {
-      display: flex;
-      align-items: center;
-      position: relative;
-      height: 100%;
-      span {
-        position: absolute;
-        top: var(--this_time_position, 0);
-        right: calc(100% + 16px);
-        transform: translate3d(0 , -50%, 0);
-        color: var(--color_primary);
-        font-weight: 500;
-        font-size: rem(20);
-      }
-      &:after {
-        content: '';
-        flex: 1 1 100%;
-        height: 100%;
-        background-image: linear-gradient(to right, color-mix(in srgb, var(--color_primary) 80%, transparent 80%) 50%, transparent 50%);
-        background-size: 16px 1px;
-        background-repeat: repeat-x;
-        background-position: 0 var(--this_time_position, 0);
-      }
+      position: absolute;
+      top: 0;
+      right: 100%;
+      translate: 0 calc(-50% - 8px);
+      color: var(--color_primary);
+      font-weight: 500;
+      font-size: rem(20);
+      margin-right: 0.5em;
+      white-space: nowrap;
     }
     @media (--tb) {
-      .body {
-        column-gap: vwTb(88);
+      .timetable {
+        padding-top: 0;
+        margin-top: 128px;
       }
-      .circle {
-        display: none;
+      .stage-label-row {
+        column-gap: vwTb(88);
+        width: calc(100% - 40px);
+        margin-inline: auto;
+        margin-bottom: 40px;
       }
       .head {
         width: 100%;
         aspect-ratio: auto;
-        margin-bottom: 0;
         position: relative;
-        padding-bottom: 80px;
+        margin-bottom: 100px;
         &:before {
           content: '';
           position: absolute;
@@ -195,33 +220,165 @@ import TimeTableRow from '@/components/top/modules/TimeTableRow.astro'
         }
       }
       .head-inner {
-        width: vwTb(530);
+        width: auto;
+        aspect-ratio: auto;
+        margin-inline: auto;
+        padding-block: 80px 48px;
+        margin-bottom: 0;
+        border-radius: 0;
       }
-      .lead {
-        line-height: 1.5;
+      .lead-wrapper {
+        max-width: 530px;
+        color: var(--color_white);
+        padding-bottom: 60px;
+        margin-bottom: 0;
+        text-align: left;
+        line-height: 2.0;
+        mix-blend-mode: normal;
       }
       .body {
-        padding-top: 96px;
+        column-gap: vwTb(88);
+        width: calc(100% - 40px);
+        margin-inline: auto;
         padding-bottom: 0;
       }
     }
 		@media (--sp) {
-      .body {
-        overflow: hidden;
-        column-gap: vw(64);
-        position: relative;
-        padding-bottom: 0;
+      .timetable {
+        padding-top: 0;
+        margin-top: 128px;
       }
-      .circle {
+      .timetable-content {
+        &:has(:checked) {
+          --this_switch_translate: calc( -100% + vw(-64));
+          .stage-label-switch {
+            &[data-switch-trigger="cross"] {
+              pointer-events: auto;
+              --this_font_color: var(--color_white);
+            }
+            &[data-switch-trigger="wave"] {
+              pointer-events: none;
+              --this_font_color: var(--color_primary);
+            }
+          }
+          .circle-sp {
+            --this_circle_translate: calc(vw(48) * -1);
+          }
+        }
+        input[data-switch] {
+          position: absolute;
+          width: 0;
+          height: 0;
+          overflow: hidden;
+          clip: rect(0 0 0 0);
+          white-space: nowrap;
+        }
+        .stage-label-switch {
+          &[data-switch-trigger="cross"] {
+            pointer-events: none;
+            --this_font_color: var(--color_primary);
+          }
+          &[data-switch-trigger="wave"] {
+            pointer-events: auto;
+            --this_font_color: var(--color_white)
+          }
+        }
+      }
+      .stage-label-row {
+        column-gap: 0;
+        background-color: var(--color_primary);
+        border: 3px solid var(--color_primary);
+        border-radius: 8px;
+        position: sticky;
+        top: 65px;
+        z-index: var(--z_above);
+        margin-inline: calc(var(--inner_padding_sp) * 2 / 3 * -1);
+        margin-bottom: 0;
+        [data-switch] {
+          padding: 0;
+          position: absolute;
+        }
+        &:before {
+          content: '';
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 50%;
+          height: 100%;
+          background-color: var(--color_white);
+          border-radius: 6px;
+          transition: translate 0.4s ease;
+        }
+        &:has(:checked) {
+          &:before {
+            translate: 100% 0;
+          }
+        }
+      }
+      .stage-label-col {
+        position: relative;
+      }
+      [for="stage-switch"] {
+        &:has(.is-current) {
+          pointer-events: none;
+        }
+      }
+      .stage-label {
+        border-radius: 6px;
+        padding-block: 18px;
+        position: relative;
+        z-index: var(--z_over);
+        &.is-current {
+          --this_font_color: var(--color_primary);
+        }
+      }
+      .stage-label-body {
+        font-size: rem(16);
+        color: var(--this_font_color, var(--color_white));
+        text-box: var(--text_box_trim);
+        transition: color 0.4s ease;
+        will-change: opacity;
+      }
+      .stage-label-sub {
+        display: none;
+      }
+      .body-wrap {
+        position: relative;
+        z-index: var(--z_over);
+        :global(.pin-spacer) {
+          z-index: var(--z_over) !important;
+          mix-blend-mode: difference;
+        }
+      }
+      .body {
+        margin-top: 48px;
+        grid-template-columns: repeat(2, 100%);
+        column-gap: vw(64);
+        padding-bottom: 0;
+        position: relative;
+        translate: var(--this_switch_translate, 0) 0;
+        transition: translate 0.6s 0.2s cubic-bezier(0.45, 0, 0.55, 1);
+      }
+      .circle-sp {
+        position: absolute;
+        margin-inline: calc(var(--inner_padding_sp) * -1);
+        top: vw(100);
+        left: 0;
+        right: 0;
+      }
+      .circle-sp-body {
+        position: static;
         width: vw(96);
-        margin: auto;
+        aspect-ratio: 1;
+        background-color: var(--color_primary);
+        border-radius: 50%;
+        mix-blend-mode: difference;
+        translate: var(--this_circle_translate, calc(100vw - vw(48))) 0;
+        transition: translate 0.8s 0s cubic-bezier(0.65, 0, 0.35, 1);
+        will-change: opacity;
       }
       .head {
-        width: 100%;
-        aspect-ratio: auto;
-        margin-bottom: 0;
         position: relative;
-        padding: 80px 0;
         &:before {
           content: '';
           position: absolute;
@@ -235,12 +392,24 @@ import TimeTableRow from '@/components/top/modules/TimeTableRow.astro'
         }
       }
       .head-inner {
-        width: auto;
-        padding-inline: 32px;
+        aspect-ratio: auto;
+        width: 100%;
+        position: relative;
+        padding: 80px 0 0;
+        margin-bottom: 0;
       }
-      .lead {
-        font-size: rem(18);
-        line-height: 1.8;
+      .lead-wrapper {
+        text-align: left;
+        color: var(--color_white);
+        font-size: rem(16);
+        line-height: 2.0;
+        padding-inline: var(--inner_padding_sp);
+        padding-bottom: 60px;
+        margin-bottom: 80px;
+        mix-blend-mode: normal;
+      }
+      .time-label {
+        display: none;
       }
 		}
 	}
@@ -248,6 +417,7 @@ import TimeTableRow from '@/components/top/modules/TimeTableRow.astro'
 
 <script>
   // パスをエイリアスに変更して型解決エラーを回避
-  import { initTimeTableAnimation } from '@/scripts/timeTableAnimation.ts'
+  import { initTimeTableAnimation, timeTableSwitch } from '@/scripts/timeTable.ts'
   initTimeTableAnimation();
+  timeTableSwitch();
 </script>

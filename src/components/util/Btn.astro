@@ -1,20 +1,24 @@
 ---
-const { href, txt, modifier=null } = Astro.props
+const { href, txt, modifier=null, disabled=false } = Astro.props
 
 const ExLink = ({ href }: { href: string }) => {
   const isExternal = href.startsWith('http://') || href.startsWith('https://') || /\.[a-zA-Z0-9]{2,}$/.test(href);
   return isExternal ? '_blank' : undefined;
 };
+
+const BtnTag = disabled ? 'span' : 'a';
 ---
 
-<a href={href} class={`btn${
+<BtnTag href={disabled ? undefined : href} inert={disabled} class={`btn${
     Array.isArray(modifier)
       ? modifier.map(m => ` btn--${m}`).join('')
       : modifier ? ` btn--${modifier}` : ''
   }`} target={ExLink({ href })}>
   {txt && txt}
-  <span class="icon-arrow"></span>
-</a>
+  {!disabled && 
+    <span class="icon-arrow"></span>
+  }
+</BtnTag>
 
 <style>
   @layer components {
@@ -47,6 +51,10 @@ const ExLink = ({ href }: { href: string }) => {
             }
           }
         }
+      }
+      &[inert] {
+        --this_bg: #555;
+        --this_color: #fff;
       }
     }
     .btn--kv {

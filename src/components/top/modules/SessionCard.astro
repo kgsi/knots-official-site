@@ -10,9 +10,10 @@ interface Props {
   timeData: {
     start: string;
     duration: number;
-  }
+  },
+  adjustment?: boolean
 }
-const { key ='', session = { id: '', tag: '', title: '', speakers: [], description: '' } } = Astro.props;
+const { key ='', session = { id: '', tag: '', title: '', speakers: [], description: '' }, adjustment = false } = Astro.props;
 const { tag, title, speakers } = session;
 const { start, duration } = Astro.props.timeData;
 
@@ -42,23 +43,28 @@ const showTime = (timeStr: string | undefined, duration?: number | 0) => {
 
 ---
 
-<button type="button" class="session-card" data-modal-open={key || ''}>
-  <div class="head">
+<div role="button" tabindex="0" class="session-card" data-modal-open={key || ''} inert={adjustment || false}>
+  <span class="head">
     <span class="time font-en">{showTime(start, duration)}<span class="duration">({duration}min)</span></span>
     <span class="tag font-en">{tag}</span>
-  </div>
-  <h4 class="title">{title}</h4>
-  <ul class="speakers">
-    {speakers?.map((speakerId) => {
-      const speaker = getSpeakerById(speakerId);
-      return speaker ? (
-        <li>
-          <Speaker img={speakerImages[speaker.id]} name={speaker.name} affiliation={speaker.affiliation} modifier="timetable"/>
-        </li>
-      ) : null;
-    })}
-  </ul>
-</button>
+  </span>
+  {adjustment ? (
+    <p class="adjustment-label">調整中</p>
+  ) : (
+    <h4 class="title">{title}</h4>
+    <ul class="speakers">
+      {speakers?.map((speakerId) => {
+        const speaker = getSpeakerById(speakerId);
+        return speaker ? (
+          <li class="speakers-item">
+            <Speaker img={speakerImages[speaker.id]} name={speaker.name} affiliation={speaker.affiliation} modifier="timetable"/>
+          </li>
+        ) : null;
+      })}
+    </ul>
+    <span class="more-icon" aria-label="詳細モーダルを開く"></span>
+  )}
+</div>
 <Modal 
   key={key || ''}
   session={session}
@@ -68,6 +74,7 @@ const showTime = (timeStr: string | undefined, duration?: number | 0) => {
 <style>
 	@layer components {
     .session-card {
+      min-height: inherit;
       height: 100%;
       background-color: #fff;
       border-radius: 8px;
@@ -78,12 +85,28 @@ const showTime = (timeStr: string | undefined, duration?: number | 0) => {
       border: none;
       text-align: left;
       cursor: pointer;
-      transition: background-color 0.3s ease;
-      mix-blend-mode: difference;
+      transition: background-color 0.3s ease, outline-color 0.3s ease;
+      outline: 2px solid transparent;
+      outline-color: transparent;
       overflow: hidden;
+      mix-blend-mode: difference;
+      will-change: opacity;
+      -webkit-backdrop-filter: brightness(88%) contrast(126%);
+      backdrop-filter: brightness(88%) contrast(126%);
+      color: var(--color_text);
+      padding-bottom: 52px;
+      &:has(.adjustment-label) {
+        grid-template-rows: auto 1fr;
+      }
       @media (--hover) {
-        &:hover {
-          background-color: color-mix(in srgb, #fff 97%, #000 3%);
+        &:hover,
+        &:focus-visible {
+          outline-color: var(--color_primary);
+          --this_icon_bg_color: var(--color_white);
+          --this_icon_color: var(--color_primary);
+          .more-icon {
+            rotate: 90deg;
+          }
         }
       }
     }
@@ -106,13 +129,86 @@ const showTime = (timeStr: string | undefined, duration?: number | 0) => {
       font-size: rem(12);
     }
     .title {
+      font-family: var(--font_ja_bold);
       font-size: rem(20);
+      letter-spacing: 0.04em;
       font-weight: 600;
       line-height: 1.5;
     }
     .speakers {
       display: grid;
       row-gap: 16px;
+    }
+    .speakers-item {
+      min-width: 0;
+    }
+    .more-icon {
+      width: 40px;
+      aspect-ratio: 1;
+      background-color: var(--this_icon_bg_color, var(--color_primary));
+      border-radius: 50%;
+      position: absolute;
+      bottom: 16px;
+      right: 16px;
+      border: 1px solid var(--color_primary);
+      transition: background-color var(--transition_hover), rotate 0.5s cubic-bezier(0.048, 0.611, 0.307, 1.559);
+      &:before,
+      &:after {
+        content: '';
+        width: 16px;
+        height: 2px;
+        background-color: var(--this_icon_color, var(--color_white));
+        border-radius: 9999px;
+        position: absolute;
+        inset: 0;
+        margin: auto;
+        transition: background-color var(--transition_hover);
+      }
+      &:after {
+        transform: rotate(90deg);
+      }
+    }
+    .adjustment-label {
+      height: 100%;
+      display: grid;
+      place-items: center;
+      font-size: rem(20);
+      color: var(--color_text_light_grey);
+      letter-spacing: 0.01em;
+    }
+    @media (--sp) {
+      .session-card {
+        row-gap: 20px;
+        padding-inline: 16px;
+        position: relative;
+        translate: translateZ(0);
+        z-index: var(--z_over);
+        padding-bottom: 40px;
+      }
+      .time {
+        font-size: rem(14);
+      }
+      .title {
+        font-size: rem(18);
+        overflow: hidden;
+        display: -webkit-box;
+        text-overflow: ellipsis;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 2;
+      }
+      .more-icon {
+        width: 32px;
+        bottom: 12px;
+        right: 12px;
+        &:before,
+        &:after {
+          content: '';
+          width: 14px;
+        }
+      }
+      .adjustment-label {
+        font-size: rem(18);
+      }
     }
 	}
 </style>

@@ -8,6 +8,7 @@
     --this_affiliation_font_size: rem(17);
     --this_affiliation_color: var(--color_text);
     --this_affiliation_font_weight: 600;
+    --this_speaker_detail_gap: 8px;
   }
   .timetable {
     --this_avatar_size: 72px;
@@ -24,7 +25,7 @@
   .speakerDetail {
     display: grid;
     align-content: start;
-    row-gap: 4px;
+    row-gap: var(--this_speaker_detail_gap, 4px);
   }
   .name {
     font-size: var(--this_name_font_size, rem(20));
@@ -37,14 +38,15 @@
     font-family: var(--font_ja_light);
     font-weight: var(--this_affiliation_font_weight, 300);
     line-height: 1.5;
+    letter-spacing: 0.04em;
   }
   .introduction {
     color: var(--color_text_grey);
     font-family: var(--font_ja_light);
-    font-size: rem(15);
+    font-size: var(--this_introduction_font_size, rem(15));
     font-weight: 300;
     line-height: 1.5;
-    letter-spacing: 0.04em;
+    letter-spacing: 0.06em;
   }
   @media (--tb) {
     .speaker {
@@ -56,6 +58,7 @@
       --this_avatar_size: 72px;
       --this_name_font_size: rem(16);
       --this_affiliation_font_size: rem(14);
+      --this_introduction_font_size: rem(14);
     }
   }
 }

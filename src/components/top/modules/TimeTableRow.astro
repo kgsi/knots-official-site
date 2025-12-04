@@ -1,14 +1,14 @@
 ---
 import SessionCard from '@/components/top/modules/SessionCard.astro'
-import Modal from './Modal.astro'
 import sessionList from '@/data/sessionList.json'
 import type { TimetableContent, Session } from '@/types/dataTypes'
 
 interface Props {
   timetableData: TimetableContent[]
+  stageName: string
 }
 
-const { timetableData } = Astro.props as Props
+const { timetableData, stageName } = Astro.props as Props
 const sessions: Record<string, Session> = Object.fromEntries(
   sessionList.map((session) => [session.id, session])
 )
@@ -32,7 +32,7 @@ const calculateRowCount = (start: number) => {
 ---
 
 {timetableData.map((item, index) => (
-  <div class="row" style={`--this_start_row: ${calculateRowCount(Number(item.start))}; --this_time_duration: ${item.duration ? item.duration / 10 : 1}`}>
+  <div class="row" style={`--this_start_row: ${calculateRowCount(Number(item.start)) + 1}; --this_time_duration: ${item.duration ? item.duration / 10 : 1}`}>
     {item.type === 'spacer' ? (
       <div class="spacer">
       </div>
@@ -56,9 +56,10 @@ const calculateRowCount = (start: number) => {
       if (!session) return null
       return (
         <SessionCard
-          key={item.content+'_'+index}
+          key={stageName+'_'+item.content+'_'+index}
           session={session}
           timeData={{ start: item.start || '', duration: item.duration || 0 }}
+          adjustment={item.adjustment || false}
         />
       )
       })()
@@ -72,10 +73,12 @@ const calculateRowCount = (start: number) => {
       display: flex;
       flex-direction: column;
       justify-content: start;
-      height: calc((140px * var(--this_time_duration, 1) + 16px * (var(--this_time_duration, 1) - 1)));
+      min-height: calc((140px * var(--this_time_duration, 1) + 16px * (var(--this_time_duration, 1) - 1)));
+      height: auto;
       grid-row: var(--this_start_row, 0) / span var(--this_time_duration);
+      min-width: 0;
       &:has(.shrink) {
-        height: auto;
+        min-height: auto;
       }
     }
     .spacer {
@@ -85,14 +88,19 @@ const calculateRowCount = (start: number) => {
       opacity: 0.5;
       border-radius: 8px;
       mix-blend-mode: difference;
+      backdrop-filter: brightness(88%) contrast(126%);
     }
     .text-schedule {
+      display: grid;
+      align-items: center;
       height: 100%;
-      min-height: 84px;
+      min-height: inherit;
       border-radius: 8px;
       padding-inline: 24px;
-      background-color: var(--color_white);
       mix-blend-mode: difference;
+      -webkit-backdrop-filter: brightness(88%) contrast(126%) saturate(120%);
+      backdrop-filter: brightness(88%) contrast(126%) saturate(120%);
+      background-color: var(--color_white);
       dl {
         height: 100%;
         display: flex;
@@ -102,10 +110,26 @@ const calculateRowCount = (start: number) => {
         font-weight: 500;
       }
       &.shrink {
+        min-height: 84px;
         display: grid;
         align-items: center;
-        background-color: transparent;
+        background-color: var(--color_bg_white);
         border: 1px solid currentColor;
+      }
+    }
+    @media (--sp) {
+      .row {
+        min-height: calc((132px * var(--this_time_duration, 1) + 16px * (var(--this_time_duration, 1) - 1)));
+      }
+      .text-schedule {
+        min-height: inherit;
+        padding-inline: 8px;
+        dl {
+          font-size: rem(18);
+        }
+        &.shrink {
+          min-height: 64px;
+        }
       }
     }
   }
