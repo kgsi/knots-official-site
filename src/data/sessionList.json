@@ -1,13 +1,13 @@
 [
   {
     "pickup": false,
-    "id": "dummy",
-    "tag": "Dummy #1",
-    "title" : "ダミーのセッション",
+    "id": "dummy【このIDをタイムテーブルのcontentと紐づけてください】",
+    "tag": "Dummy #1【カテゴリ表示用】",
+    "title" : "ダミーのセッション【登壇タイトル】",
     "speakers": [
-      "dummy"
+      "dummy【speakers.jsonのidと紐づけてください】"
     ],
-    "description": "ダミーのセッション"
+    "description": "ダミーのセッション【登壇概要】"
   },
   {
     "pickup": true,

@@ -1,10 +1,10 @@
 [
   {
     "id": "dummy",
-    "name": "登壇 者名",
-    "image": "session0.jpg",
-    "affiliation": "株式会社**** / **********",
-    "introduction": ""
+    "name": "【登壇者名】",
+    "image": "session0.jpg【画像はsrc/assets/top/speakers/とpublic/assets/top/speakers/に配置してください。※2箇所に置く必要があります!!】",
+    "affiliation": "株式会社**** / **********【会社名 / 部署 / 肩書き・役職】",
+    "introduction": "【自己紹介】"
   },
   {
     "id": "gaudiy_matsushima",
