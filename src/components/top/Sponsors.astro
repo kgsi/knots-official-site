@@ -1,6 +1,7 @@
 ---
 import SectionTitle from '@/components/util/SectionTitle.astro';
 import SponsorLogo from './SponsorLogo.astro';
+import PersonalSponsors from '@/data/personal_sponsors.json';
 
 import chotinc from '@assets/top/sponsors/chotinc.png';
 import cybozu from '@assets/top/sponsors/cybozu.png';
@@ -62,18 +63,11 @@ const images = {
 					<SponsorLogo level="ume" href="https://www.notion.com/ja" img={images.notion} alt="Notion"/>
 					<SponsorLogo level="ume" href="https://chot-inc.com/" img={images.chotinc} alt="chot Inc."/>
 				</div>
-				<!-- <div class="personal-list">
-					<p>山下 祥也</p>
-					<p>山下 祥也</p>
-					<p>山下 祥也</p>
-					<p>山下 祥也</p>
-					<p>山下 祥也</p>
-					<p>山下 祥也</p>
-					<p>山下 祥也</p>
-					<p>山下 祥也</p>
-					<p>山下 祥也</p>
-					<p>山下 祥也</p>
-				</div> -->
+				<div class="personal-list">
+					{PersonalSponsors.map((name) => (
+						<p>{name}</p>
+					))}
+				</div>
 			</div>
 			<div class="item">
 				<h3 class="line-heading sponsor-label"><span>会場スポンサー</span></h3>
