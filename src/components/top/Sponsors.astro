@@ -64,9 +64,10 @@ const images = {
 					<SponsorLogo level="ume" href="https://chot-inc.com/" img={images.chotinc} alt="chot Inc."/>
 				</div>
 				<div class="personal-list">
-					{PersonalSponsors.map((name) => (
+					{PersonalSponsors.map((name, index) => [
+						(index % 5 === 0 && index !== 0) && <span class="spacer"></span>,
 						<p>{name}</p>
-					))}
+					])}
 				</div>
 			</div>
 			<div class="item">
@@ -105,15 +106,24 @@ const images = {
 			row-gap: 120px;
 		}
 		.personal-list {
+			--this_personal_gap: 40px;
 			margin-top: 120px;
-			display: grid;
-			grid-template-columns: repeat(5, auto);
+			display: flex;
+			flex-wrap: wrap;
 			justify-content: center;
-			gap: 40px;
+			column-gap: var(--this_personal_gap);
 			font-size: rem(20);
 			font-weight: 600;
 			line-height: 1.5;
 			justify-items: center;
+			.spacer {
+				width: stretch;
+				flex-shrink: 0;
+				height: var(--this_personal_gap);
+			}
+		}
+		.personal-item {
+			display: content;
 		}
 		.item {
 			text-align: center;
@@ -153,6 +163,9 @@ const images = {
 				justify-content: center;
 				font-size: rem(17);
 				line-height: 2.0;
+				.spacer {
+					display: none;
+				}
 			}
 			.sponsor-label {
 				margin-top: 8px;
