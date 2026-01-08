@@ -119,6 +119,14 @@
 		"introduction": "大学院博士課程前期では映像検索アルゴリズムについて研究。2023 年 4 月、 PKSHA Workplace にソフトウエアエンジニアとして新卒入社し、「PKSHA AI ヘルプデスク」の開発に従事。現在は PKSHA Technology の CEO 室に異動し、新規プロダクトの開発を行っている。2025 Microsoft Top Partner Engineer Award, Azure Data & AI 部門受賞。"
 	},
 	{
+		"id": "pksha_shimizu",
+		"name": "清水 遥",
+		"image": "pksha_shimizu.jpg",
+		"affiliation": "株式会社PKSHA Technology / コーポレートマーケティング本部 / Lead UIUX Designer",
+		"sns": "",
+		"introduction": "デザインコンサルファームにてUXコンサルタントとして様々なプロダクトのUIUXデザインを担当したのち、PKSHA Technologyに2人目デザイナーとして入社。全社横断組織としてデザインシステムの作成・推進や各AI SaaSプロダクトのUIUX改善、AIのR&D領域におけるUXリサーチを担当。"
+	},
+	{
 		"id": "route06_kumano",
 		"name": "熊野 亜由美",
 		"image": "route06_kumano.jpg",
