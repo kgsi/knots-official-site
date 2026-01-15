@@ -5,6 +5,8 @@ import '../styles/reset.css'
 
 const canonicalURL = new URL(Astro.url.pathname, 'https://knots.crossrel.jp/')
 const ogpImageURL = new URL('/ogp.png', canonicalURL)
+
+const pageTitle = Astro.props.pageTitle ? Astro.props.pageTitle + '┃KNOTS┃デザイン・AI・エンジニアリング―境界を結び、共創をひらくカンファレンス' : 'KNOTS┃デザイン・AI・エンジニアリング―境界を結び、共創をひらくカンファレンス'
 ---
 
 <!doctype html>
@@ -16,9 +18,7 @@ const ogpImageURL = new URL('/ogp.png', canonicalURL)
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
     <meta name="generator" content={Astro.generator} />
-    <title>
-      KNOTS┃デザイン・AI・エンジニアリング―境界を結び、共創をひらくカンファレンス
-    </title>
+    <title>{pageTitle}</title>
     <meta
       name="description"
       content="KNOTSはデザイン・AI・エンジニアリングをテーマとし、境界を結び、共創をひらくカンファレンスです。2026年1月、日本橋にて開催予定。新たな視点と対話の場をつくります。"
@@ -27,7 +27,7 @@ const ogpImageURL = new URL('/ogp.png', canonicalURL)
     <!-- Open Graph Protocol -->
     <meta
       property="og:title"
-      content="KNOTS┃デザイン・AI・エンジニアリング―境界を結び、共創をひらくカンファレンス"
+      content={pageTitle}
     />
     <meta
       property="og:description"
@@ -42,7 +42,7 @@ const ogpImageURL = new URL('/ogp.png', canonicalURL)
     <meta name="twitter:card" content="summary_large_image" />
     <meta
       name="twitter:title"
-      content="KNOTS┃デザイン・AI・エンジニアリング―境界を結び、共創をひらくカンファレンス"
+      content={pageTitle}
     />
     <meta
       name="twitter:description"
