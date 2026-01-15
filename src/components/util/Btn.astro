@@ -79,6 +79,11 @@ const BtnTag = disabled ? 'span' : 'a';
         --this_arrow_size: 10px;
         width: 16px;
       }
+      @container (width <= 1160px) {
+        --this_base_width: 144px;
+        --this_base_height: 40px;
+        --this_font_size: rem(12);
+      }
     }
     .btn--wide {
       --this_base_width: 360px;
