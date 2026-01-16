@@ -1,0 +1,59 @@
+---
+import Image from 'astro/components/Image.astro';
+import MapImage from '@assets/top/map.png';
+
+import SectionTitle from '@/components/util/SectionTitle.astro';
+
+---
+
+<section class="map">
+	<div class="inner">
+    <SectionTitle
+      en="Event Map"
+      ja="会場マップ"
+			id="map"
+    />
+		<div class="map-wrapper">
+			<Image
+				src={MapImage}
+				alt="会場マップの画像。出入口から入って右奥がCROSS STAGE、左奥がWAVE STAGE。出入口から右手側手前がクロークおよびジョブボードエリア、左手側手前が交流スペースとスポンサー企業ブースとなっています。廊下に醸成用トイレ、男性用トイレがあります。"
+				loading="lazy"
+				class="map-image"
+			/>
+		</div>
+	</div>
+</section>
+
+<style>
+	@layer components {
+		.map {
+			padding-block: 100px 52px;
+			position: relative;
+			z-index: var(--z_over);
+		}
+		.map-wrapper {
+			width: 100%;
+			height: auto;
+			padding: 56px 100px;
+			background-color: var(--color_white);
+		}
+		.map-image {
+			width: 100%;
+			height: auto;
+		}
+		@media (--sp) {
+			.map {
+				padding-block: 80px 0;
+			}
+			.map-wrapper {
+				padding: 10px;
+			}
+		}
+	}
+</style>
+
+<script>
+	import('@/scripts/intersectAnimation.js').then(({ initAnimation }) =>
+		initAnimation()
+	);
+</script>

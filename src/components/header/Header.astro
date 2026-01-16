@@ -38,10 +38,13 @@ const LogoTag = lower === true ? 'p' : 'h1';
               <a href={lower ? "/#pickup" : "#pickup"} class="nav-link">登壇予告</a>
             </li>
             <li class="nav-item">
-              <a href={lower ? "/#information" : "#information"} class="nav-link">インフォメーション</a>
+              <a href={lower ? "/#map" : "#map"} class="nav-link">会場マップ</a>
             </li>
             <li class="nav-item">
               <a href={lower ? "/#timetable" : "#timetable"} class="nav-link">タイムテーブル</a>
+            </li>
+            <li class="nav-item">
+              <a href={lower ? "/#information" : "#information"} class="nav-link">インフォメーション</a>
             </li>
             <li class="nav-item">
               <a href="#job-board" class="nav-link">ジョブボード</a>
@@ -102,6 +105,9 @@ const LogoTag = lower === true ? 'p' : 'h1';
 			height: auto;
       transition: filter 0.6s ease;
       display: block;
+      @container (width <= 1160px) {
+        width: 96px;
+      }
 		}
     .nav-list {
       display: flex;
@@ -111,6 +117,9 @@ const LogoTag = lower === true ? 'p' : 'h1';
     }
     .nav-item--btn {
       margin-left: 20px;
+      @container (width <= 1160px) {
+        margin-left: 0;
+      }
     }
     .nav-link {
       color: var(--this_color, var(--color_black));
@@ -118,7 +127,7 @@ const LogoTag = lower === true ? 'p' : 'h1';
       letter-spacing: 0.04em;
       padding: 8px 8px;
       transition: color var(--transition_hover), background-color var(--transition_hover);
-      @container (width <= 1024px) {
+      @container (width <= 1160px) {
         font-size: rem(14);
       }
     }
