@@ -2,155 +2,165 @@
 import "../styles/terms.css"
 import Layout from '@/layouts/Layout.astro'
 
-import Header from '@/components/header/Header.astro'
-import Footer from '@/components/footer/Footer.astro'
+// import Header from '@/components/header/Header.astro'
+// import Footer from '@/components/footer/Footer.astro'
+import HeaderLower from '@/components/header/HeaderLower.astro'
+import FooterLower from '@/components/footer/FooterLower.astro'
 import LowerWrapper from '@/components/util/LowerWrapper.astro'
 
-import SectionTitle from '@/components/util/SectionTitle.astro'
-import BackToHomeBtn from '@/components/util/BackToHomeBtn.astro'
+// import SectionTitle from '@/components/util/SectionTitle.astro'
+// import BackToHomeBtn from '@/components/util/BackToHomeBtn.astro'
+import ClosedNotice from '@/components/job-board/ClosedNotice.astro'
 
-import JobBtns from "@/components/job-board/JobBtns.astro"
+// import JobBtns from "@/components/job-board/JobBtns.astro"
 
-const jobList = [
-	{
-		href: "https://job-boards.greenhouse.io/figma/jobs/5721527004?gh_jid=5721527004",
-		job: "/Senior Solutions Consultant",
-		label: "Senior Solutions Consultant (Tokyo, Japan)",
-		company: "Figma Japan株式会社"
-	},
-	{
-		href: "https://job-boards.greenhouse.io/figma/jobs/5728528004?gh_jid=5728528004",
-		job: "/Marketing",
-		label: "Regional Marketing Manager (Tokyo, Japan)",
-		company: "Figma Japan株式会社"
-	},
-	{
-		href: "https://herp.careers/v1/findy/-MFM_HL3p5oR",
-		job: "/UIUXデザイナー",
-		label: "デザインの力で新規SaaSの体験向上に寄与するUI/UXデザイナー募集！",
-		company: "ファインディ株式会社"
-	},
-	{
-		href: "https://herp.careers/v1/findy/EuP17IMh8R1d",
-		job: "/プロダクトデザイナー",
-		label: "「つくる人」のキャリアをデザインの力で加速させるデザイナー（マネージャー候補）募集！",
-		company: "ファインディ株式会社"
-	},
-	{
-		href: "https://herp.careers/v1/findy/x8Pe96qAmTOH",
-		job: "/デザイナー",
-		label: "オープンポジション（デザイナー）",
-		company: "ファインディ株式会社"
-	},
-	{
-		href: "https://herp.careers/v1/gaudiy/d3EXfDHL2KXD",
-		job: "/プロダクトデザイナー",
-		label: "エンタメファンに向けた体験をデザインする！プロダクトデザイナー募集",
-		company: "株式会社Gaudiy"
-	},
-	{
-		href: "https://herp.careers/v1/gaudiy/v65F2Y_KOviG",
-		job: "/プロダクトマネージャー",
-		label: "最高の体験づくりからエンタメ業界の変革に挑むプロダクトマネージャー募集！",
-		company: "株式会社Gaudiy"
-	},
-	{
-		href: "https://herp.careers/v1/gaudiy/VH3293K9YCCA",
-		job: "/オープンポジション",
-		label: "職種に限らずGaudiyに興味ある人はこちらから！オープンポジション募集！",
-		company: "株式会社Gaudiy"
-	},
-	{
-		href: "https://hrmos.co/pages/moneyforward/jobs/2174353643180318740",
-		job: "/コミュニケーションデザイナー",
-		label: "法人向けSaaS領域のコミュニケーションデザイナーを募集！",
-		company: "株式会社マネーフォワード"
-	},
-	{
-		href: "https://hrmos.co/pages/moneyforward/jobs/2047160677453344986",
-		job: "/プロダクトデザイナー",
-		label: "家計アプリの進化を担うリードプロダクトデザイナーを募集！",
-		company: "株式会社マネーフォワード"
-	},
-	{
-		href: "https://hrmos.co/pages/moneyforward/jobs/0004325",
-		job: "/プロダクトデザイナー",
-		label: "企業のお金の悩みを解決！法人向けSaaSのプロダクトデザイナーを募集！",
-		company: "株式会社マネーフォワード"
-	},
-	{
-		href: "https://cybozu.co.jp/recruit/entry/career/product-designer.html",
-		job: "/プロダクトデザイナー",
-		label: "チームワークを届ける、プロダクトデザイナー募集中！",
-		company: "サイボウズ株式会社"
-	},
-	{
-		href: "https://cybozu.co.jp/recruit/entry/career/product-engineer-front-end-engineer-kintone.html",
-		job: "/プロダクトエンジニア",
-		label: "フロントエンドエンジニア募集中！（kintone／フロントエンド）",
-		company: "サイボウズ株式会社"
-	},
-	{
-		href: "https://cybozu.co.jp/recruit/entry/career/engineering-manager.html",
-		job: "/エンジニアリングマネージャー",
-		label: "チームワークを広げる、エンジニアリングマネージャー募集中！（kintone）",
-		company: "サイボウズ株式会社"
-	},
-	{
-		href: "https://hrmos.co/pages/concent/jobs/0000072",
-		job: "/プロダクトマネージャー",
-		label: "デジタルプロダクトディレクター",
-		company: "株式会社コンセント"
-	},
-	{
-		href: "https://hrmos.co/pages/concent/jobs/0000073",
-		job: "/デザイナー",
-		label: "UX/UIデザイナー",
-		company: "株式会社コンセント"
-	},
-	{
-		href: "https://hrmos.co/pages/concent/jobs/0000066",
-		job: "/エンジニア",
-		label: "フロントエンドエンジニア",
-		company: "株式会社コンセント"
-	},
-	{
-		href: "https://recruit.chot-inc.com/",
-		job: "/フロントエンドエンジニア",
-		label: "モダンフロントエンドを極めたいエンジニア募集！＜フルリモート・フルフレックス＞",
-		company: "chot Inc."
-	},
-	{
-		href: "https://jobs.ashbyhq.com/notion/e5d316fa-0857-4e4b-96ca-1f2710a96c95",
-		job: "/プリセールスエンジニア",
-		label: "Solutions Engineer, Tokyo",
-		company: "Notion"
-	},
-	{
-		href: "https://open.talentio.com/r/1/c/reazon/pages/99522",
-		job: "/Webフロントエンジニア",
-		label: "ブランド価値を高めるフロントエンドエンジニア募集",
-		company: "株式会社レアゾン・ホールディングス"
-	},
-	{
-		href: "https://open.talentio.com/r/1/c/reazon/pages/102007",
-		job: "/プロダクトデザイナー/ビジュアルデザイナー",
-		label: "新しい価値を市場に届けるプロダクト・ブランディングデザイナー募集",
-		company: "株式会社レアゾン・ホールディングス"
-	}
-	// {
-	// 	href: "https://open.talentio.com/r/1/c/reazon/pages/99520",
-	// 	job: "/ディレクター/PM",
-	// 	label: "今と未来を創る仕事。クリエイティブを動かすPM/ディレクター募集",
-	// 	company: "株式会社レアゾン・ホールディングス"
-	// }
-];
-
+// const jobList = [
+// 	{
+// 		href: "https://job-boards.greenhouse.io/figma/jobs/5721527004?gh_jid=5721527004",
+// 		job: "/Senior Solutions Consultant",
+// 		label: "Senior Solutions Consultant (Tokyo, Japan)",
+// 		company: "Figma Japan株式会社"
+// 	},
+// 	{
+// 		href: "https://job-boards.greenhouse.io/figma/jobs/5728528004?gh_jid=5728528004",
+// 		job: "/Marketing",
+// 		label: "Regional Marketing Manager (Tokyo, Japan)",
+// 		company: "Figma Japan株式会社"
+// 	},
+// 	{
+// 		href: "https://herp.careers/v1/findy/-MFM_HL3p5oR",
+// 		job: "/UIUXデザイナー",
+// 		label: "デザインの力で新規SaaSの体験向上に寄与するUI/UXデザイナー募集！",
+// 		company: "ファインディ株式会社"
+// 	},
+// 	{
+// 		href: "https://herp.careers/v1/findy/EuP17IMh8R1d",
+// 		job: "/プロダクトデザイナー",
+// 		label: "「つくる人」のキャリアをデザインの力で加速させるデザイナー（マネージャー候補）募集！",
+// 		company: "ファインディ株式会社"
+// 	},
+// 	{
+// 		href: "https://herp.careers/v1/findy/x8Pe96qAmTOH",
+// 		job: "/デザイナー",
+// 		label: "オープンポジション（デザイナー）",
+// 		company: "ファインディ株式会社"
+// 	},
+// 	{
+// 		href: "https://herp.careers/v1/gaudiy/d3EXfDHL2KXD",
+// 		job: "/プロダクトデザイナー",
+// 		label: "エンタメファンに向けた体験をデザインする！プロダクトデザイナー募集",
+// 		company: "株式会社Gaudiy"
+// 	},
+// 	{
+// 		href: "https://herp.careers/v1/gaudiy/v65F2Y_KOviG",
+// 		job: "/プロダクトマネージャー",
+// 		label: "最高の体験づくりからエンタメ業界の変革に挑むプロダクトマネージャー募集！",
+// 		company: "株式会社Gaudiy"
+// 	},
+// 	{
+// 		href: "https://herp.careers/v1/gaudiy/VH3293K9YCCA",
+// 		job: "/オープンポジション",
+// 		label: "職種に限らずGaudiyに興味ある人はこちらから！オープンポジション募集！",
+// 		company: "株式会社Gaudiy"
+// 	},
+// 	{
+// 		href: "https://hrmos.co/pages/moneyforward/jobs/2174353643180318740",
+// 		job: "/コミュニケーションデザイナー",
+// 		label: "法人向けSaaS領域のコミュニケーションデザイナーを募集！",
+// 		company: "株式会社マネーフォワード"
+// 	},
+// 	{
+// 		href: "https://hrmos.co/pages/moneyforward/jobs/2047160677453344986",
+// 		job: "/プロダクトデザイナー",
+// 		label: "家計アプリの進化を担うリードプロダクトデザイナーを募集！",
+// 		company: "株式会社マネーフォワード"
+// 	},
+// 	{
+// 		href: "https://hrmos.co/pages/moneyforward/jobs/0004325",
+// 		job: "/プロダクトデザイナー",
+// 		label: "企業のお金の悩みを解決！法人向けSaaSのプロダクトデザイナーを募集！",
+// 		company: "株式会社マネーフォワード"
+// 	},
+// 	{
+// 		href: "https://cybozu.co.jp/recruit/entry/career/product-designer.html",
+// 		job: "/プロダクトデザイナー",
+// 		label: "チームワークを届ける、プロダクトデザイナー募集中！",
+// 		company: "サイボウズ株式会社"
+// 	},
+// 	{
+// 		href: "https://cybozu.co.jp/recruit/entry/career/product-engineer-front-end-engineer-kintone.html",
+// 		job: "/プロダクトエンジニア",
+// 		label: "フロントエンドエンジニア募集中！（kintone／フロントエンド）",
+// 		company: "サイボウズ株式会社"
+// 	},
+// 	{
+// 		href: "https://cybozu.co.jp/recruit/entry/career/engineering-manager.html",
+// 		job: "/エンジニアリングマネージャー",
+// 		label: "チームワークを広げる、エンジニアリングマネージャー募集中！（kintone）",
+// 		company: "サイボウズ株式会社"
+// 	},
+// 	{
+// 		href: "https://hrmos.co/pages/concent/jobs/0000072",
+// 		job: "/プロダクトマネージャー",
+// 		label: "デジタルプロダクトディレクター",
+// 		company: "株式会社コンセント"
+// 	},
+// 	{
+// 		href: "https://hrmos.co/pages/concent/jobs/0000073",
+// 		job: "/デザイナー",
+// 		label: "UX/UIデザイナー",
+// 		company: "株式会社コンセント"
+// 	},
+// 	{
+// 		href: "https://hrmos.co/pages/concent/jobs/0000066",
+// 		job: "/エンジニア",
+// 		label: "フロントエンドエンジニア",
+// 		company: "株式会社コンセント"
+// 	},
+// 	{
+// 		href: "https://recruit.chot-inc.com/",
+// 		job: "/フロントエンドエンジニア",
+// 		label: "モダンフロントエンドを極めたいエンジニア募集！＜フルリモート・フルフレックス＞",
+// 		company: "chot Inc."
+// 	},
+// 	{
+// 		href: "https://jobs.ashbyhq.com/notion/e5d316fa-0857-4e4b-96ca-1f2710a96c95",
+// 		job: "/プリセールスエンジニア",
+// 		label: "Solutions Engineer, Tokyo",
+// 		company: "Notion"
+// 	},
+// 	{
+// 		href: "https://open.talentio.com/r/1/c/reazon/pages/99522",
+// 		job: "/Webフロントエンジニア",
+// 		label: "ブランド価値を高めるフロントエンドエンジニア募集",
+// 		company: "株式会社レアゾン・ホールディングス"
+// 	},
+// 	{
+// 		href: "https://open.talentio.com/r/1/c/reazon/pages/102007",
+// 		job: "/プロダクトデザイナー/ビジュアルデザイナー",
+// 		label: "新しい価値を市場に届けるプロダクト・ブランディングデザイナー募集",
+// 		company: "株式会社レアゾン・ホールディングス"
+// 	}
+// 	// {
+// 	// 	href: "https://open.talentio.com/r/1/c/reazon/pages/99520",
+// 	// 	job: "/ディレクター/PM",
+// 	// 	label: "今と未来を創る仕事。クリエイティブを動かすPM/ディレクター募集",
+// 	// 	company: "株式会社レアゾン・ホールディングス"
+// 	// }
+// ];
 
 ---
 
 <Layout pageTitle="ジョブボード">
-	<Header 
+	<HeaderLower />
+	<LowerWrapper>
+		<div class="inner">
+			<ClosedNotice />
+		</div>
+	</LowerWrapper>
+	<FooterLower />
+
+	<!-- <Header 
 		defaultState="is-active"
 		lower={true}
 	/>
@@ -174,14 +184,25 @@ const jobList = [
 	</LowerWrapper>
 	<div data-header-trigger="state-change">
 		<Footer />
-	</div>
+	</div> -->
 </Layout>
 
 <style>
 	@layer components {
-		.btn-wrapper {
+		/* .btn-wrapper {
 			margin-top: 48px;
 			text-align: center;
+		} */
+		:global(.root) {
+			min-height: 100dvh !important;
+		}
+		:global(.lower-main) {
+			padding-bottom: 0 !important;
+		}
+		@media (--pc), (--tb) {
+			:global(.lower-main) {
+				padding-top: 230px !important;
+			}
 		}
 	}
 </style>

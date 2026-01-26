@@ -3,7 +3,7 @@ import Btn from '@/components/util/Btn.astro';
 ---
 
 <div class="fix-btn only-sp" tabindex="-1">
-	<Btn href="https://knots2026.peatix.com/" txt="チケット購入" modifier="fix" />
+	<Btn href="https://knots2026.peatix.com/" txt="本イベントは終了しました" modifier="fix" disabled={true} />
 </div>
 
 <style>
@@ -20,13 +20,13 @@ import Btn from '@/components/util/Btn.astro';
 				opacity: 1;
 				--this_toggle_btn: auto;
 			}
-			&.is-inversion {
+			/* &.is-inversion {
 				:global(.btn) {
 					--this_bg: var(--color_white);
 					--this_color: var(--color_primary);
 					--this_border_color: var(--color_primary);
 				}
-			}
+			} */
 		}
 		@media (--sp) {
 			.fix-btn {
@@ -43,9 +43,9 @@ import Btn from '@/components/util/Btn.astro';
 </style>
 
 <script>
-	import { gsap } from 'gsap';
-	import { ScrollTrigger } from 'gsap/ScrollTrigger';
-	gsap.registerPlugin(ScrollTrigger);
+	// import { gsap } from 'gsap';
+	// import { ScrollTrigger } from 'gsap/ScrollTrigger';
+	// gsap.registerPlugin(ScrollTrigger);
 
 	const fixBtn = document.querySelector('.fix-btn');
 	const triggerElement = document.querySelector('.fix[data-trigger="fix-btn"]');
@@ -67,7 +67,7 @@ import Btn from '@/components/util/Btn.astro';
 		io.observe(triggerElement);
 	}
 
-  const colorChangeElements = document.querySelectorAll('[data-trigger="fix-btn-color"]');
+  /* const colorChangeElements = document.querySelectorAll('[data-trigger="fix-btn-color"]');
   if (colorChangeElements.length > 0) {
     colorChangeElements.forEach((triggerEl) => {
       ScrollTrigger.create({
@@ -77,5 +77,5 @@ import Btn from '@/components/util/Btn.astro';
 				toggleClass: { targets: fixBtn, className: 'is-inversion' },
       });
     });
-  }
+  } */
 </script>

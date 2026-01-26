@@ -53,7 +53,7 @@ const LogoTag = lower === true ? 'p' : 'h1';
               <a href={lower ? "/#sponsors" : "#sponsors"} class="nav-link">スポンサー</a>
             </li>
             <li class="nav-item nav-item--btn">
-              <Btn href="https://knots2026.peatix.com/" txt="チケット購入" modifier="header"/>
+              <Btn href="https://knots2026.peatix.com/" txt="本イベントは終了しました" modifier="header" disabled={true} />
             </li>
           </ul>
         </nav>
@@ -258,6 +258,11 @@ const LogoTag = lower === true ? 'p' : 'h1';
       .nav-item--btn {
         margin-top: 40px;
         border-bottom: none;
+        :global(.btn[inert]) {
+          background-color: #555;
+          color: #fff;
+          border-color: #555;
+        }
       }
       .nav-link {
         display: flex;
