@@ -196,12 +196,14 @@ import ClosedNotice from '@/components/job-board/ClosedNotice.astro'
 		:global(.root) {
 			min-height: 100dvh !important;
 		}
-		:global(.lower-main) {
-			padding-bottom: 0 !important;
-		}
 		@media (--pc), (--tb) {
 			:global(.lower-main) {
 				padding-top: 230px !important;
+			}
+		}
+		@media (--sp) {
+			:global(.lower-main) {
+				padding-bottom: 40px !important;
 			}
 		}
 	}
