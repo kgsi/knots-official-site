@@ -6,6 +6,7 @@ import HeaderLower from '@/components/header/HeaderLower.astro';
 import LowerWrapper from '@/components/util/LowerWrapper.astro';
 import Footer from '@/components/footer/Footer.astro';
 import TermItem from '@/components/util/TermItem.astro'
+import SectionTitle from '@/components/util/SectionTitle.astro'
 import BackToHomeBtn from '@/components/util/BackToHomeBtn.astro'
 ---
 
@@ -13,9 +14,13 @@ import BackToHomeBtn from '@/components/util/BackToHomeBtn.astro'
 	<HeaderLower />
 	<LowerWrapper>
 		<div class="inner">
-				<div class="terms">
+			<div class="terms">
 				<div class="terms-head">
-					<h1>行動規範</h1>
+					<SectionTitle
+						en="Code of conduct"
+						ja="行動規範"
+						heading_lv='h1'
+					/>
 				</div>
 				<div class="terms-contents no-counter">
 					<TermItem title="他分野を尊重する">
@@ -54,3 +59,11 @@ import BackToHomeBtn from '@/components/util/BackToHomeBtn.astro'
 	</LowerWrapper>
 	<Footer />
 </Layout>
+
+<style>
+	@layer components {
+		:global(.section-title) {
+			margin-bottom: 0 !important;
+		}
+	}
+</style>
