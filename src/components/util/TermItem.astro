@@ -8,7 +8,7 @@ const { title } = Astro.props
 
 <style>
   @layer components {
-    :global(.no-counter) .item h3:before {
+    :global(.no-counter) .item h2:before {
       content: '';
     }
     .item {
@@ -19,7 +19,7 @@ const { title } = Astro.props
       line-height: 2.0;
       letter-spacing: 0.04em;
       counter-increment: termItem;
-      h3 {
+      h2 {
         font-family: var(--font_ja_bold);
         color: var(--color_text);
         font-size: rem(24);
@@ -85,7 +85,7 @@ const { title } = Astro.props
     @media (--sp) {
       .item {
         font-size: rem(16);
-        h3 {
+        h2 {
           font-size: rem(18);
           line-height: 1.5;
           margin-bottom: 12px;

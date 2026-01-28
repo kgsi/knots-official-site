@@ -1,0 +1,44 @@
+---
+import BackToHomeBtn from '@/components/util/BackToHomeBtn.astro'
+---
+
+<div class="closed-notice">
+  <h1 class="title">採用情報の掲載は<br class="only-sp">終了しました</h1>
+  <p class="text">イベントの情報はトップページを<br class="only-sp">ご確認ください</p>
+  <div class="btn-wrapper">
+    <BackToHomeBtn />
+  </div>
+</div>
+
+<style>
+  @layer components {
+    .closed-notice {
+      text-align: center;
+    }
+    .title {
+      font-size: var(--this_font_size_ja, rem(40));
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      color: var(--color_primary);
+    }
+    .text {
+      margin-top: 36px;
+      font-feature-settings: "halt" on;
+      font-family: var(--font_ja_light);
+      color: var(--color_text_grey);
+      font-size: rem(17);
+      font-weight: 400;
+      line-height: 2.0;
+      letter-spacing: 0.04em;
+    }
+    .btn-wrapper {
+      margin-top: 40px;
+      text-align: center;
+    }
+    @media (--sp) {
+      .title {
+        --this_font_size_ja: rem(24);
+      }
+    }
+  }
+</style>
