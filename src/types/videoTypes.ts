@@ -10,4 +10,5 @@ export interface Video {
   driveFileId: string
   thumbnail: string
   track: Track
+  published: boolean
 }

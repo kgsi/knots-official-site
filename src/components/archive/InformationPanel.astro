@@ -1,0 +1,54 @@
+<div class="info-panel">
+  <div class="info-panel__item">
+    <p class="info-panel__text">
+      本ページはnote有料記事の購入者向けに限定公開しています。URLの外部への再共有は原則禁止とさせていただいております。<br />
+      <span class="info-panel__note">※ スポンサー様・関係者様は例外とさせていただきます。</span>
+    </p>
+  </div>
+  <div class="info-panel__item">
+    <p class="info-panel__text">
+      掲載許可の都合上、一部セッションの動画は非公開とさせていただいております。ご了承ください。
+    </p>
+  </div>
+</div>
+
+<style>
+  @layer components {
+    .info-panel {
+      margin-bottom: 32px;
+      display: grid;
+      row-gap: 12px;
+    }
+    .info-panel__item {
+      background-color: #fff;
+      border: 1px solid var(--color_grey);
+      border-radius: 8px;
+      padding: 16px 20px;
+      border-left: 4px solid var(--color_primary);
+    }
+    .info-panel__text {
+      font-family: var(--font_ja_light);
+      font-size: rem(14);
+      line-height: 1.8;
+      color: var(--color_text);
+    }
+    .info-panel__note {
+      font-size: rem(13);
+      color: var(--color_dark_grey);
+    }
+    @media (--sp) {
+      .info-panel {
+        margin-bottom: 24px;
+      }
+      .info-panel__item {
+        padding: 12px 16px;
+      }
+      .info-panel__text {
+        font-size: rem(13);
+      }
+      .info-panel__note {
+        font-size: rem(12);
+      }
+    }
+  }
+</style>

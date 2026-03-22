@@ -12,13 +12,13 @@ import type { Video } from '@/types/videoTypes'
 const videos = videosData as Video[]
 
 export function getStaticPaths() {
-  const allVideos = videosData as Video[]
-  return allVideos.map((video, index) => ({
+  const publishedVideos = (videosData as Video[]).filter((v) => v.published)
+  return publishedVideos.map((video, index) => ({
     params: { id: video.id },
     props: {
       video,
-      prev: index > 0 ? allVideos[index - 1] : null,
-      next: index < allVideos.length - 1 ? allVideos[index + 1] : null,
+      prev: index > 0 ? publishedVideos[index - 1] : null,
+      next: index < publishedVideos.length - 1 ? publishedVideos[index + 1] : null,
     },
   }))
 }

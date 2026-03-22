@@ -4,13 +4,14 @@ import HeaderLower from '@/components/header/HeaderLower.astro'
 import FooterLower from '@/components/footer/FooterLower.astro'
 import LowerWrapper from '@/components/util/LowerWrapper.astro'
 import SectionTitle from '@/components/util/SectionTitle.astro'
+import InformationPanel from '@/components/archive/InformationPanel.astro'
 import TrackFilter from '@/components/archive/TrackFilter.astro'
 import VideoGrid from '@/components/archive/VideoGrid.astro'
 import VideoCard from '@/components/archive/VideoCard.astro'
 import videosData from '@/data/videos.json'
 import type { Video } from '@/types/videoTypes'
 
-const videos = videosData as Video[]
+const videos = (videosData as Video[]).filter((v) => v.published)
 ---
 
 <Layout
@@ -26,6 +27,7 @@ const videos = videosData as Video[]
           ja="動画アーカイブ"
           heading_lv="h1"
         />
+        <InformationPanel />
         <TrackFilter />
         <VideoGrid>
           {videos.map((video) => (
