@@ -18,6 +18,9 @@ pnpm-debug.log*
 .env.production
 .dev.vars
 
+# movie source files (51GB)
+movie/
+
 # macOS-specific files
 .DS_Store
 
