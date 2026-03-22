@@ -1,0 +1,52 @@
+---
+interface Props {
+  driveFileId: string
+  title: string
+}
+
+const { driveFileId, title } = Astro.props
+const iframeSrc = `https://drive.google.com/file/d/${driveFileId}/preview`
+---
+
+<div class="video-player">
+  <div class="video-player__wrapper">
+    <iframe
+      src={iframeSrc}
+      title={`${title} の動画`}
+      allow="autoplay; encrypted-media"
+      allowfullscreen
+      loading="lazy"
+    ></iframe>
+  </div>
+  <p class="video-player__note">
+    再生できない場合は、時間をおいて再アクセスしてください。
+  </p>
+</div>
+
+<style>
+  @layer components {
+    .video-player {
+      margin-bottom: 32px;
+    }
+    .video-player__wrapper {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      border-radius: 8px;
+      overflow: hidden;
+      background-color: var(--color_black);
+    }
+    .video-player__wrapper iframe {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+    .video-player__note {
+      margin-top: 8px;
+      font-size: rem(12);
+      color: var(--color_dark_grey);
+    }
+  }
+</style>

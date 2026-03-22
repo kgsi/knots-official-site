@@ -1,0 +1,63 @@
+---
+import Layout from '@/layouts/Layout.astro'
+import HeaderLower from '@/components/header/HeaderLower.astro'
+import FooterLower from '@/components/footer/FooterLower.astro'
+import LowerWrapper from '@/components/util/LowerWrapper.astro'
+import VideoPlayer from '@/components/archive/VideoPlayer.astro'
+import VideoMeta from '@/components/archive/VideoMeta.astro'
+import VideoNav from '@/components/archive/VideoNav.astro'
+import videosData from '@/data/videos.json'
+import type { Video } from '@/types/videoTypes'
+
+const videos = videosData as Video[]
+
+export function getStaticPaths() {
+  const allVideos = videosData as Video[]
+  return allVideos.map((video, index) => ({
+    params: { id: video.id },
+    props: {
+      video,
+      prev: index > 0 ? allVideos[index - 1] : null,
+      next: index < allVideos.length - 1 ? allVideos[index + 1] : null,
+    },
+  }))
+}
+
+interface Props {
+  video: Video
+  prev: Video | null
+  next: Video | null
+}
+
+const { video, prev, next } = Astro.props
+---
+
+<Layout
+  pageTitle={video.title}
+  description={video.description}
+>
+  <HeaderLower />
+  <LowerWrapper>
+    <div class="inner">
+      <div class="archive-detail">
+        <VideoPlayer driveFileId={video.driveFileId} title={video.title} />
+        <VideoMeta video={video} />
+        <VideoNav prev={prev} next={next} />
+      </div>
+    </div>
+  </LowerWrapper>
+  <FooterLower />
+</Layout>
+
+<style>
+  @layer components {
+    .archive-detail {
+      padding-bottom: 80px;
+    }
+    @media (--sp) {
+      .archive-detail {
+        padding-bottom: 48px;
+      }
+    }
+  }
+</style>

@@ -1,0 +1,57 @@
+[
+  {
+    "id": "talk-01",
+    "title": "Figma MCP Server + Figma REST API + LLMでデザインの品質を上げる",
+    "speaker": "Ryo Nakae",
+    "speakerAffiliation": "株式会社ディー・エヌ・エー",
+    "duration": "20:00",
+    "description": "デザインxAIの領域では、AIによるプロトタイプ生成などよりも、デザインの実務においてAIをいかに持続的に役立てることが出来るかどうかが個人的に気になっているポイントです。",
+    "driveFileId": "PLACEHOLDER_FILE_ID_01",
+    "thumbnail": "talk-01.jpg",
+    "track": "cross"
+  },
+  {
+    "id": "talk-02",
+    "title": "生成AIの不確実性を価値に変える、「ビズリーチ」の体験設計",
+    "speaker": "勝浦 雅大",
+    "speakerAffiliation": "株式会社ビズリーチ",
+    "duration": "25:00",
+    "description": "株式会社ビズリーチは、広い領域で生成AIを活用した機能を提供しています。生成AIの活用を通してお客様への価値、事業成長にどう繋げられるのかに向き合ってきました。",
+    "driveFileId": "PLACEHOLDER_FILE_ID_02",
+    "thumbnail": "talk-02.jpg",
+    "track": "wave"
+  },
+  {
+    "id": "talk-03",
+    "title": "AI時代の製品開発：役割の再定義と実践",
+    "speaker": "片柴 薫",
+    "speakerAffiliation": "Sansan株式会社",
+    "duration": "20:00",
+    "description": "AIの登場と普及は、製品を担う我々の役割を根本から変えようとしています。Product ManagerやDesignerの役割の再定義も不可避です。",
+    "driveFileId": "PLACEHOLDER_FILE_ID_03",
+    "thumbnail": "talk-03.jpg",
+    "track": "cross"
+  },
+  {
+    "id": "talk-04",
+    "title": "「AIでできますか？」から「Agentを作ってみました」へ",
+    "speaker": "道村 未知瑠",
+    "speakerAffiliation": "株式会社LayerX",
+    "duration": "25:00",
+    "description": "営業・CS経験を経てPMになった非エンジニアが、3週間でAIエージェントを自作し、「理論上わかる」から「実装できる」へ変化した90日間の実体験を共有します。",
+    "driveFileId": "PLACEHOLDER_FILE_ID_04",
+    "thumbnail": "talk-04.jpg",
+    "track": "wave"
+  },
+  {
+    "id": "talk-05",
+    "title": "デザインシステムの越境 ─ 組織を結ぶ共通言語の作り方",
+    "speaker": "鈴木 太郎",
+    "speakerAffiliation": "株式会社サンプル",
+    "duration": "30:00",
+    "description": "デザインシステムはUIコンポーネントの集合だけではなく、組織の共通言語として機能させることで、プロダクト品質と開発速度の両方を向上できます。",
+    "driveFileId": "PLACEHOLDER_FILE_ID_05",
+    "thumbnail": "talk-05.jpg",
+    "track": "cross"
+  }
+]

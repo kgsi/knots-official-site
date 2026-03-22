@@ -1,0 +1,84 @@
+---
+import type { Video } from '@/types/videoTypes'
+
+interface Props {
+  video: Video
+}
+
+const { video } = Astro.props
+---
+
+<div class="video-meta">
+  <span class="video-meta__track font-en">{video.track.toUpperCase()}</span>
+  <h1 class="video-meta__title">{video.title}</h1>
+  <div class="video-meta__speaker">
+    <p class="video-meta__speaker-name">{video.speaker}</p>
+    <p class="video-meta__speaker-affiliation">{video.speakerAffiliation}</p>
+  </div>
+  <p class="video-meta__duration font-en">{video.duration}</p>
+  {video.description && (
+    <div class="video-meta__description">
+      <p>{video.description}</p>
+    </div>
+  )}
+</div>
+
+<style>
+  @layer components {
+    .video-meta {
+      display: grid;
+      row-gap: 16px;
+    }
+    .video-meta__track {
+      font-size: rem(14);
+      color: var(--color_primary);
+      font-weight: 500;
+      text-transform: uppercase;
+    }
+    .video-meta__title {
+      font-family: var(--font_ja_bold);
+      font-size: rem(28);
+      font-weight: 600;
+      line-height: 1.5;
+      letter-spacing: 0.04em;
+    }
+    .video-meta__speaker {
+      display: grid;
+      row-gap: 4px;
+    }
+    .video-meta__speaker-name {
+      font-size: rem(18);
+      font-weight: 600;
+    }
+    .video-meta__speaker-affiliation {
+      font-size: rem(14);
+      color: var(--color_dark_grey);
+    }
+    .video-meta__duration {
+      font-size: rem(14);
+      color: var(--color_dark_grey);
+    }
+    .video-meta__description {
+      margin-top: 8px;
+      padding-top: 24px;
+      border-top: 1px solid var(--color_grey);
+    }
+    .video-meta__description p {
+      font-family: var(--font_ja_light);
+      font-size: rem(15);
+      line-height: 1.8;
+      letter-spacing: 0.04em;
+    }
+    @media (--sp) {
+      .video-meta__title {
+        font-size: rem(20);
+      }
+      .video-meta__speaker-name {
+        font-size: rem(16);
+      }
+      .video-meta__description p {
+        font-size: rem(14);
+      }
+    }
+  }
+</style>

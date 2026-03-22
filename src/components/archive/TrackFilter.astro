@@ -1,0 +1,92 @@
+---
+const tracks = [
+  { value: 'all', label: 'すべて' },
+  { value: 'wave', label: 'Wave' },
+  { value: 'cross', label: 'Cross' },
+]
+---
+
+<div class="track-filter" role="tablist" aria-label="トラックフィルター">
+  {tracks.map((track, index) => (
+    <button
+      class={`track-filter__btn font-en${index === 0 ? ' is-active' : ''}`}
+      role="tab"
+      aria-selected={index === 0 ? 'true' : 'false'}
+      data-filter={track.value}
+    >
+      {track.label}
+    </button>
+  ))}
+</div>
+
+<style>
+  @layer components {
+    .track-filter {
+      display: flex;
+      gap: 8px;
+      margin-bottom: 32px;
+    }
+    .track-filter__btn {
+      padding: 8px 24px;
+      border-radius: 9999px;
+      border: 1px solid var(--color_primary);
+      background-color: transparent;
+      color: var(--color_primary);
+      font-size: rem(14);
+      font-weight: 500;
+      cursor: pointer;
+      transition: background-color var(--transition_hover), color var(--transition_hover);
+    }
+    .track-filter__btn.is-active {
+      background-color: var(--color_primary);
+      color: var(--color_white);
+    }
+    @media (--hover) {
+      .track-filter__btn:hover {
+        background-color: var(--color_primary);
+        color: var(--color_white);
+      }
+    }
+    @media (--sp) {
+      .track-filter {
+        margin-bottom: 24px;
+      }
+      .track-filter__btn {
+        padding: 6px 16px;
+        font-size: rem(12);
+      }
+    }
+  }
+</style>
+
+<script>
+  function initTrackFilter() {
+    const buttons = document.querySelectorAll<HTMLButtonElement>('.track-filter__btn')
+    const cards = document.querySelectorAll<HTMLElement>('.video-card')
+
+    buttons.forEach((btn) => {
+      btn.addEventListener('click', () => {
+        buttons.forEach((b) => {
+          b.classList.remove('is-active')
+          b.setAttribute('aria-selected', 'false')
+        })
+        btn.classList.add('is-active')
+        btn.setAttribute('aria-selected', 'true')
+
+        const filter = btn.dataset.filter
+
+        cards.forEach((card) => {
+          if (filter === 'all' || card.dataset.track === filter) {
+            card.style.display = ''
+            card.removeAttribute('hidden')
+          } else {
+            card.style.display = 'none'
+            card.setAttribute('hidden', '')
+          }
+        })
+      })
+    })
+  }
+
+  document.addEventListener('DOMContentLoaded', initTrackFilter)
+</script>
