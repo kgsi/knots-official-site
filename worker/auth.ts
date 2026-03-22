@@ -7,19 +7,21 @@ export async function handleArchiveRequest(
   env: Env,
 ): Promise<Response> {
   const url = new URL(request.url)
+  const isLocal = url.hostname === 'localhost' || url.hostname === '127.0.0.1'
 
   const token = url.searchParams.get('token')
   if (token) {
-    return handleTokenAuth(url, token, env)
+    return handleTokenAuth(url, token, env, isLocal)
   }
 
-  return handleCookieAuth(request, url, env)
+  return handleCookieAuth(request, url, env, isLocal)
 }
 
 async function handleTokenAuth(
   url: URL,
   token: string,
   env: Env,
+  isLocal: boolean,
 ): Promise<Response> {
   const validTokens = env.KNOTS_AUTH_TOKENS.split(',').map((t) => t.trim())
 
@@ -37,7 +39,7 @@ async function handleTokenAuth(
     status: 302,
     headers: {
       Location: cleanUrl.toString(),
-      'Set-Cookie': buildSetCookieHeader(COOKIE_NAME, sessionValue, COOKIE_MAX_AGE),
+      'Set-Cookie': buildSetCookieHeader(COOKIE_NAME, sessionValue, COOKIE_MAX_AGE, isLocal),
     },
   })
 }
@@ -46,6 +48,7 @@ async function handleCookieAuth(
   request: Request,
   url: URL,
   env: Env,
+  isLocal: boolean,
 ): Promise<Response> {
   const cookieHeader = request.headers.get('Cookie') || ''
   const cookies = parseCookie(cookieHeader)
@@ -65,7 +68,7 @@ async function handleCookieAuth(
       status: 302,
       headers: {
         Location: new URL(UNAUTHORIZED_REDIRECT, url.origin).toString(),
-        'Set-Cookie': buildSetCookieHeader(COOKIE_NAME, '', 0),
+        'Set-Cookie': buildSetCookieHeader(COOKIE_NAME, '', 0, isLocal),
       },
     })
   }

@@ -12,8 +12,9 @@ export function parseCookie(cookieHeader: string): Record<string, string> {
   return cookies
 }
 
-export function buildSetCookieHeader(name: string, value: string, maxAge: number): string {
-  return `${name}=${value}; Path=/; HttpOnly; Secure; SameSite=Lax; Max-Age=${maxAge}`
+export function buildSetCookieHeader(name: string, value: string, maxAge: number, isLocal = false): string {
+  const secure = isLocal ? '' : ' Secure;'
+  return `${name}=${value}; Path=/; HttpOnly;${secure} SameSite=Lax; Max-Age=${maxAge}`
 }
 
 /**
