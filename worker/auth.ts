@@ -1,9 +1,6 @@
-import { createSessionCookie, parseCookie, verifySessionCookie } from './cookie'
+import { buildSetCookieHeader, createSessionCookie, parseCookie, verifySessionCookie } from './cookie'
+import { COOKIE_MAX_AGE, COOKIE_NAME, UNAUTHORIZED_REDIRECT } from './constants'
 import type { Env } from './types'
-
-const COOKIE_NAME = 'knots_session'
-const COOKIE_MAX_AGE = 30 * 24 * 60 * 60 // 30日（秒）
-const UNAUTHORIZED_REDIRECT = '/'
 
 export async function handleArchiveRequest(
   request: Request,
@@ -11,13 +8,11 @@ export async function handleArchiveRequest(
 ): Promise<Response> {
   const url = new URL(request.url)
 
-  // Step 1: URLにトークンが含まれているか確認
   const token = url.searchParams.get('token')
   if (token) {
     return handleTokenAuth(url, token, env)
   }
 
-  // Step 2: cookieによる認証
   return handleCookieAuth(request, url, env)
 }
 
@@ -35,7 +30,6 @@ async function handleTokenAuth(
     )
   }
 
-  // トークンが有効 → URLからtokenを除去してリダイレクト + cookie発行
   const cleanUrl = new URL(url.pathname, url.origin)
   const sessionValue = await createSessionCookie(env.COOKIE_SECRET)
 
@@ -43,7 +37,7 @@ async function handleTokenAuth(
     status: 302,
     headers: {
       Location: cleanUrl.toString(),
-      'Set-Cookie': `${COOKIE_NAME}=${sessionValue}; Path=/; HttpOnly; Secure; SameSite=Lax; Max-Age=${COOKIE_MAX_AGE}`,
+      'Set-Cookie': buildSetCookieHeader(COOKIE_NAME, sessionValue, COOKIE_MAX_AGE),
     },
   })
 }
@@ -67,16 +61,14 @@ async function handleCookieAuth(
   const isValid = await verifySessionCookie(sessionValue, env.COOKIE_SECRET)
 
   if (!isValid) {
-    // 不正なcookie → 削除してリダイレクト
     return new Response(null, {
       status: 302,
       headers: {
         Location: new URL(UNAUTHORIZED_REDIRECT, url.origin).toString(),
-        'Set-Cookie': `${COOKIE_NAME}=; Path=/; HttpOnly; Secure; SameSite=Lax; Max-Age=0`,
+        'Set-Cookie': buildSetCookieHeader(COOKIE_NAME, '', 0),
       },
     })
   }
 
-  // 認証成功 → 静的HTMLを返す
   return env.ASSETS.fetch(request)
 }

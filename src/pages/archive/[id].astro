@@ -9,8 +9,6 @@ import VideoNav from '@/components/archive/VideoNav.astro'
 import videosData from '@/data/videos.json'
 import type { Video } from '@/types/videoTypes'
 
-const videos = videosData as Video[]
-
 export function getStaticPaths() {
   const publishedVideos = (videosData as Video[]).filter((v) => v.published)
   return publishedVideos.map((video, index) => ({

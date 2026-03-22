@@ -12,6 +12,10 @@ export function parseCookie(cookieHeader: string): Record<string, string> {
   return cookies
 }
 
+export function buildSetCookieHeader(name: string, value: string, maxAge: number): string {
+  return `${name}=${value}; Path=/; HttpOnly; Secure; SameSite=Lax; Max-Age=${maxAge}`
+}
+
 /**
  * HMAC-SHA256 で署名したセッションcookie値を生成
  * 形式: "authenticated.<timestamp>.<signature>"
@@ -42,16 +46,25 @@ export async function verifySessionCookie(
   return timingSafeEqual(providedSignature, expectedSignature)
 }
 
-async function hmacSign(data: string, secret: string): Promise<string> {
-  const encoder = new TextEncoder()
+const keyCache = new Map<string, CryptoKey>()
+
+async function getOrCreateKey(secret: string): Promise<CryptoKey> {
+  const cached = keyCache.get(secret)
+  if (cached) return cached
   const key = await crypto.subtle.importKey(
     'raw',
-    encoder.encode(secret),
+    new TextEncoder().encode(secret),
     { name: 'HMAC', hash: 'SHA-256' },
     false,
     ['sign'],
   )
-  const signature = await crypto.subtle.sign('HMAC', key, encoder.encode(data))
+  keyCache.set(secret, key)
+  return key
+}
+
+async function hmacSign(data: string, secret: string): Promise<string> {
+  const key = await getOrCreateKey(secret)
+  const signature = await crypto.subtle.sign('HMAC', key, new TextEncoder().encode(data))
   // URL-safe Base64
   return btoa(String.fromCharCode(...new Uint8Array(signature)))
     .replace(/\+/g, '-')
