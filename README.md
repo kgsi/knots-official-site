@@ -154,12 +154,26 @@ npm run dev:full
 - 動画パス: `cross/*.mp4`, `wave/*.mp4`
 - 無料枠: ストレージ10GB / 読取100万回/月（現在1.1GB使用）
 
+> R2への動画アップロードは必ず `--remote` フラグを付けること。省略するとローカルR2にのみ保存され本番に反映されない。
+> ```bash
+> npx wrangler r2 object put "knots-videos-2026/cross/talk-01.mp4" --file movie/compressed/cross/talk-01.mp4 --remote
+> ```
+
+### デプロイ
+
+mainブランチへのマージ時にGitHub Actionsで自動デプロイされる（`.github/workflows/deploy.yml`）。
+
+手動デプロイが必要な場合:
+```bash
+npm run build && npx wrangler deploy
+```
+
 ### 運用
 
 | 操作 | 手順 |
 |------|------|
-| 動画追加 | `videos.json` に追記 → R2にアップロード → デプロイ |
-| 動画非公開 | `videos.json` の `published` を `false` に → デプロイ |
+| 動画追加 | `videos.json` に追記 → R2にアップロード(`--remote`) → mainにマージ |
+| 動画非公開 | `videos.json` の `published` を `false` に → mainにマージ |
 | トークン漏洩 | 新トークンを `wrangler secret put` → note記事のURL更新 |
 | トークン追加 | `KNOTS_AUTH_TOKENS` にカンマ区切りで追加 |
 
