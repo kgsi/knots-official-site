@@ -36,10 +36,123 @@ Astro のフォルダ構成については公式ドキュメントの「Project 
 | :------------------------ | :----------------------------------------------------- |
 | `npm install`             | 依存関係をインストール                                 |
 | `npm run dev`             | ローカル開発サーバーを起動（`localhost:4321`）         |
+| `npm run dev:full`        | ビルド → Wrangler Dev 起動（認証+R2動画再生が動作）   |
 | `npm run build`           | 本番ビルドを `./dist/` に出力                          |
 | `npm run preview`         | デプロイ前にローカルでビルド結果をプレビュー           |
 | `npm run astro ...`       | `astro add` や `astro check` などの CLI コマンドを実行 |
 | `npm run astro -- --help` | Astro CLI のヘルプを表示                               |
+
+## 🎬 アーカイブ動画機能
+
+KNOTS 2026 カンファレンスのセッション動画を、noteの有料記事購入者に限定公開する機能。
+
+### アーキテクチャ
+
+```
+[note有料記事] → /archive?token=xxx → [Worker認証] → [静的HTML] → [R2動画配信]
+  購入者が        トークン付きURL       cookie発行      Astro SSG     <video>タグ
+```
+
+| レイヤー | 技術 |
+|---------|------|
+| 認証 | Cloudflare Workers（トークン検証 → HMAC署名cookie） |
+| ページ | Astro 静的生成（`src/pages/archive/`） |
+| 動画配信 | Cloudflare R2（`worker/video.ts` 経由、Range対応） |
+| データ | `src/data/videos.json`（静的JSON管理） |
+
+### 認証フロー
+
+1. noteの有料記事に `https://knots.crossrel.jp/archive?token=knots2026-archive-xK9mP4wQ` を記載
+2. Worker がトークンを検証 → `knots_session` cookieを発行（30日有効）
+3. 以降はcookieで認証（トークン不要）
+4. 未認証アクセスは `/` にリダイレクト
+
+### ディレクトリ構成
+
+```
+worker/                    # Cloudflare Worker
+├── index.ts               # ルーティング
+├── auth.ts                # トークン・cookie認証
+├── video.ts               # R2からの動画配信（Range対応）
+├── cookie.ts              # HMAC-SHA256署名cookie
+├── constants.ts           # 共通定数
+└── types.ts               # Env型定義
+
+src/
+├── components/archive/    # アーカイブUI
+│   ├── VideoPlayer.astro  # <video>プレイヤー
+│   ├── VideoCard.astro    # カード
+│   ├── VideoGrid.astro    # グリッド
+│   ├── TrackFilter.astro  # Wave/Crossフィルター
+│   ├── VideoMeta.astro    # 動画情報
+│   ├── VideoNav.astro     # 前後ナビ
+│   └── InformationPanel.astro # 注意書き
+├── pages/archive/
+│   ├── index.astro        # 一覧ページ
+│   └── [id].astro         # 個別視聴ページ
+├── data/videos.json       # 動画メタデータ（25本）
+└── types/videoTypes.ts    # Video型定義
+```
+
+### 動画データ管理（videos.json）
+
+```json
+{
+  "id": "talk-01",
+  "title": "セッションタイトル",
+  "speaker": "登壇者名",
+  "speakerAffiliation": "所属",
+  "duration": "20:00",
+  "description": "概要テキスト",
+  "driveFileId": "Google DriveファイルID（バックアップ用）",
+  "videoPath": "cross/talk-01.mp4",
+  "thumbnail": "talk-01.png",
+  "track": "cross",
+  "published": true
+}
+```
+
+- `published: false` にすると一覧・個別ページから非表示になる
+- サムネイル画像: `public/images/archive/thumbnails/`
+- 動画ソース: `movie/compressed/`（.gitignore済み）
+
+### 開発
+
+```bash
+# UI開発（認証なし、動画再生不可）
+npm run dev
+
+# フルスタック確認（認証+R2動画再生）
+npm run dev:full
+```
+
+`dev:full` は `astro build && wrangler dev` を実行。ローカルR2シミュレーターで動画再生を確認できる。
+
+### 環境変数（Cloudflare Secrets）
+
+| 変数名 | 用途 |
+|--------|------|
+| `KNOTS_AUTH_TOKENS` | カンマ区切りの有効トークンリスト |
+| `COOKIE_SECRET` | HMAC署名用シークレット（32文字以上） |
+
+ローカル開発用は `.dev.vars` に記載（.gitignore済み）。
+
+### R2バケット
+
+- バケット名: `knots-videos-2026`
+- 動画パス: `cross/*.mp4`, `wave/*.mp4`
+- 無料枠: ストレージ10GB / 読取100万回/月（現在1.1GB使用）
+
+### 運用
+
+| 操作 | 手順 |
+|------|------|
+| 動画追加 | `videos.json` に追記 → R2にアップロード → デプロイ |
+| 動画非公開 | `videos.json` の `published` を `false` に → デプロイ |
+| トークン漏洩 | 新トークンを `wrangler secret put` → note記事のURL更新 |
+| トークン追加 | `KNOTS_AUTH_TOKENS` にカンマ区切りで追加 |
+
+---
 
 ## 📈 Google アナリティクスの設定
 
