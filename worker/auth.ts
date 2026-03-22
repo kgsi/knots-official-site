@@ -43,7 +43,7 @@ async function handleTokenAuth(
     status: 302,
     headers: {
       Location: cleanUrl.toString(),
-      'Set-Cookie': `${COOKIE_NAME}=${sessionValue}; Path=/archive; HttpOnly; Secure; SameSite=Lax; Max-Age=${COOKIE_MAX_AGE}`,
+      'Set-Cookie': `${COOKIE_NAME}=${sessionValue}; Path=/; HttpOnly; Secure; SameSite=Lax; Max-Age=${COOKIE_MAX_AGE}`,
     },
   })
 }
@@ -72,7 +72,7 @@ async function handleCookieAuth(
       status: 302,
       headers: {
         Location: new URL(UNAUTHORIZED_REDIRECT, url.origin).toString(),
-        'Set-Cookie': `${COOKIE_NAME}=; Path=/archive; HttpOnly; Secure; SameSite=Lax; Max-Age=0`,
+        'Set-Cookie': `${COOKIE_NAME}=; Path=/; HttpOnly; Secure; SameSite=Lax; Max-Age=0`,
       },
     })
   }

@@ -40,7 +40,7 @@ const { video, prev, next } = Astro.props
   <LowerWrapper>
     <div class="inner">
       <div class="archive-detail">
-        <VideoPlayer driveFileId={video.driveFileId} title={video.title} />
+        <VideoPlayer videoPath={video.videoPath} title={video.title} driveFileId={video.driveFileId} />
         <VideoMeta video={video} />
         <VideoNav prev={prev} next={next} />
       </div>

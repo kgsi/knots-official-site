@@ -8,6 +8,7 @@ export interface Video {
   duration: string
   description: string
   driveFileId: string
+  videoPath: string
   thumbnail: string
   track: Track
   published: boolean

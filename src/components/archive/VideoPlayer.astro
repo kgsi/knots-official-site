@@ -1,25 +1,29 @@
 ---
 interface Props {
-  driveFileId: string
+  videoPath: string
   title: string
+  driveFileId: string
 }
 
-const { driveFileId, title } = Astro.props
-const iframeSrc = `https://drive.google.com/file/d/${driveFileId}/preview`
+const { videoPath, title, driveFileId } = Astro.props
+const videoSrc = `/video/${videoPath}`
+const fallbackSrc = `https://drive.google.com/file/d/${driveFileId}/preview`
 ---
 
 <div class="video-player">
   <div class="video-player__wrapper">
-    <iframe
-      src={iframeSrc}
-      title={`${title} の動画`}
-      allow="autoplay; encrypted-media"
-      allowfullscreen
-      loading="lazy"
-    ></iframe>
+    <video
+      src={videoSrc}
+      controls
+      controlsList="nodownload"
+      preload="metadata"
+      playsinline
+    >
+      <p>お使いのブラウザは動画の再生に対応していません。</p>
+    </video>
   </div>
   <p class="video-player__note">
-    再生できない場合は、時間をおいて再アクセスしてください。
+    再生できない場合は<a href={fallbackSrc} target="_blank" rel="noopener noreferrer" class="video-player__fallback">こちら（Google Drive）</a>からご視聴ください。
   </p>
 </div>
 
@@ -36,17 +40,25 @@ const iframeSrc = `https://drive.google.com/file/d/${driveFileId}/preview`
       overflow: hidden;
       background-color: var(--color_black);
     }
-    .video-player__wrapper iframe {
-      position: absolute;
-      inset: 0;
+    .video-player__wrapper video {
       width: 100%;
       height: 100%;
-      border: none;
+      object-fit: contain;
     }
     .video-player__note {
       margin-top: 8px;
       font-size: rem(12);
       color: var(--color_dark_grey);
+    }
+    .video-player__fallback {
+      color: var(--color_primary);
+      text-decoration: underline;
+      transition: opacity var(--transition_hover);
+    }
+    @media (--hover) {
+      .video-player__fallback:hover {
+        opacity: 0.7;
+      }
     }
   }
 </style>

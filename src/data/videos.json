@@ -9,7 +9,8 @@
     "driveFileId": "1SFny2T4ZEzbpOViAm1ufRZQmFfWswTzD",
     "thumbnail": "talk-01.png",
     "track": "cross",
-    "published": true
+    "published": true,
+    "videoPath": "cross/talk-01.mp4"
   },
   {
     "id": "talk-03",
@@ -21,7 +22,8 @@
     "driveFileId": "1p_ScfJ-icLbca4NpiYPUcYj_-rnhSvsh",
     "thumbnail": "talk-03.png",
     "track": "cross",
-    "published": true
+    "published": true,
+    "videoPath": "cross/talk-03.mp4"
   },
   {
     "id": "sponsor-keynote-01",
@@ -33,7 +35,8 @@
     "driveFileId": "1Vhx0ggRz0VkY9lvLAT5JITCLJ74FXyHz",
     "thumbnail": "sponsor-keynote-01.png",
     "track": "cross",
-    "published": true
+    "published": true,
+    "videoPath": "cross/sponsor-keynote-01.mp4"
   },
   {
     "id": "talk-06",
@@ -45,7 +48,8 @@
     "driveFileId": "1OmpvbWZLxh_5RF5Riyi5PBF1iDBuK_ZH",
     "thumbnail": "talk-06.png",
     "track": "cross",
-    "published": true
+    "published": true,
+    "videoPath": "cross/talk-06.mp4"
   },
   {
     "id": "keynote-01",
@@ -57,7 +61,8 @@
     "driveFileId": "19ZS8cJ0hZ7dxeTHC9knzeZ4DGsfNF5XU",
     "thumbnail": "keynote-01.png",
     "track": "cross",
-    "published": true
+    "published": true,
+    "videoPath": "cross/keynote-01.mp4"
   },
   {
     "id": "talk-11",
@@ -69,7 +74,8 @@
     "driveFileId": "1Logxr9PKoWjpq4D6OSzGbhTBFyHdF4To",
     "thumbnail": "talk-11.png",
     "track": "cross",
-    "published": true
+    "published": true,
+    "videoPath": "cross/talk-11.mp4"
   },
   {
     "id": "talk-13",
@@ -81,7 +87,8 @@
     "driveFileId": "1NFoOp6clWilxYLsQpDEHUHjOtrS71Vr_",
     "thumbnail": "talk-13.png",
     "track": "cross",
-    "published": true
+    "published": true,
+    "videoPath": "cross/talk-13.mp4"
   },
   {
     "id": "talk-15",
@@ -93,7 +100,8 @@
     "driveFileId": "1RWTCMIfKFOiaZmEWt96SQRc-OCVenCuH",
     "thumbnail": "talk-15.png",
     "track": "cross",
-    "published": true
+    "published": true,
+    "videoPath": "cross/talk-15.mp4"
   },
   {
     "id": "talk-17",
@@ -105,7 +113,8 @@
     "driveFileId": "18EL6lLwE1c4p21yLuv25GS8E3V4OEC3g",
     "thumbnail": "talk-17.png",
     "track": "cross",
-    "published": true
+    "published": true,
+    "videoPath": "cross/talk-17.mp4"
   },
   {
     "id": "keynote-02",
@@ -117,7 +126,8 @@
     "driveFileId": "16ScNlKhQmEHvr0pSqXfDXD7PRhGAMQUI",
     "thumbnail": "keynote-02.png",
     "track": "cross",
-    "published": true
+    "published": true,
+    "videoPath": "cross/keynote-02.mp4"
   },
   {
     "id": "talk-19",
@@ -129,7 +139,8 @@
     "driveFileId": "1XLoCUn3qduJuGY9v1uYogp_Rbme2_lM5",
     "thumbnail": "talk-19.png",
     "track": "cross",
-    "published": true
+    "published": true,
+    "videoPath": "cross/talk-19.mp4"
   },
   {
     "id": "talk-20",
@@ -141,7 +152,8 @@
     "driveFileId": "1QEKuoSuV-W0xlGLMm7_Cy2PR_LLfQyh5",
     "thumbnail": "talk-20.png",
     "track": "cross",
-    "published": true
+    "published": true,
+    "videoPath": "cross/talk-20.mp4"
   },
   {
     "id": "sponsor-keynote-02",
@@ -153,7 +165,8 @@
     "driveFileId": "1dmhDBtKkul-rhVPnZeCwYTiScYUd0LGw",
     "thumbnail": "sponsor-keynote-02.png",
     "track": "cross",
-    "published": true
+    "published": true,
+    "videoPath": "cross/sponsor-keynote-02.mp4"
   },
   {
     "id": "talk-02",
@@ -165,7 +178,8 @@
     "driveFileId": "1KHJ5yz2l98qtb1mx5meDR-26ywWYGgV9",
     "thumbnail": "talk-02.png",
     "track": "wave",
-    "published": true
+    "published": true,
+    "videoPath": "wave/talk-02.mp4"
   },
   {
     "id": "talk-04",
@@ -177,7 +191,8 @@
     "driveFileId": "1P9HZNVn5FeaszOneuTP1EIRGT1ONAjjK",
     "thumbnail": "talk-04.png",
     "track": "wave",
-    "published": true
+    "published": true,
+    "videoPath": "wave/talk-04.mp4"
   },
   {
     "id": "talk-05",
@@ -189,7 +204,8 @@
     "driveFileId": "1gRFpissDv7IOpPCzAOXhgqBK0EIYHTOU",
     "thumbnail": "talk-05.png",
     "track": "wave",
-    "published": true
+    "published": true,
+    "videoPath": "wave/talk-05.mp4"
   },
   {
     "id": "talk-07",
@@ -201,7 +217,8 @@
     "driveFileId": "1zXsPgDH5KM5LwNHjptjuA1jnNDHSebfg",
     "thumbnail": "talk-07.png",
     "track": "wave",
-    "published": true
+    "published": true,
+    "videoPath": "wave/talk-07.mp4"
   },
   {
     "id": "talk-08",
@@ -213,7 +230,8 @@
     "driveFileId": "1r85-pqaQQFyT34KYGVq2o6SdlF3XX-k2",
     "thumbnail": "talk-08.png",
     "track": "wave",
-    "published": true
+    "published": true,
+    "videoPath": "wave/talk-08.mp4"
   },
   {
     "id": "talk-10",
@@ -225,7 +243,8 @@
     "driveFileId": "12hhu7MSonbeatMl48N9qEhXoDQ-EbDno",
     "thumbnail": "talk-10.png",
     "track": "wave",
-    "published": false
+    "published": false,
+    "videoPath": "wave/talk-10.mp4"
   },
   {
     "id": "talk-12",
@@ -237,7 +256,8 @@
     "driveFileId": "1is4XFxP_smELKjAWHoLHL0NklDeRSr-9",
     "thumbnail": "talk-12.png",
     "track": "wave",
-    "published": true
+    "published": true,
+    "videoPath": "wave/talk-12.mp4"
   },
   {
     "id": "talk-14",
@@ -249,7 +269,8 @@
     "driveFileId": "1Rof-OygVVGIEmkXvgj7u06BsJR_NIFV3",
     "thumbnail": "talk-14.png",
     "track": "wave",
-    "published": true
+    "published": true,
+    "videoPath": "wave/talk-14.mp4"
   },
   {
     "id": "talk-16",
@@ -261,7 +282,8 @@
     "driveFileId": "1Qtysj2GKVi4IYbn_iiD1RJ4rE-IkadMP",
     "thumbnail": "talk-16.png",
     "track": "wave",
-    "published": true
+    "published": true,
+    "videoPath": "wave/talk-16.mp4"
   },
   {
     "id": "talk-18",
@@ -273,7 +295,8 @@
     "driveFileId": "1d9LGMirhhVR0fvfTb9e8pb8ODNUwjelu",
     "thumbnail": "talk-18.png",
     "track": "wave",
-    "published": true
+    "published": true,
+    "videoPath": "wave/talk-18.mp4"
   },
   {
     "id": "discussion-01",
@@ -285,7 +308,8 @@
     "driveFileId": "1XaKUvt8RQ7Y2Kp-rsNubhNU_XfuBRozc",
     "thumbnail": "discussion-01.png",
     "track": "wave",
-    "published": true
+    "published": true,
+    "videoPath": "wave/discussion-01.mp4"
   },
   {
     "id": "discussion-02",
@@ -297,6 +321,7 @@
     "driveFileId": "1bDUU0as42BTugUq2vgtBiD1mm1XjZxAx",
     "thumbnail": "discussion-02.png",
     "track": "wave",
-    "published": true
+    "published": true,
+    "videoPath": "wave/discussion-02.mp4"
   }
 ]
