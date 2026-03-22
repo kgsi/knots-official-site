@@ -1,0 +1,25 @@
+<div class="video-grid">
+  <slot />
+</div>
+
+<style>
+  @layer components {
+    .video-grid {
+      display: grid;
+      gap: 24px;
+      grid-template-columns: repeat(3, 1fr);
+    }
+    @media (--tb) {
+      .video-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+      }
+    }
+    @media (--sp) {
+      .video-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+      }
+    }
+  }
+</style>

@@ -1,8 +1,17 @@
 {
   "name": "knots-official-site",
   "compatibility_date": "2025-08-02",
+  "main": "./worker/index.ts",
   "assets": {
     "directory": "./dist",
-    "not_found_handling": "404-page"
-  }
+    "binding": "ASSETS",
+    "not_found_handling": "404-page",
+    "run_worker_first": ["/archive", "/archive/*", "/video/*"]
+  },
+  "r2_buckets": [
+    {
+      "binding": "VIDEOS",
+      "bucket_name": "knots-videos-2026"
+    }
+  ]
 }
