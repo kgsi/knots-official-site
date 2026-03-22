@@ -60,3 +60,9 @@ const { video, prev, next } = Astro.props
     }
   }
 </style>
+
+<script>
+  if (!document.cookie.includes('knots_session=')) {
+    window.location.href = '/'
+  }
+</script>
