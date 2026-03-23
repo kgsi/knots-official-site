@@ -12,20 +12,20 @@ const { prev, next } = Astro.props
 <nav class="video-nav" aria-label="前後の動画">
   <div class="video-nav__inner">
     {prev ? (
-      <a href={`/archive/${prev.id}`} class="video-nav__link video-nav__link--prev">
+      <a href={`/2026/archive/${prev.id}`} class="video-nav__link video-nav__link--prev">
         <span class="video-nav__label font-en">Prev</span>
         <span class="video-nav__title">{prev.title}</span>
       </a>
     ) : <div />}
     {next ? (
-      <a href={`/archive/${next.id}`} class="video-nav__link video-nav__link--next">
+      <a href={`/2026/archive/${next.id}`} class="video-nav__link video-nav__link--next">
         <span class="video-nav__label font-en">Next</span>
         <span class="video-nav__title">{next.title}</span>
       </a>
     ) : <div />}
   </div>
   <div class="video-nav__back">
-    <a href="/archive" class="video-nav__back-link">一覧に戻る</a>
+    <a href="/2026/archive" class="video-nav__back-link">一覧に戻る</a>
   </div>
 </nav>
 
