@@ -6,10 +6,10 @@ interface Props {
 }
 
 const { video } = Astro.props
-const thumbnailUrl = `/images/archive/thumbnails/${video.thumbnail}`
+const thumbnailUrl = `/images/2026/archive/thumbnails/${video.thumbnail}`
 ---
 
-<a href={`/archive/${video.id}`} class="video-card" data-track={video.track}>
+<a href={`/2026/archive/${video.id}`} class="video-card" data-track={video.track}>
   <div class="video-card__thumbnail">
     <img
       src={thumbnailUrl}
