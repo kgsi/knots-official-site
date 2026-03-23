@@ -12,7 +12,7 @@ export default {
     }
 
     // アーカイブページの認証
-    if (url.pathname === '/archive' || url.pathname.startsWith('/archive/')) {
+    if (url.pathname === '/2026/archive' || url.pathname.startsWith('/2026/archive/')) {
       return handleArchiveRequest(request, env)
     }
 
